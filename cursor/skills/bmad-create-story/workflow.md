@@ -369,9 +369,8 @@ Load config from `{project-root}/_bmad/bmm/config.yaml` and resolve:
     <action>Stage {default_output_file} and {{sprint_status}} if it was updated.
       Create a local commit: "docs: create story {{story_key}}"
       Append AI tracking trailers:
-        AI-Story: {agent/model currently running}
-        AI-Code: manual
-        AI-Test: manual
+        AI-Artifact: story
+        AI-Author: {agent/model currently running}
         AI-Review: pending
         AI-Model: {the model currently running}
         Story-Ref: {{story_key}}

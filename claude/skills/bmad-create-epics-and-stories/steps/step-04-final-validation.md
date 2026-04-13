@@ -128,9 +128,8 @@ If version control is available and the working tree is dirty, create a local co
 - Append AI tracking trailers to the commit message body:
 
   ```
-  AI-Story: {agent/model currently running}
-  AI-Code: manual
-  AI-Test: manual
+  AI-Artifact: epics
+  AI-Author: {agent/model currently running, e.g. "cursor/claude-sonnet-4-20250514"}
   AI-Review: pending
   AI-Model: {the model currently running}
   Story-Ref: epics

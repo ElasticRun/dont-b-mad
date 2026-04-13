@@ -219,9 +219,8 @@ development_status:
   - Stage {status_file}
   - Commit with message: "chore: generate sprint status"
   - Append AI tracking trailers:
-    AI-Story: manual
-    AI-Code: {agent/model currently running}
-    AI-Test: manual
+    AI-Artifact: sprint-plan
+    AI-Author: {agent/model currently running}
     AI-Review: pending
     AI-Model: {the model currently running}
     Story-Ref: sprint-planning

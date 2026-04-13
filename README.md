@@ -22,20 +22,28 @@ Story-Ref: 1-1-wave-planning
 
 Trailers are appended automatically. BMAD workflows (`create-story`, `dev-story`, `code-review`, `quick-dev`) fill them with the actual model used. A git hook catches manual commits and tags them with `manual`. Nobody types trailers by hand.
 
-A dashboard script reads git history and prints adoption rates:
+A dashboard script (Pulse) reads git history and prints adoption rates, split by planning and development:
 
 ```
 ======================================
-  AI Adoption Dashboard
+  Pulse — AI Adoption Dashboard
 ======================================
-  Total tracked commits: 8
---------------------------------------
-  AI Story Rate:     75%  (target: 90%)
-  AI Code Rate:      75%  (target: 80%)
-  AI Test Rate:      50%  (target: 85%)
-  AI Review Rate:    62%  (target: 95%)
-  AI Deploy Rate:    71%  (target: 80%)
-  Full Pipeline:     37%  (target: 70%)
+
+  PLANNING (3 commits)
+  --------------------------------
+  AI Authored:       100%
+  AI Reviewed:        33%
+
+  DEVELOPMENT (8 commits)
+  --------------------------------
+  AI Story Rate:      75%  (target: 90%)
+  AI Code Rate:       75%  (target: 80%)
+  AI Test Rate:       50%  (target: 85%)
+  AI Review Rate:     62%  (target: 95%)
+  AI Deploy Rate:     71%  (target: 80%)
+  Full Pipeline:      37%  (target: 70%)
+
+  TOTAL: 11 tracked commits
 ======================================
 ```
 
@@ -71,6 +79,10 @@ bash scripts/adoption-dashboard.sh "1-"
 
 ## Trailers Reference
 
+Two schemes. Planning and development are different activities, tracked separately.
+
+**Development trailers** (used by `dev-story`, `quick-dev`, `code-review`):
+
 | Trailer | Records | Values |
 |---|---|---|
 | `AI-Story` | Story authored with AI? | Tool/model, or `manual` |
@@ -80,6 +92,16 @@ bash scripts/adoption-dashboard.sh "1-"
 | `AI-Deploy` | Deployment automated? | `auto`, `manual-gate`, or `manual` |
 | `AI-Model` | Primary model used | Model identifier, or `none` |
 | `Story-Ref` | Story this commit belongs to | Story key from sprint plan |
+
+**Planning trailers** (used by `create-prd`, `create-architecture`, `create-ux-design`, `create-epics-and-stories`, `sprint-planning`, `create-story`):
+
+| Trailer | Records | Values |
+|---|---|---|
+| `AI-Artifact` | What was created | `prd`, `architecture`, `ux-design`, `epics`, `sprint-plan`, `story` |
+| `AI-Author` | Artifact authored with AI? | Tool/model, or `manual` |
+| `AI-Review` | Has it been reviewed? | Tool/model, `manual`, or `pending` |
+| `AI-Model` | Primary model used | Model identifier |
+| `Story-Ref` | Reference identifier | Artifact type + project name, or story key |
 
 ## How It Flows
 
