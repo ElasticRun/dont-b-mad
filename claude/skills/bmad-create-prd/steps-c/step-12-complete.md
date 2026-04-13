@@ -56,7 +56,27 @@ Update the main workflow status file if there is one:
 - Save file, preserving all comments and structure
 - Mark current timestamp as completion time
 
-### 3. Validation Workflow Options
+### 3. Git Checkpoint
+
+If version control is available and the working tree is dirty, create a local commit to checkpoint the PRD:
+
+- Stage `{outputFile}` and any related workflow status files that were updated.
+- Create a commit with a conventional message: `docs: create PRD for {{project_name}}`
+- Append AI tracking trailers to the commit message body:
+
+  ```
+  AI-Story: manual
+  AI-Code: {agent/model currently running}
+  AI-Test: manual
+  AI-Review: pending
+  AI-Model: {the model currently running}
+  Story-Ref: prd-{{project_name}}
+  ```
+
+- Do NOT push. No remote ops.
+- If VCS is unavailable, skip gracefully.
+
+### 4. Validation Workflow Options
 
 Offer validation workflows to ensure PRD is ready for implementation:
 
@@ -76,11 +96,11 @@ Offer validation workflows to ensure PRD is ready for implementation:
 - Validation can be done later if needed
 - Some teams prefer to validate during architecture reviews
 
-### 4. Suggest Next Workflows
+### 5. Suggest Next Workflows
 
 PRD complete. Invoke the `bmad-help` skill.
 
-### 5. Final Completion Confirmation
+### 6. Final Completion Confirmation
 
 - Confirm completion with user and summarize what has been accomplished
 - Document now contains: Executive Summary, Success Criteria, User Journeys, Domain Requirements (if applicable), Innovation Analysis (if applicable), Project-Type Requirements, Functional Requirements (capability contract), Non-Functional Requirements, and has been polished for flow and coherence

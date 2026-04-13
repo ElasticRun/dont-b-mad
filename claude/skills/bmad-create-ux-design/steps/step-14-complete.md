@@ -80,7 +80,27 @@ Update the main workflow status file:
 - Save file, preserving all comments and structure
 - Mark current timestamp as completion time
 
-### 3. Suggest Next Steps
+### 3. Git Checkpoint
+
+If version control is available and the working tree is dirty, create a local commit to checkpoint the UX design:
+
+- Stage `{planning_artifacts}/ux-design-specification.md` and any supporting HTML files (`ux-color-themes.html`, `ux-design-directions.html`) updated during this workflow.
+- Create a commit with a conventional message: `docs: create UX design for {{project_name}}`
+- Append AI tracking trailers to the commit message body:
+
+  ```
+  AI-Story: manual
+  AI-Code: {agent/model currently running}
+  AI-Test: manual
+  AI-Review: pending
+  AI-Model: {the model currently running}
+  Story-Ref: ux-design
+  ```
+
+- Do NOT push. No remote ops.
+- If VCS is unavailable, skip gracefully.
+
+### 4. Suggest Next Steps
 
 UX Design complete. Invoke the `bmad-help` skill.
 

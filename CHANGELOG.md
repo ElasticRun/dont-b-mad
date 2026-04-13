@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.1.0 (2026-04-13)
+
+Added git checkpoints with AI trailers to all planning workflows.
+
+### Added
+
+- `bmad-create-prd` (step-12-complete) -- auto-commits PRD with AI trailers on completion
+- `bmad-create-epics-and-stories` (step-04-final-validation) -- auto-commits epics with AI trailers on completion
+- `bmad-create-architecture` (step-08-complete) -- auto-commits architecture doc with AI trailers on completion
+- `bmad-create-ux-design` (step-14-complete) -- auto-commits UX design with AI trailers on completion
+- `bmad-sprint-planning` (workflow step 5) -- auto-commits sprint status with AI trailers on completion
+- `bmad-create-story` (workflow step 6) -- auto-commits story file with AI trailers on creation
+
 ## 1.0.0 (2026-04-12)
 
 Initial release. Fork of BMAD v6.3.0 with AI tracking extensions.

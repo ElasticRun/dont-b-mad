@@ -39,7 +39,27 @@ status: 'complete'
 completedAt: '{{current_date}}'
 ```
 
-### 3. Next Steps Guidance
+### 3. Git Checkpoint
+
+If version control is available and the working tree is dirty, create a local commit to checkpoint the architecture:
+
+- Stage the architecture file (`{planning_artifacts}/architecture.md`) and any related files updated during this workflow.
+- Create a commit with a conventional message: `docs: create architecture for {{project_name}}`
+- Append AI tracking trailers to the commit message body:
+
+  ```
+  AI-Story: manual
+  AI-Code: {agent/model currently running}
+  AI-Test: manual
+  AI-Review: pending
+  AI-Model: {the model currently running}
+  Story-Ref: architecture
+  ```
+
+- Do NOT push. No remote ops.
+- If VCS is unavailable, skip gracefully.
+
+### 4. Next Steps Guidance
 
 Architecture complete. Invoke the `bmad-help` skill.
 

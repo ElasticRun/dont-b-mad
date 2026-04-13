@@ -119,6 +119,26 @@ If all validations pass:
 - Ensure proper formatting
 - Save the final epics.md
 
+### 7. Git Checkpoint
+
+If version control is available and the working tree is dirty, create a local commit to checkpoint the epics:
+
+- Stage the epics file (`{planning_artifacts}/epics.md`) and any related files updated during this workflow.
+- Create a commit with a conventional message: `docs: create epics and stories`
+- Append AI tracking trailers to the commit message body:
+
+  ```
+  AI-Story: {agent/model currently running}
+  AI-Code: manual
+  AI-Test: manual
+  AI-Review: pending
+  AI-Model: {the model currently running}
+  Story-Ref: epics
+  ```
+
+- Do NOT push. No remote ops.
+- If VCS is unavailable, skip gracefully.
+
 **Present Final Menu:**
 **All validations complete!** [C] Complete Workflow
 

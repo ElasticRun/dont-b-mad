@@ -364,6 +364,21 @@ Load config from `{project-root}/_bmad/bmm/config.yaml` and resolve:
     <action>Save file, preserving ALL comments and structure including STATUS DEFINITIONS</action>
   </check>
 
+  <!-- Git Checkpoint: commit the story file -->
+  <check if="version control is available AND the working tree is dirty">
+    <action>Stage {default_output_file} and {{sprint_status}} if it was updated.
+      Create a local commit: "docs: create story {{story_key}}"
+      Append AI tracking trailers:
+        AI-Story: {agent/model currently running}
+        AI-Code: manual
+        AI-Test: manual
+        AI-Review: pending
+        AI-Model: {the model currently running}
+        Story-Ref: {{story_key}}
+      Do NOT push.
+    </action>
+  </check>
+
   <action>Report completion</action>
   <output>**🎯 ULTIMATE BMad Method STORY CONTEXT CREATED, {user_name}!**
 

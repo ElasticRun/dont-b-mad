@@ -215,6 +215,19 @@ development_status:
 3. Agents will update statuses as they work
 4. Re-run this workflow to refresh auto-detected statuses
 
+<action>Git Checkpoint: If version control is available and the working tree is dirty, create a local commit:
+  - Stage {status_file}
+  - Commit with message: "chore: generate sprint status"
+  - Append AI tracking trailers:
+    AI-Story: manual
+    AI-Code: {agent/model currently running}
+    AI-Test: manual
+    AI-Review: pending
+    AI-Model: {the model currently running}
+    Story-Ref: sprint-planning
+  - Do NOT push. If VCS is unavailable, skip.
+</action>
+
 </step>
 
 </workflow>

@@ -97,7 +97,15 @@ Manual commits (hotfixes, config changes) get auto-tagged by the git hook with `
 
 ## Modified Workflows (from upstream BMAD v6.3.0)
 
-- `bmad-create-story` -- AI Engineering Record table added to story template
+**Planning workflows** (auto-commit artifacts with AI trailers on completion):
+- `bmad-create-prd` -- commits PRD on completion
+- `bmad-create-epics-and-stories` -- commits epics on completion
+- `bmad-create-architecture` -- commits architecture doc on completion
+- `bmad-create-ux-design` -- commits UX design on completion
+- `bmad-sprint-planning` -- commits sprint status on completion
+
+**Development workflows** (AI Engineering Record + commit trailers):
+- `bmad-create-story` -- AI Engineering Record table in template, commits story on creation
 - `bmad-dev-story` -- fills record rows, creates commits with trailers, checklist updated
 - `bmad-code-review` -- fills Code Review row, amends AI-Review trailer on commit
 - `bmad-quick-dev` -- appends trailers to commits (both step-05 and one-shot paths)
