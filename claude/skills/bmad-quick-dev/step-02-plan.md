@@ -13,6 +13,7 @@ deferred_work_file: '{implementation_artifacts}/deferred-work.md'
 
 1. Draft resume check. If `{spec_file}` exists with `status: draft`, read it and capture the verbatim `<frozen-after-approval>...</frozen-after-approval>` block as `preserved_intent`. Otherwise `preserved_intent` is empty.
 2. Investigate codebase. _Isolate deep exploration in sub-agents/tasks where available. To prevent context snowballing, instruct subagents to give you distilled summaries only._
+   - **Graphify shortcut:** If `graphify-out/GRAPH_REPORT.md` exists, read it first. Use god nodes and community structure to identify relevant modules and files before searching. This reduces token use and prevents navigating irrelevant code. For precise dependency chains, query `graphify-out/graph.json`.
 3. Read `./spec-template.md` fully. Fill it out based on the intent and investigation. If `{preserved_intent}` is non-empty, substitute it for the `<frozen-after-approval>` block in your filled spec before writing. Write the result to `{spec_file}`.
 4. Self-review against READY FOR DEVELOPMENT standard.
 5. If intent gaps exist, do not fantasize, do not leave open questions, HALT and ask the human.

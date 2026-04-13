@@ -216,6 +216,12 @@ Load config from `{project-root}/_bmad/bmm/config.yaml` and resolve:
   <note>Available content: {epics_content}, {prd_content}, {architecture_content}, {ux_content},
   {project_context}</note>
 
+  <!-- Graphify: load knowledge graph for codebase-aware story creation -->
+  <check if="graphify-out/GRAPH_REPORT.md exists">
+    <action>Read graphify-out/GRAPH_REPORT.md. Use god nodes, communities, and module structure to write accurate Dev Notes: correct file paths, real function names, actual dependencies. This prevents the dev agent from navigating blind.</action>
+    <action if="graphify-out/graph.json exists">For stories that modify existing code, query graph.json to identify exact files, functions, and callers that will be affected. Include these in the story's technical context.</action>
+  </check>
+
   <!-- Analyze epics file for story foundation -->
   <action>From {epics_content}, extract Epic {{epic_num}} complete context:</action> **EPIC ANALYSIS:** - Epic
   objectives and business value - ALL stories in this epic for cross-story context - Our specific story's requirements, user story

@@ -49,6 +49,10 @@ Fully read and Analyze the loaded project documents to understand architectural 
 
 ## CONTEXT ANALYSIS SEQUENCE:
 
+### 0. Load Knowledge Graph (if available)
+
+If `graphify-out/GRAPH_REPORT.md` exists, read it before analyzing requirements. The graph reveals existing codebase structure: god nodes (heavily connected modules), community clusters (module boundaries), and dependency chains. For brownfield projects, this is the ground truth of what exists. Use it to inform all architectural decisions that follow.
+
 ### 1. Review Project Requirements
 
 **From PRD Analysis:**

@@ -71,7 +71,9 @@ story_key: '' # set at runtime when discovered from sprint status
 
 5. If `{review_mode}` = `"full"` and the file at `{spec_file}` has a `context` field in its frontmatter listing additional docs, load each referenced document. Warn the user about any docs that cannot be found.
 
-6. Sanity check: if `{diff_output}` exceeds approximately 3000 lines, warn the user and offer to chunk the review by file group.
+6. **Graphify context.** If `graphify-out/GRAPH_REPORT.md` exists, read it. Use the knowledge graph to understand the blast radius of changed files: which modules depend on them, which god nodes they touch, and whether the changes cross community boundaries. This informs the review in step 2.
+
+7. Sanity check: if `{diff_output}` exceeds approximately 3000 lines, warn the user and offer to chunk the review by file group.
    - If the user opts to chunk: agree on the first group, narrow `{diff_output}` accordingly, and list the remaining groups for the user to note for follow-up runs.
    - If the user declines: proceed as-is with the full diff.
 

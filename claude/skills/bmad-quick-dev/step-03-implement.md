@@ -26,6 +26,8 @@ Change `{spec_file}` status to `in-progress` in the frontmatter before starting 
 
 If `{spec_file}` has a non-empty `context:` list in its frontmatter, load those files before implementation begins. When handing to a sub-agent, include them in the sub-agent prompt so it has access to the referenced context.
 
+If `graphify-out/GRAPH_REPORT.md` exists, read it and use god nodes and community structure to navigate to the right files. For dependency tracing, query `graphify-out/graph.json` to find callers/callees of functions you will modify.
+
 Hand `{spec_file}` to a sub-agent/task and let it implement. If no sub-agents are available, implement directly.
 
 **Path formatting rule:** Any markdown links written into `{spec_file}` must use paths relative to `{spec_file}`'s directory so they are clickable in VS Code. Any file paths displayed in terminal/conversation output must use CWD-relative format with `:line` notation (e.g., `src/path/file.ts:42`) for terminal clickability. No leading `/` in either case.

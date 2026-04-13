@@ -263,6 +263,12 @@ Load config from `{project-root}/_bmad/bmm/config.yaml` and resolve:
   <step n="5" goal="Implement task following red-green-refactor cycle">
     <critical>FOLLOW THE STORY FILE TASKS/SUBTASKS SEQUENCE EXACTLY AS WRITTEN - NO DEVIATION</critical>
 
+    <!-- Graphify: load knowledge graph for codebase navigation -->
+    <check if="graphify-out/GRAPH_REPORT.md exists">
+      <action>Read graphify-out/GRAPH_REPORT.md. Use god nodes and community structure to navigate the codebase instead of grepping blind. Identify which modules, files, and dependencies are relevant to this story's tasks before writing code.</action>
+      <action if="graphify-out/graph.json exists">For precise dependency tracing, query graph.json to find direct callers/callees of functions you will modify. This prevents breaking changes.</action>
+    </check>
+
     <action>Review the current task/subtask from the story file - this is your authoritative implementation guide</action>
     <action>Plan implementation following red-green-refactor cycle</action>
 
