@@ -1,6 +1,6 @@
-# Graphify — Codebase Knowledge Graph
+# Graphify — Build Codebase Knowledge Graph
 
-Build and query a knowledge graph from code, docs, and design artifacts. Use when the user says "build the graph", "graphify", "update the knowledge graph", or at sprint start to give all BMAD workflows structural codebase awareness.
+Build the knowledge graph from code, docs, and design artifacts. Use when the user says "build the graph", "graphify", "update the knowledge graph", or at sprint start to give all BMAD workflows structural codebase awareness.
 
 ## What This Does
 
@@ -8,61 +8,57 @@ Build and query a knowledge graph from code, docs, and design artifacts. Use whe
 
 - `graphify-out/GRAPH_REPORT.md` — god nodes, communities, surprising connections
 - `graphify-out/graph.json` — queryable graph (nodes, edges, relationships)
-- `graphify-out/graph.html` — interactive visual explorer
 
 BMAD workflows (`dev-story`, `quick-dev`, `code-review`, `create-story`, `create-architecture`) automatically read the graph report when it exists. No extra steps during development.
 
-## Prerequisites
+## Running Graphify
+
+This project uses `uv` (not system pip). Always invoke via `uvx`:
 
 ```bash
-pip install graphifyy
+uvx --from graphifyy graphify <command>
 ```
 
-## Usage
+### Build / rebuild the graph
 
-### Build the graph (sprint start or after major changes)
-
-Run in the project root:
-
-```
-/graphify .
+```bash
+uvx --from graphifyy graphify update .
 ```
 
-This builds the full graph. Uses AST parsing for code (no LLM), LLM for docs/images. Cached — re-runs only process changed files.
+This extracts code structure via AST parsing (no LLM needed). Results are cached — re-runs only process changed files. Output goes to `graphify-out/`.
 
 ### Install always-on rule (one time per project)
 
 For Cursor:
 ```bash
-graphify cursor install
+uvx --from graphifyy graphify cursor install
 ```
 
-For Claude Code, create `CLAUDE.md` with:
-```markdown
-Before answering architecture or codebase questions, read graphify-out/GRAPH_REPORT.md for god nodes and community structure.
+For Claude Code:
+```bash
+uvx --from graphifyy graphify claude install
 ```
 
 ### When to rebuild
 
 | Trigger | Action |
 |---|---|
-| Sprint start | Full rebuild: `/graphify .` |
-| Added new docs, specs, or design artifacts | Full rebuild: `/graphify .` |
+| Sprint start | Full rebuild: `graphify update .` |
+| Added new docs, specs, or design artifacts | Full rebuild: `graphify update .` |
 | Day-to-day development | No rebuild needed. Workflows read the existing graph. |
-| Major refactor (new modules, renamed files) | Full rebuild: `/graphify .` |
+| Major refactor (new modules, renamed files) | Full rebuild: `graphify update .` |
 
-### Query the graph
+### Other commands
 
-```bash
-# Find what depends on a module
-graphify query "what depends on the auth module?"
+| Command | What it does |
+|---|---|
+| `graphify query "<question>"` | BFS traversal of graph.json for a question |
+| `graphify explain "<node>"` | Plain-language explanation of a node and its neighbors |
+| `graphify path "<A>" "<B>"` | Shortest path between two nodes |
+| `graphify cluster-only .` | Rerun clustering on existing graph.json, regenerate report |
+| `graphify watch .` | Watch folder and rebuild on code changes |
 
-# Trace path between two components
-graphify path "UserService" "PaymentGateway"
-
-# Explain a node's role
-graphify explain "WarehouseController"
-```
+See the `bmad-graphify-query`, `bmad-graphify-explain`, and `bmad-graphify-path` skills for detailed usage of those commands.
 
 ## How BMAD Workflows Use It
 
