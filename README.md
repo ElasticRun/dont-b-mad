@@ -65,6 +65,9 @@ If a `prepare-commit-msg` hook already exists in a repo, the installer backs it 
 |---|---|---|
 | `.cursor/skills/bmad-*` | All BMAD skills (Cursor) | Workspace root |
 | `.claude/skills/bmad-*` | All BMAD skills (Claude Code) | Workspace root |
+| `.cursor/rules/bmad-workspace-resolution.md` | Teaches agent how to resolve `{project-root}` | Workspace root |
+| `.claude/rules/bmad-workspace-resolution.md` | Same rule for Claude Code | Workspace root |
+| `_bmad/workspace.yaml` | Maps project directories in the workspace | Workspace root |
 | `scripts/adoption-dashboard.sh` | Reads git trailers, prints adoption rates | Workspace root |
 | `<repo>/.git/hooks/prepare-commit-msg` | Auto-tags manual commits with AI trailers | Per repo |
 
@@ -72,14 +75,33 @@ If a `prepare-commit-msg` hook already exists in a repo, the installer backs it 
 
 ```
 ~/Workspace/                       <- open Cursor / Claude Code here
-├── .cursor/skills/bmad-*/         <- skills (installed once)
-├── .claude/skills/bmad-*/         <- skills (installed once)
+├── .cursor/
+│   ├── skills/bmad-*/             <- skills (installed once)
+│   └── rules/bmad-workspace-resolution.md
+├── .claude/
+│   ├── skills/bmad-*/             <- skills (installed once)
+│   └── rules/bmad-workspace-resolution.md
+├── _bmad/workspace.yaml           <- project registry
 ├── scripts/adoption-dashboard.sh  <- dashboard
-├── project-a/                     <- git repo
+├── project-a/                     <- git repo + BMAD project
+│   ├── _bmad/bmm/config.yaml     <- project's own config + output paths
 │   └── .git/hooks/prepare-commit-msg
-├── project-b/                     <- git repo
+├── project-b/                     <- git repo + BMAD project
+│   ├── _bmad/bmm/config.yaml
 │   └── .git/hooks/prepare-commit-msg
-└── docs/                          <- not a git repo, skipped for hooks
+└── docs/                          <- not a git repo, skipped
+```
+
+### Multi-project output isolation
+
+Each project keeps its own `_bmad/` config tree. Output paths like `{planning_artifacts}` and `{implementation_artifacts}` are resolved from that project's `config.yaml`, so artifacts stay inside the project that produced them.
+
+The workspace-level resolution rule (`.cursor/rules/` and `.claude/rules/`) teaches the agent to pick the right `{project-root}` based on which files are being discussed. If ambiguous, the agent asks. You can set a `default_project` in `_bmad/workspace.yaml` to skip the prompt.
+
+After initializing BMAD in a new project, re-run the installer with `--force` to refresh the registry:
+
+```bash
+bash bmad-er/scripts/install.sh ~/Workspace --force
 ```
 
 ## Dashboard Usage
