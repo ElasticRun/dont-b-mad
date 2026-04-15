@@ -72,13 +72,25 @@ if [ "$MODE" = "all" ] || [ "$MODE" = "skills" ]; then
     echo "  Dashboard:      scripts/adoption-dashboard.sh installed"
   fi
 
-  # --- Workspace resolution rule: teaches agent how to resolve {project-root} ---
-  if [ -f "$REPO_ROOT/templates/bmad-workspace-resolution.md" ]; then
-    mkdir -p "$TARGET/.cursor/rules"
-    cp "$REPO_ROOT/templates/bmad-workspace-resolution.md" "$TARGET/.cursor/rules/bmad-workspace-resolution.md"
-    mkdir -p "$TARGET/.claude/rules"
-    cp "$REPO_ROOT/templates/bmad-workspace-resolution.md" "$TARGET/.claude/rules/bmad-workspace-resolution.md"
-    echo "  Resolution rule: .cursor/rules/ + .claude/rules/"
+  # --- Rules: installed to .cursor/rules/ and .claude/rules/ ---
+  mkdir -p "$TARGET/.cursor/rules" "$TARGET/.claude/rules"
+  for rule_file in bmad-workspace-resolution.md bmad-team-customization.md; do
+    if [ -f "$REPO_ROOT/templates/$rule_file" ]; then
+      cp "$REPO_ROOT/templates/$rule_file" "$TARGET/.cursor/rules/$rule_file"
+      cp "$REPO_ROOT/templates/$rule_file" "$TARGET/.claude/rules/$rule_file"
+    fi
+  done
+  echo "  Rules:          .cursor/rules/ + .claude/rules/"
+
+  # --- Team config: default agent display names ---
+  if [ -f "$REPO_ROOT/templates/team.yaml" ]; then
+    mkdir -p "$TARGET/_bmad/_config"
+    if [ ! -f "$TARGET/_bmad/_config/team.yaml" ] || $FORCE; then
+      cp "$REPO_ROOT/templates/team.yaml" "$TARGET/_bmad/_config/team.yaml"
+      echo "  Team config:    _bmad/_config/team.yaml"
+    else
+      echo "  Team config:    _bmad/_config/team.yaml exists, skipped (use --force to overwrite)"
+    fi
   fi
 
   # --- Workspace config: auto-discover projects with _bmad/ ---
@@ -226,6 +238,10 @@ if [ "$project_count" -eq 0 ] && { [ "$MODE" = "all" ] || [ "$MODE" = "skills" ]
   echo "No projects with _bmad/ found yet. After initializing BMAD in a"
   echo "project, re-run the installer (or edit _bmad/workspace.yaml) to"
   echo "register it."
+fi
+if [ "$MODE" = "all" ] || [ "$MODE" = "skills" ]; then
+  echo ""
+  echo "Customize agent names: edit _bmad/_config/team.yaml"
 fi
 echo ""
 echo "Optional: install graphify for codebase knowledge graph"

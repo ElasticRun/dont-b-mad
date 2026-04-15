@@ -1,0 +1,25 @@
+# BMad Team — Customize Your Agent Names
+#
+# Edit the names below to personalize your BMAD agents. Each key maps to
+# an agent role; the value is the display name the agent will use in
+# greetings, dialogue, and persona embodiment.
+#
+# Installed to _bmad/_config/team.yaml by install.sh.
+# The installer will not overwrite this file unless you pass --force.
+
+agents:
+  # Core engineering squad (BMM)
+  dev: Tejas
+  pm: Chaitanya
+  architect: Siddharth
+  analyst: Nishtha
+  tech-writer: Sakshi
+  ux-designer: Sai
+
+  # Creative & innovation crew (CIS)
+  brainstorming: Vaibhav
+  problem-solver: Navneet
+  design-thinking: Monik
+  innovation: Swapnil
+  presentations: Suraj
+  storyteller: Tanay

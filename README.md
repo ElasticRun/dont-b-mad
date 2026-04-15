@@ -66,8 +66,10 @@ If a `prepare-commit-msg` hook already exists in a repo, the installer backs it 
 | `.cursor/skills/bmad-*` | All BMAD skills (Cursor) | Workspace root |
 | `.claude/skills/bmad-*` | All BMAD skills (Claude Code) | Workspace root |
 | `.cursor/rules/bmad-workspace-resolution.md` | Teaches agent how to resolve `{project-root}` | Workspace root |
-| `.claude/rules/bmad-workspace-resolution.md` | Same rule for Claude Code | Workspace root |
+| `.cursor/rules/bmad-team-customization.md` | Teaches agent to read custom team names | Workspace root |
+| `.claude/rules/bmad-*.md` | Same rules for Claude Code | Workspace root |
 | `_bmad/workspace.yaml` | Maps project directories in the workspace | Workspace root |
+| `_bmad/_config/team.yaml` | Custom agent display names | Workspace root |
 | `scripts/adoption-dashboard.sh` | Reads git trailers, prints adoption rates | Workspace root |
 | `<repo>/.git/hooks/prepare-commit-msg` | Auto-tags manual commits with AI trailers | Per repo |
 
@@ -77,11 +79,13 @@ If a `prepare-commit-msg` hook already exists in a repo, the installer backs it 
 ~/Workspace/                       <- open Cursor / Claude Code here
 ├── .cursor/
 │   ├── skills/bmad-*/             <- skills (installed once)
-│   └── rules/bmad-workspace-resolution.md
+│   └── rules/bmad-*.md            <- workspace + team rules
 ├── .claude/
 │   ├── skills/bmad-*/             <- skills (installed once)
-│   └── rules/bmad-workspace-resolution.md
-├── _bmad/workspace.yaml           <- project registry
+│   └── rules/bmad-*.md            <- workspace + team rules
+├── _bmad/
+│   ├── workspace.yaml             <- project registry
+│   └── _config/team.yaml          <- custom agent names
 ├── scripts/adoption-dashboard.sh  <- dashboard
 ├── project-a/                     <- git repo + BMAD project
 │   ├── _bmad/bmm/config.yaml     <- project's own config + output paths
@@ -103,6 +107,28 @@ After initializing BMAD in a new project, re-run the installer with `--force` to
 ```bash
 bash bmad-er/scripts/install.sh ~/Workspace --force
 ```
+
+### Customize your team
+
+Every BMAD agent has a default display name. To rename them, edit `_bmad/_config/team.yaml` (installed automatically by the installer):
+
+```yaml
+agents:
+  dev: Arjun
+  pm: Priya
+  architect: Kiran
+  analyst: Meera
+  tech-writer: Ravi
+  ux-designer: Ananya
+  brainstorming: Vikram
+  problem-solver: Deepak
+  design-thinking: Kavita
+  innovation: Nitin
+  presentations: Pooja
+  storyteller: Rohit
+```
+
+Each key maps to an agent role. Change the name and it takes effect immediately -- no reinstall needed. Agents without an entry keep their default name from the skill files.
 
 ## Dashboard Usage
 
