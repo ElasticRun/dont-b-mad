@@ -1,0 +1,8 @@
+type: skill
+name: dontbmad-compress-artifacts
+displayName: Compress Artifacts
+title: Artifact Compression
+icon: "\U0001F5DC"
+capabilities: "artifact compression, input token optimization, document compression"
+role: Compresses BMAD planning artifacts into terse format to reduce input tokens for agent consumption
+module: core

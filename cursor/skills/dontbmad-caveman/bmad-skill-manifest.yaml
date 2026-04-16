@@ -1,0 +1,8 @@
+type: skill
+name: dontbmad-caveman
+displayName: Caveman Mode
+title: Token Compression
+icon: "\U0001FAA8"
+capabilities: "output compression, terse communication, token optimization"
+role: Communication compressor that cuts output tokens ~75% while preserving technical accuracy
+module: core

@@ -52,15 +52,15 @@ dashboard_installed=false
 if [ "$MODE" = "all" ] || [ "$MODE" = "skills" ]; then
   if [ -d "$REPO_ROOT/cursor/skills" ]; then
     mkdir -p "$TARGET/.cursor/skills"
-    cp -r "$REPO_ROOT/cursor/skills/bmad-"* "$TARGET/.cursor/skills/"
-    cursor_count=$(ls -d "$REPO_ROOT/cursor/skills/bmad-"* | wc -l | xargs)
+    cp -r "$REPO_ROOT/cursor/skills/bmad-"* "$REPO_ROOT/cursor/skills/dontbmad-"* "$TARGET/.cursor/skills/"
+    cursor_count=$(ls -d "$REPO_ROOT/cursor/skills/bmad-"* "$REPO_ROOT/cursor/skills/dontbmad-"* 2>/dev/null | wc -l | xargs)
     echo "  Cursor skills:  $cursor_count folders -> .cursor/skills/"
   fi
 
   if [ -d "$REPO_ROOT/claude/skills" ]; then
     mkdir -p "$TARGET/.claude/skills"
-    cp -r "$REPO_ROOT/claude/skills/bmad-"* "$TARGET/.claude/skills/"
-    claude_count=$(ls -d "$REPO_ROOT/claude/skills/bmad-"* | wc -l | xargs)
+    cp -r "$REPO_ROOT/claude/skills/bmad-"* "$REPO_ROOT/claude/skills/dontbmad-"* "$TARGET/.claude/skills/"
+    claude_count=$(ls -d "$REPO_ROOT/claude/skills/bmad-"* "$REPO_ROOT/claude/skills/dontbmad-"* 2>/dev/null | wc -l | xargs)
     echo "  Claude skills:  $claude_count folders -> .claude/skills/"
   fi
 
@@ -74,7 +74,7 @@ if [ "$MODE" = "all" ] || [ "$MODE" = "skills" ]; then
 
   # --- Rules: installed to .cursor/rules/ and .claude/rules/ ---
   mkdir -p "$TARGET/.cursor/rules" "$TARGET/.claude/rules"
-  for rule_file in bmad-workspace-resolution.md bmad-team-customization.md bmad-graph-first.md bmad-caveman-activate.md; do
+  for rule_file in bmad-workspace-resolution.md bmad-team-customization.md dontbmad-graph-first.md dontbmad-caveman-activate.md; do
     if [ -f "$REPO_ROOT/templates/$rule_file" ]; then
       cp "$REPO_ROOT/templates/$rule_file" "$TARGET/.cursor/rules/$rule_file"
       cp "$REPO_ROOT/templates/$rule_file" "$TARGET/.claude/rules/$rule_file"
