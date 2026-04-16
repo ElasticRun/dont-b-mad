@@ -129,15 +129,34 @@ Display:
     - Complete list of all changes made
     - Before/after comparison (key improvements)
     - Recommendations for next steps
+  - Run Git Checkpoint (see below)
   - Display: "**Edit Workflow Complete**"
   - Exit
 
 - **IF X (Exit):**
   - Display summary
+  - Run Git Checkpoint (see below)
   - Display: "**Edit Workflow Complete**"
   - Exit
 
 - **IF Any other:** Help user, then redisplay menu
+
+### 4. Git Checkpoint
+
+If version control is available and the working tree is dirty, create a local commit to checkpoint the PRD edits:
+
+- Stage `{prd_file_path}` and any related workflow status files that were updated.
+- Create a commit with a conventional message: `docs: edit PRD for {{project_name}}`
+- Append AI tracking trailers to the commit message body:
+
+  ```
+  AI-Phase: prd
+  AI-Tool: {agent/model currently running, e.g. "cursor/claude-sonnet-4-20250514"}
+  Story-Ref: prd-{{project_name}}
+  ```
+
+- Do NOT push. No remote ops.
+- If VCS is unavailable, skip gracefully.
 
 ---
 

@@ -70,6 +70,23 @@ purpose: "Token-efficient context for downstream PRD creation"
 }
 ```
 
+## Step 4: Git Checkpoint
+
+If version control is available and the working tree is dirty, create a local commit to checkpoint the product brief:
+
+- Stage `{planning_artifacts}/product-brief-{project_name}.md` and the distillate file if it was created.
+- Create a commit with a conventional message: `docs: create product brief for {project_name}`
+- Append AI tracking trailers to the commit message body:
+
+  ```
+  AI-Phase: brief
+  AI-Tool: {agent/model currently running, e.g. "cursor/claude-sonnet-4-20250514"}
+  Story-Ref: brief-{project_name}
+  ```
+
+- Do NOT push. No remote ops.
+- If VCS is unavailable, skip gracefully.
+
 ## Stage Complete
 
 This is the terminal stage. After delivering the completion message and file paths, the workflow is done. If the user requests further revisions, loop back to `draft-and-review.md`. Otherwise, exit.

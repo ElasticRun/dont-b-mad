@@ -133,4 +133,21 @@ If the project needs:
 
 Save summary to: `{default_output_file}`
 
+## Git Checkpoint
+
+If version control is available and the working tree is dirty, create a local commit to checkpoint the generated tests:
+
+- Stage the generated test files and `{default_output_file}`.
+- Create a commit with a conventional message: `test: generate e2e tests for {{feature_name}}`
+- Append AI tracking trailers to the commit message body:
+
+  ```
+  AI-Phase: test
+  AI-Tool: {agent/model currently running, e.g. "cursor/claude-sonnet-4-20250514"}
+  Story-Ref: {{feature_name}}
+  ```
+
+- Do NOT push. No remote ops.
+- If VCS is unavailable, skip gracefully.
+
 **Done!** Tests generated and verified. Validate against `./checklist.md`.

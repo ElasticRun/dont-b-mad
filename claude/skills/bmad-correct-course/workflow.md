@@ -260,6 +260,16 @@ Load config from `{project-root}/_bmad/bmm/config.yaml` and resolve:
 - Specific edit proposals with before/after
 - Implementation handoff plan
 
+<action>Git Checkpoint: If version control is available and the working tree is dirty, create a local commit:
+  - Stage {default_output_file}
+  - Commit with message: "docs: sprint change proposal for {{change_trigger}}"
+  - Append AI tracking trailers:
+    AI-Phase: sprint-change
+    AI-Tool: {agent/model currently running, e.g. "cursor/claude-sonnet-4-20250514"}
+    Story-Ref: sprint-change
+  - Do NOT push. If VCS is unavailable, skip.
+</action>
+
 <action>Report workflow completion to user with personalized message: "Correct Course workflow complete, {user_name}!"</action>
 <action>Remind user of success criteria and next steps for Developer agent</action>
 </step>
