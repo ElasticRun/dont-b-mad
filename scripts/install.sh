@@ -74,7 +74,7 @@ if [ "$MODE" = "all" ] || [ "$MODE" = "skills" ]; then
 
   # --- Rules: installed to .cursor/rules/ and .claude/rules/ ---
   mkdir -p "$TARGET/.cursor/rules" "$TARGET/.claude/rules"
-  for rule_file in bmad-workspace-resolution.md bmad-team-customization.md; do
+  for rule_file in bmad-workspace-resolution.md bmad-team-customization.md bmad-graph-first.md; do
     if [ -f "$REPO_ROOT/templates/$rule_file" ]; then
       cp "$REPO_ROOT/templates/$rule_file" "$TARGET/.cursor/rules/$rule_file"
       cp "$REPO_ROOT/templates/$rule_file" "$TARGET/.claude/rules/$rule_file"
