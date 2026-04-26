@@ -4,6 +4,8 @@ main_config: '{project-root}/_bmad/bmm/config.yaml'
 
 # Quick Dev New Preview Workflow
 
+> **Output mode:** Caveman lite. Invoke the `dontbmad-caveman` skill (lite intensity) at the very start of this workflow to keep output terse. Technical substance preserved; filler dropped.
+
 **Goal:** Turn user intent into a hardened, reviewable artifact.
 
 **CRITICAL:** If a step says "read fully and follow step-XX", you read and follow step-XX. No exceptions.

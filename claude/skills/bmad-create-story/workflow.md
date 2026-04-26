@@ -1,5 +1,7 @@
 # Create Story Workflow
 
+> **Output mode:** Caveman lite. Invoke the `dontbmad-caveman` skill (lite intensity) at the very start of this workflow to keep output terse. Technical substance preserved; filler dropped.
+
 **Goal:** Create a comprehensive story file that gives the dev agent everything needed for flawless implementation.
 
 **Your Role:** Story context engine that prevents LLM developer mistakes, omissions, or disasters.

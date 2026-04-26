@@ -1,5 +1,7 @@
 # Dev Story Workflow
 
+> **Output mode:** Caveman ultra. Invoke the `dontbmad-caveman` skill (ultra intensity) at the very start of this workflow to keep output terse. Technical substance preserved; filler dropped.
+
 **Goal:** Execute story implementation following a context filled story spec file.
 
 **Your Role:** Developer implementing the story.
@@ -39,16 +41,6 @@ Load config from `{project-root}/_bmad/bmm/config.yaml` and resolve:
 ## EXECUTION
 
 <workflow>
-  <critical>Communicate all responses in {communication_language} and language MUST be tailored to {user_skill_level}</critical>
-  <critical>Generate all documents in {document_output_language}</critical>
-  <critical>Only modify the story file in these areas: Tasks/Subtasks checkboxes, Dev Agent Record (Debug Log, Completion Notes), File List,
-    Change Log, and Status</critical>
-  <critical>Execute ALL steps in exact order; do NOT skip steps</critical>
-  <critical>Absolutely DO NOT stop because of "milestones", "significant progress", or "session boundaries". Continue in a single execution
-    until the story is COMPLETE (all ACs satisfied and all tasks/subtasks checked) UNLESS a HALT condition is triggered or the USER gives
-    other instruction.</critical>
-  <critical>Do NOT schedule a "next session" or request review pauses unless a HALT condition applies. Only Step 6 decides completion.</critical>
-  <critical>User skill level ({user_skill_level}) affects conversation style ONLY, not code updates.</critical>
 
   <step n="1" goal="Find next ready story and load it" tag="sprint-status">
     <check if="{{story_path}} is provided">
@@ -266,7 +258,11 @@ Load config from `{project-root}/_bmad/bmm/config.yaml` and resolve:
     <!-- Graphify: load knowledge graph for codebase navigation -->
     <check if="graphify-out/GRAPH_REPORT.md exists">
       <action>Read graphify-out/GRAPH_REPORT.md. Use god nodes and community structure to navigate the codebase instead of grepping blind. Identify which modules, files, and dependencies are relevant to this story's tasks before writing code.</action>
-      <action if="graphify-out/graph.json exists">For precise dependency tracing, query graph.json to find direct callers/callees of functions you will modify. This prevents breaking changes.</action>
+      <action if="graphify-out/graph.json exists">Run a story-scoped orientation query and capture stdout into Dev Notes:
+        `uvx --from graphifyy graphify query --budget 3000 "what files and modules are relevant to story {{story_key}}?"`
+      </action>
+      <action if="graphify-out/graph.json exists">For each function or class you plan to modify or extend, run `uvx --from graphifyy graphify explain "<symbol>"` BEFORE editing it. Treat the listed callers as constraints; do not break their contract.</action>
+      <action if="graphify-out/graph.json exists">For cross-module impact analysis, run `uvx --from graphifyy graphify path "<A>" "<B>"` to verify the dependency chain matches your mental model before assuming it.</action>
     </check>
 
     <action>Review the current task/subtask from the story file - this is your authoritative implementation guide</action>
@@ -444,33 +440,9 @@ Load config from `{project-root}/_bmad/bmm/config.yaml` and resolve:
       <action>Do NOT push. No remote ops.</action>
     </check>
 
-    <action>Communicate to {user_name} that story implementation is complete and ready for review</action>
-    <action>Summarize key accomplishments: story ID, story key, title, key changes made, tests added, files modified</action>
-    <action>Provide the story file path and current status (now "review")</action>
-
-    <action>Based on {user_skill_level}, ask if user needs any explanations about:
-      - What was implemented and how it works
-      - Why certain technical decisions were made
-      - How to test or verify the changes
-      - Any patterns, libraries, or approaches used
-      - Anything else they'd like clarified
-    </action>
-
-    <check if="user asks for explanations">
-      <action>Provide clear, contextual explanations tailored to {user_skill_level}</action>
-      <action>Use examples and references to specific code when helpful</action>
-    </check>
-
-    <action>Once explanations are complete (or user indicates no questions), suggest logical next steps</action>
-    <action>Recommended next steps (flexible based on project setup):
-      - Review the implemented story and test the changes
-      - Verify all acceptance criteria are met
-      - Ensure deployment readiness if applicable
-      - Run `code-review` workflow for peer review
-      - Optional: If Test Architect module installed, run `/bmad:tea:automate` to expand guardrail tests
-    </action>
-
-    <output>💡 **Tip:** For best results, run `code-review` using a **different** LLM than the one that implemented this story.</output>
+    <action>Print one line: "Story {{story_key}} done → review. File: {{story_path}}"</action>
+    <action>If user asks questions about the implementation, answer them tailored to {user_skill_level}.</action>
+    <action>Suggest: run code-review (different LLM recommended).</action>
     <check if="{sprint_status} file exists">
       <action>Suggest checking {sprint_status} to see project progress</action>
     </check>

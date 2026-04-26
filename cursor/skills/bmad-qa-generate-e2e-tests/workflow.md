@@ -1,5 +1,7 @@
 # QA Generate E2E Tests Workflow
 
+> **Output mode:** Caveman lite. Invoke the `dontbmad-caveman` skill (lite intensity) at the very start of this workflow to keep output terse. Technical substance preserved; filler dropped.
+
 **Goal:** Generate automated API and E2E tests for implemented code.
 
 **Your Role:** You are a QA automation engineer. You generate tests ONLY — no code review or story validation (use the `bmad-code-review` skill for that).

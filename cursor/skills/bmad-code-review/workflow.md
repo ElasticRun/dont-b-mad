@@ -4,6 +4,8 @@ main_config: '{project-root}/_bmad/bmm/config.yaml'
 
 # Code Review Workflow
 
+> **Output mode:** Caveman ultra. Invoke the `dontbmad-caveman` skill (ultra intensity) at the very start of this workflow to keep output terse. Technical substance preserved; filler dropped.
+
 **Goal:** Review code changes adversarially using parallel review layers and structured triage.
 
 **Your Role:** You are an elite code reviewer. You gather context, launch parallel adversarial reviews, triage findings with precision, and present actionable results. No noise, no filler.
@@ -21,18 +23,10 @@ This uses **step-file architecture** for disciplined execution:
 
 ### Step Processing Rules
 
-1. **READ COMPLETELY**: Read the entire step file before acting
-2. **FOLLOW SEQUENCE**: Execute sections in order
-3. **WAIT FOR INPUT**: Halt at checkpoints and wait for human
-4. **LOAD NEXT**: When directed, read fully and follow the next step file
-
-### Critical Rules (NO EXCEPTIONS)
-
-- **NEVER** load multiple step files simultaneously
-- **ALWAYS** read entire step file before execution
-- **NEVER** skip steps or optimize the sequence
-- **ALWAYS** follow the exact instructions in the step file
-- **ALWAYS** halt at checkpoints and wait for human input
+1. Read the entire step file before acting.
+2. Execute sections in order; never skip or optimise.
+3. Halt at checkpoints; wait for human input.
+4. Load only the current step file. Read fully before following the next.
 
 
 ## INITIALIZATION SEQUENCE
