@@ -216,6 +216,7 @@ Manual commits (hotfixes, config changes) get auto-tagged by the git hook with `
 - `dontbmad-graphify` -- new skill: knowledge graph setup, query reference, workflow integration docs
 - `dontbmad-caveman` -- new skill: terse output mode (~75% token reduction), based on [caveman](https://github.com/JuliusBrussee/caveman)
 - `dontbmad-compress-artifacts` -- new skill: compress planning artifacts for cheaper agent reads (~46% input token savings)
+- `dontbmad-grill` -- new skill: relentless one-question-at-a-time interrogation of a plan, with a recommended answer for every decision; integrated into `bmad-create-architecture` step 4 as a `G` option in the A/P/G/C menu, and into `bmad-create-story` step 5b as an auto-invoked ambiguity-resolution gate (skipped when the story's analysis surfaced no open questions). Default intensity is `standard` for direct invocation, `light` for auto-invocation. Adapted from [grill-me](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me) by Matt Pocock.
 - `bmad-party-mode` -- added `--caveman` flag for terse multi-agent roundtables
 
 ## Credits

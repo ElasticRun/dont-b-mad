@@ -10,8 +10,8 @@
 - COMMON LLM MISTAKES TO PREVENT: reinventing wheels, wrong libraries, wrong file locations, breaking regressions, ignoring UX, vague implementations, lying about completion, not learning from past work
 - EXHAUSTIVE ANALYSIS REQUIRED: You must thoroughly analyze ALL artifacts to extract critical context - do NOT be lazy or skim! This is the most important function in the entire development process!
 - UTILIZE SUBPROCESSES AND SUBAGENTS: Use research subagents, subprocesses or parallel processing if available to thoroughly analyze different artifacts simultaneously and thoroughly
-- SAVE QUESTIONS: If you think of questions or clarifications during analysis, save them for the end after the complete story is written
-- ZERO USER INTERVENTION: Process should be fully automated except for initial epic/story selection or missing documents
+- SAVE QUESTIONS: If you think of questions or clarifications during analysis, save them to a list `{{open_questions}}` — they get resolved in step 5b via the grill skill, not dropped on the user as a wall of text at the end
+- LOW USER INTERVENTION: Process should be fully automated except for: initial epic/story selection, missing documents, and the step 5b grill pass when ambiguities were collected. A story with zero collected ambiguities skips step 5b entirely and stays fully automated.
 
 ---
 
@@ -211,6 +211,7 @@ Load config from `{project-root}/_bmad/bmm/config.yaml` and resolve:
 </step>
 
 <step n="2" goal="Load and analyze core artifacts">
+  <action>Initialize {{open_questions}} = [] — populate throughout steps 2-4 whenever a clarification is needed that the artifacts don't answer</action>
   <critical>🔬 EXHAUSTIVE ARTIFACT ANALYSIS - This is where you prevent future developer mistakes!</critical>
 
   <!-- Load all available content through discovery protocol -->
@@ -274,6 +275,7 @@ Load config from `{project-root}/_bmad/bmm/config.yaml` and resolve:
   processes - **Integration Patterns:** External service integrations, data flows <action>Extract any story-specific requirements that the
   developer MUST follow</action>
   <action>Identify any architectural decisions that override previous patterns</action>
+  <action>For any architectural area where the artifact is silent, ambiguous, or contradicts an epic AC, append a question to {{open_questions}}. Example entries: "AC4 says 'cache the response' — TTL not specified; pick from architecture cache strategy?", "Story touches `lib/hubspot/` but architecture doesn't say whether retries are story-level or client-level".</action>
 </step>
 
 <step n="4" goal="Web research for latest technical specifics">
@@ -296,6 +298,7 @@ Load config from `{project-root}/_bmad/bmm/config.yaml` and resolve:
     - Performance optimization techniques
     - Migration considerations if upgrading
   </action>
+  <action>For any technical specific the web research couldn't pin down (e.g., "library X v3 changed the auth callback signature — pick old or new?"), append a question to {{open_questions}}.</action>
 </step>
 
 <step n="5" goal="Create comprehensive story file">
@@ -355,6 +358,39 @@ Load config from `{project-root}/_bmad/bmm/config.yaml` and resolve:
   <action>Set story Status to: "ready-for-dev"</action>
   <action>Add completion note: "Ultimate
   context engine analysis completed - comprehensive developer guide created"</action>
+</step>
+
+<step n="5b" goal="Resolve outstanding ambiguities via grill (skip if none collected)">
+  <critical>🎯 STORY-QUALITY GATE — Ambiguities resolved here never reach the dev agent as guesses</critical>
+
+  <check if="{{open_questions}} is empty">
+    <output>No outstanding ambiguities collected during analysis. Skipping grill step.</output>
+    <action>GOTO step 6</action>
+  </check>
+
+  <action>Invoke the `dontbmad-grill` skill with:
+    - `topic`: "story {{story_key}} — outstanding ambiguities surfaced during context engineering"
+    - `draft_so_far`: the story file at {{default_output_file}} as written by step 5, plus the {{open_questions}} list as the explicit decision-tree roots
+    - `intensity`: `light` (auto-invocation default — the user did not explicitly ask for a deep grill on this story)
+  </action>
+
+  <action>The grill skill returns:
+    - A `Grilled Decisions` table — every resolved ambiguity with the user's chosen answer
+    - An optional `Deferred (Need Info)` list — ambiguities the user could not resolve right now
+  </action>
+
+  <action>Amend the story file at {{default_output_file}}:
+    - For each row in `Grilled Decisions`, find the corresponding section in the story (acceptance criteria, dev notes, technical context) and update it with the resolved answer. Do NOT append a separate "grilled decisions" block — the resolutions belong inline where the dev agent reads them.
+    - For each row in `Deferred (Need Info)`, append an `## Open Questions` section to the story listing the deferred items with their unblock conditions. The dev agent reads this section first and pauses if any are blocking.
+  </action>
+
+  <action>After amending, ask user: "Light grill complete. Story updated with {{N}} resolved ambiguities and {{M}} deferred. Accept and finalize? (y/n) — or [D] to go deeper at standard intensity"</action>
+  <check if="user chooses D">
+    <action>Re-invoke `dontbmad-grill` with `intensity: standard` and the same topic; merge new resolutions on top</action>
+  </check>
+  <check if="user chooses n">
+    <action>Revert {{default_output_file}} to the step-5 version (no grilled amendments). Ask user what they want adjusted before re-running.</action>
+  </check>
 </step>
 
 <step n="6" goal="Update sprint status and finalize">

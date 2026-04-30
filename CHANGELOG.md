@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.1.0 (2026-04-30)
+
+### Added
+
+- `dontbmad-grill` -- new skill: relentless one-question-at-a-time decision-tree interrogation with a recommended answer for every node. Reads existing artifacts, project-context, and codebase before asking. Returns a structured `Grilled Decisions` table the calling skill can append to the artifact. Adapted from [grill-me](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me) by Matt Pocock (MIT).
+- `bmad-create-architecture` (step-04-decisions) -- A/P/C menu extended to A/P/G/C. New `G` option invokes `dontbmad-grill` with the current decision category as `topic` and the recorded decisions as `draft_so_far`. Returned table is merged into the category's content; deferred rows go into the document's deferred decisions section.
+- `bmad-create-story` (step 5b) -- new step between story creation and finalization. Steps 2-4 now collect ambiguities into an `{{open_questions}}` list as they analyze artifacts. If the list is empty the story stays fully automated and step 5b is skipped; if non-empty, `dontbmad-grill` is auto-invoked at `light` intensity with the open questions as decision-tree roots. Resolved decisions are merged inline into the story (acceptance criteria, dev notes, technical context); unresolved items become an `## Open Questions` section the dev agent reads first. Closes the previously-broken "save questions for the end" promise that had no execution step.
+
+### Changed
+
+- `dontbmad-grill` default intensity now depends on invocation path: `standard` for direct user invocation, `light` for auto-invocation by another skill. Calling skills can prompt the user to escalate to `standard` or `relentless` after the light pass returns.
+- Question template now includes a `Q{n} of ~{budget}` line so the user can pace themselves. Budget recomputes if the decision tree changes mid-grill (loop detection).
+
 ## 2.0.0 (2026-04-13)
 
 Simplified trailer scheme. Every commit now gets exactly three trailers (`AI-Phase`, `AI-Tool`, `Story-Ref`) instead of 5-7. One commit = one phase.

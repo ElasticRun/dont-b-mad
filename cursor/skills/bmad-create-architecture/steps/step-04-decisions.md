@@ -17,24 +17,26 @@
 
 - 🎯 Show your analysis before taking any action
 - 🌐 Search the web to verify technology versions and options
-- ⚠️ Present A/P/C menu after each major decision category
+- ⚠️ Present A/P/G/C menu after each major decision category
 - 💾 ONLY save when user chooses C (Continue)
 - 📖 Update frontmatter `stepsCompleted: [1, 2, 3, 4]` before loading next step
 - 🚫 FORBIDDEN to load next step until C is selected
 
-## COLLABORATION MENUS (A/P/C):
+## COLLABORATION MENUS (A/P/G/C):
 
 This step will generate content and present choices for each decision category:
 
 - **A (Advanced Elicitation)**: Use discovery protocols to explore innovative approaches to specific decisions
 - **P (Party Mode)**: Bring multiple perspectives to evaluate decision trade-offs
+- **G (Grill)**: Walk every dependent branch of the current category one decision at a time, with a recommended answer for each, until every load-bearing decision is settled. Use this when the category feels under-specified or when you want to stress-test before moving on.
 - **C (Continue)**: Save the current decisions and proceed to next decision category
 
 ## PROTOCOL INTEGRATION:
 
 - When 'A' selected: Invoke the `bmad-advanced-elicitation` skill
 - When 'P' selected: Invoke the `bmad-party-mode` skill
-- PROTOCOLS always return to display this step's A/P/C menu after the A or P have completed
+- When 'G' selected: Invoke the `dontbmad-grill` skill with `topic` set to the current decision category and `draft_so_far` set to the decisions recorded for it. Append the returned `Grilled Decisions` table into the category's content. Carry any `Deferred (Need Info)` rows into the document's deferred section.
+- PROTOCOLS always return to display this step's A/P/G/C menu after the A, P, or G have completed
 - User accepts/rejects protocol changes before proceeding
 
 ## CONTEXT BOUNDARIES:
@@ -258,6 +260,7 @@ Show the generated decisions content and present choices:
 **What would you like to do?**
 [A] Advanced Elicitation - Explore innovative approaches to any specific decisions
 [P] Party Mode - Review decisions from multiple perspectives
+[G] Grill - Walk every unresolved branch of these decisions, one question at a time, with a recommendation for each
 [C] Continue - Save these decisions and move to implementation patterns"
 
 ### 7. Handle Menu Selection
@@ -275,8 +278,22 @@ Show the generated decisions content and present choices:
 - Invoke the `bmad-party-mode` skill with architectural decisions context
 - Process collaborative insights about decision trade-offs
 - Ask user: "Accept these changes to the architectural decisions? (y/n)"
-- If yes: Update content, then return to A/P/C menu
-- If no: Keep original content, then return to A/P/C menu
+- If yes: Update content, then return to A/P/G/C menu
+- If no: Keep original content, then return to A/P/G/C menu
+
+#### If 'G' (Grill):
+
+- Invoke the `dontbmad-grill` skill with:
+  - `topic`: "core architectural decisions" (or the specific category being grilled if invoked mid-category)
+  - `draft_so_far`: the decisions recorded so far in this step
+  - `intensity`: `light` (auto-invocation default — covers only the critical branches). Pass `standard` or `relentless` only if the user has already asked for a deeper pass.
+- The grill skill returns a `Grilled Decisions` table and an optional `Deferred (Need Info)` list
+- Merge the grilled decisions into the corresponding category's recorded decisions, overriding any prior recommendation that the user reversed during the grill
+- Move any deferred rows into the document's deferred decisions section
+- After the light pass returns, ask user: "Accept these grilled resolutions into the architecture? (y/n) — or [D] to go deeper at standard intensity, [R] for relentless"
+- If yes: Update content, then return to A/P/G/C menu
+- If no: Keep original content, then return to A/P/G/C menu
+- If D or R: Re-invoke `dontbmad-grill` with the higher intensity, merging additional resolutions on top of the light pass
 
 #### If 'C' (Continue):
 
@@ -295,7 +312,7 @@ When user selects 'C', append the content directly to the document using the str
 ✅ Decision rationale clearly documented
 ✅ Cascading implications identified and addressed
 ✅ User provided appropriate level of explanation for skill level
-✅ A/P/C menu presented and handled correctly for each category
+✅ A/P/G/C menu presented and handled correctly for each category
 ✅ Content properly appended to document when C selected
 
 ## FAILURE MODES:
@@ -305,7 +322,7 @@ When user selects 'C', append the content directly to the document using the str
 ❌ Missing cascading implications between decisions
 ❌ Not adapting explanations to user skill level
 ❌ Forgetting to document decisions made by starter template
-❌ Not presenting A/P/C menu after content generation
+❌ Not presenting A/P/G/C menu after content generation
 
 ❌ **CRITICAL**: Reading only partial step file - leads to incomplete understanding and poor decisions
 ❌ **CRITICAL**: Proceeding with 'C' without fully reading and understanding the next step file
@@ -315,4 +332,4 @@ When user selects 'C', append the content directly to the document using the str
 
 After user selects 'C' and content is saved to document, load `./step-05-patterns.md` to define implementation patterns that ensure consistency across AI agents.
 
-Remember: Do NOT proceed to step-05 until user explicitly selects 'C' from the A/P/C menu and content is saved!
+Remember: Do NOT proceed to step-05 until user explicitly selects 'C' from the A/P/G/C menu and content is saved!
