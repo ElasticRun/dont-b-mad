@@ -95,6 +95,35 @@ If version control is available and the working tree is dirty (review applied pa
 
 - Do NOT push. No remote ops.
 
+### 6.5 Persist review run artifact (always)
+
+Always persist review execution evidence, even when no code patches were applied.
+
+- Write a review artifact at:
+  - `{implementation_artifacts}/reviews/{story_key-or-manual}-{date}.md`
+- Include at minimum:
+  - review target summary (story key or manual diff source)
+  - model/agent used
+  - counts: decision-needed / patch / defer / dismissed
+  - final disposition (clean / action items / deferred)
+  - timestamp
+
+If version control is available:
+
+- Stage the artifact file.
+- Create a commit:
+  - `chore: record review run for {story_key-or-target}`
+- Append trailers:
+
+  ```
+  AI-Phase: review
+  AI-Tool: {agent/model currently running}
+  Story-Ref: {story_key-or-target}
+  ```
+
+- Do NOT push. No remote ops.
+- No empty commits: if artifact path already exists and content would be identical, append an updated `Run-Timestamp` line before committing.
+
 ### 7. Update story status and sync sprint tracking
 
 Skip this section if `{spec_file}` is not set.

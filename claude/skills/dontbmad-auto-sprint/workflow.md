@@ -81,6 +81,16 @@ GRAPH CONTEXT:
 
 Capture result. If agent reports failure/errors, **abort the loop** and surface the issue to the user.
 
+Then write implementation artifact:
+
+- Path: `stories/runs/<story-id>/impl.md`
+- Include:
+  - story id + title
+  - model used
+  - files changed (from impl output)
+  - impl test line from impl output
+  - timestamp
+
 ### Step 3: Test verification (fresh agent, `haiku`)
 
 Spawn Agent with these params:
@@ -102,6 +112,17 @@ No other output.
 ```
 
 If either fails, abort loop, surface output to user.
+
+Then write test artifact:
+
+- Path: `stories/runs/<story-id>/test.md`
+- Include:
+  - story id + title
+  - model used
+  - typecheck result
+  - test result
+  - failing names / first errors when present
+  - timestamp
 
 ### Step 4: Review (fresh agent, `opus`)
 
@@ -132,21 +153,64 @@ CAVEMAN style. No other output.
 
 If review returns blockers, abort loop, surface them to user. (Do NOT auto-fix — user decides.)
 
-### Step 5: Commit
+Then write review artifact:
 
-Stage only the files the impl agent touched. Commit with message:
+- Path: `stories/runs/<story-id>/review.md`
+- Include:
+  - story id + title
+  - model used
+  - `BLOCKERS` section
+  - `NOTES` section
+  - timestamp
+
+### Step 5: Commit implementation phase
+
+Stage only:
+
+- files the impl agent touched
+- `stories/runs/<story-id>/impl.md`
+
+Commit message:
 
 ```
 feat: implement story <id> <short-title>
-
-Co-Authored-By: Claude <noreply@anthropic.com>
 ```
 
-### Step 6: Update sprint status
+### Step 6: Commit test evidence
 
-Edit `stories/sprint-status.yaml`: change the story's status from `ready-for-dev` to `done`.
+Stage:
 
-### Step 7: Loop or stop
+- `stories/runs/<story-id>/test.md`
+
+Commit message:
+
+```
+test: verify story <id> implementation
+```
+
+### Step 7: Commit review evidence
+
+Stage:
+
+- `stories/runs/<story-id>/review.md`
+
+Commit message:
+
+```
+chore: record review for story <id>
+```
+
+### Step 8: Update sprint status
+
+Edit `stories/sprint-status.yaml`: change story status from `ready-for-dev` to `done`.
+
+Commit message:
+
+```
+chore: mark story <id> done in sprint status
+```
+
+### Step 9: Loop or stop
 
 If user invoked with `run auto sprint` (not `auto dev next story`), jump back to Step 1. Otherwise stop.
 
@@ -157,3 +221,4 @@ If user invoked with `run auto sprint` (not `auto dev next story`), jump back to
 - **Caveman output at every level.** User is running this to save tokens, not read prose.
 - **Orchestrator touches no source files directly.** All impl/review runs in subagents.
 - **Project-agnostic.** This skill works on any project that has `stories/sprint-status.yaml` and story spec files in `stories/`.
+- **No empty commits.** If a phase artifact is unchanged, append a fresh timestamp line so git history still records phase execution.

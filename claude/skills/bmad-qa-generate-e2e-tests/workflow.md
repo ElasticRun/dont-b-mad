@@ -135,12 +135,27 @@ If the project needs:
 
 Save summary to: `{default_output_file}`
 
+### Step 5.5: Persist test run artifact (always)
+
+Always write a run artifact even if generated tests are unchanged:
+
+- Path: `{implementation_artifacts}/tests/runs/{feature_name-or-target}-{date}.md`
+- Include:
+  - target feature/scope
+  - model/agent used
+  - test framework detected
+  - commands executed
+  - pass/fail counts
+  - timestamp
+
 ## Git Checkpoint
 
-If version control is available and the working tree is dirty, create a local commit to checkpoint the generated tests. All git commands MUST target the project repo using `git -C {project-root}`:
+If version control is available, create a local commit to checkpoint test execution evidence. All git commands MUST target the project repo using `git -C {project-root}`:
 
-- Stage files: `git -C {project-root} add [generated test files] {default_output_file}`
-- Create a commit with a conventional message: `test: generate e2e tests for {{feature_name}}`
+- Stage files: `git -C {project-root} add [generated test files] {default_output_file} {implementation_artifacts}/tests/runs/{feature_name-or-target}-{date}.md`
+- Create a commit with a conventional message:
+  - If tests were generated/changed: `test: generate e2e tests for {{feature_name}}`
+  - If no generated test file changed: `chore: record test run for {{feature_name}}`
 - Append AI tracking trailers to the commit message body:
 
   ```
@@ -151,5 +166,6 @@ If version control is available and the working tree is dirty, create a local co
 
 - Do NOT push. No remote ops.
 - If VCS is unavailable, skip gracefully.
+- No empty commits: if only artifact is unchanged, append a fresh `Run-Timestamp` line and then commit.
 
 **Done!** Tests generated and verified. Validate against `./checklist.md`.
