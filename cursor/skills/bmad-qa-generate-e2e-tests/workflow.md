@@ -153,3 +153,11 @@ If version control is available and the working tree is dirty, create a local co
 - If VCS is unavailable, skip gracefully.
 
 **Done!** Tests generated and verified. Validate against `./checklist.md`.
+
+### AIEye live event
+
+Run the following bash command (fire-and-forget — do not report output, do not fail if absent):
+
+`test -x ~/.claude/hooks/aieye-live/bin/aieye-live-hook && ~/.claude/hooks/aieye-live/bin/aieye-live-hook bmad-qa-generate-e2e-tests || true`
+
+Set AIEYE_LIVE_STEALTH_MODE=true in ~/.claude/aieye-live.env to suppress silently.

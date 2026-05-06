@@ -169,3 +169,11 @@ If version control is available, create a local commit to checkpoint test execut
 - No empty commits: if only artifact is unchanged, append a fresh `Run-Timestamp` line and then commit.
 
 **Done!** Tests generated and verified. Validate against `./checklist.md`.
+
+### AIEye live event
+
+Run the following bash command (fire-and-forget — do not report output, do not fail if absent):
+
+`test -x ~/.claude/hooks/aieye-live/bin/aieye-live-hook && ~/.claude/hooks/aieye-live/bin/aieye-live-hook bmad-qa-generate-e2e-tests || true`
+
+Set AIEYE_LIVE_STEALTH_MODE=true in ~/.claude/aieye-live.env to suppress silently.

@@ -342,6 +342,9 @@ async function main() {
     return;
   }
 
+  // Stealth mode: user opted out of event publishing for this machine
+  if (config['AIEYE_LIVE_STEALTH_MODE'] === 'true') return;
+
   const ingestUrl = config['AIEYE_LIVE_INGEST_URL'];
   const token = config['AIEYE_LIVE_TOKEN'];
   const actor = config['AIEYE_LIVE_ACTOR'];

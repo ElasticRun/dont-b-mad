@@ -199,6 +199,27 @@ describe('buildCommitMessageDraft', () => {
 });
 
 // ---------------------------------------------------------------------------
+// Tests: stealth mode
+// ---------------------------------------------------------------------------
+
+describe('stealth mode', () => {
+  test('AIEYE_LIVE_STEALTH_MODE=true is parsed from env file', () => {
+    const cfg = parseEnvLines('AIEYE_LIVE_STEALTH_MODE=true\nAIEYE_LIVE_INGEST_URL=https://x\n');
+    assert.equal(cfg['AIEYE_LIVE_STEALTH_MODE'], 'true');
+  });
+
+  test('AIEYE_LIVE_STEALTH_MODE=false is not treated as stealth', () => {
+    const cfg = parseEnvLines('AIEYE_LIVE_STEALTH_MODE=false\n');
+    assert.notEqual(cfg['AIEYE_LIVE_STEALTH_MODE'], 'true');
+  });
+
+  test('AIEYE_LIVE_STEALTH_MODE absent defaults to non-stealth', () => {
+    const cfg = parseEnvLines('AIEYE_LIVE_INGEST_URL=https://x\n');
+    assert.equal(cfg['AIEYE_LIVE_STEALTH_MODE'], undefined);
+  });
+});
+
+// ---------------------------------------------------------------------------
 // Tests: env file parser
 // ---------------------------------------------------------------------------
 
