@@ -1,6 +1,6 @@
 # dontbmad-auto-sprint workflow
 
-Auto-implement one (or more) `ready-for-dev` stories from `stories/sprint-status.yaml`. Each phase runs in a **fresh subagent** (via the `Agent` tool) so the orchestrator's context stays thin. Each phase uses a **different model** for cross-model verification.
+Auto-implement one (or more) `ready-for-dev` stories from `stories/sprint-status.yaml`. Impl and review run in **fresh subagents** (via the `Agent` tool) so the orchestrator's context stays thin. Test verification runs **inline** in the orchestrator — subagent dispatch overhead exceeded the actual `tsc` + test work.
 
 ## Config file
 
@@ -13,12 +13,12 @@ At startup the workflow reads `stories/auto-sprint.config.yaml` from the project
 
 models:
   impl: sonnet       # implementation phase
-  review: opus       # review phase — deeper reasoning, fresh eyes
-  test: haiku        # test/verify phase — mechanical, cheapest
+  review: sonnet     # review phase — sonnet is fast and capable enough; switch to opus only if review keeps missing real issues
+  # test phase runs inline in the orchestrator (no subagent)
 
 auto_fix:
-  enabled: false     # when true, review blockers are fed back to a fix agent automatically
-  max_attempts: 2    # max fix-loops per story before aborting (only relevant when enabled: true)
+  enabled: true      # auto-feed test/review blockers to a fix agent. Set false to require human triage.
+  max_attempts: 2    # max fix-loops per story before aborting
 ```
 
 ## Setup for fully autonomous operation
@@ -35,21 +35,21 @@ Once permissions are configured, set `autonomous_mode.enabled: true` in your `st
 
 ## Model assignment (defaults)
 
-| Phase | Default model | Reason |
+| Phase | Default | Reason |
 |---|---|---|
-| Implementation | `sonnet` | Fast, capable, good for well-specced stories |
-| Review | `opus` | Deep reasoning, fresh eyes catch what impl missed |
-| Test/verify | `haiku` | Mechanical (runs `tsc` + `vitest`), cheapest |
+| Implementation | `sonnet` (subagent) | Fast, capable, good for well-specced stories |
+| Test/verify | inline Bash in orchestrator | Mechanical (`tsc` + `vitest`); subagent dispatch overhead exceeds the work |
+| Review | `sonnet` (subagent) | Cross-agent fresh eyes; sonnet is fast and catches real issues. Use `--model-review=opus` for deeper review when stakes are high |
 
-CLI flags override config: `--model-impl=opus --model-review=sonnet --model-test=haiku`
+CLI flags override config: `--model-impl=opus --model-review=opus`
 
 ## Usage
 
 - `run auto sprint` → loop through all `ready-for-dev` stories until done or a story fails
 - `auto dev next story` → one iteration only
 - `run auto sprint --dry-run` → list next 3 stories, don't implement
-- `run auto sprint --model-impl=opus --model-review=sonnet` → override models for this run
-- `run auto sprint --auto-fix` → enable auto-fix for this run (overrides config)
+- `run auto sprint --model-impl=opus --model-review=opus` → override models for this run
+- `run auto sprint --no-auto-fix` → disable auto-fix for this run (overrides config)
 
 ## Output style
 
@@ -58,8 +58,8 @@ CLI flags override config: `--model-impl=opus --model-review=sonnet --model-test
 ```
 [3/10] story 3-4-empty-data-states
   impl (sonnet)   ✓ 4 files changed
-  test (haiku)    ✓ 245/245 pass, tsc clean
-  review (opus)   ✓ no blockers
+  test (inline)   ✓ 245/245 pass, tsc clean
+  review (sonnet) ✓ no blockers
   commit          553b020
 ```
 
@@ -67,12 +67,12 @@ When auto-fix kicks in:
 
 ```
 [3/10] story 3-4-empty-data-states
-  impl (sonnet)   ✓ 4 files changed
-  test (haiku)    ✗ 3 fail
-  fix-1 (sonnet)  ✓ 2 files changed
-  test (haiku)    ✓ 245/245 pass, tsc clean
-  review (opus)   ✓ no blockers
-  commit          553b020
+  impl (sonnet)    ✓ 4 files changed
+  test (inline)    ✗ 3 fail
+  fix-1 (sonnet)   ✓ 2 files changed
+  test (inline)    ✓ 245/245 pass, tsc clean
+  review (sonnet)  ✓ no blockers
+  commit           553b020
 ```
 
 ## Workflow steps (per story)
@@ -86,26 +86,34 @@ Use the current working directory as the project root. All paths below are relat
 Check if `stories/auto-sprint.config.yaml` exists. If it does, read it and extract:
 
 - `models.impl` → `{model_impl}` (default: `sonnet`)
-- `models.review` → `{model_review}` (default: `opus`)
-- `models.test` → `{model_test}` (default: `haiku`)
-- `auto_fix.enabled` → `{auto_fix_enabled}` (default: `false`)
+- `models.review` → `{model_review}` (default: `sonnet`)
+- `auto_fix.enabled` → `{auto_fix_enabled}` (default: `true`)
 - `auto_fix.max_attempts` → `{auto_fix_max_attempts}` (default: `2`)
 
 Then apply CLI overrides on top:
 - `--model-impl=X` → overrides `{model_impl}`
 - `--model-review=X` → overrides `{model_review}`
-- `--model-test=X` → overrides `{model_test}`
-- `--auto-fix` flag → overrides `{auto_fix_enabled}` to `true`
+- `--auto-fix` flag → forces `{auto_fix_enabled}` to `true`
+- `--no-auto-fix` flag → forces `{auto_fix_enabled}` to `false`
 
-Log resolved config in one line: `config: impl={model_impl} review={model_review} test={model_test} auto_fix={auto_fix_enabled}`
+Resolve short model aliases to full model ids for the AI-tracking trailer in Step 5:
+- `sonnet` → `claude-sonnet-4-6`
+- `opus` → `claude-opus-4-7`
+- `haiku` → `claude-haiku-4-5`
+- any other value → use verbatim
+
+Log resolved config in one line: `config: impl={model_impl} review={model_review} auto_fix={auto_fix_enabled}`
 
 ### Step 1: Pick next story
 
 Read `stories/sprint-status.yaml`. Find the first story with status `ready-for-dev`, processing epics in order (1 → N). If none left, report "all done" and exit.
 
-### Step 1.5: Graph context (skip if graph.json missing)
+### Step 1.5: Graph context (skip aggressively)
 
-If `graphify-out/graph.json` exists, run **exactly one** query using 3–5 short keywords extracted from the story title (not a full sentence — graphify does BFS from node name matches, not semantic search):
+**Early-exit checks (in order — first match wins):**
+
+1. If `graphify-out/graph.json` does not exist OR is smaller than 1KB → set `{graph_context}` = `(none, graph not built)` and continue. Do not run any query.
+2. Otherwise run **exactly one** query using 3–5 short keywords from the story title (graphify does BFS from node name matches, not semantic search):
 
 ```bash
 uvx --from graphifyy graphify query --budget 1500 "<keyword1> <keyword2> <keyword3>" | head -80
@@ -113,7 +121,10 @@ uvx --from graphifyy graphify query --budget 1500 "<keyword1> <keyword2> <keywor
 
 Example: story "SSE stream endpoint with display token verification" → query `"display_token sse ingest auth"`
 
-Save the first 80 lines of stdout as `{graph_context}` (already capped by `head -80`). Accept whatever comes back — even "No matching nodes found". **Do NOT retry.** If the file does not exist, set `{graph_context}` = `(none, graph not built)` and continue.
+3. If the query output contains `"No matching nodes found"`, is empty, or is fewer than 5 non-blank lines → set `{graph_context}` = `(none, no graph hits)` and continue.
+4. Otherwise save stdout as `{graph_context}`.
+
+**Hard rule:** never run a second graph query in this step, never rephrase, never retry. The orchestrator's job here is to either grab usable context cheaply or skip. Spending more than 5 seconds on graphify defeats its purpose.
 
 ### Step 2: Implementation (fresh agent, `{model_impl}`)
 
@@ -150,25 +161,31 @@ GRAPH CONTEXT:
 
 Capture result. Retain only the final summary block (the `files/tests/issues` lines) — this is the only part that needs to persist in orchestrator context. If agent reports failure/errors, **abort the loop** and surface the issue to the user.
 
-### Step 3: Test verification (fresh agent, `{model_test}`)
+### Step 3: Test verification (inline Bash, no subagent)
 
-Spawn Agent with these params:
-- `subagent_type`: `general-purpose`
-- `model`: `{model_test}`
-- `description`: "Verify tests for story <id>"
-- `prompt`:
+This phase runs in the orchestrator. Subagent dispatch overhead is ~10s; the actual work (running `tsc` + tests) is faster than the dispatch, so inlining wins.
 
+**Resolve commands once per sprint** (cache across stories):
+
+1. If `package.json` has a `scripts.typecheck` entry → `{tc_cmd}` = `npm run typecheck`. Else if `tsconfig.json` exists → `{tc_cmd}` = `npx tsc --noEmit`. Else → `{tc_cmd}` = `(skip)`.
+2. If `package.json` has `scripts.test` → `{test_cmd}` = `npm test --silent`. Else if vitest is in deps → `{test_cmd}` = `npx vitest run`. Else → `{test_cmd}` = `(skip)`.
+3. Non-Node projects: detect by `pyproject.toml` (`pytest`), `Cargo.toml` (`cargo test`), `go.mod` (`go test ./...`), etc. If no test runner detectable, set `{test_cmd}` = `(skip)` and warn once.
+
+**Run them** (each in its own Bash call so partial failure is visible):
+
+```bash
+{tc_cmd} 2>&1 | tail -30
 ```
-Run typecheck and tests in <project-root>. No text between tool calls — work silently. Output exactly this at the end and nothing else:
 
-typecheck: pass | fail
-tests: X/Y pass
-<first 25 error lines if either failed — truncate beyond that>
+```bash
+{test_cmd} 2>&1 | tail -40
 ```
 
-If either fails:
+Parse exit codes. Build `{test_output}` = the concatenated tails (max ~70 lines).
+
+If typecheck failed OR tests failed:
 - If `{auto_fix_enabled}` is `true` and current fix attempt count < `{auto_fix_max_attempts}`: go to **Step 3.5**
-- Otherwise: abort loop, surface output to user
+- Otherwise: abort loop, print `{test_output}` to user
 
 ### Step 3.5: Auto-fix test failures (only when `{auto_fix_enabled}` is `true`)
 
@@ -197,7 +214,7 @@ RULES:
 - Do NOT commit
 
 FAILURES TO FIX (first 25 lines):
-{test_output_from_step_3}
+{test_output}
 ```
 
 Then loop back to **Step 3** (re-verify).
@@ -256,10 +273,14 @@ Then loop back to **Step 3** (re-verify tests, then re-review).
 
 ### Step 5: Commit
 
-Stage only the files the impl/fix agents touched. Commit with message:
+Stage only the files the impl/fix agents touched. Commit with message (substitute `{model_impl}` with the resolved value, e.g. `claude-sonnet-4-6`, `claude-opus-4-7`):
 
 ```
 feat: implement story <id> <short-title>
+
+AI-Phase: code
+AI-Tool: cursor/claude-{model_impl}
+Story-Ref: <id>
 
 Co-Authored-By: Claude <noreply@anthropic.com>
 ```
@@ -277,9 +298,12 @@ If user invoked with `run auto sprint` (not `auto dev next story`), jump back to
 ## Notes
 
 - **Never skip hooks.** If pre-commit fails, abort and surface.
-- **Auto-fix is opt-in.** Without `auto_fix.enabled: true` in config (or `--auto-fix` flag), review blockers still abort and surface to the user. Cross-model review exists to catch real issues — auto-fix only makes sense when you've tuned your story specs well enough to trust the loop.
+- **AI-tracking trailer is mandatory** on the Step 5 commit. If `AI-Phase:` is missing, the project's `prepare-commit-msg` hook stamps `AI-Tool: manual`, which corrupts the adoption dashboard. Substitute the resolved model id, never leave `{model_impl}` literal.
+- **Auto-fix is on by default.** Bounded by `max_attempts: 2`. To require human triage on every blocker, set `auto_fix.enabled: false` or pass `--no-auto-fix`.
 - **Fix attempt counter resets per story.** `max_attempts` applies independently to each story, not the whole sprint run.
 - **Caveman output at every level.** User is running this to save tokens, not read prose.
-- **Orchestrator touches no source files directly.** All impl/fix/review runs in subagents.
+- **Orchestrator touches source files only during inline test verification.** Impl/fix/review still run in fresh subagents.
+- **Verify phase is inline, not a subagent.** Subagent dispatch overhead (~10s) exceeded the actual work (`tsc` + tests). Running it in the orchestrator saves ~50s per story.
+- **Cross-model review is optional, not default.** Default review model is `sonnet` (same family as impl). For high-stakes runs use `--model-review=opus`.
 - **Keep orchestrator context lean.** After each agent call, retain only the compact summary (3–4 lines). Do not carry full agent output forward — the sprint log table is the only cross-story state.
-- **Project-agnostic.** This skill works on any project that has `stories/sprint-status.yaml` and story spec files in `stories/`.
+- **Project-agnostic.** Works on any project with `stories/sprint-status.yaml` and story spec files in `stories/`.

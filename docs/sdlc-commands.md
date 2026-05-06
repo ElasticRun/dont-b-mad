@@ -52,6 +52,7 @@ Produces `planning/architecture.md` — the technical blueprint every dev agent 
 | 2 | Project context analysis — map PRD requirements to architectural concerns; for brownfield projects, read `graphify-out/GRAPH_REPORT.md` as ground truth of what already exists | — | Step-file JIT; **Graphify-aware** (brownfield only) | — |
 | 3 | Starter template evaluation — options with current versions | — | Step-file JIT; web search for live framework versions | — |
 | 4 | Core architectural decisions — tech stack, API design, data layer, auth | — | Step-file JIT; web search for current technology versions | `planning/architecture.md` |
+| 4b | Optional decision-grill pass — pick `G` after any decision category to stress-test recommendations; `D` deepens to standard intensity, `R` to relentless | Grill skill | **Skipped by default**; only runs when user opts in. Light pass first; deeper passes layer on top | `planning/architecture.md` (decisions merged in place) |
 | 5 | Implementation patterns and consistency rules — what every agent must do the same way | — | Step-file JIT | `planning/architecture.md` |
 | 6 | Project structure and boundaries — full folder tree, component map, module boundaries | — | Step-file JIT | `planning/architecture.md` |
 | 7 | Architecture validation — every PRD requirement must map to a decision | — | Step-file JIT | `planning/architecture.md` |
@@ -305,15 +306,36 @@ If `graphify-out/` is absent, every workflow step that reads the graph skips it 
 
 ---
 
+## AIEye Live integration
+
+Optional `PostToolUse` hook (`hooks/post-skill/`) that fires a celebration event to a team ingest endpoint when one of the SDLC skills completes. Fire-and-forget — foreground exits in under 50ms, network errors never fail the skill.
+
+| Trigger skill | Event |
+|---|---|
+| `bmad-create-story` | `story_created` |
+| `bmad-dev-story` | `story_developed` |
+| `bmad-code-review` | `review_landed` |
+| `bmad-qa-generate-e2e-tests` | `test_added` |
+
+**Configuration** — `~/.claude/aieye-live.env` (mode 600). Required: `AIEYE_LIVE_INGEST_URL`, `AIEYE_LIVE_TOKEN`, `AIEYE_LIVE_ACTOR`. Optional: `AIEYE_LIVE_TEAM`, `AIEYE_LIVE_SKILLS` (allowlist), `AIEYE_LIVE_AI_TOOL`.
+
+**Opt-out** — set `AIEYE_LIVE_STEALTH_MODE=true` to skip event publishing on a specific machine without removing the hook. Required env vars missing also short-circuits silently.
+
+If the env file is absent the hook does nothing. No git operations, works outside any repository.
+
+---
+
 ## Adoption tracking
 
 Every command's final step commits to git with three trailers that feed the adoption dashboard:
 
 ```
-AI-Phase: <prd|architecture|ux-design|epics|story|code|review|test>
+AI-Phase: <prd|architecture|ux-design|epics|sprint-plan|story|code|review|test|deploy>
 AI-Tool:  <agent and model that ran it, e.g. "cursor/claude-sonnet-4-20250514">
 Story-Ref: <story key or phase name>
 ```
+
+`deploy` is reserved by the dashboard (target 80%) but not auto-tagged by any workflow or by the `prepare-commit-msg` hook. The column will read `0/0` until a `/deploy` workflow exists or someone manually adds `AI-Phase: deploy` to deployment commits.
 
 Manual commits in this repo are auto-tagged by the `prepare-commit-msg` hook (`AI-Phase: code`, `AI-Tool: manual`) so there are no gaps in the history. If a workflow already wrote trailers, the hook leaves them alone.
 
@@ -422,6 +444,7 @@ These are the targets set in the dashboard — the team is expected to meet or e
 | `code` | 80% | Implementation commits from `/dev-story` |
 | `test` | 85% | Test files generated via `/qa` |
 | `review` | 95% | Reviews run via `/code-review` |
+| `deploy` | 80% | Deployment commits — currently no workflow writes this; column stays empty until adopted |
 
 Planning phases have a higher target (90%) because they are fully facilitated — there is no reason to do them manually. Code has a lower target (80%) because some hotfixes and config changes are legitimately faster to do by hand.
 
