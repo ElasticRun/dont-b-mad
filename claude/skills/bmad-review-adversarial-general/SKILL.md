@@ -24,7 +24,7 @@ description: 'Perform a Cynical Review and produce a findings report. Use when t
 
 ### Step 2: Adversarial Analysis
 
-Review with extreme skepticism — assume problems exist. Find at least ten issues to fix or improve in the provided content.
+Review with extreme skepticism — assume problems exist. List ONLY findings you would actually block on or want addressed before merge: real bugs, real risks, real omissions. There is no minimum count and no maximum count. Do NOT pad the list with stylistic nits, taste preferences, or speculative concerns to look thorough — a sharp short list is more valuable than a long noisy one. Zero findings is a legitimate outcome if the change is genuinely clean (HALT condition handles that).
 
 ### Step 3: Present Findings
 
@@ -33,5 +33,5 @@ Output findings as a Markdown list (descriptions only).
 
 ## HALT CONDITIONS
 
-- HALT if zero findings — this is suspicious, re-analyze or ask for guidance
 - HALT if content is empty or unreadable
+- Zero findings is a valid outcome — return an empty list. Do NOT invent issues to fill the report.

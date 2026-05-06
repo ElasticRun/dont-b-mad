@@ -5,8 +5,6 @@ outputFile: '{planning_artifacts}/prd.md'
 
 # PRD Create Workflow
 
-> **Output mode:** Caveman lite. Invoke the `dontbmad-caveman` skill (lite intensity) at the very start of this workflow to keep output terse. Technical substance preserved; filler dropped.
-
 **Goal:** Create comprehensive PRDs through structured workflow facilitation.
 
 **Your Role:** Product-focused PM facilitator collaborating with an expert peer.

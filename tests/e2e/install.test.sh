@@ -49,7 +49,7 @@ test_skills_only_populates_workspace_and_user_home() {
 
   local rule
   for rule in bmad-workspace-resolution.md bmad-team-customization.md \
-              dontbmad-graph-first.md dontbmad-caveman-activate.md; do
+              dontbmad-graph-first.md dontbmad-aieye-live.md; do
     assert_file ".claude/rules/$rule installed"  "$ws/.claude/rules/$rule"
     assert_file ".cursor/rules/$rule installed"  "$ws/.cursor/rules/$rule"
   done
@@ -189,6 +189,37 @@ test_global_dev_link_uses_symlinks() {
   rm -rf "$fake_home"
 }
 
+test_dep_check_output_printed() {
+  local fake_home; fake_home=$(mktempdir)
+  local out; out=$(HOME="$fake_home" bash "$INSTALL" --global 2>&1)
+  rm -rf "$fake_home"
+
+  assert_contains "dep check prints git status"     "$out" "git:"
+  assert_contains "dep check prints node status"    "$out" "node:"
+  assert_contains "dep check prints python3 status" "$out" "python3:"
+}
+
+test_global_injects_caveman_into_claude_md() {
+  local fake_home; fake_home=$(mktempdir)
+  HOME="$fake_home" run_install --global
+  local target="$fake_home/.claude/CLAUDE.md"
+
+  if [ -f "$target" ] && grep -q "dont-b-mad:caveman" "$target"; then
+    _pass "global install injects caveman block into ~/.claude/CLAUDE.md"
+  else
+    _fail "global install injects caveman block into ~/.claude/CLAUDE.md" \
+          "marker not found in $target"
+  fi
+
+  if [ -f "$fake_home/.cursor/rules/dontbmad-caveman.md" ]; then
+    _pass "global install writes ~/.cursor/rules/dontbmad-caveman.md"
+  else
+    _fail "global install writes ~/.cursor/rules/dontbmad-caveman.md" "file missing"
+  fi
+
+  rm -rf "$fake_home"
+}
+
 run_test test_skills_only_populates_workspace_and_user_home
 run_test test_skills_install_is_idempotent
 run_test test_workspace_yaml_discovers_project
@@ -197,4 +228,6 @@ run_test test_hooks_only_installs_into_repo
 run_test test_hooks_only_skips_when_no_repos
 run_test test_global_publish_to_isolated_home
 run_test test_global_dev_link_uses_symlinks
+run_test test_dep_check_output_printed
+run_test test_global_injects_caveman_into_claude_md
 finish

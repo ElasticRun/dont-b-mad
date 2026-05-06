@@ -1,7 +1,5 @@
 # Create Story Workflow
 
-> **Output mode:** Caveman lite. Invoke the `dontbmad-caveman` skill (lite intensity) at the very start of this workflow to keep output terse. Technical substance preserved; filler dropped.
-
 **Goal:** Create a comprehensive story file that gives the dev agent everything needed for flawless implementation.
 
 **Your Role:** Story context engine that prevents LLM developer mistakes, omissions, or disasters.
@@ -152,62 +150,6 @@ Load config from `{project-root}/_bmad/bmm/config.yaml` and resolve:
 
     <action>GOTO step 2a</action>
   </check>
-  <action>Load the FULL file: {{sprint_status}}</action>
-  <action>Read ALL lines from beginning to end - do not skip any content</action>
-  <action>Parse the development_status section completely</action>
-
-  <action>Find the FIRST story (by reading in order from top to bottom) where:
-    - Key matches pattern: number-number-name (e.g., "1-2-user-auth")
-    - NOT an epic key (epic-X) or retrospective (epic-X-retrospective)
-    - Status value equals "backlog"
-  </action>
-
-  <check if="no backlog story found">
-    <output>No backlog stories found in sprint-status.yaml
-
-      All stories are either already created, in progress, or done.
-
-      **Options:**
-      1. Run sprint-planning to refresh story tracking
-      2. Load PM agent and run correct-course to add more stories
-      3. Check if current sprint is complete and run retrospective
-    </output>
-    <action>HALT</action>
-  </check>
-
-  <action>Extract from found story key (e.g., "1-2-user-authentication"):
-    - epic_num: first number before dash (e.g., "1")
-    - story_num: second number after first dash (e.g., "2")
-    - story_title: remainder after second dash (e.g., "user-authentication")
-  </action>
-  <action>Set {{story_id}} = "{{epic_num}}.{{story_num}}"</action>
-  <action>Store story_key for later use (e.g., "1-2-user-authentication")</action>
-
-  <!-- Mark epic as in-progress if this is first story -->
-  <action>Check if this is the first story in epic {{epic_num}} by looking for {{epic_num}}-1-* pattern</action>
-  <check if="this is first story in epic {{epic_num}}">
-    <action>Load {{sprint_status}} and check epic-{{epic_num}} status</action>
-    <action>If epic status is "backlog" → update to "in-progress"</action>
-    <action>If epic status is "contexted" (legacy status) → update to "in-progress" (backward compatibility)</action>
-    <action>If epic status is "in-progress" → no change needed</action>
-    <check if="epic status is 'done'">
-      <output>ERROR: Cannot create story in completed epic</output>
-      <output>Epic {{epic_num}} is marked as 'done'. All stories are complete.</output>
-      <output>If you need to add more work, either:</output>
-      <output>1. Manually change epic status back to 'in-progress' in sprint-status.yaml</output>
-      <output>2. Create a new epic for additional work</output>
-      <action>HALT - Cannot proceed</action>
-    </check>
-    <check if="epic status is not one of: backlog, contexted, in-progress, done">
-      <output>ERROR: Invalid epic status '{{epic_status}}'</output>
-      <output>Epic {{epic_num}} has invalid status. Expected: backlog, in-progress, or done</output>
-      <output>Please fix sprint-status.yaml manually or run sprint-planning to regenerate</output>
-      <action>HALT - Cannot proceed</action>
-    </check>
-    <output>Epic {{epic_num}} status updated to in-progress</output>
-  </check>
-
-  <action>GOTO step 2a</action>
 </step>
 
 <step n="2" goal="Load and analyze core artifacts">
@@ -278,27 +220,39 @@ Load config from `{project-root}/_bmad/bmm/config.yaml` and resolve:
   <action>For any architectural area where the artifact is silent, ambiguous, or contradicts an epic AC, append a question to {{open_questions}}. Example entries: "AC4 says 'cache the response' — TTL not specified; pick from architecture cache strategy?", "Story touches `lib/hubspot/` but architecture doesn't say whether retries are story-level or client-level".</action>
 </step>
 
-<step n="4" goal="Web research for latest technical specifics">
-  <critical>🌐 ENSURE LATEST TECH KNOWLEDGE - Prevent outdated implementations!</critical> **WEB INTELLIGENCE:** <action>Identify specific
-  technical areas that require latest version knowledge:</action>
+<step n="4" goal="Web research for latest technical specifics (conditional)">
+  <critical>SKIP unless this story introduces a new dependency or upgrades a version-sensitive integration. Web research is expensive (search + fetch tokens) and rarely actionable for stories that build on already-established stack choices.</critical>
 
-  <!-- Check for libraries/frameworks mentioned in architecture -->
-  <action>From architecture analysis, identify specific libraries, APIs, or
-  frameworks</action>
-  <action>For each critical technology, research latest stable version and key changes:
-    - Latest API documentation and breaking changes
-    - Security vulnerabilities or updates
-    - Performance improvements or deprecations
-    - Best practices for current version
+  <!-- Decide if web research is needed -->
+  <action>Inspect the story's acceptance criteria, technical requirements, and source hints from {epics_content}, plus the architecture deltas extracted in step 3. Web research fires ONLY if at least one of these is true:
+    - Story explicitly adds a NEW library, framework, SDK, or external API not already in use
+    - Story upgrades a major version of an existing dependency (e.g., React 17 → 18, Node 18 → 20)
+    - Story integrates with a third-party service whose API surface changes frequently AND the architecture doc is silent on which version/endpoint to target
+    - User explicitly requested fresh tech research for this story
   </action>
-  **EXTERNAL CONTEXT INCLUSION:** <action>Include in story any critical latest information the developer needs:
-    - Specific library versions and why chosen
-    - API endpoints with parameters and authentication
-    - Recent security patches or considerations
-    - Performance optimization techniques
-    - Migration considerations if upgrading
-  </action>
-  <action>For any technical specific the web research couldn't pin down (e.g., "library X v3 changed the auth callback signature — pick old or new?"), append a question to {{open_questions}}.</action>
+
+  <check if="none of the above triggers fire">
+    <output>⏭️ Step 4 skipped — story builds on already-established stack; no web research needed.</output>
+    <action>GOTO step 5</action>
+  </check>
+
+  <check if="at least one trigger fires">
+    <action>Identify the specific libraries, APIs, or frameworks that triggered the research (do NOT research the entire stack — only the new/upgraded items).</action>
+    <action>For each triggering technology, research latest stable version and key changes:
+      - Latest API documentation and breaking changes
+      - Security vulnerabilities or updates
+      - Performance improvements or deprecations
+      - Best practices for current version
+    </action>
+    <action>Include in story any critical latest information the developer needs:
+      - Specific library versions and why chosen
+      - API endpoints with parameters and authentication
+      - Recent security patches or considerations
+      - Performance optimization techniques
+      - Migration considerations if upgrading
+    </action>
+    <action>For any technical specific the web research couldn't pin down (e.g., "library X v3 changed the auth callback signature — pick old or new?"), append a question to {{open_questions}}.</action>
+  </check>
 </step>
 
 <step n="5" goal="Create comprehensive story file">
@@ -441,11 +395,5 @@ Load config from `{project-root}/_bmad/bmm/config.yaml` and resolve:
   </output>
 </step>
 
-<step n="next" goal="Fire AIEye celebration event">
-  <action>Run the following bash command (fire-and-forget — do not report output, do not fail if absent):
-    `test -x ~/.claude/hooks/aieye-live/bin/aieye-live-hook && ~/.claude/hooks/aieye-live/bin/aieye-live-hook bmad-create-story || true`
-    Set AIEYE_LIVE_STEALTH_MODE=true in ~/.claude/aieye-live.env to suppress silently.
-  </action>
-</step>
 
 </workflow>

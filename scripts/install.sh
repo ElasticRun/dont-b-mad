@@ -67,6 +67,61 @@ else
 fi
 echo ""
 
+# --- Dependency checks ---
+# Gates features that need specific tools; never hard-fails the install.
+NODE_OK=false
+PYTHON3_OK=false
+GIT_OK=false
+UVX_OK=false
+
+check_system_deps() {
+  echo "Dependencies:"
+
+  if command -v git >/dev/null 2>&1; then
+    echo "  git:      ok ($(git --version 2>&1 | head -1))"
+    GIT_OK=true
+  else
+    echo "  git:      NOT FOUND — git hooks will be skipped"
+    echo "            Install: https://git-scm.com/downloads"
+  fi
+
+  if command -v node >/dev/null 2>&1; then
+    local _ver _major
+    _ver=$(node --version 2>/dev/null | sed 's/v//')
+    _major="${_ver%%.*}"
+    if [ "${_major:-0}" -ge 18 ] 2>/dev/null; then
+      echo "  node:     ok (v$_ver)"
+      NODE_OK=true
+    else
+      echo "  node:     v$_ver found — needs >= 18 (aieye-live hook requires Node 18+)"
+      echo "            Upgrade: https://nodejs.org  or  brew upgrade node  or  nvm install 18"
+    fi
+  else
+    echo "  node:     NOT FOUND — aieye-live hook requires Node >= 18"
+    echo "            Install:  https://nodejs.org  or  brew install node  or  nvm install 18"
+  fi
+
+  if command -v python3 >/dev/null 2>&1; then
+    echo "  python3:  ok ($(python3 --version 2>&1))"
+    PYTHON3_OK=true
+  else
+    echo "  python3:  NOT FOUND — hook registration and caveman injection will be skipped"
+    echo "            Install:  https://python.org  or  brew install python3"
+  fi
+
+  if command -v uvx >/dev/null 2>&1; then
+    echo "  uvx:      ok"
+    UVX_OK=true
+  else
+    echo "  uvx:      NOT FOUND — graphify will be skipped"
+    echo "            Install:  curl -LsSf https://astral.sh/uv/install.sh | sh"
+  fi
+
+  echo ""
+}
+
+check_system_deps
+
 claude_count=0
 cursor_count=0
 hook_repos=0
@@ -132,6 +187,12 @@ post_skill_hook_installed=false
 install_post_skill_hook() {
   local src="$REPO_ROOT/hooks/post-skill"
   [ -d "$src" ] || return 0
+
+  if ! $NODE_OK; then
+    echo "  Post-skill hook: skipped (node >= 18 required — see dependency warnings above)"
+    return 0
+  fi
+
   local dst="$HOME/.claude/hooks/aieye-live"
   mkdir -p "$dst/bin" "$dst/lib"
   cp "$src/package.json"               "$dst/package.json"
@@ -141,17 +202,74 @@ install_post_skill_hook() {
   cp "$src/lib/dispatch.test.js"       "$dst/lib/dispatch.test.js"  2>/dev/null || true
   cp "$src/lib/dispatch.queue.test.js" "$dst/lib/dispatch.queue.test.js" 2>/dev/null || true
   chmod +x "$dst/bin/aieye-live-hook"
+
   local hook_bin="$dst/bin/aieye-live-hook"
   local settings="$HOME/.claude/settings.json"
   local reg_status
-  if command -v python3 >/dev/null 2>&1; then
+  if $PYTHON3_OK; then
     reg_status=$(python3 "$REPO_ROOT/scripts/register-post-skill-hook.py" "$settings" "$hook_bin" 2>&1)
   else
-    reg_status="installed (python3 not found — add to ~/.claude/settings.json Stop hooks manually)"
+    reg_status="files installed; add to ~/.claude/settings.json Stop hooks manually (python3 missing)"
   fi
   echo "  Post-skill hook: ~/.claude/hooks/aieye-live  ($reg_status)"
   echo "  To activate:    create ~/.claude/aieye-live.env (see hooks/post-skill/README.md)"
   post_skill_hook_installed=true
+}
+
+# --- Global caveman: inject terse-mode rules into ~/.claude/CLAUDE.md + ~/.cursor/rules/ ---
+# Makes caveman always-on without per-session activation. Safe to run repeatedly;
+# uses HTML comment markers to detect and replace an existing block.
+inject_global_caveman() {
+  local template="$REPO_ROOT/templates/dontbmad-caveman-global.md"
+  [ -f "$template" ] || return 0
+  if ! $PYTHON3_OK; then
+    echo "  Caveman:        skipped (python3 required — see dependency warnings above)"
+    return 0
+  fi
+
+  local marker="dont-b-mad:caveman"
+
+  # Claude Code: inject/update ~/.claude/CLAUDE.md
+  local claude_md="$HOME/.claude/CLAUDE.md"
+  python3 - "$claude_md" "$template" "$marker" <<'PYEOF'
+import sys, re
+target, template, marker = sys.argv[1], sys.argv[2], sys.argv[3]
+new_content = open(template).read().strip()
+block = f"<!-- {marker} -->\n{new_content}\n<!-- /{marker} -->"
+try:
+    content = open(target).read()
+except FileNotFoundError:
+    content = ""
+pat = f"<!-- {marker} -->.*?<!-- /{marker} -->"
+if re.search(pat, content, flags=re.DOTALL):
+    content = re.sub(pat, block, content, flags=re.DOTALL)
+else:
+    content = content.rstrip('\n') + f"\n\n{block}\n"
+open(target, 'w').write(content)
+PYEOF
+  echo "  Caveman:        ~/.claude/CLAUDE.md"
+
+  # Cursor: write to ~/.cursor/rules/dontbmad-caveman.md (global user rules)
+  mkdir -p "$HOME/.cursor/rules"
+  cp "$template" "$HOME/.cursor/rules/dontbmad-caveman.md"
+  echo "  Caveman:        ~/.cursor/rules/dontbmad-caveman.md"
+}
+
+# --- Graphify: install knowledge-graph skill to ~/.claude and ~/.cursor ---
+# Runs graphify install for both platforms so the /graphify skill is available
+# everywhere without a manual pip/uvx step. Safe to run repeatedly.
+graphify_installed=false
+install_graphify() {
+  if ! $UVX_OK; then
+    echo "  Graphify:       skipped (uvx not found — see dependency warnings above)"
+    return 0
+  fi
+
+  local claude_status cursor_status
+  claude_status=$(uvx --from graphifyy graphify install --platform claude 2>&1) && true
+  cursor_status=$(uvx --from graphifyy graphify install --platform cursor 2>&1) && true
+  echo "  Graphify:       installed (claude + cursor)"
+  graphify_installed=true
 }
 
 # --- Global mode: skills only, no workspace files ---
@@ -161,6 +279,8 @@ install_post_skill_hook() {
 if [ "$MODE" = "global" ] || $IN_REPO; then
   publish_skills
   install_post_skill_hook
+  inject_global_caveman
+  install_graphify
   echo ""
   if $IN_REPO; then
     echo "Source-repo install: skills published as symlinks to $REPO_ROOT."
@@ -177,6 +297,8 @@ fi
 if [ "$MODE" = "all" ] || [ "$MODE" = "skills" ]; then
   publish_skills
   install_post_skill_hook
+  inject_global_caveman
+  install_graphify
 
   if [ -f "$REPO_ROOT/scripts/adoption-dashboard.sh" ]; then
     mkdir -p "$TARGET/scripts"
@@ -188,7 +310,7 @@ if [ "$MODE" = "all" ] || [ "$MODE" = "skills" ]; then
 
   # --- Rules: workspace-scoped (they teach the agent about THIS workspace) ---
   mkdir -p "$TARGET/.cursor/rules" "$TARGET/.claude/rules"
-  for rule_file in bmad-workspace-resolution.md bmad-team-customization.md dontbmad-graph-first.md dontbmad-caveman-activate.md; do
+  for rule_file in bmad-workspace-resolution.md bmad-team-customization.md dontbmad-graph-first.md dontbmad-aieye-live.md; do
     if [ -f "$REPO_ROOT/templates/$rule_file" ]; then
       cp "$REPO_ROOT/templates/$rule_file" "$TARGET/.cursor/rules/$rule_file"
       cp "$REPO_ROOT/templates/$rule_file" "$TARGET/.claude/rules/$rule_file"
@@ -308,7 +430,9 @@ install_hook_to_repo() {
 }
 
 if [ "$MODE" = "all" ] || [ "$MODE" = "hooks" ]; then
-  if [ -f "$REPO_ROOT/hooks/prepare-commit-msg" ]; then
+  if ! $GIT_OK; then
+    echo "  Git hooks:      skipped (git not found — see dependency warnings above)"
+  elif [ -f "$REPO_ROOT/hooks/prepare-commit-msg" ]; then
     if [ -d "$TARGET/.git" ] || [ -f "$TARGET/.git" ]; then
       install_hook_to_repo "$TARGET"
     fi
@@ -351,7 +475,10 @@ if [ "$MODE" = "all" ] || [ "$MODE" = "skills" ]; then
   echo ""
   echo "Customize agent names: edit _bmad/_config/team.yaml"
 fi
-echo ""
-echo "Optional: install graphify for codebase knowledge graph"
-echo "  pip install graphifyy && graphify cursor install"
-echo "  Then run '/graphify .' in Cursor to build the graph."
+if $graphify_installed; then
+  echo ""
+  echo "Run '/dontbmad-graphify' (or '/graphify .') in your project to build the knowledge graph."
+elif ! $UVX_OK; then
+  echo ""
+  echo "Graphify skipped. Install uv (curl -LsSf https://astral.sh/uv/install.sh | sh) then re-run."
+fi

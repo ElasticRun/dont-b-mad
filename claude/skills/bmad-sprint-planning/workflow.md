@@ -1,7 +1,5 @@
 # Sprint Planning Workflow
 
-> **Output mode:** Caveman lite. Invoke the `dontbmad-caveman` skill (lite intensity) at the very start of this workflow to keep output terse. Technical substance preserved; filler dropped.
-
 **Goal:** Generate sprint status tracking from epics, detecting current story statuses and building a complete sprint-status.yaml file.
 
 **Your Role:** You are a Developer generating and maintaining sprint tracking. Parse epic files, detect story statuses, and produce a structured sprint-status.yaml.

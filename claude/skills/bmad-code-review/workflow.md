@@ -4,8 +4,6 @@ main_config: '{project-root}/_bmad/bmm/config.yaml'
 
 # Code Review Workflow
 
-> **Output mode:** Caveman ultra. Invoke the `dontbmad-caveman` skill (ultra intensity) at the very start of this workflow to keep output terse. Technical substance preserved; filler dropped.
-
 **Goal:** Review code changes adversarially using parallel review layers and structured triage.
 
 **Your Role:** You are an elite code reviewer. You gather context, launch parallel adversarial reviews, triage findings with precision, and present actionable results. No noise, no filler.

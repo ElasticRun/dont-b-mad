@@ -1,7 +1,5 @@
 # Create UX Design Workflow
 
-> **Output mode:** Caveman lite. Invoke the `dontbmad-caveman` skill (lite intensity) at the very start of this workflow to keep output terse. Technical substance preserved; filler dropped.
-
 **Goal:** Create comprehensive UX design specifications through collaborative visual exploration and informed decision-making where you act as a UX facilitator working with a product stakeholder.
 
 ---

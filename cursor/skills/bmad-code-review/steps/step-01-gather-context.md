@@ -72,11 +72,17 @@ blast_radius: '' # set at runtime; output of graph queries on changed files
 
 5. If `{review_mode}` = `"full"` and the file at `{spec_file}` has a `context` field in its frontmatter listing additional docs, load each referenced document. Warn the user about any docs that cannot be found.
 
-6. **Graphify context.** If `graphify-out/GRAPH_REPORT.md` exists, read it for high-level topology (god nodes, communities). If `graphify-out/graph.json` also exists, run targeted impact queries against the diff:
-   - For each changed module/file, run `uvx --from graphifyy graphify query --budget 2000 "what depends on <file_or_module>?"` to enumerate importers.
-   - For each new or modified public function/class, run `uvx --from graphifyy graphify explain "<symbol>"` to list direct callers.
-   - When the diff touches two distinct modules, run `uvx --from graphifyy graphify path "<A>" "<B>"` to verify the actual call chain.
-   Capture importer lists, caller counts, and any boundary-crossing edges into `{blast_radius}`. The Blind Hunter, Edge Case Hunter, and Acceptance Auditor in step-02-review will use this as ground truth for impact analysis instead of guessing from the diff hunk alone. If graph.json is absent, set `{blast_radius}` = `(unavailable, graph not built)` and continue without it.
+6. **Graphify context** (cost-bounded — graphify subprocess calls are slow; cap them).
+   - If `graphify-out/GRAPH_REPORT.md` does NOT exist, set `{blast_radius}` = `(unavailable, graph not built)` and continue.
+   - Read `graphify-out/GRAPH_REPORT.md` for high-level topology (god nodes, communities). This is the cheap path and runs every review.
+   - If `graphify-out/graph.json` also exists, run **at most one aggregated query**:
+     `uvx --from graphifyy graphify query --budget 3000 "what depends on these changed files: <comma-separated-list>?"`
+     Capture importer lists and any boundary-crossing edges into `{blast_radius}`.
+   - **Per-symbol `graphify explain` and per-pair `graphify path` calls are OPT-IN only.** Run them ONLY when one of the following holds:
+     - The user requested a deep review (keywords already detected for Blind Hunter — `deep`, `blind`, `adversarial`, `thorough`, `paranoid`).
+     - The aggregated query in the previous bullet flagged a god node or a high fan-in module among the changed files (>10 importers).
+     When triggered, cap total calls at **5** (combined explain + path) — pick the most-connected symbols/boundaries first and stop. Document skipped items in `{blast_radius}` so subagents know they are working from a partial view.
+   - The Edge Case Hunter and Acceptance Auditor in step-02-review consume `{blast_radius}` as ground truth for impact analysis. Blind Hunter never sees it (diff-only by design).
 
 7. Sanity check: if `{diff_output}` exceeds approximately 3000 lines, warn the user and offer to chunk the review by file group.
    - If the user opts to chunk: agree on the first group, narrow `{diff_output}` accordingly, and list the remaining groups for the user to note for follow-up runs.

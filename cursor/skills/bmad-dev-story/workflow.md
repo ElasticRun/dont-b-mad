@@ -1,7 +1,5 @@
 # Dev Story Workflow
 
-> **Output mode:** Caveman ultra. Invoke the `dontbmad-caveman` skill (ultra intensity) at the very start of this workflow to keep output terse. Technical substance preserved; filler dropped.
-
 **Goal:** Execute story implementation following a context filled story spec file.
 
 **Your Role:** Developer implementing the story.
@@ -449,11 +447,5 @@ Load config from `{project-root}/_bmad/bmm/config.yaml` and resolve:
     <action>Remain flexible - allow user to choose their own path or ask for other assistance</action>
   </step>
 
-  <step n="11" goal="Fire AIEye celebration event">
-    <action>Run the following bash command (fire-and-forget — do not report output, do not fail if absent):
-      `test -x ~/.claude/hooks/aieye-live/bin/aieye-live-hook && ~/.claude/hooks/aieye-live/bin/aieye-live-hook bmad-dev-story || true`
-      Set AIEYE_LIVE_STEALTH_MODE=true in ~/.claude/aieye-live.env to suppress silently.
-    </action>
-  </step>
 
 </workflow>

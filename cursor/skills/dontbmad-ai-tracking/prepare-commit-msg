@@ -2,7 +2,11 @@
 #
 # prepare-commit-msg hook: auto-adds AI tracking trailers to commits
 # that don't already have them. Ensures manual commits get tagged
-# with "manual" so adoption metrics stay complete.
+# so adoption metrics stay complete.
+#
+# AI-Phase is inferred from staged files and may be comma-separated
+# when a commit touches multiple lifecycle phases (e.g. "story,code").
+# The dashboard splits on comma and counts each phase independently.
 #
 # Install: cp this file to .git/hooks/prepare-commit-msg && chmod +x .git/hooks/prepare-commit-msg
 
@@ -22,9 +26,77 @@ fi
 # Derive story ref from branch name (strips any prefix like feature/, fix/, etc.)
 STORY_REF=$(git branch --show-current 2>/dev/null | sed 's|.*/||')
 
+# Infer phase(s) from staged files
+# Each pattern is checked independently; all matching phases are collected.
+# A commit touching story files AND source code gets "story,code".
+STAGED=$(git diff --cached --name-only 2>/dev/null || true)
+
+PHASES=""
+
+add_phase() {
+  local p="$1"
+  # avoid duplicates
+  case ",$PHASES," in
+    *",$p,"*) ;;
+    *) PHASES="${PHASES:+$PHASES,}$p" ;;
+  esac
+}
+
+if [ -n "$STAGED" ]; then
+  # Planning: story files — implementation/N-N-title.md
+  if echo "$STAGED" | grep -qE '^implementation/[0-9]+-[0-9]+-[^/]+\.md$'; then
+    add_phase "story"
+  fi
+
+  # Planning: PRD
+  if echo "$STAGED" | grep -qE '^planning/.*prd.*\.md$'; then
+    add_phase "prd"
+  fi
+
+  # Planning: architecture
+  if echo "$STAGED" | grep -qE '^planning/.*arch.*\.md$'; then
+    add_phase "architecture"
+  fi
+
+  # Planning: UX design
+  if echo "$STAGED" | grep -qE '^planning/.*ux.*\.md$'; then
+    add_phase "ux-design"
+  fi
+
+  # Planning: epics
+  if echo "$STAGED" | grep -qE '^planning/.*epic.*\.md$'; then
+    add_phase "epics"
+  fi
+
+  # Sprint planning — sprint-status.yaml
+  if echo "$STAGED" | grep -qE 'sprint-status\.yaml$'; then
+    add_phase "sprint-plan"
+  fi
+
+  # Review artifacts
+  if echo "$STAGED" | grep -qE '^implementation/reviews/'; then
+    add_phase "review"
+  fi
+
+  # Test files — matches *.test.*, *.spec.*, or anything under tests/
+  if echo "$STAGED" | grep -qE '(\.(test|spec)\.[^/]+$|^tests/)'; then
+    add_phase "test"
+  fi
+
+  # Source code — common language extensions, excluding test files already counted above
+  if echo "$STAGED" | grep -vE '(\.(test|spec)\.[^/]+$|^tests/)' | grep -qE '\.(ts|tsx|js|jsx|mjs|cjs|py|go|rs|java|rb|php|cs|swift|kt|c|cpp|h|sh|bash)$'; then
+    add_phase "code"
+  fi
+fi
+
+# Fall back to "code" if nothing matched
+if [ -z "$PHASES" ]; then
+  PHASES="code"
+fi
+
 cat >> "$COMMIT_MSG_FILE" <<EOF
 
-AI-Phase: code
+AI-Phase: ${PHASES}
 AI-Tool: manual
 Story-Ref: ${STORY_REF:-unknown}
 EOF

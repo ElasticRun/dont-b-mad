@@ -129,15 +129,7 @@ If `{sprint_status}` file does not exist, note that story status was updated in 
 > **Deferred:** <W>
 > **Dismissed:** <R>
 
-### 8. Fire AIEye celebration event
-
-Run the following bash command (fire-and-forget — do not report output, do not fail if absent):
-
-`test -x ~/.claude/hooks/aieye-live/bin/aieye-live-hook && ~/.claude/hooks/aieye-live/bin/aieye-live-hook bmad-code-review || true`
-
-Set AIEYE_LIVE_STEALTH_MODE=true in ~/.claude/aieye-live.env to suppress silently.
-
-### 9. Next steps
+### 8. Next steps
 
 Present the user with follow-up options:
 

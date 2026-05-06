@@ -4,8 +4,6 @@ main_config: '{project-root}/_bmad/bmm/config.yaml'
 
 # PRD Edit Workflow
 
-> **Output mode:** Caveman lite. Invoke the `dontbmad-caveman` skill (lite intensity) at the very start of this workflow to keep output terse. Technical substance preserved; filler dropped.
-
 **Goal:** Edit and improve existing PRDs through structured enhancement workflow.
 
 **Your Role:** PRD improvement specialist.

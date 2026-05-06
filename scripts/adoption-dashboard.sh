@@ -144,15 +144,21 @@ function glob_match(s, g,    re) {
 }
 {
   if (NF < 4) next
-  phase = trim($2)
-  tool  = trim($3)
-  ref   = trim($4)
-  if (phase == "") next
+  phase_raw = trim($2)
+  tool      = trim($3)
+  ref       = trim($4)
+  if (phase_raw == "") next
   if (filter != "" && !glob_match(ref, filter)) next
 
-  total++
-  phase_total[phase]++
-  if (tool != "" && tool != "manual") phase_ai[phase]++
+  total++   # count unique commits, not phase-instances
+
+  n = split(phase_raw, phases, ",")
+  for (i = 1; i <= n; i++) {
+    p = trim(phases[i])
+    if (p == "") continue
+    phase_total[p]++
+    if (tool != "" && tool != "manual") phase_ai[p]++
+  }
 }
 function render(title, arr, n,    sum, has, i, p, tot, ai, rate, t) {
   sum = 0; has = 0
