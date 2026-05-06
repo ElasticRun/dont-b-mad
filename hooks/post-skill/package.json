@@ -1,0 +1,20 @@
+{
+  "name": "@aieye/live-hook",
+  "version": "0.1.0",
+  "description": "BMAD post-skill hook — fire-and-forget celebration event dispatcher",
+  "type": "commonjs",
+  "bin": {
+    "aieye-live-hook": "bin/aieye-live-hook"
+  },
+  "scripts": {
+    "test": "node --test lib/*.test.js",
+    "test:static": "! grep -n \"spawn.*git\\|exec.*git\" lib/dispatch.js"
+  },
+  "files": [
+    "bin/",
+    "lib/"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}

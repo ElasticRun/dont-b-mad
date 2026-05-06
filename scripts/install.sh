@@ -124,12 +124,43 @@ publish_skills() {
   cursor_count=$PUBLISH_LAST_COUNT
 }
 
+# --- Claude Code post-skill hook (AIEye live events) ---
+# Copies hooks/post-skill/ to ~/.claude/hooks/aieye-live/ and registers the
+# Stop hook entry in ~/.claude/settings.json so every BMAD skill can fire
+# an AIEye celebration event on completion. Safe to run repeatedly.
+post_skill_hook_installed=false
+install_post_skill_hook() {
+  local src="$REPO_ROOT/hooks/post-skill"
+  [ -d "$src" ] || return 0
+  local dst="$HOME/.claude/hooks/aieye-live"
+  mkdir -p "$dst/bin" "$dst/lib"
+  cp "$src/package.json"               "$dst/package.json"
+  cp "$src/README.md"                  "$dst/README.md"             2>/dev/null || true
+  cp "$src/bin/aieye-live-hook"        "$dst/bin/aieye-live-hook"
+  cp "$src/lib/dispatch.js"            "$dst/lib/dispatch.js"
+  cp "$src/lib/dispatch.test.js"       "$dst/lib/dispatch.test.js"  2>/dev/null || true
+  cp "$src/lib/dispatch.queue.test.js" "$dst/lib/dispatch.queue.test.js" 2>/dev/null || true
+  chmod +x "$dst/bin/aieye-live-hook"
+  local hook_bin="$dst/bin/aieye-live-hook"
+  local settings="$HOME/.claude/settings.json"
+  local reg_status
+  if command -v python3 >/dev/null 2>&1; then
+    reg_status=$(python3 "$REPO_ROOT/scripts/register-post-skill-hook.py" "$settings" "$hook_bin" 2>&1)
+  else
+    reg_status="installed (python3 not found — add to ~/.claude/settings.json Stop hooks manually)"
+  fi
+  echo "  Post-skill hook: ~/.claude/hooks/aieye-live  ($reg_status)"
+  echo "  To activate:    create ~/.claude/aieye-live.env (see hooks/post-skill/README.md)"
+  post_skill_hook_installed=true
+}
+
 # --- Global mode: skills only, no workspace files ---
 # Also covers IN_REPO: running from inside the source repo shouldn't drop
 # workspace bookkeeping (rules, _bmad, dashboard) into the source tree —
 # those artifacts only make sense at a consumer workspace.
 if [ "$MODE" = "global" ] || $IN_REPO; then
   publish_skills
+  install_post_skill_hook
   echo ""
   if $IN_REPO; then
     echo "Source-repo install: skills published as symlinks to $REPO_ROOT."
@@ -145,6 +176,7 @@ fi
 # --- Workspace mode (all / skills): publish skills + workspace files ---
 if [ "$MODE" = "all" ] || [ "$MODE" = "skills" ]; then
   publish_skills
+  install_post_skill_hook
 
   if [ -f "$REPO_ROOT/scripts/adoption-dashboard.sh" ]; then
     mkdir -p "$TARGET/scripts"
