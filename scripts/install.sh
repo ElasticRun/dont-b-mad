@@ -201,6 +201,7 @@ install_post_skill_hook() {
   cp "$src/lib/dispatch.js"            "$dst/lib/dispatch.js"
   cp "$src/lib/dispatch.test.js"       "$dst/lib/dispatch.test.js"  2>/dev/null || true
   cp "$src/lib/dispatch.queue.test.js" "$dst/lib/dispatch.queue.test.js" 2>/dev/null || true
+  cp "$src/lib/dispatch.token.test.js" "$dst/lib/dispatch.token.test.js" 2>/dev/null || true
   chmod +x "$dst/bin/aieye-live-hook"
 
   local hook_bin="$dst/bin/aieye-live-hook"

@@ -25,21 +25,41 @@ Add your settings:
 
 ```
 AIEYE_LIVE_INGEST_URL=https://aieye.internal/api/events
-AIEYE_LIVE_TOKEN=<your-ingest-token>
 AIEYE_LIVE_ACTOR=Your Name
 AIEYE_LIVE_TEAM=alpha
 AIEYE_LIVE_SKILLS=bmad-create-story,bmad-dev-story,bmad-code-review,bmad-qa-generate-e2e-tests
 AIEYE_LIVE_AI_TOOL=cli/claude-sonnet-4-6
+# Optional — overrides the GitLab host used for credential lookup (default: gitlab.com)
+# AIEYE_LIVE_GITLAB_HOST=gitlab.example.com
 ```
 
 | Variable | Required | Description |
 |---|---|---|
 | `AIEYE_LIVE_INGEST_URL` | yes | Full URL to the celebration ingest endpoint |
-| `AIEYE_LIVE_TOKEN` | yes | Bearer token (team-scoped ingest token) |
 | `AIEYE_LIVE_ACTOR` | yes | Your display name shown on the TV |
+| `AIEYE_LIVE_TOKEN` | no | Direct ingest bearer token. Highest priority when set. |
+| `AIEYE_LIVE_GITLAB_TOKEN` | no | Explicit GitLab PAT to bear (skips automatic lookup). |
+| `AIEYE_LIVE_GITLAB_HOST` | no | GitLab host queried when looking up credentials (default `gitlab.com`). |
 | `AIEYE_LIVE_TEAM` | no | Team identifier |
 | `AIEYE_LIVE_SKILLS` | no | Comma-separated skill names to emit events for. Leave empty to match all mapped skills. |
 | `AIEYE_LIVE_AI_TOOL` | no | AI tool identifier for the AI Engineering Record trailer (default: `cli/claude`) |
+
+### Token resolution
+
+The hook resolves the bearer token in this order — first hit wins:
+
+1. `AIEYE_LIVE_TOKEN` (env file) — opaque ingest token
+2. `AIEYE_LIVE_GITLAB_TOKEN` (env file) — explicit GitLab PAT
+3. `GITLAB_TOKEN` / `GL_TOKEN` (process env)
+4. `glab auth token -h <host>` (glab CLI)
+5. `git credential fill` for `<host>` (system credential helpers / keychain / `.netrc`)
+6. `~/.config/glab-cli/config.yml`
+
+`<host>` defaults to `gitlab.com` and is overridden by `AIEYE_LIVE_GITLAB_HOST`.
+
+This means a developer who already has `glab auth login` or a git credential helper set up for their GitLab instance gets ingest auth for free — no separate token to mint or distribute. If you do not want the hook to read your GitLab credentials, set `AIEYE_LIVE_TOKEN` explicitly to keep the existing behaviour.
+
+> Whatever the hook resolves is sent verbatim as `Authorization: Bearer ...` to the ingest URL. Make sure that URL points only at servers you trust to handle a GitLab PAT — the hook itself never logs the raw token.
 
 ## Register in Claude Code
 

