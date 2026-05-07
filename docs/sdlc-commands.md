@@ -188,6 +188,24 @@ Produces automated test files that actually run. Scoped to one feature or direct
 
 Automates the implementation loop: picks every `ready-for-dev` story from `stories/sprint-status.yaml` in order and runs three subagent phases per story — impl, test verification, and review — each in a fresh context window with a different model. Output is caveman-compressed; only failures expand.
 
+**Prerequisites**
+
+Auto-sprint assumes a zero-prompt run — anything missing causes it to either pause for permission, abort the loop, or corrupt the adoption history. Set all of the following before kicking off a sprint:
+
+| Prerequisite | Why it matters | How to set it up |
+|---|---|---|
+| Claude Code **auto mode** enabled | Skips per-call tool approval. Without it the loop stalls on every `git commit`, `npx tsc`, and test run. | In Claude Code press <kbd>Shift</kbd>+<kbd>Tab</kbd> until the mode pill reads **auto**. (One press = auto-accept edits; second press = full auto.) The mode lasts for the session — re-enable each time you start auto-sprint. |
+| `.claude/settings.json` `allowedTools` block | Pre-approves the exact bash commands the orchestrator and subagents need (git, tsc, vitest, graphify, npm/yarn/pnpm, ls, find, cat). Anything outside the list still prompts. | Copy the `allowedTools` snippet from `dontbmad-auto-sprint`'s SKILL.md, or run `/update-config` and say "add auto-sprint autonomous permissions". The skill writes the file for you. |
+| `stories/sprint-status.yaml` exists | Single source of truth for which stories run and in what order. Auto-sprint reads it on every iteration. | Run `/sprint-planning` once after `/create-epics-and-stories`. Re-run any time epics change. |
+| At least one story in `ready-for-dev` status | Each iteration picks the first story in that state. If none exist the loop reports "all done" and exits immediately. | Run `/create-story` for the next backlog story (it promotes the status), or edit `sprint-status.yaml` by hand. |
+| Story spec at `stories/<story-key>.md` for every `ready-for-dev` entry | The impl agent reads this file as the only spec. Missing file → impl aborts on the first task. | Always run `/create-story` before flipping a story to `ready-for-dev`; never set the status manually without writing the spec first. |
+| `prepare-commit-msg` hook installed in the repo | Stamps `AI-Tool: manual` on any commit that lacks trailers. Without it, mistyped commits during the run pollute the adoption dashboard with phantom phases. | Re-run `bash scripts/install.sh <workspace>` from the dont-b-mad source. The installer drops the hook into every git repo it finds in the workspace. |
+| Pre-commit hooks pass on a clean checkout | Auto-sprint **never** uses `--no-verify`; a hook failure aborts the loop and surfaces the error. | Run your pre-commit suite (lint, format, etc.) on a clean tree before starting. Fix anything red. |
+| `stories/auto-sprint.config.yaml` *(optional)* | Lets you pin per-phase models, tune auto-fix attempts, and skip the per-run pre-flight by setting `autonomous_mode.enabled: true`. | Copy the schema from the workflow file into `stories/auto-sprint.config.yaml`. Defaults apply when the file is absent. |
+| `graphify-out/graph.json` *(optional, brownfield)* | Phase 0 BFS context fed to the impl agent. Absent or under 1KB → step skips silently with `(none, graph not built)`. | Run `uvx --from graphifyy graphify update .` at sprint start. Refresh on major refactors. |
+
+> **Auto mode vs `autonomous_mode.enabled`** — these are different things and both matter. *Auto mode* is the Claude Code session toggle (Shift+Tab) that suppresses tool-permission prompts. *`autonomous_mode.enabled`* in `auto-sprint.config.yaml` skips the workflow's own pre-flight environment check at the start of each run. You generally want both on for an unattended sprint; flip one off if you want a confirmation step at the boundary.
+
 **Invocation**
 
 | Phrase | Behaviour |
