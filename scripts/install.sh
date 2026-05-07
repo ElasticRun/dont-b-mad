@@ -329,6 +329,51 @@ if [ "$MODE" = "all" ] || [ "$MODE" = "skills" ]; then
     fi
   fi
 
+  # --- Per-project scaffold: ensure _bmad/{bmm,cis,core}/config.yaml exists ---
+  # Skill workflows load `{project-root}/_bmad/{bmm,cis,core}/config.yaml` for
+  # variables like {planning_artifacts}, {project_name}, {communication_language}.
+  # If those files are missing the skills error out or emit unresolved {var}
+  # paths. Scaffold defaults so first-time projects work out of the box.
+  # Idempotent: never overwrites existing config.yaml unless --force.
+  scaffolded_count=0
+  scaffold_bmad_for_project() {
+    local proj_dir="$1"
+    local proj_name; proj_name="$(basename "$proj_dir")"
+    [ "$proj_dir" = "$TARGET" ] && proj_name="$(basename "$TARGET")"
+    local created_any=false
+    for module in bmm cis core; do
+      local tpl="$REPO_ROOT/templates/_bmad/$module/config.yaml"
+      [ -f "$tpl" ] || continue
+      local dst_dir="$proj_dir/_bmad/$module"
+      local dst="$dst_dir/config.yaml"
+      if [ ! -f "$dst" ] || $FORCE; then
+        mkdir -p "$dst_dir"
+        sed "s/{{project_name}}/${proj_name}/g" "$tpl" > "$dst"
+        created_any=true
+      fi
+    done
+    if $created_any; then
+      scaffolded_count=$((scaffolded_count + 1))
+      local rel="${proj_dir#"$TARGET"/}"
+      [ "$rel" = "$proj_dir" ] && rel="."
+      echo "  Project init:   $rel/_bmad/{bmm,cis,core}/config.yaml"
+    fi
+  }
+
+  # Scaffold for the workspace root if it's a git repo, and for each
+  # immediate child dir that's a git repo. Matches the project-discovery
+  # heuristic below (one level deep, .git as project marker).
+  if [ -d "$TARGET/.git" ] || [ -f "$TARGET/.git" ]; then
+    scaffold_bmad_for_project "$TARGET"
+  fi
+  for dir in "$TARGET"/*/; do
+    [ -d "$dir" ] || continue
+    proj="${dir%/}"
+    if [ -d "$proj/.git" ] || [ -f "$proj/.git" ]; then
+      scaffold_bmad_for_project "$proj"
+    fi
+  done
+
   # --- Workspace config: auto-discover projects with _bmad/ ---
   # A project has _bmad/ with at least one module config dir (bmm/, cis/, core/)
   has_bmad_project() {
@@ -456,6 +501,7 @@ echo ""
 if [ "$MODE" = "all" ] || [ "$MODE" = "skills" ]; then
   echo "Skills:    $cursor_count Cursor, $claude_count Claude (~/.cursor + ~/.claude)"
   echo "Projects:  $project_count discovered in _bmad/workspace.yaml"
+  echo "Scaffold:  $scaffolded_count project(s) initialized with _bmad/{bmm,cis,core}/config.yaml"
 fi
 if [ "$MODE" = "all" ] || [ "$MODE" = "hooks" ]; then
   echo "Hooks:     $hook_repos repo(s) with prepare-commit-msg installed"

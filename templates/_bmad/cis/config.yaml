@@ -1,0 +1,13 @@
+# BMad CIS (creative innovation studio) — project configuration
+#
+# Loaded by skills: bmad-cis-innovation-strategy, bmad-cis-storytelling,
+# bmad-cis-problem-solving, bmad-cis-design-thinking.
+
+project_name: '{{project_name}}'
+user_name: ''
+
+communication_language: 'English'
+document_output_language: 'English'
+user_skill_level: 'intermediate'
+
+output_folder: 'docs/cis'

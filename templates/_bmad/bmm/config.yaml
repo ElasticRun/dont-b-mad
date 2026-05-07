@@ -1,0 +1,23 @@
+# BMad BMM (engineering module) — project configuration
+#
+# Loaded by skills: bmad-create-prd, bmad-create-architecture,
+# bmad-create-story, bmad-create-epics-and-stories, bmad-dev-story,
+# bmad-create-ux-design, bmad-correct-course, bmad-check-implementation-readiness, etc.
+#
+# Edit these values to match your project. Paths are relative to the
+# project root unless absolute.
+
+project_name: '{{project_name}}'
+user_name: ''
+
+communication_language: 'English'
+document_output_language: 'English'
+user_skill_level: 'intermediate'
+
+output_folder: 'docs'
+planning_artifacts: 'docs/planning'
+implementation_artifacts: 'docs/implementation'
+project_knowledge: 'docs/project-knowledge'
+
+epics_file: 'docs/planning/epics.md'
+architecture_file: 'docs/planning/architecture.md'
