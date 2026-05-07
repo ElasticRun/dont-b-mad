@@ -1,15 +1,15 @@
 # dontbmad-auto-sprint workflow
 
-Auto-implement one (or more) `ready-for-dev` stories from `stories/sprint-status.yaml`. Impl and review run in **fresh subagents** (via the `Agent` tool) so the orchestrator's context stays thin. Test verification runs **inline** in the orchestrator — subagent dispatch overhead exceeded the actual `tsc` + test work.
+Auto-implement one (or more) `ready-for-dev` stories from `{implementation_artifacts}/sprint-status.yaml`. Impl and review run in **fresh subagents** (via the `Agent` tool) so the orchestrator's context stays thin. Test verification runs **inline** in the orchestrator — subagent dispatch overhead exceeded the actual `tsc` + test work.
 
 ## Config file
 
-At startup the workflow reads `stories/auto-sprint.config.yaml` from the project root. If absent, all defaults apply. CLI flags override config file values.
+At startup the workflow reads `{implementation_artifacts}/auto-sprint.config.yaml` from the project root. If absent, all defaults apply. CLI flags override config file values.
 
-**Schema** (copy this into your project's `stories/` directory to customize):
+**Schema** (copy this into your project's `{implementation_artifacts}/` directory to customize):
 
 ```yaml
-# stories/auto-sprint.config.yaml
+# {implementation_artifacts}/auto-sprint.config.yaml
 
 models:
   impl: sonnet       # implementation phase
@@ -31,7 +31,7 @@ Permissions needed:
 - `uvx --from graphifyy graphify *`
 - `find`, `ls`, `cat`
 
-Once permissions are configured, set `autonomous_mode.enabled: true` in your `stories/auto-sprint.config.yaml` to skip the pre-flight check on every run.
+Once permissions are configured, set `autonomous_mode.enabled: true` in your `{implementation_artifacts}/auto-sprint.config.yaml` to skip the pre-flight check on every run.
 
 ## Model assignment (defaults)
 
@@ -77,13 +77,19 @@ When auto-fix kicks in:
 
 ## Workflow steps (per story)
 
-### Step 0: Determine project root
+### Step 0: Determine project root and resolve paths
 
-Use the current working directory as the project root. All paths below are relative to it. Verify `stories/sprint-status.yaml` exists before proceeding.
+Use the current working directory as the project root. All paths below are relative to it.
+
+Resolve `{implementation_artifacts}` from `{project-root}/_bmad/bmm/config.yaml`. The stored value looks like `{project-root}/_bmad-output/implementation-artifacts`; strip the `{project-root}/` prefix to get the project-relative path.
+
+If `{project-root}/_bmad/bmm/config.yaml` does not exist OR has no `implementation_artifacts` key, **abort and tell the user to run the dont-b-mad installer** to scaffold the BMAD layout. Do NOT fall back to any other path — there is exactly one valid location for sprint state and story files.
+
+Verify `{implementation_artifacts}/sprint-status.yaml` exists before proceeding.
 
 ### Step 0.5: Load config
 
-Check if `stories/auto-sprint.config.yaml` exists. If it does, read it and extract:
+Check if `{implementation_artifacts}/auto-sprint.config.yaml` exists. If it does, read it and extract:
 
 - `models.impl` → `{model_impl}` (default: `sonnet`)
 - `models.review` → `{model_review}` (default: `sonnet`)
@@ -106,7 +112,7 @@ Log resolved config in one line: `config: impl={model_impl} review={model_review
 
 ### Step 1: Pick next story
 
-Read `stories/sprint-status.yaml`. Find the first story with status `ready-for-dev`, processing epics in order (1 → N). If none left, report "all done" and exit.
+Read `{implementation_artifacts}/sprint-status.yaml`. Find the first story with status `ready-for-dev`, processing epics in order (1 → N). If none left, report "all done" and exit.
 
 ### Step 1.5: Graph context (skip aggressively)
 
@@ -144,7 +150,7 @@ tests: <X pass / Y fail>
 issues: <none or one-line description>
 
 RULES:
-- Read story spec first: stories/<story-file>.md
+- Read story spec first: {implementation_artifacts}/<story-file>.md
 - Read referenced source files before changes
 - For docs/architecture.md and docs/ux-design-specification.md (if they exist): if the file is under 150 lines read it fully; otherwise grep for sections relevant to your story domain rather than reading the whole file
 - Implement fully per acceptance criteria
@@ -207,7 +213,7 @@ tests: <X pass / Y fail>
 issues: <none or one-line description>
 
 RULES:
-- Story spec: stories/<story-file>.md
+- Story spec: {implementation_artifacts}/<story-file>.md
 - Read current test output below and trace failures to root cause
 - Fix only what is broken — do not rewrite unrelated code
 - Re-run typecheck and tests after each fix to confirm resolution
@@ -228,7 +234,7 @@ Spawn Agent with these params:
 - `prompt`:
 
 ```
-Review staged + unstaged changes in <project-root> for story <id>. Story spec: stories/<story-file>.md
+Review staged + unstaged changes in <project-root> for story <id>. Story spec: {implementation_artifacts}/<story-file>.md
 
 No text between tool calls — work silently. Output exactly this at the end and nothing else:
 
@@ -259,7 +265,7 @@ files: <list>
 issues: <none or one-line description>
 
 RULES:
-- Story spec: stories/<story-file>.md
+- Story spec: {implementation_artifacts}/<story-file>.md
 - Address every BLOCKER item below — do not skip any
 - Do not change unrelated code
 - Re-run typecheck and tests after fixes to confirm nothing broke
@@ -287,7 +293,7 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 
 ### Step 6: Update sprint status
 
-Edit `stories/sprint-status.yaml`: change the story's status from `ready-for-dev` to `done`.
+Edit `{implementation_artifacts}/sprint-status.yaml`: change the story's status from `ready-for-dev` to `done`.
 
 ### Step 7: Loop or stop
 
@@ -306,4 +312,4 @@ If user invoked with `run auto sprint` (not `auto dev next story`), jump back to
 - **Verify phase is inline, not a subagent.** Subagent dispatch overhead (~10s) exceeded the actual work (`tsc` + tests). Running it in the orchestrator saves ~50s per story.
 - **Cross-model review is optional, not default.** Default review model is `sonnet` (same family as impl). For high-stakes runs use `--model-review=opus`.
 - **Keep orchestrator context lean.** After each agent call, retain only the compact summary (3–4 lines). Do not carry full agent output forward — the sprint log table is the only cross-story state.
-- **Project-agnostic.** Works on any project with `stories/sprint-status.yaml` and story spec files in `stories/`.
+- **Project-agnostic.** Works on any project with `{implementation_artifacts}/sprint-status.yaml` and story spec files in `{implementation_artifacts}/`.

@@ -20,23 +20,23 @@ create-prd → create-architecture → create-ux-design → create-epics-and-sto
 
 ## 1. `/create-prd`
 
-Produces `planning/prd.md` via facilitated dialogue. The AI acts as a PM peer — asks structured questions, writes nothing until you've answered, and waits for your approval before moving to the next section.
+Produces `_bmad-output/planning-artifacts/prd.md` via facilitated dialogue. The AI acts as a PM peer — asks structured questions, writes nothing until you've answered, and waits for your approval before moving to the next section.
 
 | Step | What happens | Subagent | Optimization | Artifact |
 |------|-------------|:--------:|-------------|----------|
 | 1 | Init — load config; detect if resuming an in-progress PRD | — | **Continuation detection**: resumes from exact last step; completed sections never rewritten | — |
 | 2 | Classify product — type, domain, greenfield vs brownfield | — | **Step-file JIT**: only the current step's instructions are loaded into context | — |
 | 2b | Product vision discovery — what makes this worth building | — | Step-file JIT | — |
-| 2c | Draft executive summary from discovery so far | — | Step-file JIT | `planning/prd.md` (first write) |
-| 3 | Define success criteria | — | Step-file JIT; **append-only**: new section added, existing content untouched | `planning/prd.md` |
-| 4 | Map user journeys — every user type and their primary flows | — | Step-file JIT; append-only | `planning/prd.md` |
-| 5 | Domain-specific requirements | — | **Conditional**: skipped entirely for low-complexity domains | `planning/prd.md` |
-| 6 | Innovation discovery | — | **Conditional**: only runs if innovation signals detected in earlier steps | `planning/prd.md` |
-| 7 | Project-type deep dive — type-specific requirements | — | Step-file JIT | `planning/prd.md` |
-| 8 | Scoping — draw the MVP line, park the future list | — | Step-file JIT | `planning/prd.md` |
-| 9 | Functional requirements — the capability contract for all downstream work | — | Step-file JIT | `planning/prd.md` |
-| 10 | Non-functional requirements — performance, security, scale constraints | — | Step-file JIT | `planning/prd.md` |
-| 11 | Polish — fix flow, reduce duplication across all sections | — | Reads full doc once; rewrites in place | `planning/prd.md` (final) |
+| 2c | Draft executive summary from discovery so far | — | Step-file JIT | `_bmad-output/planning-artifacts/prd.md` (first write) |
+| 3 | Define success criteria | — | Step-file JIT; **append-only**: new section added, existing content untouched | `_bmad-output/planning-artifacts/prd.md` |
+| 4 | Map user journeys — every user type and their primary flows | — | Step-file JIT; append-only | `_bmad-output/planning-artifacts/prd.md` |
+| 5 | Domain-specific requirements | — | **Conditional**: skipped entirely for low-complexity domains | `_bmad-output/planning-artifacts/prd.md` |
+| 6 | Innovation discovery | — | **Conditional**: only runs if innovation signals detected in earlier steps | `_bmad-output/planning-artifacts/prd.md` |
+| 7 | Project-type deep dive — type-specific requirements | — | Step-file JIT | `_bmad-output/planning-artifacts/prd.md` |
+| 8 | Scoping — draw the MVP line, park the future list | — | Step-file JIT | `_bmad-output/planning-artifacts/prd.md` |
+| 9 | Functional requirements — the capability contract for all downstream work | — | Step-file JIT | `_bmad-output/planning-artifacts/prd.md` |
+| 10 | Non-functional requirements — performance, security, scale constraints | — | Step-file JIT | `_bmad-output/planning-artifacts/prd.md` |
+| 11 | Polish — fix flow, reduce duplication across all sections | — | Reads full doc once; rewrites in place | `_bmad-output/planning-artifacts/prd.md` (final) |
 | 12 | Handoff — validate completion, suggest next command | — | — | — |
 | **Git** | **Commit `prd.md` with trailers: `AI-Phase: prd`, `AI-Tool`, `Story-Ref`** | — | Hook guards against duplicate tagging | **git log** |
 
@@ -44,71 +44,71 @@ Produces `planning/prd.md` via facilitated dialogue. The AI acts as a PM peer �
 
 ## 2. `/create-architecture`
 
-Produces `planning/architecture.md` — the technical blueprint every dev agent must follow. Collaborative step-by-step decisions; the AI searches the web for current versions at key decision points.
+Produces `_bmad-output/planning-artifacts/architecture.md` — the technical blueprint every dev agent must follow. Collaborative step-by-step decisions; the AI searches the web for current versions at key decision points.
 
 | Step | What happens | Subagent | Optimization | Artifact |
 |------|-------------|:--------:|-------------|----------|
 | 1 | Init — load PRD and project context; detect if resuming | — | Continuation detection | — |
 | 2 | Project context analysis — map PRD requirements to architectural concerns; for brownfield projects, read `graphify-out/GRAPH_REPORT.md` as ground truth of what already exists | — | Step-file JIT; **Graphify-aware** (brownfield only) | — |
 | 3 | Starter template evaluation — options with current versions | — | Step-file JIT; web search for live framework versions | — |
-| 4 | Core architectural decisions — tech stack, API design, data layer, auth | — | Step-file JIT; web search for current technology versions | `planning/architecture.md` |
-| 4b | Optional decision-grill pass — pick `G` after any decision category to stress-test recommendations; `D` deepens to standard intensity, `R` to relentless | Grill skill | **Skipped by default**; only runs when user opts in. Light pass first; deeper passes layer on top | `planning/architecture.md` (decisions merged in place) |
-| 5 | Implementation patterns and consistency rules — what every agent must do the same way | — | Step-file JIT | `planning/architecture.md` |
-| 6 | Project structure and boundaries — full folder tree, component map, module boundaries | — | Step-file JIT | `planning/architecture.md` |
-| 7 | Architecture validation — every PRD requirement must map to a decision | — | Step-file JIT | `planning/architecture.md` |
-| 8 | Handoff — completion summary, link to epics workflow | — | — | `planning/architecture.md` (final) |
+| 4 | Core architectural decisions — tech stack, API design, data layer, auth | — | Step-file JIT; web search for current technology versions | `_bmad-output/planning-artifacts/architecture.md` |
+| 4b | Optional decision-grill pass — pick `G` after any decision category to stress-test recommendations; `D` deepens to standard intensity, `R` to relentless | Grill skill | **Skipped by default**; only runs when user opts in. Light pass first; deeper passes layer on top | `_bmad-output/planning-artifacts/architecture.md` (decisions merged in place) |
+| 5 | Implementation patterns and consistency rules — what every agent must do the same way | — | Step-file JIT | `_bmad-output/planning-artifacts/architecture.md` |
+| 6 | Project structure and boundaries — full folder tree, component map, module boundaries | — | Step-file JIT | `_bmad-output/planning-artifacts/architecture.md` |
+| 7 | Architecture validation — every PRD requirement must map to a decision | — | Step-file JIT | `_bmad-output/planning-artifacts/architecture.md` |
+| 8 | Handoff — completion summary, link to epics workflow | — | — | `_bmad-output/planning-artifacts/architecture.md` (final) |
 | **Git** | **Commit `architecture.md` with trailers: `AI-Phase: architecture`, `AI-Tool`, `Story-Ref`** | — | Hook guards against duplicate tagging | **git log** |
 
 ---
 
 ## 3. `/create-ux-design`
 
-Produces `planning/ux-design-specification.md` plus HTML mockup files. Facilitated design exploration — the AI presents options at each decision point; you direct the direction.
+Produces `_bmad-output/planning-artifacts/ux-design-specification.md` plus HTML mockup files. Facilitated design exploration — the AI presents options at each decision point; you direct the direction.
 
 | Step | What happens | Subagent | Optimization | Artifact |
 |------|-------------|:--------:|-------------|----------|
 | 1 | Init — load PRD, architecture; detect if resuming | — | Continuation detection | — |
 | 2 | Project understanding — clarify users, contexts, and key journeys | — | Step-file JIT | — |
-| 3 | Core experience definition — platform targets, primary interaction model | — | Step-file JIT | `planning/ux-design-specification.md` |
-| 4 | Desired emotional response — the feeling the product should leave users with | — | Step-file JIT; append-only | `planning/ux-design-specification.md` |
-| 5 | UX pattern analysis — look at reference products, extract inspiration | — | Step-file JIT | `planning/ux-design-specification.md` |
-| 6 | Design system choice — pick or define component library approach | — | Step-file JIT | `planning/ux-design-specification.md` |
-| 7 | Defining core interaction — the one interaction that defines the product | — | Step-file JIT | `planning/ux-design-specification.md` |
-| 8 | Visual foundation — color palette, typography, spacing system | — | Step-file JIT; append-only | `planning/ux-design-specification.md` |
+| 3 | Core experience definition — platform targets, primary interaction model | — | Step-file JIT | `_bmad-output/planning-artifacts/ux-design-specification.md` |
+| 4 | Desired emotional response — the feeling the product should leave users with | — | Step-file JIT; append-only | `_bmad-output/planning-artifacts/ux-design-specification.md` |
+| 5 | UX pattern analysis — look at reference products, extract inspiration | — | Step-file JIT | `_bmad-output/planning-artifacts/ux-design-specification.md` |
+| 6 | Design system choice — pick or define component library approach | — | Step-file JIT | `_bmad-output/planning-artifacts/ux-design-specification.md` |
+| 7 | Defining core interaction — the one interaction that defines the product | — | Step-file JIT | `_bmad-output/planning-artifacts/ux-design-specification.md` |
+| 8 | Visual foundation — color palette, typography, spacing system | — | Step-file JIT; append-only | `_bmad-output/planning-artifacts/ux-design-specification.md` |
 | 9 | Design directions — present 2-3 distinct visual directions; you choose one | — | Step-file JIT | `ux-design-directions.html`, `ux-color-themes.html` |
-| 10 | User journey flows — screen-by-screen flows for each primary journey | — | Step-file JIT | `planning/ux-design-specification.md` |
-| 11 | Component strategy — custom vs library components; reuse rules | — | Step-file JIT | `planning/ux-design-specification.md` |
-| 12 | UX consistency patterns — loading, errors, empty states, modals everywhere | — | Step-file JIT | `planning/ux-design-specification.md` |
-| 13 | Responsive design and accessibility — breakpoints, WCAG targets | — | Step-file JIT | `planning/ux-design-specification.md` |
-| 14 | Handoff — finalize spec, ready for epics | — | — | `planning/ux-design-specification.md` (final) |
+| 10 | User journey flows — screen-by-screen flows for each primary journey | — | Step-file JIT | `_bmad-output/planning-artifacts/ux-design-specification.md` |
+| 11 | Component strategy — custom vs library components; reuse rules | — | Step-file JIT | `_bmad-output/planning-artifacts/ux-design-specification.md` |
+| 12 | UX consistency patterns — loading, errors, empty states, modals everywhere | — | Step-file JIT | `_bmad-output/planning-artifacts/ux-design-specification.md` |
+| 13 | Responsive design and accessibility — breakpoints, WCAG targets | — | Step-file JIT | `_bmad-output/planning-artifacts/ux-design-specification.md` |
+| 14 | Handoff — finalize spec, ready for epics | — | — | `_bmad-output/planning-artifacts/ux-design-specification.md` (final) |
 | **Git** | **Commit spec + HTML mockups with trailers: `AI-Phase: ux-design`, `AI-Tool`, `Story-Ref`** | — | Hook guards against duplicate tagging | **git log** |
 
 ---
 
 ## 4. `/create-epics-and-stories`
 
-Produces `planning/epics.md` — all epics with BDD acceptance criteria and technical source hints. Reads all three planning docs, validates full requirement coverage before writing.
+Produces `_bmad-output/planning-artifacts/epics.md` — all epics with BDD acceptance criteria and technical source hints. Reads all three planning docs, validates full requirement coverage before writing.
 
 | Step | What happens | Subagent | Optimization | Artifact |
 |------|-------------|:--------:|-------------|----------|
 | 1 | Validate prerequisites — confirm PRD, architecture, and UX exist; extract every functional and non-functional requirement | — | Step-file JIT | — |
 | 2 | Design epic list — propose groupings ordered by user value; you approve or reshape | — | Step-file JIT | — |
-| 3 | Generate all epics and stories — user story statement, BDD ACs, technical hints per story linking back to architecture | — | Step-file JIT; sequential per-epic processing keeps context bounded | `planning/epics.md` |
-| 4 | Final validation — confirm every requirement from step 1 maps to at least one AC | — | Step-file JIT | `planning/epics.md` (final) |
+| 3 | Generate all epics and stories — user story statement, BDD ACs, technical hints per story linking back to architecture | — | Step-file JIT; sequential per-epic processing keeps context bounded | `_bmad-output/planning-artifacts/epics.md` |
+| 4 | Final validation — confirm every requirement from step 1 maps to at least one AC | — | Step-file JIT | `_bmad-output/planning-artifacts/epics.md` (final) |
 | **Git** | **Commit `epics.md` with trailers: `AI-Phase: epics`, `AI-Tool`, `Story-Ref: epics`** | — | Hook guards against duplicate tagging | **git log** |
 
 ---
 
 ## 5. `/sprint-planning`
 
-Produces `implementation/sprint-status.yaml` — the single tracking file that every downstream command (`create-story`, `dev-story`, `code-review`) reads and updates. Run once after epics are finalised; re-run any time to refresh auto-detected statuses.
+Produces `_bmad-output/implementation-artifacts/sprint-status.yaml` — the single tracking file that every downstream command (`create-story`, `dev-story`, `code-review`) reads and updates. Run once after epics are finalised; re-run any time to refresh auto-detected statuses.
 
 | Step | What happens | Subagent | Optimization | Artifact |
 |------|-------------|:--------:|-------------|----------|
 | 1 | Parse all epic files — extract epic numbers, story IDs, and titles; convert to kebab-case keys (e.g. `Story 1.1: User Auth` → `1-1-user-authentication`) | — | **Caveman lite** output mode; handles both whole `epics.md` and sharded `epic-1.md / epic-2.md` formats | — |
 | 2 | Build sprint status structure — one entry per epic, one per story, one retrospective entry per epic; all default to `backlog` | — | Ordered output: epic → its stories → its retrospective → next epic | — |
 | 3 | Apply intelligent status detection — checks if a story file already exists in `implementation/`; if so, upgrades status to at least `ready-for-dev`; never downgrades an existing status | — | **Preservation rule**: if existing `sprint-status.yaml` has a more advanced status, keeps it | — |
-| 4 | Write `sprint-status.yaml` — full YAML with status definitions in comments and parseable key:value fields; metadata written twice (as comments for humans, as fields for parsers) | — | Incremental: only new entries added when re-run on an existing file | `implementation/sprint-status.yaml` |
+| 4 | Write `sprint-status.yaml` — full YAML with status definitions in comments and parseable key:value fields; metadata written twice (as comments for humans, as fields for parsers) | — | Incremental: only new entries added when re-run on an existing file | `_bmad-output/implementation-artifacts/sprint-status.yaml` |
 | 5 | Validate and report — checks every epic and story from the epic files is present, all statuses are legal, file is valid YAML; prints counts | — | — | — |
 | **Git** | **Commit `sprint-status.yaml` with trailers: `AI-Phase: sprint-plan`, `AI-Tool`, `Story-Ref: sprint-planning`** | — | Hook guards against duplicate tagging | **git log** |
 
@@ -116,7 +116,7 @@ Produces `implementation/sprint-status.yaml` — the single tracking file that e
 
 ## 6. `/create-story`
 
-Produces `implementation/{story-key}.md` — a self-contained context file giving the dev agent everything it needs for one story: ACs, file locations, architecture guardrails, prior story learnings.
+Produces `_bmad-output/implementation-artifacts/{story-key}.md` — a self-contained context file giving the dev agent everything it needs for one story: ACs, file locations, architecture guardrails, prior story learnings.
 
 | Step | What happens | Subagent | Optimization | Artifact |
 |------|-------------|:--------:|-------------|----------|
@@ -124,9 +124,9 @@ Produces `implementation/{story-key}.md` — a self-contained context file givin
 | 2 | Exhaustive artifact analysis — planning docs, previous story file, recent git commits | — | **SELECTIVE_LOAD**: only the epic-relevant sections of PRD/architecture/UX are loaded, not full documents; reads `GRAPH_REPORT.md` (no subprocess) | — |
 | 3 | Architecture intelligence extraction — every constraint the developer must follow | — | Reads from already-loaded artifacts; zero extra file I/O | — |
 | 4 | Web research for new dependencies | — | **Conditional gate**: skipped entirely if story adds no new library or major version upgrade | — |
-| 5 | Write story file — ACs, dev notes, file locations, prior story learnings, open questions list | — | **Caveman lite** output mode | `implementation/{story-key}.md` |
-| 5b | Resolve ambiguities collected during steps 2-4 via focused Q&A | Grill skill | **Skipped entirely** if zero open questions were collected | `implementation/{story-key}.md` (updated inline) |
-| 6 | Update sprint-status to `ready-for-dev` | — | Targeted key update; full file structure preserved | `implementation/sprint-status.yaml` |
+| 5 | Write story file — ACs, dev notes, file locations, prior story learnings, open questions list | — | **Caveman lite** output mode | `_bmad-output/implementation-artifacts/{story-key}.md` |
+| 5b | Resolve ambiguities collected during steps 2-4 via focused Q&A | Grill skill | **Skipped entirely** if zero open questions were collected | `_bmad-output/implementation-artifacts/{story-key}.md` (updated inline) |
+| 6 | Update sprint-status to `ready-for-dev` | — | Targeted key update; full file structure preserved | `_bmad-output/implementation-artifacts/sprint-status.yaml` |
 | **Git** | **Commit story file + sprint-status with trailers: `AI-Phase: story`, `AI-Tool`, `Story-Ref`** | — | Hook guards against duplicate tagging | **git log** |
 
 ---
@@ -163,7 +163,7 @@ Produces structured findings in the story file. Story moves to `done` (if all re
 | 3 | Normalize all findings; deduplicate overlapping findings; classify as `patch`, `decision_needed`, `defer`, or `dismiss` | — | Dismissed findings dropped silently; dedup reduces noise before presenting to user | — |
 | 4 | Resolve `decision_needed` items; offer to apply, walk through, or defer `patch` findings | — | Step-file JIT | `{story-key}.md` (findings inline), `deferred-work.md` |
 | 4 (cont.) | Update story status; sync sprint-status | — | Targeted status update | `{story-key}.md`, `sprint-status.yaml` |
-| 4 (cont.) | Persist review audit artifact | — | Always written even on clean review | `implementation/reviews/{story-key}-{date}.md` |
+| 4 (cont.) | Persist review audit artifact | — | Always written even on clean review | `_bmad-output/implementation-artifacts/reviews/{story-key}-{date}.md` |
 | **Git** | **Two commits: (1) patches applied — `AI-Phase: review`; (2) review audit artifact — `AI-Phase: review`. Both carry `AI-Tool` and `Story-Ref` trailers.** | — | Hook guards against duplicate tagging | **git log** |
 
 ---
@@ -179,7 +179,7 @@ Produces automated test files that actually run. Scoped to one feature or direct
 | 2 | Generate API tests — status codes, response shape, happy path + critical error cases | — | **Focused scope**: happy path + 1-2 error cases only; no speculative edge coverage | Test files under `tests/` |
 | 3 | Generate E2E tests — full user workflows using semantic locators | — | **Caveman lite** output; linear tests only, no complex fixture composition | Test files under `tests/` |
 | 4 | Run tests; fix any failures before declaring done | — | Fixes inline rather than deferring | — |
-| 5 | Write test summary; persist run artifact | — | **Run artifact always written** — even when no test file changed (appends fresh `Run-Timestamp`) | `implementation/tests/test-summary.md`, `implementation/tests/runs/{feature}-{date}.md` |
+| 5 | Write test summary; persist run artifact | — | **Run artifact always written** — even when no test file changed (appends fresh `Run-Timestamp`) | `_bmad-output/implementation-artifacts/tests/test-summary.md`, `_bmad-output/implementation-artifacts/tests/runs/{feature}-{date}.md` |
 | **Git** | **Commit test files + run artifact with trailers: `AI-Phase: test`, `AI-Tool`, `Story-Ref`** | — | Hook guards against duplicate tagging | **git log** |
 
 ---
@@ -359,12 +359,12 @@ Manual commits in this repo are auto-tagged by the `prepare-commit-msg` hook (`A
 
 | Command | Reads | Writes | AI-Phase tag |
 |---------|-------|--------|:------------:|
-| `/create-prd` | Conversation | `planning/prd.md` | `prd` |
-| `/create-architecture` | `prd.md` | `planning/architecture.md` | `architecture` |
-| `/create-ux-design` | `prd.md`, `architecture.md` | `planning/ux-design-specification.md` | `ux-design` |
-| `/create-epics-and-stories` | all three above | `planning/epics.md` | `epics` |
-| `/sprint-planning` | `epics.md` | `implementation/sprint-status.yaml` | `sprint-plan` |
-| `/create-story` | `epics.md` + planning docs + `sprint-status.yaml` | `implementation/{story}.md` | `story` |
+| `/create-prd` | Conversation | `_bmad-output/planning-artifacts/prd.md` | `prd` |
+| `/create-architecture` | `prd.md` | `_bmad-output/planning-artifacts/architecture.md` | `architecture` |
+| `/create-ux-design` | `prd.md`, `architecture.md` | `_bmad-output/planning-artifacts/ux-design-specification.md` | `ux-design` |
+| `/create-epics-and-stories` | all three above | `_bmad-output/planning-artifacts/epics.md` | `epics` |
+| `/sprint-planning` | `epics.md` | `_bmad-output/implementation-artifacts/sprint-status.yaml` | `sprint-plan` |
+| `/create-story` | `epics.md` + planning docs + `sprint-status.yaml` | `_bmad-output/implementation-artifacts/{story}.md` | `story` |
 | `/dev-story` | `{story}.md` + `sprint-status.yaml` | source code + tests | `code` |
 | `/code-review` | git diff + `{story}.md` + `sprint-status.yaml` | findings in story file + review artifact | `review` |
 | `/qa` | source code | test files + run artifact | `test` |
@@ -389,12 +389,12 @@ Manual commits (made by a developer outside any command) are auto-tagged by the 
 |---|---|
 | `src/auth.ts` | `code` |
 | `tests/auth.test.ts` | `test` |
-| `implementation/1-2-user-auth.md` | `story` |
-| `implementation/1-2-user-auth.md` + `src/auth.ts` | `story,code` |
-| `implementation/1-2-user-auth.md` + `src/auth.ts` + `tests/auth.test.ts` | `story,test,code` |
-| `planning/prd.md` | `prd` |
-| `implementation/sprint-status.yaml` | `sprint-plan` |
-| `implementation/reviews/1-2-auth-2026-05-06.md` | `review` |
+| `_bmad-output/implementation-artifacts/1-2-user-auth.md` | `story` |
+| `_bmad-output/implementation-artifacts/1-2-user-auth.md` + `src/auth.ts` | `story,code` |
+| `_bmad-output/implementation-artifacts/1-2-user-auth.md` + `src/auth.ts` + `tests/auth.test.ts` | `story,test,code` |
+| `_bmad-output/planning-artifacts/prd.md` | `prd` |
+| `_bmad-output/implementation-artifacts/sprint-status.yaml` | `sprint-plan` |
+| `_bmad-output/implementation-artifacts/reviews/1-2-auth-2026-05-06.md` | `review` |
 
 If the hook sees trailers already present, it leaves them alone. This means **every commit is tagged** — there are no gaps in the denominator.
 

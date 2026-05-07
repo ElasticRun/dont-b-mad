@@ -108,7 +108,7 @@ development_status:
 
 **Story file detection:**
 
-- Check: `{story_location_absolute}/{story-key}.md` (e.g., `stories/1-1-user-authentication.md`)
+- Check: `{story_location_absolute}/{story-key}.md` (e.g., `_bmad-output/implementation-artifacts/1-1-user-authentication.md`)
 - If exists → upgrade status to at least `ready-for-dev`
 
 **Preservation rule:**
@@ -250,7 +250,7 @@ backlog → ready-for-dev → in-progress → review → done
 ```
 
 - **backlog**: Story only exists in epic file
-- **ready-for-dev**: Story file created (e.g., `stories/1-3-plant-naming.md`)
+- **ready-for-dev**: Story file created (e.g., `_bmad-output/implementation-artifacts/1-3-plant-naming.md`)
 - **in-progress**: Developer actively working
 - **review**: Ready for code review (via Dev's code-review workflow)
 - **done**: Completed

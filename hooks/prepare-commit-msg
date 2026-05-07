@@ -43,38 +43,42 @@ add_phase() {
 }
 
 if [ -n "$STAGED" ]; then
-  # Planning: story files — implementation/N-N-title.md
-  if echo "$STAGED" | grep -qE '^implementation/[0-9]+-[0-9]+-[^/]+\.md$'; then
+  # Only the upstream BMAD layout is recognised. Anything written outside
+  # _bmad-output/{planning,implementation}-artifacts/ falls through to the
+  # default "code" tag so projects can't accidentally drift to ad-hoc paths.
+
+  # Story files: _bmad-output/implementation-artifacts/N-N-title.md
+  if echo "$STAGED" | grep -qE '^_bmad-output/implementation-artifacts/[0-9]+-[0-9]+-[^/]+\.md$'; then
     add_phase "story"
   fi
 
-  # Planning: PRD
-  if echo "$STAGED" | grep -qE '^planning/.*prd.*\.md$'; then
+  # PRD
+  if echo "$STAGED" | grep -qE '^_bmad-output/planning-artifacts/.*prd.*\.md$'; then
     add_phase "prd"
   fi
 
-  # Planning: architecture
-  if echo "$STAGED" | grep -qE '^planning/.*arch.*\.md$'; then
+  # Architecture
+  if echo "$STAGED" | grep -qE '^_bmad-output/planning-artifacts/.*arch.*\.md$'; then
     add_phase "architecture"
   fi
 
-  # Planning: UX design
-  if echo "$STAGED" | grep -qE '^planning/.*ux.*\.md$'; then
+  # UX design
+  if echo "$STAGED" | grep -qE '^_bmad-output/planning-artifacts/.*ux.*\.md$'; then
     add_phase "ux-design"
   fi
 
-  # Planning: epics
-  if echo "$STAGED" | grep -qE '^planning/.*epic.*\.md$'; then
+  # Epics
+  if echo "$STAGED" | grep -qE '^_bmad-output/planning-artifacts/.*epic.*\.md$'; then
     add_phase "epics"
   fi
 
-  # Sprint planning — sprint-status.yaml
-  if echo "$STAGED" | grep -qE 'sprint-status\.yaml$'; then
+  # Sprint planning — sprint-status.yaml lives under implementation-artifacts
+  if echo "$STAGED" | grep -qE '^_bmad-output/implementation-artifacts/sprint-status\.yaml$'; then
     add_phase "sprint-plan"
   fi
 
   # Review artifacts
-  if echo "$STAGED" | grep -qE '^implementation/reviews/'; then
+  if echo "$STAGED" | grep -qE '^_bmad-output/implementation-artifacts/reviews/'; then
     add_phase "review"
   fi
 

@@ -3,7 +3,8 @@
 #   - in-repo install uses symlinks (TARGET == REPO_ROOT)
 #   - workspace root is itself a BMAD project (`.:` entry, default = '.')
 #   - multi-project workspace lists every child with _bmad/
-#   - git repos without _bmad/ appear as commented stubs
+#   - git repos without _bmad/ get auto-scaffolded (matches upstream layout)
+#   - bare workspace falls back to scaffolding the workspace root
 
 set -uo pipefail
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
@@ -97,41 +98,49 @@ test_multi_project_workspace() {
   assert_contains "default empty under multi-project" "$content" "default_project: ''"
 }
 
-test_git_repo_without_bmad_appears_commented() {
+test_git_repo_without_bmad_gets_scaffolded() {
+  # New behavior (matches upstream BMAD): every git repo in the workspace is
+  # auto-scaffolded with _bmad/{bmm,cis,core}/config.yaml + _bmad-output/ dirs.
+  # The repo appears UNCOMMENTED in workspace.yaml because it now satisfies
+  # has_bmad_project().
   local ws fake_home
   ws=$(mktempdir); fake_home=$(mktempdir)
   ( cd "$ws" && git init -q legacy-app && cd legacy-app && \
       git config user.email t@t.t && git config user.name t )
   HOME="$fake_home" bash "$INSTALL" --skills-only "$ws" >/dev/null 2>&1
   local content; content=$(cat "$ws/_bmad/workspace.yaml")
-  rm -rf "$ws" "$fake_home"
 
-  # The git repo with no _bmad/ should appear as commented stub guiding the
-  # user to run bmad init in it. Lines look like:
-  #   # legacy-app:
-  #   #   path: legacy-app
-  assert_contains "commented project header"   "$content" "# legacy-app:"
-  assert_contains "commented project hint"     "$content" "uncomment after running bmad init"
+  assert_contains "legacy-app listed (uncommented)"  "$content" "  legacy-app:"
+  assert_file    "legacy-app got bmm/config.yaml"    "$ws/legacy-app/_bmad/bmm/config.yaml"
+  assert_dir     "legacy-app got _bmad-output/"      "$ws/legacy-app/_bmad-output/planning-artifacts"
+  # Single-project workspace → default_project should resolve to the one we found.
+  assert_contains "default_project = legacy-app"    "$content" "default_project: 'legacy-app'"
+
+  rm -rf "$ws" "$fake_home"
 }
 
-test_empty_workspace_yields_no_projects() {
+test_empty_workspace_falls_back_to_root() {
+  # New behavior: when no git repo exists anywhere, install scaffolds the
+  # workspace target itself as a single-project setup. workspace.yaml then
+  # contains a "." entry and default_project resolves to "."
   local ws fake_home
   ws=$(mktempdir); fake_home=$(mktempdir)
   HOME="$fake_home" bash "$INSTALL" --skills-only "$ws" >/dev/null 2>&1
   local content; content=$(cat "$ws/_bmad/workspace.yaml")
+
+  assert_contains "root listed as '.:'"            "$content" "  .:"
+  assert_contains "default_project = '.'"          "$content" "default_project: '.'"
+  assert_file    "root got bmm/config.yaml"        "$ws/_bmad/bmm/config.yaml"
+
   rm -rf "$ws" "$fake_home"
-  assert_contains "default_project empty"  "$content" "default_project: ''"
-  # No project lines (only the `projects:` key)
-  local proj_lines; proj_lines=$(printf '%s\n' "$content" | awk '/^projects:/{flag=1; next} flag' | grep -cE '^  [a-zA-Z]' || true)
-  assert_eq "no concrete project entries" "$proj_lines" "0"
 }
 
 test_mixed_workspace_combines_all_shapes() {
-  # All four shapes in one workspace:
+  # All four shapes in one workspace under the new scaffold rules:
   #   proj-alpha/   has _bmad/        (real project, listed)
   #   proj-beta/    has _bmad/        (real project, listed)
-  #   legacy-app/   .git but no _bmad (git repo, commented stub)
-  #   notes/        plain dir         (ignored)
+  #   legacy-app/   .git but no _bmad (auto-scaffolded, listed UNCOMMENTED)
+  #   notes/        plain dir         (ignored — no .git, no _bmad)
   local ws fake_home
   ws=$(mktempdir); fake_home=$(mktempdir)
   mkdir -p "$ws/proj-alpha/_bmad/bmm" \
@@ -142,13 +151,15 @@ test_mixed_workspace_combines_all_shapes() {
 
   HOME="$fake_home" bash "$INSTALL" --skills-only "$ws" >/dev/null 2>&1
   local content; content=$(cat "$ws/_bmad/workspace.yaml")
-  rm -rf "$ws" "$fake_home"
 
   assert_contains "alpha listed (uncommented)"           "$content" "  proj-alpha:"
   assert_contains "beta listed (uncommented)"            "$content" "  proj-beta:"
-  assert_contains "legacy-app appears commented"         "$content" "# legacy-app:"
+  assert_contains "legacy-app listed (auto-scaffolded)"  "$content" "  legacy-app:"
+  assert_file    "legacy-app got bmm/config.yaml"        "$ws/legacy-app/_bmad/bmm/config.yaml"
   assert_not_contains "notes/ does not appear"           "$content" "notes:"
   assert_contains "default empty under multi-project"    "$content" "default_project: ''"
+
+  rm -rf "$ws" "$fake_home"
 }
 
 test_root_and_children_both_listed() {
@@ -171,8 +182,8 @@ test_root_and_children_both_listed() {
 run_test test_in_repo_install_uses_symlinks
 run_test test_workspace_root_as_project
 run_test test_multi_project_workspace
-run_test test_git_repo_without_bmad_appears_commented
-run_test test_empty_workspace_yields_no_projects
+run_test test_git_repo_without_bmad_gets_scaffolded
+run_test test_empty_workspace_falls_back_to_root
 run_test test_mixed_workspace_combines_all_shapes
 run_test test_root_and_children_both_listed
 finish

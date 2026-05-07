@@ -342,6 +342,8 @@ if [ "$MODE" = "all" ] || [ "$MODE" = "skills" ]; then
     local proj_name; proj_name="$(basename "$proj_dir")"
     [ "$proj_dir" = "$TARGET" ] && proj_name="$(basename "$TARGET")"
     local created_any=false
+
+    # Per-module config.yaml (matches upstream BMAD layout: _bmad/<module>/config.yaml).
     for module in bmm cis core; do
       local tpl="$REPO_ROOT/templates/_bmad/$module/config.yaml"
       [ -f "$tpl" ] || continue
@@ -353,27 +355,51 @@ if [ "$MODE" = "all" ] || [ "$MODE" = "skills" ]; then
         created_any=true
       fi
     done
+
+    # Empty support dirs that upstream creates as part of the bmad shell.
+    # Skills don't strictly need them, but matching the layout avoids confusion
+    # for anyone moving between fork-installed and upstream-installed projects.
+    mkdir -p "$proj_dir/_bmad/scripts" "$proj_dir/_bmad/custom"
+
+    # Output dirs declared by upstream bmm/module.yaml's `directories:` block.
+    # Skills like /create-prd write to {planning_artifacts}; pre-creating the
+    # path means the first write doesn't fail because the parent doesn't exist.
+    mkdir -p \
+      "$proj_dir/_bmad-output/planning-artifacts" \
+      "$proj_dir/_bmad-output/implementation-artifacts" \
+      "$proj_dir/docs"
+
     if $created_any; then
       scaffolded_count=$((scaffolded_count + 1))
       local rel="${proj_dir#"$TARGET"/}"
       [ "$rel" = "$proj_dir" ] && rel="."
-      echo "  Project init:   $rel/_bmad/{bmm,cis,core}/config.yaml"
+      echo "  Project init:   $rel/_bmad/{bmm,cis,core}/config.yaml + _bmad-output/{planning,implementation}-artifacts/"
     fi
   }
 
-  # Scaffold for the workspace root if it's a git repo, and for each
-  # immediate child dir that's a git repo. Matches the project-discovery
-  # heuristic below (one level deep, .git as project marker).
+  # Scaffold rules:
+  #   1. Workspace target if it is a git repo.
+  #   2. Every immediate child dir that is a git repo OR already has _bmad/
+  #      (re-running install fills in any module config that's missing).
+  #   3. Fallback — if nothing matched (bare workspace, no git anywhere yet),
+  #      scaffold the workspace target itself as a single-project setup.
+  #      Matches the single-project pattern in templates/bmad-workspace-resolution.md.
+  any_scaffold_target_found=false
   if [ -d "$TARGET/.git" ] || [ -f "$TARGET/.git" ]; then
     scaffold_bmad_for_project "$TARGET"
+    any_scaffold_target_found=true
   fi
   for dir in "$TARGET"/*/; do
     [ -d "$dir" ] || continue
     proj="${dir%/}"
-    if [ -d "$proj/.git" ] || [ -f "$proj/.git" ]; then
+    if [ -d "$proj/.git" ] || [ -f "$proj/.git" ] || [ -d "$proj/_bmad" ]; then
       scaffold_bmad_for_project "$proj"
+      any_scaffold_target_found=true
     fi
   done
+  if ! $any_scaffold_target_found; then
+    scaffold_bmad_for_project "$TARGET"
+  fi
 
   # --- Workspace config: auto-discover projects with _bmad/ ---
   # A project has _bmad/ with at least one module config dir (bmm/, cis/, core/)
