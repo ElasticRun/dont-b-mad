@@ -7,6 +7,7 @@
     "aieye-live-hook": "bin/aieye-live-hook"
   },
   "scripts": {
+    "check-deps": "node lib/dispatch.js --check-deps",
     "test": "node --test lib/*.test.js",
     "test:static": "! grep -n \"spawn.*git\\|exec.*git\" lib/dispatch.js"
   },

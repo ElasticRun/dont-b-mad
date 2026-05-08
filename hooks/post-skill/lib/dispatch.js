@@ -6,7 +6,8 @@
  * Bearer token always comes from `git credential fill` for the GitLab host.
  * No npm dependencies — only Node.js built-ins.
  *
- * Called by bin/aieye-live-hook in a background subshell with a 2-second ceiling.
+ * Called by bin/aieye-live-hook in a background subshell. A ~2s wall-clock deadline is
+ * enforced in this process (no external `timeout` command — portable on macOS/Linux).
  *
  * Debugging: set AIEYE_LIVE_DEBUG=1 (or true/yes). Logs execution path and errors
  * to stderr; the wrapper script preserves stderr when this variable is set.
@@ -148,6 +149,61 @@ function parseEnvFile(filePath) {
 // All subprocess calls are tightly time-bounded (the hook has a 2s ceiling).
 
 const SUBPROCESS_TIMEOUT_MS = 600;
+
+/** Wall-clock limit for the whole hook process (matches former shell `timeout 2`). */
+const HOOK_MAX_RUNTIME_MS = 2000;
+
+/** Print problems and exit 1. Used by --check-deps. */
+function printDependencyProblems(problems) {
+  process.stderr.write('[aieye-live-hook] Dependency check failed:\n');
+  for (const p of problems) process.stderr.write(`  • ${p}\n`);
+  process.stderr.write(
+    '\nRequired: Node.js 18+ and git on PATH. Git supplies the ingest token via ' +
+      '`git credential fill` for the configured GitLab host.\n' +
+      'The wrapper script uses bash (#!/usr/bin/env bash).\n' +
+      'Run: aieye-live-hook --check-deps  or  node /path/to/lib/dispatch.js --check-deps\n'
+  );
+}
+
+/**
+ * Offline verify runtime deps (node version + git). Exits process; never runs ingest.
+ */
+function runCheckDepsCli() {
+  if (!process.argv.includes('--check-deps')) return;
+
+  const problems = [];
+  const major = Number(process.versions.node.split('.')[0]);
+  if (!Number.isFinite(major) || major < 18) {
+    problems.push(`Node.js >= 18 required (found ${process.version})`);
+  }
+
+  let res;
+  try {
+    res = spawnSync('git', ['--version'], {
+      timeout: SUBPROCESS_TIMEOUT_MS,
+      encoding: 'utf8',
+    });
+  } catch (e) {
+    problems.push(`git not runnable: ${e.message}`);
+    printDependencyProblems(problems);
+    process.exit(1);
+  }
+
+  if (res.error) {
+    problems.push(`git: ${res.error.message}`);
+  } else if (res.status !== 0) {
+    problems.push(`git --version exited with status ${res.status}`);
+  } else if (!String(res.stdout || '').trim()) {
+    problems.push('git --version produced no output');
+  }
+
+  if (problems.length > 0) {
+    printDependencyProblems(problems);
+    process.exit(1);
+  }
+
+  process.exit(0);
+}
 
 /** Run `git credential fill` for <host> and return the password, or null. */
 function readGitCredential(host) {
@@ -599,13 +655,20 @@ async function main() {
   }
 }
 
-main().catch((err) => {
-  const msg =
-    err && typeof err === 'object' && err.message != null ? String(err.message) : String(err);
-  process.stderr.write(`[aieye-live-hook] ERROR: hook failed — ${msg}\n`);
-  if (DEBUG && err && typeof err === 'object' && err.stack) {
-    process.stderr.write(String(err.stack) + '\n');
-  }
-  // Swallow exit code — skill must never be affected
-  process.exit(0);
-});
+runCheckDepsCli();
+
+const hookHardKill = setTimeout(() => process.exit(0), HOOK_MAX_RUNTIME_MS);
+
+main()
+  .catch((err) => {
+    const msg =
+      err && typeof err === 'object' && err.message != null ? String(err.message) : String(err);
+    process.stderr.write(`[aieye-live-hook] ERROR: hook failed — ${msg}\n`);
+    if (DEBUG && err && typeof err === 'object' && err.stack) {
+      process.stderr.write(String(err.stack) + '\n');
+    }
+  })
+  .finally(() => {
+    clearTimeout(hookHardKill);
+    process.exit(0);
+  });

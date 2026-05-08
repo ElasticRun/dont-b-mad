@@ -2,6 +2,26 @@
 
 BMAD post-skill hook that fires celebration events to the AIEye Live ingest endpoint. Fire-and-forget: the foreground exits in under 50ms regardless of network conditions.
 
+## System dependencies
+
+The hook does **not** use external GNU **`timeout`**; the ~2 s ceiling is enforced inside Node so stock macOS works.
+
+| Requirement | Why |
+|---|---|
+| **bash** | Wrapper script (`/usr/bin/env bash`). |
+| **Node.js ≥ 18** | Runs `lib/dispatch.js`. |
+| **git** on `PATH** | Bearer token via `git credential fill` for the GitLab host. |
+
+Verify on the target machine:
+
+```bash
+aieye-live-hook --check-deps
+# or when installed via dont-b-mad install.sh:
+node ~/.claude/hooks/aieye-live/lib/dispatch.js --check-deps
+```
+
+Exit **0** when Node and git are usable; otherwise messages go to stderr with hints.
+
 ## Installation
 
 ```bash
@@ -97,8 +117,8 @@ Unknown skills are silently skipped — the hook never fails.
 
 ## Safety guarantees
 
-- Foreground exit under 50ms (background subshell + `timeout 2`).
-- `|| true` ensures even a crashed or timed-out dispatcher never marks a skill failed.
+- Foreground exit under ~50 ms (`( … ) &`); dispatcher runs in the background with a ~2 s Node-enforced deadline.
+- `|| true` ensures even a crashed or terminated dispatcher never marks the agent/skill failed.
 - Uses `git credential fill` only (no `git` repo required for the hook process).
 - No npm dependencies — runs on Node 18+ with zero install inside `live-hook/`.
 

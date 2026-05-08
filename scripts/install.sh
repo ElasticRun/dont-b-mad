@@ -73,9 +73,18 @@ NODE_OK=false
 PYTHON3_OK=false
 GIT_OK=false
 UVX_OK=false
+BASH_OK=false
 
 check_system_deps() {
   echo "Dependencies:"
+
+  if command -v bash >/dev/null 2>&1; then
+    echo "  bash:     ok ($(bash --version 2>/dev/null | head -1))"
+    BASH_OK=true
+  else
+    echo "  bash:     NOT FOUND — aieye-live hook wrapper needs bash (/usr/bin/env bash)"
+    echo "            Install via your OS package manager (often preinstalled on Linux/macOS)"
+  fi
 
   if command -v git >/dev/null 2>&1; then
     echo "  git:      ok ($(git --version 2>&1 | head -1))"
@@ -204,6 +213,16 @@ install_post_skill_hook() {
   cp "$src/lib/dispatch.queue.test.js" "$dst/lib/dispatch.queue.test.js" 2>/dev/null || true
   cp "$src/lib/dispatch.token.test.js" "$dst/lib/dispatch.token.test.js" 2>/dev/null || true
   chmod +x "$dst/bin/aieye-live-hook"
+
+  if ! $BASH_OK; then
+    echo "  WARNING: bash not on PATH — ~/.claude/hooks/aieye-live/bin/aieye-live-hook may not run."
+  fi
+
+  if $NODE_OK; then
+    if ! node "$dst/lib/dispatch.js" --check-deps; then
+      echo "  WARNING: aieye-live hook runtime check failed (install git + Node >= 18; see hooks/post-skill/README.md)."
+    fi
+  fi
 
   local hook_bin="$dst/bin/aieye-live-hook"
   local settings="$HOME/.claude/settings.json"

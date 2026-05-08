@@ -27,6 +27,20 @@ test_post_skill_hook_files_installed() {
   assert_file       "aieye-live-hook present"    "$hook_dir/bin/aieye-live-hook"
   assert_executable "aieye-live-hook executable" "$hook_dir/bin/aieye-live-hook"
 
+  local wc deps_rc
+
+  deps_rc=0
+  wc=$(cat "$hook_dir/bin/aieye-live-hook") || wc=""
+  assert_not_contains "wrapper avoids GNU timeout COMMAND" "$wc" "timeout 2"
+
+  deps_rc=0
+  if command -v node >/dev/null 2>&1 && command -v git >/dev/null 2>&1; then
+    node "$hook_dir/lib/dispatch.js" --check-deps 2>/dev/null || deps_rc=1
+    assert_zero "dispatch.js --check-deps exits 0" "$deps_rc"
+  else
+    _pass "dispatch.js --check-deps skipped (node or git unavailable)"
+  fi
+
   rm -rf "$ws" "$fake_home"
 }
 
