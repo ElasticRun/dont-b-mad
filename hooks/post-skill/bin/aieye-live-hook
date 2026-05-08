@@ -2,5 +2,11 @@
 # aieye-live-hook — installed by @aieye/live-hook
 # Fire-and-forget: forks dispatch.js into background; exits foreground immediately.
 # Triple safety: timeout 2 hard ceiling | || true swallows failures | & never blocks.
-( timeout 2 node "$(dirname "$0")/../lib/dispatch.js" "$@" >/dev/null 2>&1 || true ) &
+# When AIEYE_LIVE_DEBUG is 1/true/yes, stderr is preserved (debug + WARN/ERROR lines).
+DIR="$(cd "$(dirname "$0")" && pwd)"
+NODE_SCRIPT="$DIR/../lib/dispatch.js"
+case "${AIEYE_LIVE_DEBUG:-}" in
+  1|true|TRUE|yes|Yes|YES) ( timeout 2 node "$NODE_SCRIPT" "$@" >/dev/null || true ) & ;;
+  *) ( timeout 2 node "$NODE_SCRIPT" "$@" >/dev/null 2>&1 || true ) & ;;
+esac
 exit 0

@@ -8,6 +8,9 @@
  *
  * Called by bin/aieye-live-hook in a background subshell with a 2-second ceiling.
  *
+ * Debugging: set AIEYE_LIVE_DEBUG=1 (or true/yes). Logs execution path and errors
+ * to stderr; the wrapper script preserves stderr when this variable is set.
+ *
  * Queue behaviour (story 8.4):
  *   - On network error or 5xx: append payload to ~/.claude/aieye-live-queue.jsonl
  *   - On 401: drop event, log to stderr (token revoked — retrying forever is pointless)
@@ -24,6 +27,38 @@ const http = require('node:http');
 const crypto = require('node:crypto');
 const os = require('node:os');
 const { spawnSync } = require('node:child_process');
+
+// ---------------------------------------------------------------------------
+// Debug logging (stderr only; enable with AIEYE_LIVE_DEBUG=1|true|yes)
+// ---------------------------------------------------------------------------
+
+function isDebugEnabled() {
+  const v = String(process.env.AIEYE_LIVE_DEBUG || '').trim().toLowerCase();
+  return v === '1' || v === 'true' || v === 'yes';
+}
+
+const DEBUG = isDebugEnabled();
+
+/** @param {string} message */
+function debugLog(message) {
+  if (!DEBUG) return;
+  process.stderr.write(`[aieye-live-hook] DEBUG: ${message}\n`);
+}
+
+/**
+ * @param {string} context
+ * @param {unknown} err
+ */
+function debugError(context, err) {
+  if (!DEBUG) return;
+  const msg = err && typeof err === 'object' && 'message' in err && err.message != null
+    ? String(err.message)
+    : String(err);
+  process.stderr.write(`[aieye-live-hook] DEBUG ERROR [${context}]: ${msg}\n`);
+  if (err && typeof err === 'object' && 'stack' in err && err.stack) {
+    process.stderr.write(String(err.stack) + '\n');
+  }
+}
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -312,15 +347,20 @@ function queueRewrite(failedLines) {
  */
 async function flushQueue(ingestUrl, token) {
   const entries = queueRead();
-  if (entries.length === 0) return;
+  if (entries.length === 0) {
+    debugLog('flushQueue: queue empty, nothing to flush');
+    return;
+  }
 
+  debugLog(`flushQueue: processing ${entries.length} queued event(s)`);
   const failed = []; // raw lines for entries we couldn't deliver
 
   for (const entry of entries) {
     let result;
     try {
       result = await postJSON(ingestUrl, entry.payload, token);
-    } catch (_) {
+    } catch (err) {
+      debugError('flushQueue POST', err);
       // Network error — stop flushing, preserve this and remaining entries
       failed.push(entry.raw);
       // Push the rest of the batch (not yet attempted) back as failed too
@@ -328,6 +368,7 @@ async function flushQueue(ingestUrl, token) {
       for (let i = idx + 1; i < entries.length; i++) {
         failed.push(entries[i].raw);
       }
+      debugLog(`flushQueue: stopped on network error; ${failed.length} line(s) kept in queue`);
       break;
     }
 
@@ -336,10 +377,12 @@ async function flushQueue(ingestUrl, token) {
       process.stderr.write(
         `[aieye-live-hook] ERROR: 401 Unauthorized flushing queued event — event dropped.\n`
       );
+      debugLog('flushQueue: 401 on queued item — dropped, continuing');
       continue;
     }
 
     if (result.status < 200 || result.status >= 300) {
+      debugLog(`flushQueue: HTTP ${result.status} — stopping flush; remainder re-queued`);
       // 5xx or other non-2xx — stop, preserve remaining entries
       failed.push(entry.raw);
       const idx = entries.indexOf(entry);
@@ -348,10 +391,12 @@ async function flushQueue(ingestUrl, token) {
       }
       break;
     }
+    debugLog(`flushQueue: delivered one queued event (HTTP ${result.status})`);
     // 2xx — entry delivered, do not add to failed
   }
 
   queueRewrite(failed);
+  debugLog(`flushQueue: finished (failed backlog lines: ${failed.length})`);
 }
 
 // ---------------------------------------------------------------------------
@@ -365,22 +410,40 @@ async function flushQueue(ingestUrl, token) {
 async function readStdin() {
   return new Promise((resolve) => {
     if (process.stdin.isTTY) {
+      debugLog('stdin: isTTY=true, using empty hook payload');
       resolve({});
       return;
     }
     let buf = '';
+    let settled = false;
+    const finish = (label, value) => {
+      if (settled) return;
+      settled = true;
+      debugLog(`stdin: ${label} (bytes=${buf.length})`);
+      resolve(value);
+    };
+
     process.stdin.setEncoding('utf8');
     process.stdin.on('data', (chunk) => { buf += chunk; });
     process.stdin.on('end', () => {
       try {
-        resolve(JSON.parse(buf));
-      } catch (_) {
-        resolve({});
+        finish('parsed JSON', JSON.parse(buf));
+      } catch (err) {
+        debugError('stdin JSON parse', err);
+        finish('invalid JSON, using {}', {});
       }
     });
-    process.stdin.on('error', () => resolve({}));
+    process.stdin.on('error', (err) => {
+      debugError('stdin stream', err);
+      finish('stream error, using {}', {});
+    });
     // Safety timeout — stdin should close well inside the 2s ceiling
-    setTimeout(() => resolve({}), 1500);
+    setTimeout(() => {
+      if (!settled) {
+        debugLog('stdin: safety timeout (1500ms), using {}');
+        finish('timeout', {});
+      }
+    }, 1500);
   });
 }
 
@@ -389,15 +452,20 @@ async function readStdin() {
 // ---------------------------------------------------------------------------
 
 async function main() {
+  debugLog(`start argv=${JSON.stringify(process.argv.slice(2))}`);
   // 1. Load config
   const config = parseEnvFile(ENV_FILE);
   if (config === null) {
+    debugLog(`exit: env file missing (${ENV_FILE}) — skipping`);
     // File missing — skip silently
     return;
   }
 
   // Stealth mode: user opted out of event publishing for this machine
-  if (config['AIEYE_LIVE_STEALTH_MODE'] === 'true') return;
+  if (config['AIEYE_LIVE_STEALTH_MODE'] === 'true') {
+    debugLog('exit: AIEYE_LIVE_STEALTH_MODE=true — skipping');
+    return;
+  }
 
   const ingestUrl = INGEST_URL;
   const token = resolveAuthTokenFromGitCredential();
@@ -406,9 +474,15 @@ async function main() {
   const allowedSkillsRaw = config['AIEYE_LIVE_SKILLS'] || '';
 
   if (!token || !actor) {
+    const missing = [!token && 'git credential token', !actor && 'AIEYE_LIVE_ACTOR']
+      .filter(Boolean)
+      .join(', ');
+    debugLog(`exit: missing ${missing} — skipping`);
     // Not configured — skip silently
     return;
   }
+
+  debugLog(`config: actor set, team=${team ? '(set)' : '(empty)'} ingest=${ingestUrl}`);
 
   // 2. Parse hook stdin
   const hookData = await readStdin();
@@ -425,13 +499,16 @@ async function main() {
   if (typeof skillName !== 'string') skillName = null;
   if (skillName) skillName = skillName.trim();
 
-  // 3. Filter against AIEYE_LIVE_SKILLS (AC#6)
+  debugLog(
+    `resolved skill_name=${skillName === null ? '(null)' : JSON.stringify(skillName)}`
+  );
   const allowedSkills = allowedSkillsRaw
     .split(',')
     .map((s) => s.trim())
     .filter(Boolean);
 
   if (allowedSkills.length > 0 && skillName && !allowedSkills.includes(skillName)) {
+    debugLog(`exit: skill "${skillName}" not in AIEYE_LIVE_SKILLS — skipping`);
     // Not in allowed list — skip silently
     return;
   }
@@ -439,8 +516,13 @@ async function main() {
   // 4. Map skill → event_type (AC#7). Unknown / non-BMAD skill → skip silently.
   const eventType = resolveEventType(skillName);
   if (!eventType) {
+    debugLog(
+      `exit: no event_type for skill=${skillName === null ? '(null)' : JSON.stringify(skillName)} — skipping`
+    );
     return;
   }
+
+  debugLog(`path: skill=${JSON.stringify(skillName)} → event_type=${eventType}`);
 
   // 5. Assemble payload (AC#8, AC#9)
   const occurredAt = new Date();
@@ -474,14 +556,17 @@ async function main() {
   await flushQueue(ingestUrl, token);
 
   // 7. POST current event to ingest endpoint
+  debugLog('ingest: posting current event…');
   try {
     const result = await postJSON(ingestUrl, payload, token);
+    debugLog(`ingest: response HTTP ${result.status}`);
 
     if (result.status === 401) {
       // Token revoked — drop, do not queue (AC#2)
       process.stderr.write(
         `[aieye-live-hook] ERROR: 401 Unauthorized — token may be revoked. Event dropped.\n`
       );
+      debugLog('exit: 401 on current event — dropped');
       return;
     }
 
@@ -490,6 +575,7 @@ async function main() {
       process.stderr.write(
         `[aieye-live-hook] WARN: server returned ${result.status}. Event queued for retry.\n`
       );
+      debugLog(`error path: ${result.status} server — event queued`);
       queueAppend(payload);
       return;
     }
@@ -498,8 +584,13 @@ async function main() {
       process.stderr.write(
         `[aieye-live-hook] WARN: server returned ${result.status}. Event not confirmed.\n`
       );
+      debugLog(`warn path: HTTP ${result.status} — event not confirmed (not queued)`);
+      return;
     }
+
+    debugLog(`done: event sent event_type=${eventType} skill=${JSON.stringify(skillName)}`);
   } catch (err) {
+    debugError('ingest POST', err);
     // Network error or timeout — queue for retry (AC#1)
     process.stderr.write(
       `[aieye-live-hook] WARN: POST failed — ${err.message}. Event queued for retry.\n`
@@ -508,7 +599,13 @@ async function main() {
   }
 }
 
-main().catch(() => {
-  // All errors swallowed — skill must never be affected
+main().catch((err) => {
+  const msg =
+    err && typeof err === 'object' && err.message != null ? String(err.message) : String(err);
+  process.stderr.write(`[aieye-live-hook] ERROR: hook failed — ${msg}\n`);
+  if (DEBUG && err && typeof err === 'object' && err.stack) {
+    process.stderr.write(String(err.stack) + '\n');
+  }
+  // Swallow exit code — skill must never be affected
   process.exit(0);
 });
