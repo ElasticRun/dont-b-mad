@@ -326,7 +326,7 @@ If `graphify-out/` is absent, every workflow step that reads the graph skips it 
 
 ## AIEye Live integration
 
-Optional `PostToolUse` hook (`hooks/post-skill/`) that fires a celebration event to a team ingest endpoint when one of the SDLC skills completes. Fire-and-forget — foreground exits in under 50ms, network errors never fail the skill.
+Optional hook (`hooks/post-skill/`) that fires a celebration event to the team ingest endpoint when an SDLC skill completes. `install.sh` registers **`Stop`** in `~/.claude/settings.json` (Claude Code) and **`stop`** in `~/.cursor/hooks.json` (Cursor) to run the same `aieye-live-hook` binary. Fire-and-forget — foreground exits in under 50ms, network errors never fail the skill.
 
 | Trigger skill | Event |
 |---|---|
@@ -339,7 +339,7 @@ Optional `PostToolUse` hook (`hooks/post-skill/`) that fires a celebration event
 
 **Opt-out** — set `AIEYE_LIVE_STEALTH_MODE=true` to skip event publishing on a specific machine without removing the hook. Required env vars missing also short-circuits silently.
 
-If the env file is absent the hook does nothing. No git operations, works outside any repository.
+If the env file is absent the hook does nothing. Uses `git credential fill` for the GitLab token only; no clone required.
 
 ---
 
