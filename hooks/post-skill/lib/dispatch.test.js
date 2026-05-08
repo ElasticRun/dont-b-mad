@@ -22,6 +22,16 @@ const SKILL_EVENT_MAP = {
   'bmad-qa-generate-e2e-tests': 'test_added',
 };
 
+function resolveEventType(skillName) {
+  if (!skillName) return null;
+  const mapped = SKILL_EVENT_MAP[skillName];
+  if (mapped) return mapped;
+  if (skillName.startsWith('bmad-') || skillName.startsWith('dontbmad-')) {
+    return `${skillName.replace(/-/g, '_')}_completed`;
+  }
+  return null;
+}
+
 function deriveIdempotencyKey(actor, eventType, skillName, occurredAt) {
   const parts = [
     actor,
@@ -91,23 +101,35 @@ describe('skill filter', () => {
 
 describe('event-type mapping', () => {
   test('bmad-create-story → story_created', () => {
-    assert.equal(SKILL_EVENT_MAP['bmad-create-story'], 'story_created');
+    assert.equal(resolveEventType('bmad-create-story'), 'story_created');
   });
 
   test('bmad-dev-story → story_developed', () => {
-    assert.equal(SKILL_EVENT_MAP['bmad-dev-story'], 'story_developed');
+    assert.equal(resolveEventType('bmad-dev-story'), 'story_developed');
   });
 
   test('bmad-code-review → review_landed', () => {
-    assert.equal(SKILL_EVENT_MAP['bmad-code-review'], 'review_landed');
+    assert.equal(resolveEventType('bmad-code-review'), 'review_landed');
   });
 
   test('bmad-qa-generate-e2e-tests → test_added', () => {
-    assert.equal(SKILL_EVENT_MAP['bmad-qa-generate-e2e-tests'], 'test_added');
+    assert.equal(resolveEventType('bmad-qa-generate-e2e-tests'), 'test_added');
   });
 
-  test('unknown skill returns undefined (caller skips)', () => {
-    assert.equal(SKILL_EVENT_MAP['bmad-unknown-skill'], undefined);
+  test('other bmad-* uses derived _completed type', () => {
+    assert.equal(resolveEventType('bmad-create-prd'), 'bmad_create_prd_completed');
+  });
+
+  test('dontbmad-* uses derived _completed type', () => {
+    assert.equal(resolveEventType('dontbmad-graphify'), 'dontbmad_graphify_completed');
+  });
+
+  test('null skill returns null (caller skips)', () => {
+    assert.equal(resolveEventType(null), null);
+  });
+
+  test('non-bmad skill returns null (caller skips)', () => {
+    assert.equal(resolveEventType('some-other-skill'), null);
   });
 });
 

@@ -40,13 +40,24 @@ const INGEST_URL = 'https://doha-aieye.elasticrun.in/api/events';
 /** GitLab host for `git credential fill` only (not configurable). */
 const GITLAB_CREDENTIAL_HOST = 'engg.elasticrun.in';
 
-/** Skill name → event_type mapping (AC#7) */
+/** Skill name → event_type overrides (AC#7). Other bmad-* / dontbmad-* use derived types. */
 const SKILL_EVENT_MAP = {
   'bmad-create-story': 'story_created',
   'bmad-dev-story': 'story_developed',
   'bmad-code-review': 'review_landed',
   'bmad-qa-generate-e2e-tests': 'test_added',
 };
+
+/** @param {string | null} skillName */
+function resolveEventType(skillName) {
+  if (!skillName) return null;
+  const mapped = SKILL_EVENT_MAP[skillName];
+  if (mapped) return mapped;
+  if (skillName.startsWith('bmad-') || skillName.startsWith('dontbmad-')) {
+    return `${skillName.replace(/-/g, '_')}_completed`;
+  }
+  return null;
+}
 
 // ---------------------------------------------------------------------------
 // Config reader (AC#5)
@@ -425,8 +436,8 @@ async function main() {
     return;
   }
 
-  // 4. Map skill → event_type (AC#7). Unknown skill → skip silently.
-  const eventType = SKILL_EVENT_MAP[skillName];
+  // 4. Map skill → event_type (AC#7). Unknown / non-BMAD skill → skip silently.
+  const eventType = resolveEventType(skillName);
   if (!eventType) {
     return;
   }
