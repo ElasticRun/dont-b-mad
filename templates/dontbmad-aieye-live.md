@@ -17,7 +17,7 @@ Replace `<skill-name>` with the exact skill identifier that just completed (e.g.
 
 ## Setup
 
-Create `~/.claude/aieye-live.env` (chmod 600) with at least `AIEYE_LIVE_ACTOR`. Ingest posts go to `https://doha-aieye.elasticrun.in/api/ingest`. Auth uses the GitLab PAT from `git credential fill` for `engg.elasticrun.in` only.
+Create `~/.claude/aieye-live.env` (chmod 600) with at least `AIEYE_LIVE_ACTOR`. Ingest posts go to `https://doha-aieye.elasticrun.in/api/events`. Auth uses the GitLab PAT from `git credential fill` for `engg.elasticrun.in` only.
 
 ```
 AIEYE_LIVE_ACTOR=your-display-name

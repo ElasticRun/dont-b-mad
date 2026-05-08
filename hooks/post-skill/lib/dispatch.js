@@ -35,7 +35,7 @@ const QUEUE_FILE_TMP = QUEUE_FILE + '.tmp';
 const QUEUE_FLUSH_LIMIT = 100;
 
 /** Fixed AIEye Live ingest endpoint (not configurable). */
-const INGEST_URL = 'https://doha-aieye.elasticrun.in/api/ingest';
+const INGEST_URL = 'https://doha-aieye.elasticrun.in/api/events';
 
 /** GitLab host for `git credential fill` only (not configurable). */
 const GITLAB_CREDENTIAL_HOST = 'engg.elasticrun.in';

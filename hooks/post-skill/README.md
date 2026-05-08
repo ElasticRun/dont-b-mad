@@ -21,7 +21,7 @@ touch ~/.claude/aieye-live.env
 chmod 600 ~/.claude/aieye-live.env
 ```
 
-Events are always POSTed to **`https://doha-aieye.elasticrun.in/api/ingest`** (not configurable).
+Events are always POSTed to **`https://doha-aieye.elasticrun.in/api/events`** (not configurable).
 
 Add your settings:
 

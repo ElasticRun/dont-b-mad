@@ -335,7 +335,7 @@ Optional hook (`hooks/post-skill/`) that fires a celebration event to the team i
 | `bmad-code-review` | `review_landed` |
 | `bmad-qa-generate-e2e-tests` | `test_added` |
 
-**Configuration** — `~/.claude/aieye-live.env` (mode 600). Required: `AIEYE_LIVE_ACTOR`. Ingest URL is fixed (`https://doha-aieye.elasticrun.in/api/ingest`). Bearer token comes only from `git credential fill` for `engg.elasticrun.in`. Optional: `AIEYE_LIVE_TEAM`, `AIEYE_LIVE_SKILLS` (allowlist), `AIEYE_LIVE_AI_TOOL`.
+**Configuration** — `~/.claude/aieye-live.env` (mode 600). Required: `AIEYE_LIVE_ACTOR`. Ingest URL is fixed (`https://doha-aieye.elasticrun.in/api/events`). Bearer token comes only from `git credential fill` for `engg.elasticrun.in`. Optional: `AIEYE_LIVE_TEAM`, `AIEYE_LIVE_SKILLS` (allowlist), `AIEYE_LIVE_AI_TOOL`.
 
 **Opt-out** — set `AIEYE_LIVE_STEALTH_MODE=true` to skip event publishing on a specific machine without removing the hook. Required env vars missing also short-circuits silently.
 
