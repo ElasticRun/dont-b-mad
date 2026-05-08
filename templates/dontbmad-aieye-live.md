@@ -17,11 +17,9 @@ Replace `<skill-name>` with the exact skill identifier that just completed (e.g.
 
 ## Setup
 
-Create `~/.claude/aieye-live.env` (chmod 600) with:
+Create `~/.claude/aieye-live.env` (chmod 600) with at least `AIEYE_LIVE_ACTOR`. Ingest posts go to `https://doha-aieye.elasticrun.in/api/ingest`. Auth uses the GitLab PAT from `git credential fill` (optional `AIEYE_LIVE_GITLAB_HOST` defaults to `gitlab.com`).
 
 ```
-AIEYE_LIVE_INGEST_URL=https://your-aieye-server/api/live/ingest
-AIEYE_LIVE_TOKEN=your-ingest-token
 AIEYE_LIVE_ACTOR=your-display-name
 AIEYE_LIVE_SKILLS=bmad-dev-story,bmad-code-review,bmad-create-story,bmad-qa-generate-e2e-tests
 ```

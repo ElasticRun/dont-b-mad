@@ -204,7 +204,7 @@ describe('buildCommitMessageDraft', () => {
 
 describe('stealth mode', () => {
   test('AIEYE_LIVE_STEALTH_MODE=true is parsed from env file', () => {
-    const cfg = parseEnvLines('AIEYE_LIVE_STEALTH_MODE=true\nAIEYE_LIVE_INGEST_URL=https://x\n');
+    const cfg = parseEnvLines('AIEYE_LIVE_STEALTH_MODE=true\nAIEYE_LIVE_ACTOR=Test\n');
     assert.equal(cfg['AIEYE_LIVE_STEALTH_MODE'], 'true');
   });
 
@@ -214,7 +214,7 @@ describe('stealth mode', () => {
   });
 
   test('AIEYE_LIVE_STEALTH_MODE absent defaults to non-stealth', () => {
-    const cfg = parseEnvLines('AIEYE_LIVE_INGEST_URL=https://x\n');
+    const cfg = parseEnvLines('AIEYE_LIVE_ACTOR=Test\n');
     assert.equal(cfg['AIEYE_LIVE_STEALTH_MODE'], undefined);
   });
 });
