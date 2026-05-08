@@ -30,19 +30,16 @@ AIEYE_LIVE_ACTOR=Your Name
 AIEYE_LIVE_TEAM=alpha
 AIEYE_LIVE_SKILLS=bmad-create-story,bmad-dev-story,bmad-code-review,bmad-qa-generate-e2e-tests
 AIEYE_LIVE_AI_TOOL=cli/claude-sonnet-4-6
-# Optional — GitLab host passed to `git credential fill` (default: gitlab.com)
-# AIEYE_LIVE_GITLAB_HOST=gitlab.example.com
 ```
 
 | Variable | Required | Description |
 |---|---|---|
 | `AIEYE_LIVE_ACTOR` | yes | Your display name shown on the TV |
-| `AIEYE_LIVE_GITLAB_HOST` | no | GitLab host for `git credential fill` (default `gitlab.com`). |
 | `AIEYE_LIVE_TEAM` | no | Team identifier |
 | `AIEYE_LIVE_SKILLS` | no | Comma-separated skill names to emit events for. Leave empty to match all mapped skills. |
 | `AIEYE_LIVE_STEALTH_MODE` | no | Set `true` to skip posting (no events). |
 
-The bearer token is **only** the password returned by **`git credential fill`** for `https://<host>/`, where `<host>` is `AIEYE_LIVE_GITLAB_HOST` or `gitlab.com`. Configure GitLab credentials via your usual credential helper / keychain / `.netrc` so `git credential` can supply the PAT.
+The bearer token is **only** the password returned by **`git credential fill`** for `https://engg.elasticrun.in/`. Configure credentials for that host via your credential helper / keychain / `.netrc` so `git credential` can supply the PAT.
 
 > The token is sent as `Authorization: Bearer ...` to the ingest URL above. The hook never logs the raw token.
 

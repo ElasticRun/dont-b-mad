@@ -37,6 +37,9 @@ const QUEUE_FLUSH_LIMIT = 100;
 /** Fixed AIEye Live ingest endpoint (not configurable). */
 const INGEST_URL = 'https://doha-aieye.elasticrun.in/api/ingest';
 
+/** GitLab host for `git credential fill` only (not configurable). */
+const GITLAB_CREDENTIAL_HOST = 'engg.elasticrun.in';
+
 /** Skill name → event_type mapping (AC#7) */
 const SKILL_EVENT_MAP = {
   'bmad-create-story': 'story_created',
@@ -124,11 +127,9 @@ function readGitCredential(host) {
 
 /**
  * Bearer token for ingest: password from `git credential fill` for GitLab host.
- * Host defaults to gitlab.com; override with AIEYE_LIVE_GITLAB_HOST in env file.
  */
-function resolveAuthTokenFromGitCredential(config) {
-  const host = config['AIEYE_LIVE_GITLAB_HOST'] || 'gitlab.com';
-  return readGitCredential(host);
+function resolveAuthTokenFromGitCredential() {
+  return readGitCredential(GITLAB_CREDENTIAL_HOST);
 }
 
 // ---------------------------------------------------------------------------
@@ -388,7 +389,7 @@ async function main() {
   if (config['AIEYE_LIVE_STEALTH_MODE'] === 'true') return;
 
   const ingestUrl = INGEST_URL;
-  const token = resolveAuthTokenFromGitCredential(config);
+  const token = resolveAuthTokenFromGitCredential();
   const actor = config['AIEYE_LIVE_ACTOR'];
   const team = config['AIEYE_LIVE_TEAM'] || '';
   const allowedSkillsRaw = config['AIEYE_LIVE_SKILLS'] || '';
