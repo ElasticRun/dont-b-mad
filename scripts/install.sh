@@ -179,10 +179,11 @@ publish_skills() {
   cursor_count=$PUBLISH_LAST_COUNT
 }
 
-# --- Claude Code post-skill hook (AIEye live events) ---
-# Copies hooks/post-skill/ to ~/.claude/hooks/aieye-live/ and registers the
-# Stop hook entry in ~/.claude/settings.json so every BMAD skill can fire
-# an AIEye celebration event on completion. Safe to run repeatedly.
+# --- Claude Code + Cursor post-skill hook (AIEye live events) ---
+# Copies hooks/post-skill/ to ~/.claude/hooks/aieye-live/ and registers:
+#   - Claude Code Stop hook in ~/.claude/settings.json
+#   - Cursor stop hook in ~/.cursor/hooks.json
+# so AIEye can fire on agent completion. Safe to run repeatedly.
 post_skill_hook_installed=false
 install_post_skill_hook() {
   local src="$REPO_ROOT/hooks/post-skill"
@@ -206,13 +207,17 @@ install_post_skill_hook() {
 
   local hook_bin="$dst/bin/aieye-live-hook"
   local settings="$HOME/.claude/settings.json"
-  local reg_status
+  local cursor_hooks="$HOME/.cursor/hooks.json"
+  local reg_status cursor_reg
   if $PYTHON3_OK; then
     reg_status=$(python3 "$REPO_ROOT/scripts/register-post-skill-hook.py" "$settings" "$hook_bin" 2>&1)
+    cursor_reg=$(python3 "$REPO_ROOT/scripts/register-cursor-aieye-stop-hook.py" "$cursor_hooks" "$hook_bin" 2>&1)
   else
     reg_status="files installed; add to ~/.claude/settings.json Stop hooks manually (python3 missing)"
+    cursor_reg="skipped (python3 missing)"
   fi
-  echo "  Post-skill hook: ~/.claude/hooks/aieye-live  ($reg_status)"
+  echo "  Post-skill hook: ~/.claude/hooks/aieye-live  (Claude: $reg_status)"
+  echo "                   ~/.cursor/hooks.json stop   (Cursor: $cursor_reg)"
   echo "  To activate:    create ~/.claude/aieye-live.env (see hooks/post-skill/README.md)"
   post_skill_hook_installed=true
 }

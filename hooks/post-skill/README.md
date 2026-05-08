@@ -43,19 +43,41 @@ The bearer token is **only** the password returned by **`git credential fill`** 
 
 > The token is sent as `Authorization: Bearer ...` to the ingest URL above. The hook never logs the raw token.
 
-## Register in Claude Code
+## Agent hooks (Claude Code and Cursor)
 
-Add to `.claude/settings.json`:
+The dont-b-mad `install.sh` copies the hook to `~/.claude/hooks/aieye-live/` and registers:
+
+- **Claude Code:** a **`Stop`** hook in `~/.claude/settings.json` (see `scripts/register-post-skill-hook.py`).
+- **Cursor:** a **`stop`** hook in `~/.cursor/hooks.json` (see `scripts/register-cursor-aieye-stop-hook.py`).
+
+Both invoke the same `aieye-live-hook` binary with stdin/argv as the host provides. Cursor watches `hooks.json`; restart Cursor if the hook does not load.
+
+**Claude Code** (`~/.claude/settings.json`) — shape written by the installer:
 
 ```json
 {
   "hooks": {
-    "PostToolUse": [
+    "Stop": [
       {
-        "matcher": "SkillTool",
+        "matcher": "",
         "hooks": [
-          { "type": "command", "command": "aieye-live-hook" }
+          { "type": "command", "command": "/home/you/.claude/hooks/aieye-live/bin/aieye-live-hook" }
         ]
+      }
+    ]
+  }
+}
+```
+
+**Cursor** (`~/.cursor/hooks.json`) — shape written by the installer:
+
+```json
+{
+  "version": 1,
+  "hooks": {
+    "stop": [
+      {
+        "command": "/home/you/.claude/hooks/aieye-live/bin/aieye-live-hook"
       }
     ]
   }

@@ -24,4 +24,4 @@ AIEYE_LIVE_ACTOR=your-display-name
 AIEYE_LIVE_SKILLS=bmad-dev-story,bmad-code-review,bmad-create-story,bmad-qa-generate-e2e-tests
 ```
 
-The hook package lives at `~/.claude/hooks/aieye-live/` and is installed automatically by the dont-b-mad installer.
+The hook package lives at `~/.claude/hooks/aieye-live/` and is installed automatically by the dont-b-mad installer. The installer also registers a **`stop`** hook in `~/.cursor/hooks.json` for Cursor (same binary).
