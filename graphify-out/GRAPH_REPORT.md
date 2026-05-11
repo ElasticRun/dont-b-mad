@@ -1,16 +1,16 @@
 # Graph Report - dont-b-mad  (2026-05-11)
 
 ## Corpus Check
-- 577 files · ~444,653 words
+- 577 files · ~445,040 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 4517 nodes · 4298 edges · 327 communities (314 shown, 13 thin omitted)
+- 4519 nodes · 4309 edges · 327 communities (314 shown, 13 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `75b7a273`
+- Built from commit: `e5c617ff`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -341,16 +341,16 @@ Cohesion: 0.06
 Nodes (33): 10) Engineering Handoff Cues, 10) User Journeys (BMAD step: user journeys), 11) Acceptance Criteria Mapping, 11) Component Strategy (BMAD step: component strategy), 12) Ready-for-Dev Gate, 12) UX Patterns and Interaction Rules (BMAD step: UX patterns), 13) Responsive and Accessibility Spec (BMAD step: responsive/accessibility), 14) Screen/State Inventory for Implementation (+25 more)
 
 ### Community 10 - "Community 10"
-Cohesion: 0.06
-Nodes (31): 1. Load Decision Framework & Check Existing Preferences, 2. Decision Categories by Priority, 3. Facilitate Each Decision Category, 4. Check for Cascading Implications, 5. Generate Decisions Content, 6. Present Content and Menu, 7. Handle Menu Selection, APPEND TO DOCUMENT: (+23 more)
+Cohesion: 0.11
+Nodes (31): buildCommitMessageDraft(), crypto, DEBUG, debugError(), debugLog(), deriveIdempotencyKey(), ENV_FILE, flushQueue() (+23 more)
 
 ### Community 11 - "Community 11"
 Cohesion: 0.06
-Nodes (30): 1. Initialize Document Discovery, 2. Document Search Patterns, 3. Organize Findings, 4. Identify Critical Issues, 5. Add Initial Report Section, 6. Present Findings and Get Confirmation, 7. Present MENU OPTIONS, A. PRD Documents (+22 more)
+Nodes (31): 1. Load Decision Framework & Check Existing Preferences, 2. Decision Categories by Priority, 3. Facilitate Each Decision Category, 4. Check for Cascading Implications, 5. Generate Decisions Content, 6. Present Content and Menu, 7. Handle Menu Selection, APPEND TO DOCUMENT: (+23 more)
 
 ### Community 12 - "Community 12"
-Cohesion: 0.1
-Nodes (29): buildCommitMessageDraft(), crypto, DEBUG, debugError(), debugLog(), deriveIdempotencyKey(), ENV_FILE, flushQueue() (+21 more)
+Cohesion: 0.06
+Nodes (30): 1. Initialize Document Discovery, 2. Document Search Patterns, 3. Organize Findings, 4. Identify Critical Issues, 5. Add Initial Report Section, 6. Present Findings and Get Confirmation, 7. Present MENU OPTIONS, A. PRD Documents (+22 more)
 
 ### Community 13 - "Community 13"
 Cohesion: 0.06
@@ -1310,14 +1310,14 @@ Nodes (3): code:yaml (# _bmad/_config/team.yaml), *or, How Twelve Agents Got New
 
 ### Community 257 - "Community 257"
 Cohesion: 0.5
-Nodes (4): 1. Problem & motivation, Primary: trailer pipeline integrity across project topologies, Secondary: fork enhancement integrity (graphify + caveman), Tertiary: install.sh general surface, skill validation, shellcheck
+Nodes (4): 4. User journeys, J1: Contributor opens a PR, J2: Developer iterates locally, J3: Reviewer audits a regression
 
 ### Community 258 - "Community 258"
 Cohesion: 0.5
-Nodes (4): 4. User journeys, J1: Contributor opens a PR, J2: Developer iterates locally, J3: Reviewer audits a regression
+Nodes (4): 1. Problem & motivation, Primary: trailer pipeline integrity across project topologies, Secondary: fork enhancement integrity (graphify + caveman), Tertiary: install.sh general surface, skill validation, shellcheck
 
 ## Knowledge Gaps
-- **2810 isolated node(s):** `Resolve input arguments to a flat list of file paths.`, `Detect document type from filename.`, `Suggest document groupings based on naming conventions.`, `Main analysis function.`, `Write JSON to file or stdout.` (+2805 more)
+- **2811 isolated node(s):** `Resolve input arguments to a flat list of file paths.`, `Detect document type from filename.`, `Suggest document groupings based on naming conventions.`, `Main analysis function.`, `Write JSON to file or stdout.` (+2806 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **13 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -1325,7 +1325,7 @@ Nodes (4): 4. User journeys, J1: Contributor opens a PR, J2: Developer iterates 
 _Questions this graph is uniquely positioned to answer:_
 
 - **What connects `Resolve input arguments to a flat list of file paths.`, `Detect document type from filename.`, `Suggest document groupings based on naming conventions.` to the rest of the system?**
-  _2810 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _2811 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.04 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**

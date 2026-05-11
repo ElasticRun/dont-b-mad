@@ -11,6 +11,8 @@
  *
  * Debugging: set AIEYE_LIVE_DEBUG=1 (or true/yes). Logs execution path and errors
  * to stderr; the wrapper script preserves stderr when this variable is set.
+ * All debug-style tracing is also appended (always) to ~/.cursor/aieye-live-hook.log
+ * regardless of AIEYE_LIVE_DEBUG.
  *
  * Queue behaviour (story 8.4):
  *   - On network error or 5xx: append payload to ~/.claude/aieye-live-queue.jsonl
@@ -38,10 +40,26 @@ function isDebugEnabled() {
   return v === '1' || v === 'true' || v === 'yes';
 }
 
+/**
+ * Append one timestamped line to ~/.cursor/aieye-live-hook.log.
+ * Must never throw — failures here must not break the hook.
+ * @param {string} message
+ */
+function persistHookLog(message) {
+  try {
+    fs.mkdirSync(path.dirname(HOOK_FILE_LOG), { recursive: true });
+    const line = `[${new Date().toISOString()}] ${message}\n`;
+    fs.appendFileSync(HOOK_FILE_LOG, line, 'utf8');
+  } catch (_) {
+    // ignore
+  }
+}
+
 const DEBUG = isDebugEnabled();
 
 /** @param {string} message */
 function debugLog(message) {
+  persistHookLog(`DEBUG: ${message}`);
   if (!DEBUG) return;
   process.stderr.write(`[aieye-live-hook] DEBUG: ${message}\n`);
 }
@@ -51,10 +69,14 @@ function debugLog(message) {
  * @param {unknown} err
  */
 function debugError(context, err) {
-  if (!DEBUG) return;
   const msg = err && typeof err === 'object' && 'message' in err && err.message != null
     ? String(err.message)
     : String(err);
+  persistHookLog(`DEBUG ERROR [${context}]: ${msg}`);
+  if (err && typeof err === 'object' && 'stack' in err && err.stack) {
+    persistHookLog(String(err.stack));
+  }
+  if (!DEBUG) return;
   process.stderr.write(`[aieye-live-hook] DEBUG ERROR [${context}]: ${msg}\n`);
   if (err && typeof err === 'object' && 'stack' in err && err.stack) {
     process.stderr.write(String(err.stack) + '\n');
@@ -66,6 +88,8 @@ function debugError(context, err) {
 // ---------------------------------------------------------------------------
 
 const ENV_FILE = path.join(os.homedir(), '.claude', 'aieye-live.env');
+/** Persistent hook trace log (always written; see persistHookLog). */
+const HOOK_FILE_LOG = path.join(os.homedir(), '.cursor', 'aieye-live-hook.log');
 const QUEUE_FILE = path.join(os.homedir(), '.claude', 'aieye-live-queue.jsonl');
 const QUEUE_FILE_TMP = QUEUE_FILE + '.tmp';
 const QUEUE_FLUSH_LIMIT = 100;
@@ -121,10 +145,13 @@ function parseEnvFile(filePath) {
     const stat = fs.statSync(filePath);
     const mode = stat.mode & 0o777;
     if (mode & 0o004) {
-      process.stderr.write(
+      const warn =
         `[aieye-live-hook] WARNING: ${filePath} is world-readable (mode ${mode.toString(8)}). ` +
-        'Set permissions to 600: chmod 600 ~/.claude/aieye-live.env\n'
+        'Set permissions to 600: chmod 600 ~/.claude/aieye-live.env\n';
+      persistHookLog(
+        `WARNING: ${filePath} is world-readable (mode ${mode.toString(8)}); chmod 600 aieye-live.env`
       );
+      process.stderr.write(warn);
     }
   } catch (_) {
     // Ignore stat errors
@@ -155,6 +182,8 @@ const HOOK_MAX_RUNTIME_MS = 2000;
 
 /** Print problems and exit 1. Used by --check-deps. */
 function printDependencyProblems(problems) {
+  persistHookLog('check-deps: failed');
+  for (const p of problems) persistHookLog(`check-deps: ${p}`);
   process.stderr.write('[aieye-live-hook] Dependency check failed:\n');
   for (const p of problems) process.stderr.write(`  • ${p}\n`);
   process.stderr.write(
@@ -318,6 +347,7 @@ function queueAppend(payload) {
   try {
     fs.appendFileSync(QUEUE_FILE, JSON.stringify(payload) + '\n', 'utf8');
   } catch (err) {
+    persistHookLog(`WARN: could not write to queue — ${err.message}`);
     process.stderr.write(
       `[aieye-live-hook] WARN: could not write to queue — ${err.message}\n`
     );
@@ -335,6 +365,7 @@ function queueRead() {
     raw = fs.readFileSync(QUEUE_FILE, 'utf8');
   } catch (err) {
     if (err.code === 'ENOENT') return [];
+    persistHookLog(`WARN: could not read queue — ${err.message}`);
     process.stderr.write(
       `[aieye-live-hook] WARN: could not read queue — ${err.message}\n`
     );
@@ -357,6 +388,7 @@ function queueRead() {
   }
 
   if (unparseable.length > 0) {
+    persistHookLog(`WARN: dropped ${unparseable.length} malformed queue line(s)`);
     process.stderr.write(
       `[aieye-live-hook] WARN: dropped ${unparseable.length} malformed queue line(s)\n`
     );
@@ -390,6 +422,7 @@ function queueRewrite(failedLines) {
     // writer wins. Server idempotency keys handle any resulting double-delivery.
     fs.renameSync(QUEUE_FILE_TMP, QUEUE_FILE);
   } catch (err) {
+    persistHookLog(`WARN: queue rewrite failed — ${err.message}`);
     process.stderr.write(
       `[aieye-live-hook] WARN: queue rewrite failed — ${err.message}\n`
     );
@@ -430,6 +463,7 @@ async function flushQueue(ingestUrl, token) {
 
     if (result.status === 401) {
       // Token revoked — drop this entry, continue trying others
+      persistHookLog('ERROR: 401 Unauthorized flushing queued event — event dropped.');
       process.stderr.write(
         `[aieye-live-hook] ERROR: 401 Unauthorized flushing queued event — event dropped.\n`
       );
@@ -619,6 +653,7 @@ async function main() {
 
     if (result.status === 401) {
       // Token revoked — drop, do not queue (AC#2)
+      persistHookLog('ERROR: 401 Unauthorized — token may be revoked. Event dropped.');
       process.stderr.write(
         `[aieye-live-hook] ERROR: 401 Unauthorized — token may be revoked. Event dropped.\n`
       );
@@ -628,6 +663,7 @@ async function main() {
 
     if (result.status >= 500) {
       // 5xx server error — queue for retry (AC#1)
+      persistHookLog(`WARN: server returned ${result.status}. Event queued for retry.`);
       process.stderr.write(
         `[aieye-live-hook] WARN: server returned ${result.status}. Event queued for retry.\n`
       );
@@ -637,6 +673,7 @@ async function main() {
     }
 
     if (result.status < 200 || result.status >= 300) {
+      persistHookLog(`WARN: server returned ${result.status}. Event not confirmed.`);
       process.stderr.write(
         `[aieye-live-hook] WARN: server returned ${result.status}. Event not confirmed.\n`
       );
@@ -648,6 +685,7 @@ async function main() {
   } catch (err) {
     debugError('ingest POST', err);
     // Network error or timeout — queue for retry (AC#1)
+    persistHookLog(`WARN: POST failed — ${err.message}. Event queued for retry.`);
     process.stderr.write(
       `[aieye-live-hook] WARN: POST failed — ${err.message}. Event queued for retry.\n`
     );
@@ -663,6 +701,10 @@ main()
   .catch((err) => {
     const msg =
       err && typeof err === 'object' && err.message != null ? String(err.message) : String(err);
+    persistHookLog(`ERROR: hook failed — ${msg}`);
+    if (err && typeof err === 'object' && err.stack) {
+      persistHookLog(String(err.stack));
+    }
     process.stderr.write(`[aieye-live-hook] ERROR: hook failed — ${msg}\n`);
     if (DEBUG && err && typeof err === 'object' && err.stack) {
       process.stderr.write(String(err.stack) + '\n');
