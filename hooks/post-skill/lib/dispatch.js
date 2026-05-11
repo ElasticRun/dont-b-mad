@@ -6,8 +6,7 @@
  * Bearer token always comes from `git credential fill` for the GitLab host.
  * No npm dependencies — only Node.js built-ins.
  *
- * Called by bin/aieye-live-hook in a background subshell. A ~2s wall-clock deadline is
- * enforced in this process (no external `timeout` command — portable on macOS/Linux).
+ * Called by bin/aieye-live-hook in a background subshell with a 2-second ceiling.
  *
  * Debugging: set AIEYE_LIVE_DEBUG=1 (or true/yes). Logs execution path and errors
  * to stderr; the wrapper script preserves stderr when this variable is set.
@@ -42,8 +41,9 @@ const DEBUG = isDebugEnabled();
 
 /** @param {string} message */
 function debugLog(message) {
+  console.log(`Debug enabled : ${DEBUG}`);
   if (!DEBUG) return;
-  process.stderr.write(`[aieye-live-hook] DEBUG: ${message}\n`);
+  console.log(`[aieye-live-hook] DEBUG: ${message}\n`);
 }
 
 /**
@@ -55,9 +55,9 @@ function debugError(context, err) {
   const msg = err && typeof err === 'object' && 'message' in err && err.message != null
     ? String(err.message)
     : String(err);
-  process.stderr.write(`[aieye-live-hook] DEBUG ERROR [${context}]: ${msg}\n`);
+  console.log(`[aieye-live-hook] DEBUG ERROR [${context}]: ${msg}\n`);
   if (err && typeof err === 'object' && 'stack' in err && err.stack) {
-    process.stderr.write(String(err.stack) + '\n');
+    console.log(String(err.stack) + '\n');
   }
 }
 
@@ -121,7 +121,7 @@ function parseEnvFile(filePath) {
     const stat = fs.statSync(filePath);
     const mode = stat.mode & 0o777;
     if (mode & 0o004) {
-      process.stderr.write(
+      console.log(
         `[aieye-live-hook] WARNING: ${filePath} is world-readable (mode ${mode.toString(8)}). ` +
         'Set permissions to 600: chmod 600 ~/.claude/aieye-live.env\n'
       );
@@ -149,61 +149,6 @@ function parseEnvFile(filePath) {
 // All subprocess calls are tightly time-bounded (the hook has a 2s ceiling).
 
 const SUBPROCESS_TIMEOUT_MS = 600;
-
-/** Wall-clock limit for the whole hook process (matches former shell `timeout 2`). */
-const HOOK_MAX_RUNTIME_MS = 2000;
-
-/** Print problems and exit 1. Used by --check-deps. */
-function printDependencyProblems(problems) {
-  process.stderr.write('[aieye-live-hook] Dependency check failed:\n');
-  for (const p of problems) process.stderr.write(`  • ${p}\n`);
-  process.stderr.write(
-    '\nRequired: Node.js 18+ and git on PATH. Git supplies the ingest token via ' +
-      '`git credential fill` for the configured GitLab host.\n' +
-      'The wrapper script uses bash (#!/usr/bin/env bash).\n' +
-      'Run: aieye-live-hook --check-deps  or  node /path/to/lib/dispatch.js --check-deps\n'
-  );
-}
-
-/**
- * Offline verify runtime deps (node version + git). Exits process; never runs ingest.
- */
-function runCheckDepsCli() {
-  if (!process.argv.includes('--check-deps')) return;
-
-  const problems = [];
-  const major = Number(process.versions.node.split('.')[0]);
-  if (!Number.isFinite(major) || major < 18) {
-    problems.push(`Node.js >= 18 required (found ${process.version})`);
-  }
-
-  let res;
-  try {
-    res = spawnSync('git', ['--version'], {
-      timeout: SUBPROCESS_TIMEOUT_MS,
-      encoding: 'utf8',
-    });
-  } catch (e) {
-    problems.push(`git not runnable: ${e.message}`);
-    printDependencyProblems(problems);
-    process.exit(1);
-  }
-
-  if (res.error) {
-    problems.push(`git: ${res.error.message}`);
-  } else if (res.status !== 0) {
-    problems.push(`git --version exited with status ${res.status}`);
-  } else if (!String(res.stdout || '').trim()) {
-    problems.push('git --version produced no output');
-  }
-
-  if (problems.length > 0) {
-    printDependencyProblems(problems);
-    process.exit(1);
-  }
-
-  process.exit(0);
-}
 
 /** Run `git credential fill` for <host> and return the password, or null. */
 function readGitCredential(host) {
@@ -301,6 +246,8 @@ function postJSON(url, payload, token) {
     req.setTimeout(1800, () => {
       req.destroy(new Error('request timeout'));
     });
+    debugLog(`postJSON: writing body: ${body}`);
+    debugLog(`postJSON: with token: ${token}`);
     req.write(body);
     req.end();
   });
@@ -318,7 +265,7 @@ function queueAppend(payload) {
   try {
     fs.appendFileSync(QUEUE_FILE, JSON.stringify(payload) + '\n', 'utf8');
   } catch (err) {
-    process.stderr.write(
+    console.log(
       `[aieye-live-hook] WARN: could not write to queue — ${err.message}\n`
     );
   }
@@ -335,7 +282,7 @@ function queueRead() {
     raw = fs.readFileSync(QUEUE_FILE, 'utf8');
   } catch (err) {
     if (err.code === 'ENOENT') return [];
-    process.stderr.write(
+    console.log(
       `[aieye-live-hook] WARN: could not read queue — ${err.message}\n`
     );
     return [];
@@ -357,7 +304,7 @@ function queueRead() {
   }
 
   if (unparseable.length > 0) {
-    process.stderr.write(
+    console.log(
       `[aieye-live-hook] WARN: dropped ${unparseable.length} malformed queue line(s)\n`
     );
   }
@@ -390,7 +337,7 @@ function queueRewrite(failedLines) {
     // writer wins. Server idempotency keys handle any resulting double-delivery.
     fs.renameSync(QUEUE_FILE_TMP, QUEUE_FILE);
   } catch (err) {
-    process.stderr.write(
+    console.log(
       `[aieye-live-hook] WARN: queue rewrite failed — ${err.message}\n`
     );
   }
@@ -430,7 +377,7 @@ async function flushQueue(ingestUrl, token) {
 
     if (result.status === 401) {
       // Token revoked — drop this entry, continue trying others
-      process.stderr.write(
+      console.log(
         `[aieye-live-hook] ERROR: 401 Unauthorized flushing queued event — event dropped.\n`
       );
       debugLog('flushQueue: 401 on queued item — dropped, continuing');
@@ -482,6 +429,7 @@ async function readStdin() {
     process.stdin.setEncoding('utf8');
     process.stdin.on('data', (chunk) => { buf += chunk; });
     process.stdin.on('end', () => {
+      debugLog(`stdin: end (bytes=${buf.length}) buf: ${buf}`);
       try {
         finish('parsed JSON', JSON.parse(buf));
       } catch (err) {
@@ -541,7 +489,12 @@ async function main() {
   debugLog(`config: actor set, team=${team ? '(set)' : '(empty)'} ingest=${ingestUrl}`);
 
   // 2. Parse hook stdin
-  const hookData = await readStdin();
+  let hookData = await readStdin();
+  // debugLog(`hookData 1: ${JSON.stringify(hookData)}`);
+  // if (hookData == {}) {
+  //   hookData = JSON.parse(process.argv[2]);
+  //   debugLog(`hookData: ${JSON.stringify(hookData)}`);
+  // }
 
   // Extract skill_name from hook payload.
   // Claude Code PostToolUse passes something like { tool_name, tool_input, tool_response }
@@ -551,7 +504,7 @@ async function main() {
     (hookData.tool_input && hookData.tool_input.skill) ||
     process.argv[2] ||
     null;
-
+  debugLog(`skill name: ${skillName}`);
   if (typeof skillName !== 'string') skillName = null;
   if (skillName) skillName = skillName.trim();
 
@@ -619,7 +572,7 @@ async function main() {
 
     if (result.status === 401) {
       // Token revoked — drop, do not queue (AC#2)
-      process.stderr.write(
+      console.log(
         `[aieye-live-hook] ERROR: 401 Unauthorized — token may be revoked. Event dropped.\n`
       );
       debugLog('exit: 401 on current event — dropped');
@@ -628,7 +581,7 @@ async function main() {
 
     if (result.status >= 500) {
       // 5xx server error — queue for retry (AC#1)
-      process.stderr.write(
+      console.log(
         `[aieye-live-hook] WARN: server returned ${result.status}. Event queued for retry.\n`
       );
       debugLog(`error path: ${result.status} server — event queued`);
@@ -637,7 +590,7 @@ async function main() {
     }
 
     if (result.status < 200 || result.status >= 300) {
-      process.stderr.write(
+      console.log(
         `[aieye-live-hook] WARN: server returned ${result.status}. Event not confirmed.\n`
       );
       debugLog(`warn path: HTTP ${result.status} — event not confirmed (not queued)`);
@@ -648,27 +601,20 @@ async function main() {
   } catch (err) {
     debugError('ingest POST', err);
     // Network error or timeout — queue for retry (AC#1)
-    process.stderr.write(
+    console.log(
       `[aieye-live-hook] WARN: POST failed — ${err.message}. Event queued for retry.\n`
     );
     queueAppend(payload);
   }
 }
 
-runCheckDepsCli();
-
-const hookHardKill = setTimeout(() => process.exit(0), HOOK_MAX_RUNTIME_MS);
-
-main()
-  .catch((err) => {
-    const msg =
-      err && typeof err === 'object' && err.message != null ? String(err.message) : String(err);
-    process.stderr.write(`[aieye-live-hook] ERROR: hook failed — ${msg}\n`);
-    if (DEBUG && err && typeof err === 'object' && err.stack) {
-      process.stderr.write(String(err.stack) + '\n');
-    }
-  })
-  .finally(() => {
-    clearTimeout(hookHardKill);
-    process.exit(0);
-  });
+main().catch((err) => {
+  const msg =
+    err && typeof err === 'object' && err.message != null ? String(err.message) : String(err);
+  console.log(`[aieye-live-hook] ERROR: hook failed — ${msg}\n`);
+  if (DEBUG && err && typeof err === 'object' && err.stack) {
+    console.log(String(err.stack) + '\n');
+  }
+  // Swallow exit code — skill must never be affected
+  process.exit(0);
+});

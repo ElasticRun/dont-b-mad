@@ -326,7 +326,7 @@ If `graphify-out/` is absent, every workflow step that reads the graph skips it 
 
 ## AIEye Live integration
 
-Each skill `workflow.md` includes an **AIEye Live** step at the end: run `{project-root}/hooks/post-skill/bin/aieye-live-hook` with that workflow’s skill identifier. That invokes the same Node dispatcher (`hooks/post-skill/lib/dispatch.js`): fire-and-forget ingest to the team endpoint, network errors never fail the session.
+Each skill `workflow.md` includes an **AIEye Live** step at the end: run `$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook` (default global path; `~/.claude/hooks/aieye-live/bin/aieye-live-hook`) with that workflow’s skill identifier. `scripts/install.sh` copies `hooks/post-skill/` there. That invokes the same Node dispatcher (`~/.claude/hooks/aieye-live/lib/dispatch.js`): fire-and-forget ingest to the team endpoint, network errors never fail the session.
 
 The installer does not register editor **Stop** hooks; notifications are workflow-driven only. To attach the binary to Claude **Stop** or Cursor **stop** yourself, see `hooks/post-skill/README.md` (optional `scripts/register-post-skill-hook.py` and `scripts/register-cursor-aieye-stop-hook.py`).
 

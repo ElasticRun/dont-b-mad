@@ -12,12 +12,11 @@ The hook does **not** use external GNU **`timeout`**; the ~2 s ceiling is enfo
 | **Node.js ≥ 18** | Runs `lib/dispatch.js`. |
 | **git** on `PATH** | Bearer token via `git credential fill` for the GitLab host. |
 
-Verify on the target machine:
+Verify on the target machine (after `scripts/install.sh`, or from a checkout):
 
 ```bash
-# from repo root:
-./hooks/post-skill/bin/aieye-live-hook --check-deps
-# or:
+~/.claude/hooks/aieye-live/bin/aieye-live-hook --check-deps
+# or from repo / npm global install:
 node ./hooks/post-skill/lib/dispatch.js --check-deps
 ```
 
@@ -66,14 +65,14 @@ The bearer token is **only** the password returned by **`git credential fill`** 
 
 ## Workflows and optional editor hooks
 
-**Default:** each BMAD skill `workflow.md` ends with an **AIEye Live** step that runs the repo copy of this hook with the workflow’s skill name, for example:
+**Default:** each BMAD skill `workflow.md` ends with an **AIEye Live** step that runs the hook from the **global Claude install** with the workflow’s skill name. `scripts/install.sh` copies `hooks/post-skill/` to `~/.claude/hooks/aieye-live/`. Example:
 
 ```bash
-AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-hook"
+AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook"
 test -x "$AIEYE_HOOK" && "$AIEYE_HOOK" bmad-create-prd || true
 ```
 
-**Optional — Claude Code / Cursor stop hooks:** copy `hooks/post-skill/` to a fixed location (for example `~/.claude/hooks/aieye-live/`) and merge a **Stop** / **stop** hook with helper scripts in this repo:
+**Optional — Claude Code / Cursor stop hooks:** merge a **Stop** / **stop** hook with helper scripts in this repo (binary path should be `~/.claude/hooks/aieye-live/bin/aieye-live-hook` after install):
 
 - `scripts/register-post-skill-hook.py` — Claude `~/.claude/settings.json`
 - `scripts/register-cursor-aieye-stop-hook.py` — Cursor `~/.cursor/hooks.json`

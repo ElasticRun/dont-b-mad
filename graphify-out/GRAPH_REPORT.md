@@ -1,7 +1,7 @@
 # Graph Report - dont-b-mad  (2026-05-11)
 
 ## Corpus Check
-- 577 files · ~444,481 words
+- 577 files · ~444,653 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `cfe65866`
+- Built from commit: `75b7a273`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -662,7 +662,7 @@ Nodes (21): 1. Analyze Each BMAD PRD Section, 2. Estimate Effort to Reach Parity
 
 ### Community 90 - "Community 90"
 Cohesion: 0.09
-Nodes (20): AIEye Live, code:markdown (# Test Automation Summary), code:block2 (AI-Phase: test), code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), Configuration Loading, Context, EXECUTION, Git Checkpoint (+12 more)
+Nodes (20): AIEye Live, code:markdown (# Test Automation Summary), code:block2 (AI-Phase: test), code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Configuration Loading, Context, EXECUTION, Git Checkpoint (+12 more)
 
 ### Community 91 - "Community 91"
 Cohesion: 0.1
@@ -730,7 +730,7 @@ Nodes (18): 1. Validate manifest, 2. Fetch catalog, 3. Refresh `docs/standards/`
 
 ### Community 107 - "Community 107"
 Cohesion: 0.1
-Nodes (18): Additional Documentation, AIEye Live, code:yaml (development_status:), code:yaml (# generated: {date}), code:block3 (backlog → in-progress → done), code:block4 (backlog → ready-for-dev → in-progress → review → done), code:block5 (optional ↔ done), code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h) (+10 more)
+Nodes (18): Additional Documentation, AIEye Live, code:yaml (development_status:), code:yaml (# generated: {date}), code:block3 (backlog → in-progress → done), code:block4 (backlog → ready-for-dev → in-progress → review → done), code:block5 (optional ↔ done), code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho) (+10 more)
 
 ### Community 108 - "Community 108"
 Cohesion: 0.1
@@ -830,7 +830,7 @@ Nodes (13): Advanced Elicitation, code:block1 (**Advanced Elicitation Options**)
 
 ### Community 132 - "Community 132"
 Cohesion: 0.13
-Nodes (14): @aieye/live-hook, code:bash (# from repo root:), code:bash (npm install -g /path/to/live-hook), code:bash (touch ~/.claude/aieye-live.env), code:block4 (AIEYE_LIVE_ACTOR=Your Name), code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), code:bash (cd live-hook), Configuration (+6 more)
+Nodes (14): @aieye/live-hook, code:bash (~/.claude/hooks/aieye-live/bin/aieye-live-hook --check-deps), code:bash (npm install -g /path/to/live-hook), code:bash (touch ~/.claude/aieye-live.env), code:block4 (AIEYE_LIVE_ACTOR=Your Name), code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), code:bash (cd live-hook), Configuration (+6 more)
 
 ### Community 133 - "Community 133"
 Cohesion: 0.14
@@ -866,15 +866,15 @@ Nodes (11): 2a: Try Sharded Documents First, 2b: Try Whole Document if No Sharde
 
 ### Community 141 - "Community 141"
 Cohesion: 0.15
-Nodes (11): 1. Configuration Loading, 2. First Step Execution, AIEye Live, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), Critical Rules (NO EXCEPTIONS), INITIALIZATION SEQUENCE, Quick Dev New Preview Workflow, READY FOR DEVELOPMENT STANDARD (+3 more)
+Nodes (11): 1. Configuration Loading, 2. First Step Execution, AIEye Live, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Critical Rules (NO EXCEPTIONS), INITIALIZATION SEQUENCE, Quick Dev New Preview Workflow, READY FOR DEVELOPMENT STANDARD (+3 more)
 
 ### Community 142 - "Community 142"
 Cohesion: 0.15
-Nodes (11): AIEye Live, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), Configuration Loading, Context, EXECUTION, INITIALIZATION, Input Files, Paths (+3 more)
+Nodes (11): AIEye Live, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Configuration Loading, Context, EXECUTION, INITIALIZATION, Input Files, Paths (+3 more)
 
 ### Community 143 - "Community 143"
 Cohesion: 0.15
-Nodes (11): AIEye Live, code:block1 (Story: [STORY-123] User Authentication), code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), Configuration Loading, Context, Correct Course - Sprint Change Management Workflow, Document Discovery - Loading Project Artifacts, EXECUTION (+3 more)
+Nodes (11): AIEye Live, code:block1 (Story: [STORY-123] User Authentication), code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Configuration Loading, Context, Correct Course - Sprint Change Management Workflow, Document Discovery - Loading Project Artifacts, EXECUTION (+3 more)
 
 ### Community 144 - "Community 144"
 Cohesion: 0.15
@@ -894,15 +894,15 @@ Nodes (11): 1.0.0 (2026-04-12), 1.1.0 (2026-04-13), 2.0.0 (2026-04-13), 2.1.0 (2
 
 ### Community 148 - "Community 148"
 Cohesion: 0.17
-Nodes (10): AIEye Live, Behavioral Constraints, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), Configuration Loading, EXECUTION, Facilitation Principles, INITIALIZATION, Innovation Strategy Workflow (+2 more)
+Nodes (10): AIEye Live, Behavioral Constraints, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Configuration Loading, EXECUTION, Facilitation Principles, INITIALIZATION, Innovation Strategy Workflow (+2 more)
 
 ### Community 149 - "Community 149"
 Cohesion: 0.17
-Nodes (10): AIEye Live, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), Configuration Loading, Context, EXECUTION, INITIALIZATION, Input Files, Paths (+2 more)
+Nodes (10): AIEye Live, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Configuration Loading, Context, EXECUTION, INITIALIZATION, Input Files, Paths (+2 more)
 
 ### Community 150 - "Community 150"
 Cohesion: 0.17
-Nodes (10): AIEye Live, Behavioral Constraints, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), Configuration Loading, Design Thinking Workflow, EXECUTION, Facilitation Principles, INITIALIZATION (+2 more)
+Nodes (10): AIEye Live, Behavioral Constraints, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Configuration Loading, Design Thinking Workflow, EXECUTION, Facilitation Principles, INITIALIZATION (+2 more)
 
 ### Community 151 - "Community 151"
 Cohesion: 0.17
@@ -918,7 +918,7 @@ Nodes (10): code:block1 (project-root/), Existing Documentation, Full Project Sc
 
 ### Community 154 - "Community 154"
 Cohesion: 0.17
-Nodes (10): AIEye Live, Behavioral Constraints, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), Configuration Loading, EXECUTION, Facilitation Principles, INITIALIZATION, Inputs (+2 more)
+Nodes (10): AIEye Live, Behavioral Constraints, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Configuration Loading, EXECUTION, Facilitation Principles, INITIALIZATION, Inputs (+2 more)
 
 ### Community 155 - "Community 155"
 Cohesion: 0.17
@@ -926,7 +926,7 @@ Nodes (10): Closing, code:block1 (Orientation → Walkthrough → Detail Pass �
 
 ### Community 156 - "Community 156"
 Cohesion: 0.17
-Nodes (10): AIEye Live, Behavioral Constraints, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), Configuration Loading, EXECUTION, Facilitation Principles, INITIALIZATION, Inputs (+2 more)
+Nodes (10): AIEye Live, Behavioral Constraints, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Configuration Loading, EXECUTION, Facilitation Principles, INITIALIZATION, Inputs (+2 more)
 
 ### Community 157 - "Community 157"
 Cohesion: 0.17
@@ -974,11 +974,11 @@ Nodes (8): Amitabh, Capabilities, Communication Style, Critical Actions, Identit
 
 ### Community 168 - "Community 168"
 Cohesion: 0.2
-Nodes (8): Activation, AIEye Live, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), PREREQUISITE, QUICK TOPIC DISCOVERY, ROUTE TO TECHNICAL RESEARCH STEPS, Technical Research Workflow, Topic Clarification
+Nodes (8): Activation, AIEye Live, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), PREREQUISITE, QUICK TOPIC DISCOVERY, ROUTE TO TECHNICAL RESEARCH STEPS, Technical Research Workflow, Topic Clarification
 
 ### Community 169 - "Community 169"
 Cohesion: 0.2
-Nodes (8): 1) Initialize, 2) Collect Inputs, 3) Create Output, 4) Quality Checks, 5) Deliver, AIEye Live, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), dontbmad-bmad-to-claude-design Workflow
+Nodes (8): 1) Initialize, 2) Collect Inputs, 3) Create Output, 4) Quality Checks, 5) Deliver, AIEye Live, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), dontbmad-bmad-to-claude-design Workflow
 
 ### Community 170 - "Community 170"
 Cohesion: 0.2
@@ -986,7 +986,7 @@ Nodes (8): BMad Help, code:block1 (module,skill,display-name,menu-code,descripti
 
 ### Community 171 - "Community 171"
 Cohesion: 0.2
-Nodes (8): AIEye Live, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), Configuration Loading, Create Story Workflow, EXECUTION, INITIALIZATION, Input Files, Paths
+Nodes (8): AIEye Live, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Configuration Loading, Create Story Workflow, EXECUTION, INITIALIZATION, Input Files, Paths
 
 ### Community 172 - "Community 172"
 Cohesion: 0.2
@@ -994,7 +994,7 @@ Nodes (8): code:yaml (---), Graceful Degradation, Stage 4: Draft & Review, Stage
 
 ### Community 173 - "Community 173"
 Cohesion: 0.2
-Nodes (8): Activation, AIEye Live, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), Domain Research Workflow, PREREQUISITE, QUICK TOPIC DISCOVERY, ROUTE TO DOMAIN RESEARCH STEPS, Topic Clarification
+Nodes (8): Activation, AIEye Live, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Domain Research Workflow, PREREQUISITE, QUICK TOPIC DISCOVERY, ROUTE TO DOMAIN RESEARCH STEPS, Topic Clarification
 
 ### Community 174 - "Community 174"
 Cohesion: 0.36
@@ -1002,7 +1002,7 @@ Nodes (8): Boundaries & Constraints, Code Map, Design Notes, I/O & Edge-Case Mat
 
 ### Community 175 - "Community 175"
 Cohesion: 0.2
-Nodes (8): Activation, AIEye Live, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), Market Research Workflow, PREREQUISITE, QUICK TOPIC DISCOVERY, ROUTE TO MARKET RESEARCH STEPS, Topic Clarification
+Nodes (8): Activation, AIEye Live, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Market Research Workflow, PREREQUISITE, QUICK TOPIC DISCOVERY, ROUTE TO MARKET RESEARCH STEPS, Topic Clarification
 
 ### Community 176 - "Community 176"
 Cohesion: 0.2
@@ -1022,7 +1022,7 @@ Nodes (8): Editorial Review - Prose, HALT CONDITIONS, PRINCIPLES, Step 1: Valida
 
 ### Community 180 - "Community 180"
 Cohesion: 0.2
-Nodes (8): AIEye Live, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), Configuration Loading, Context, Dev Story Workflow, EXECUTION, INITIALIZATION, Paths
+Nodes (8): AIEye Live, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Configuration Loading, Context, Dev Story Workflow, EXECUTION, INITIALIZATION, Paths
 
 ### Community 181 - "Community 181"
 Cohesion: 0.2
@@ -1030,15 +1030,15 @@ Nodes (8): AI Tracking, Context & Requirements, Definition of Done Checklist, Do
 
 ### Community 182 - "Community 182"
 Cohesion: 0.2
-Nodes (8): AIEye Live, Brainstorming Session Workflow, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), Configuration Loading, EXECUTION, INITIALIZATION, Paths, WORKFLOW ARCHITECTURE
+Nodes (8): AIEye Live, Brainstorming Session Workflow, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Configuration Loading, EXECUTION, INITIALIZATION, Paths, WORKFLOW ARCHITECTURE
 
 ### Community 183 - "Community 183"
 Cohesion: 0.2
-Nodes (8): 1) Initialize, 2) Collect Inputs, 3) Create Output, 4) Quality Checks, 5) Deliver, AIEye Live, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), dontbmad-claude-design-to-bmad-uiux Workflow
+Nodes (8): 1) Initialize, 2) Collect Inputs, 3) Create Output, 4) Quality Checks, 5) Deliver, AIEye Live, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), dontbmad-claude-design-to-bmad-uiux Workflow
 
 ### Community 184 - "Community 184"
 Cohesion: 0.2
-Nodes (8): 1. Configuration Loading, 2. First Step Execution, AIEye Live, Code Review Workflow, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), INITIALIZATION SEQUENCE, Step Processing Rules, WORKFLOW ARCHITECTURE
+Nodes (8): 1. Configuration Loading, 2. First Step Execution, AIEye Live, Code Review Workflow, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), INITIALIZATION SEQUENCE, Step Processing Rules, WORKFLOW ARCHITECTURE
 
 ### Community 185 - "Community 185"
 Cohesion: 0.2
@@ -1086,11 +1086,11 @@ Nodes (7): Capabilities, Communication Style, Identity, On Activation, Overview,
 
 ### Community 196 - "Community 196"
 Cohesion: 0.22
-Nodes (7): AIEye Live, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), Configuration Loading, Deep-Dive Documentation Sub-Workflow, EXECUTION, INITIALIZATION, Runtime Inputs
+Nodes (7): AIEye Live, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Configuration Loading, Deep-Dive Documentation Sub-Workflow, EXECUTION, INITIALIZATION, Runtime Inputs
 
 ### Community 197 - "Community 197"
 Cohesion: 0.22
-Nodes (7): AIEye Live, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), Configuration Loading, EXECUTION, Full Project Scan Sub-Workflow, INITIALIZATION, Runtime Inputs
+Nodes (7): AIEye Live, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Configuration Loading, EXECUTION, Full Project Scan Sub-Workflow, INITIALIZATION, Runtime Inputs
 
 ### Community 198 - "Community 198"
 Cohesion: 0.22
@@ -1126,7 +1126,7 @@ Nodes (7): Capabilities, Communication Style, Identity, On Activation, Overview,
 
 ### Community 206 - "Community 206"
 Cohesion: 0.22
-Nodes (7): Activation, AIEye Live, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), Create UX Design Workflow, EXECUTION, Paths, WORKFLOW ARCHITECTURE
+Nodes (7): Activation, AIEye Live, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Create UX Design Workflow, EXECUTION, Paths, WORKFLOW ARCHITECTURE
 
 ### Community 207 - "Community 207"
 Cohesion: 0.22
@@ -1194,19 +1194,19 @@ Nodes (5): Output, QA Automate - Validation Checklist, Test Generation, Test Qua
 
 ### Community 223 - "Community 223"
 Cohesion: 0.29
-Nodes (5): Activation, AIEye Live, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), PRD Edit Workflow, Step-file rules
+Nodes (5): Activation, AIEye Live, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), PRD Edit Workflow, Step-file rules
 
 ### Community 224 - "Community 224"
 Cohesion: 0.29
-Nodes (5): Activation, AIEye Live, Architecture Workflow, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), WORKFLOW ARCHITECTURE
+Nodes (5): Activation, AIEye Live, Architecture Workflow, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), WORKFLOW ARCHITECTURE
 
 ### Community 225 - "Community 225"
 Cohesion: 0.29
-Nodes (5): AIEye Live, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), Document Project Workflow, EXECUTION, INITIALIZATION
+Nodes (5): AIEye Live, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Document Project Workflow, EXECUTION, INITIALIZATION
 
 ### Community 226 - "Community 226"
 Cohesion: 0.29
-Nodes (5): Activation, AIEye Live, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), Implementation Readiness, Step-file rules
+Nodes (5): Activation, AIEye Live, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Implementation Readiness, Step-file rules
 
 ### Community 227 - "Community 227"
 Cohesion: 0.29
@@ -1214,7 +1214,7 @@ Nodes (5): On Activation, Overview, Stage 1: Ignition, Stages, Working Backwards
 
 ### Community 228 - "Community 228"
 Cohesion: 0.29
-Nodes (5): Activation, AIEye Live, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), PRD Create Workflow, Step-file rules
+Nodes (5): Activation, AIEye Live, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), PRD Create Workflow, Step-file rules
 
 ### Community 229 - "Community 229"
 Cohesion: 0.29
@@ -1230,15 +1230,15 @@ Nodes (5): CHECKPOINT, INSTRUCTIONS, NEXT, RULES, Step 1: Gather Context
 
 ### Community 232 - "Community 232"
 Cohesion: 0.29
-Nodes (5): Activation, AIEye Live, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), PRD Validate Workflow, Step-file rules
+Nodes (5): Activation, AIEye Live, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), PRD Validate Workflow, Step-file rules
 
 ### Community 233 - "Community 233"
 Cohesion: 0.29
-Nodes (5): Activation, AIEye Live, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), Create Epics and Stories, Step-file rules
+Nodes (5): Activation, AIEye Live, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Create Epics and Stories, Step-file rules
 
 ### Community 234 - "Community 234"
 Cohesion: 0.29
-Nodes (5): Activation, AIEye Live, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), Generate Project Context Workflow, WORKFLOW ARCHITECTURE
+Nodes (5): Activation, AIEye Live, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Generate Project Context Workflow, WORKFLOW ARCHITECTURE
 
 ### Community 235 - "Community 235"
 Cohesion: 0.29
@@ -1298,7 +1298,7 @@ Nodes (3): Critical Implementation Rules, Project Context for AI Agents, Technol
 
 ### Community 249 - "Community 249"
 Cohesion: 0.4
-Nodes (4): AIEye Live — workflow completion, Behaviour, code:bash (AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-h), Setup
+Nodes (4): AIEye Live — workflow completion, Behaviour, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Setup
 
 ### Community 250 - "Community 250"
 Cohesion: 0.4
@@ -1310,11 +1310,11 @@ Nodes (3): code:yaml (# _bmad/_config/team.yaml), *or, How Twelve Agents Got New
 
 ### Community 257 - "Community 257"
 Cohesion: 0.5
-Nodes (4): 4. User journeys, J1: Contributor opens a PR, J2: Developer iterates locally, J3: Reviewer audits a regression
+Nodes (4): 1. Problem & motivation, Primary: trailer pipeline integrity across project topologies, Secondary: fork enhancement integrity (graphify + caveman), Tertiary: install.sh general surface, skill validation, shellcheck
 
 ### Community 258 - "Community 258"
 Cohesion: 0.5
-Nodes (4): 1. Problem & motivation, Primary: trailer pipeline integrity across project topologies, Secondary: fork enhancement integrity (graphify + caveman), Tertiary: install.sh general surface, skill validation, shellcheck
+Nodes (4): 4. User journeys, J1: Contributor opens a PR, J2: Developer iterates locally, J3: Reviewer audits a regression
 
 ## Knowledge Gaps
 - **2810 isolated node(s):** `Resolve input arguments to a flat list of file paths.`, `Detect document type from filename.`, `Suggest document groupings based on naming conventions.`, `Main analysis function.`, `Write JSON to file or stdout.` (+2805 more)

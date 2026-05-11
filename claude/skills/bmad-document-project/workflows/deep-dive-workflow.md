@@ -38,9 +38,9 @@ Read fully and follow: `./deep-dive-instructions.md`
 When this workflow completes (final step finished), run once as a fire-and-forget shell command. Do not wait for output; failures must not block or fail the session.
 
 ```bash
-AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-hook"
+AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook"
 test -x "$AIEYE_HOOK" && "$AIEYE_HOOK" bmad-document-project || true
 ```
 
-Uses the same ingest URL and payload logic as `hooks/post-skill/lib/dispatch.js` (see `hooks/post-skill/README.md`). Requires `~/.claude/aieye-live.env` and git credentials for `engg.elasticrun.in` as documented there.
+Uses the same ingest URL and payload logic as `~/.claude/hooks/aieye-live/lib/dispatch.js` (deployed from `hooks/post-skill/` via `scripts/install.sh`; see `hooks/post-skill/README.md`). Requires `~/.claude/aieye-live.env` and git credentials for `engg.elasticrun.in` as documented there.
 

@@ -188,6 +188,42 @@ publish_skills() {
   cursor_count=$PUBLISH_LAST_COUNT
 }
 
+# --- AIEye Live hook: copy to ~/.claude/hooks/aieye-live/ (workflows use this path only) ---
+# Does not register Claude Stop / Cursor stop hooks — optional; see hooks/post-skill/README.md.
+install_aieye_live_hook() {
+  local src="$REPO_ROOT/hooks/post-skill"
+  [ -d "$src" ] || return 0
+
+  if ! $NODE_OK; then
+    echo "  AIEye Live hook: skipped (node >= 18 required — see dependency warnings above)"
+    return 0
+  fi
+
+  local dst="$HOME/.claude/hooks/aieye-live"
+  mkdir -p "$dst/bin" "$dst/lib"
+  cp "$src/package.json"               "$dst/package.json"
+  cp "$src/README.md"                  "$dst/README.md"             2>/dev/null || true
+  cp "$src/bin/aieye-live-hook"        "$dst/bin/aieye-live-hook"
+  cp "$src/lib/dispatch.js"            "$dst/lib/dispatch.js"
+  cp "$src/lib/dispatch.test.js"       "$dst/lib/dispatch.test.js"  2>/dev/null || true
+  cp "$src/lib/dispatch.queue.test.js" "$dst/lib/dispatch.queue.test.js" 2>/dev/null || true
+  cp "$src/lib/dispatch.token.test.js" "$dst/lib/dispatch.token.test.js" 2>/dev/null || true
+  chmod +x "$dst/bin/aieye-live-hook"
+
+  if ! $BASH_OK; then
+    echo "  WARNING: bash not on PATH — ~/.claude/hooks/aieye-live/bin/aieye-live-hook may not run."
+  fi
+
+  if $NODE_OK; then
+    if ! node "$dst/lib/dispatch.js" --check-deps; then
+      echo "  WARNING: AIEye Live hook runtime check failed (install git + Node >= 18; see hooks/post-skill/README.md)."
+    fi
+  fi
+
+  echo "  AIEye Live hook: ~/.claude/hooks/aieye-live"
+  echo "  To activate:     ~/.claude/aieye-live.env (see hooks/post-skill/README.md)"
+}
+
 # --- Global caveman: inject terse-mode rules into ~/.claude/CLAUDE.md + ~/.cursor/rules/ ---
 # Makes caveman always-on without per-session activation. Safe to run repeatedly;
 # uses HTML comment markers to detect and replace an existing block.
@@ -250,6 +286,7 @@ install_graphify() {
 # those artifacts only make sense at a consumer workspace.
 if [ "$MODE" = "global" ] || $IN_REPO; then
   publish_skills
+  install_aieye_live_hook
   inject_global_caveman
   install_graphify
   echo ""
@@ -267,6 +304,7 @@ fi
 # --- Workspace mode (all / skills): publish skills + workspace files ---
 if [ "$MODE" = "all" ] || [ "$MODE" = "skills" ]; then
   publish_skills
+  install_aieye_live_hook
   inject_global_caveman
   install_graphify
 
@@ -469,6 +507,12 @@ install_hook_to_repo() {
   chmod +x "$git_dir/hooks/prepare-commit-msg"
   hook_repos=$((hook_repos + 1))
 }
+
+# --- Hooks-only mode: deploy global AIEye Live binary (workflows use ~/.claude path) ---
+if [ "$MODE" = "hooks" ]; then
+  install_aieye_live_hook
+  echo ""
+fi
 
 if [ "$MODE" = "all" ] || [ "$MODE" = "hooks" ]; then
   if ! $GIT_OK; then
