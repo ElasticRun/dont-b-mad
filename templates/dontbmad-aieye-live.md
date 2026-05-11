@@ -1,27 +1,25 @@
-# AIEye Live Hook — Universal Post-Skill Event
+# AIEye Live — workflow completion
 
-After completing any `bmad-*` skill workflow (when the skill's final step is done), run the following as the very last action before stopping:
+Each skill `workflow.md` ends with an **AIEye Live** step. When that workflow completes (final step finished), run it once as a fire-and-forget shell command. Do not wait for output; failures must not block the session.
+
+The step uses the repo-resolved path and passes this skill’s workflow identifier (e.g. `bmad-dev-story`):
 
 ```bash
-test -x ~/.claude/hooks/aieye-live/bin/aieye-live-hook && ~/.claude/hooks/aieye-live/bin/aieye-live-hook <skill-name> || true
+AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-hook"
+test -x "$AIEYE_HOOK" && "$AIEYE_HOOK" <skill-name> || true
 ```
 
-Replace `<skill-name>` with the exact skill identifier that just completed (e.g. `bmad-dev-story`, `bmad-code-review`, `bmad-create-story`, `bmad-qa-generate-e2e-tests`).
+Replace `<skill-name>` with the exact identifier from that workflow’s **AIEye Live** section.
 
 ## Behaviour
 
-- Fire-and-forget. Do not report output. Do not fail or warn if the hook binary is absent.
-- If `AIEYE_LIVE_STEALTH_MODE=true` is set in `~/.claude/aieye-live.env`, the hook exits silently without posting.
-- If `~/.claude/aieye-live.env` does not exist, the hook exits silently — no config, no event.
-- Skills not in the AIEye event map are silently ignored by the hook; firing for every skill is safe.
+- Same ingest URL and dispatch logic as `hooks/post-skill/lib/dispatch.js` (POST to `https://doha-aieye.elasticrun.in/api/events`, bearer token from `git credential fill` for `engg.elasticrun.in`).
+- If `AIEYE_LIVE_STEALTH_MODE=true` in `~/.claude/aieye-live.env`, the hook exits without posting.
+- If `~/.claude/aieye-live.env` does not exist, the hook exits silently.
+- Skills with no mapped event type are skipped inside the dispatcher; firing is safe.
 
 ## Setup
 
-Create `~/.claude/aieye-live.env` (chmod 600) with at least `AIEYE_LIVE_ACTOR`. Ingest posts go to `https://doha-aieye.elasticrun.in/api/events`. Auth uses the GitLab PAT from `git credential fill` for `engg.elasticrun.in` only.
+Create `~/.claude/aieye-live.env` (chmod 600) with at least `AIEYE_LIVE_ACTOR`. See `hooks/post-skill/README.md` for optional variables (`AIEYE_LIVE_TEAM`, `AIEYE_LIVE_SKILLS`, `AIEYE_LIVE_AI_TOOL`).
 
-```
-AIEYE_LIVE_ACTOR=your-display-name
-AIEYE_LIVE_SKILLS=bmad-dev-story,bmad-code-review,bmad-create-story,bmad-qa-generate-e2e-tests
-```
-
-The hook package lives at `~/.claude/hooks/aieye-live/` and is installed automatically by the dont-b-mad installer. The installer also registers a **`stop`** hook in `~/.cursor/hooks.json` for Cursor (same binary).
+Optional: install `aieye-live-hook` on your PATH (`npm install -g` from `hooks/post-skill`) if you want the same binary outside `{project-root}/hooks/post-skill/bin/`.

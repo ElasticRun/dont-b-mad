@@ -326,7 +326,9 @@ If `graphify-out/` is absent, every workflow step that reads the graph skips it 
 
 ## AIEye Live integration
 
-Optional hook (`hooks/post-skill/`) that fires a celebration event to the team ingest endpoint when an SDLC skill completes. `install.sh` registers **`Stop`** in `~/.claude/settings.json` (Claude Code) and **`stop`** in `~/.cursor/hooks.json` (Cursor) to run the same `aieye-live-hook` binary. Fire-and-forget — foreground exits in under 50ms, network errors never fail the skill.
+Each skill `workflow.md` includes an **AIEye Live** step at the end: run `{project-root}/hooks/post-skill/bin/aieye-live-hook` with that workflow’s skill identifier. That invokes the same Node dispatcher (`hooks/post-skill/lib/dispatch.js`): fire-and-forget ingest to the team endpoint, network errors never fail the session.
+
+The installer does not register editor **Stop** hooks; notifications are workflow-driven only. To attach the binary to Claude **Stop** or Cursor **stop** yourself, see `hooks/post-skill/README.md` (optional `scripts/register-post-skill-hook.py` and `scripts/register-cursor-aieye-stop-hook.py`).
 
 | Trigger skill | Event |
 |---|---|

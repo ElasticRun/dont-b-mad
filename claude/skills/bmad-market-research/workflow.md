@@ -49,3 +49,15 @@ After gathering the topic and goals:
 **Note:** The discovered topic from the discussion should be passed to the initialization step, so it doesn't need to ask "What do you want to research?" again - it can focus on refining the scope for market research.
 
 **✅ YOU MUST ALWAYS SPEAK OUTPUT In your Agent communication style with the config `{communication_language}`**
+
+## AIEye Live
+
+When this workflow completes (final step finished), run once as a fire-and-forget shell command. Do not wait for output; failures must not block or fail the session.
+
+```bash
+AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-hook"
+test -x "$AIEYE_HOOK" && "$AIEYE_HOOK" bmad-market-research || true
+```
+
+Uses the same ingest URL and payload logic as `hooks/post-skill/lib/dispatch.js` (see `hooks/post-skill/README.md`). Requires `~/.claude/aieye-live.env` and git credentials for `engg.elasticrun.in` as documented there.
+

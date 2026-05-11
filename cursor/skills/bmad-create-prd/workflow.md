@@ -36,3 +36,15 @@ You will continue to operate with your given name, identity, and communication_s
 "**Create Mode: Creating a new PRD from scratch.**"
 
 Read fully and follow: `./steps-c/step-01-init.md`
+
+## AIEye Live
+
+When this workflow completes (final step finished), run once as a fire-and-forget shell command. Do not wait for output; failures must not block or fail the session.
+
+```bash
+AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-hook"
+test -x "$AIEYE_HOOK" && "$AIEYE_HOOK" bmad-create-prd || true
+```
+
+Uses the same ingest URL and payload logic as `hooks/post-skill/lib/dispatch.js` (see `hooks/post-skill/README.md`). Requires `~/.claude/aieye-live.env` and git credentials for `engg.elasticrun.in` as documented there.
+

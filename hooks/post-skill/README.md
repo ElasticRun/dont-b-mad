@@ -15,9 +15,10 @@ The hook does **not** use external GNU **`timeout`**; the ~2 s ceiling is enfo
 Verify on the target machine:
 
 ```bash
-aieye-live-hook --check-deps
-# or when installed via dont-b-mad install.sh:
-node ~/.claude/hooks/aieye-live/lib/dispatch.js --check-deps
+# from repo root:
+./hooks/post-skill/bin/aieye-live-hook --check-deps
+# or:
+node ./hooks/post-skill/lib/dispatch.js --check-deps
 ```
 
 Exit **0** when Node and git are usable; otherwise messages go to stderr with hints.
@@ -63,46 +64,21 @@ The bearer token is **only** the password returned by **`git credential fill`** 
 
 > The token is sent as `Authorization: Bearer ...` to the ingest URL above. The hook never logs the raw token.
 
-## Agent hooks (Claude Code and Cursor)
+## Workflows and optional editor hooks
 
-The dont-b-mad `install.sh` copies the hook to `~/.claude/hooks/aieye-live/` and registers:
+**Default:** each BMAD skill `workflow.md` ends with an **AIEye Live** step that runs the repo copy of this hook with the workflow’s skill name, for example:
 
-- **Claude Code:** a **`Stop`** hook in `~/.claude/settings.json` (see `scripts/register-post-skill-hook.py`).
-- **Cursor:** a **`stop`** hook in `~/.cursor/hooks.json` (see `scripts/register-cursor-aieye-stop-hook.py`).
-
-Both invoke the same `aieye-live-hook` binary with stdin/argv as the host provides. Cursor watches `hooks.json`; restart Cursor if the hook does not load.
-
-**Claude Code** (`~/.claude/settings.json`) — shape written by the installer:
-
-```json
-{
-  "hooks": {
-    "Stop": [
-      {
-        "matcher": "",
-        "hooks": [
-          { "type": "command", "command": "/home/you/.claude/hooks/aieye-live/bin/aieye-live-hook" }
-        ]
-      }
-    ]
-  }
-}
+```bash
+AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-hook"
+test -x "$AIEYE_HOOK" && "$AIEYE_HOOK" bmad-create-prd || true
 ```
 
-**Cursor** (`~/.cursor/hooks.json`) — shape written by the installer:
+**Optional — Claude Code / Cursor stop hooks:** copy `hooks/post-skill/` to a fixed location (for example `~/.claude/hooks/aieye-live/`) and merge a **Stop** / **stop** hook with helper scripts in this repo:
 
-```json
-{
-  "version": 1,
-  "hooks": {
-    "stop": [
-      {
-        "command": "/home/you/.claude/hooks/aieye-live/bin/aieye-live-hook"
-      }
-    ]
-  }
-}
-```
+- `scripts/register-post-skill-hook.py` — Claude `~/.claude/settings.json`
+- `scripts/register-cursor-aieye-stop-hook.py` — Cursor `~/.cursor/hooks.json`
+
+Point the `command` at your installed `aieye-live-hook` binary. Cursor watches `hooks.json`; restart Cursor after changes.
 
 ## Supported skills
 

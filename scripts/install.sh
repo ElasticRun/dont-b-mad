@@ -82,7 +82,7 @@ check_system_deps() {
     echo "  bash:     ok ($(bash --version 2>/dev/null | head -1))"
     BASH_OK=true
   else
-    echo "  bash:     NOT FOUND — aieye-live hook wrapper needs bash (/usr/bin/env bash)"
+    echo "  bash:     NOT FOUND — AIEye Live helper script needs bash (/usr/bin/env bash)"
     echo "            Install via your OS package manager (often preinstalled on Linux/macOS)"
   fi
 
@@ -102,11 +102,11 @@ check_system_deps() {
       echo "  node:     ok (v$_ver)"
       NODE_OK=true
     else
-      echo "  node:     v$_ver found — needs >= 18 (aieye-live hook requires Node 18+)"
+      echo "  node:     v$_ver found — needs >= 18 (AIEye Live workflow step requires Node 18+)"
       echo "            Upgrade: https://nodejs.org  or  brew upgrade node  or  nvm install 18"
     fi
   else
-    echo "  node:     NOT FOUND — aieye-live hook requires Node >= 18"
+    echo "  node:     NOT FOUND — AIEye Live workflow step requires Node >= 18"
     echo "            Install:  https://nodejs.org  or  brew install node  or  nvm install 18"
   fi
 
@@ -114,7 +114,7 @@ check_system_deps() {
     echo "  python3:  ok ($(python3 --version 2>&1))"
     PYTHON3_OK=true
   else
-    echo "  python3:  NOT FOUND — hook registration and caveman injection will be skipped"
+    echo "  python3:  NOT FOUND — caveman injection will be skipped"
     echo "            Install:  https://python.org  or  brew install python3"
   fi
 
@@ -188,59 +188,6 @@ publish_skills() {
   cursor_count=$PUBLISH_LAST_COUNT
 }
 
-# --- Claude Code + Cursor post-skill hook (AIEye live events) ---
-# Copies hooks/post-skill/ to ~/.claude/hooks/aieye-live/ and registers:
-#   - Claude Code Stop hook in ~/.claude/settings.json
-#   - Cursor stop hook in ~/.cursor/hooks.json
-# so AIEye can fire on agent completion. Safe to run repeatedly.
-post_skill_hook_installed=false
-install_post_skill_hook() {
-  local src="$REPO_ROOT/hooks/post-skill"
-  [ -d "$src" ] || return 0
-
-  if ! $NODE_OK; then
-    echo "  Post-skill hook: skipped (node >= 18 required — see dependency warnings above)"
-    return 0
-  fi
-
-  local dst="$HOME/.claude/hooks/aieye-live"
-  mkdir -p "$dst/bin" "$dst/lib"
-  cp "$src/package.json"               "$dst/package.json"
-  cp "$src/README.md"                  "$dst/README.md"             2>/dev/null || true
-  cp "$src/bin/aieye-live-hook"        "$dst/bin/aieye-live-hook"
-  cp "$src/lib/dispatch.js"            "$dst/lib/dispatch.js"
-  cp "$src/lib/dispatch.test.js"       "$dst/lib/dispatch.test.js"  2>/dev/null || true
-  cp "$src/lib/dispatch.queue.test.js" "$dst/lib/dispatch.queue.test.js" 2>/dev/null || true
-  cp "$src/lib/dispatch.token.test.js" "$dst/lib/dispatch.token.test.js" 2>/dev/null || true
-  chmod +x "$dst/bin/aieye-live-hook"
-
-  if ! $BASH_OK; then
-    echo "  WARNING: bash not on PATH — ~/.claude/hooks/aieye-live/bin/aieye-live-hook may not run."
-  fi
-
-  if $NODE_OK; then
-    if ! node "$dst/lib/dispatch.js" --check-deps; then
-      echo "  WARNING: aieye-live hook runtime check failed (install git + Node >= 18; see hooks/post-skill/README.md)."
-    fi
-  fi
-
-  local hook_bin="$dst/bin/aieye-live-hook"
-  local settings="$HOME/.claude/settings.json"
-  local cursor_hooks="$HOME/.cursor/hooks.json"
-  local reg_status cursor_reg
-  if $PYTHON3_OK; then
-    reg_status=$(python3 "$REPO_ROOT/scripts/register-post-skill-hook.py" "$settings" "$hook_bin" 2>&1)
-    cursor_reg=$(python3 "$REPO_ROOT/scripts/register-cursor-aieye-stop-hook.py" "$cursor_hooks" "$hook_bin" 2>&1)
-  else
-    reg_status="files installed; add to ~/.claude/settings.json Stop hooks manually (python3 missing)"
-    cursor_reg="skipped (python3 missing)"
-  fi
-  echo "  Post-skill hook: ~/.claude/hooks/aieye-live  (Claude: $reg_status)"
-  echo "                   ~/.cursor/hooks.json stop   (Cursor: $cursor_reg)"
-  echo "  To activate:    create ~/.claude/aieye-live.env (see hooks/post-skill/README.md)"
-  post_skill_hook_installed=true
-}
-
 # --- Global caveman: inject terse-mode rules into ~/.claude/CLAUDE.md + ~/.cursor/rules/ ---
 # Makes caveman always-on without per-session activation. Safe to run repeatedly;
 # uses HTML comment markers to detect and replace an existing block.
@@ -303,7 +250,6 @@ install_graphify() {
 # those artifacts only make sense at a consumer workspace.
 if [ "$MODE" = "global" ] || $IN_REPO; then
   publish_skills
-  install_post_skill_hook
   inject_global_caveman
   install_graphify
   echo ""
@@ -321,7 +267,6 @@ fi
 # --- Workspace mode (all / skills): publish skills + workspace files ---
 if [ "$MODE" = "all" ] || [ "$MODE" = "skills" ]; then
   publish_skills
-  install_post_skill_hook
   inject_global_caveman
   install_graphify
 

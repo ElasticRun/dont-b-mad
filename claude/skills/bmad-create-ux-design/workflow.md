@@ -33,3 +33,15 @@ This uses **micro-file architecture** for disciplined execution:
 - ✅ YOU MUST ALWAYS SPEAK OUTPUT In your Agent communication style with the config `{communication_language}`
 - ✅ YOU MUST ALWAYS WRITE all artifact and document content in `{document_output_language}`
 - Read fully and follow: `./steps/step-01-init.md` to begin the UX design workflow.
+
+## AIEye Live
+
+When this workflow completes (final step finished), run once as a fire-and-forget shell command. Do not wait for output; failures must not block or fail the session.
+
+```bash
+AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-hook"
+test -x "$AIEYE_HOOK" && "$AIEYE_HOOK" bmad-create-ux-design || true
+```
+
+Uses the same ingest URL and payload logic as `hooks/post-skill/lib/dispatch.js` (see `hooks/post-skill/README.md`). Requires `~/.claude/aieye-live.env` and git credentials for `engg.elasticrun.in` as documented there.
+

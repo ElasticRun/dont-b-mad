@@ -410,3 +410,15 @@ If user invoked with `run auto sprint` (not `auto dev next story`), jump back to
 - **Keep orchestrator context lean.** After each agent call, retain only the compact summary (3–4 lines). Do not carry full agent output forward — use `{implementation_artifacts}/runs/<id>/` artifact files as the authoritative record.
 - **Project-agnostic.** Works on any project with `{implementation_artifacts}/sprint-status.yaml` and story spec files in `{implementation_artifacts}/`.
 - **No empty commits.** If a phase artifact is unchanged, append a fresh timestamp line so git history still records phase execution.
+
+## AIEye Live
+
+When this workflow completes (final step finished), run once as a fire-and-forget shell command. Do not wait for output; failures must not block or fail the session.
+
+```bash
+AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-hook"
+test -x "$AIEYE_HOOK" && "$AIEYE_HOOK" dontbmad-auto-sprint || true
+```
+
+Uses the same ingest URL and payload logic as `hooks/post-skill/lib/dispatch.js` (see `hooks/post-skill/README.md`). Requires `~/.claude/aieye-live.env` and git credentials for `engg.elasticrun.in` as documented there.
+

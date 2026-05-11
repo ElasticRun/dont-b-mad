@@ -30,3 +30,15 @@ This uses **micro-file architecture** for disciplined execution:
 Read fully and follow: `./steps/step-01-init.md` to begin the workflow.
 
 **Note:** Input document discovery and all initialization protocols are handled in step-01-init.md.
+
+## AIEye Live
+
+When this workflow completes (final step finished), run once as a fire-and-forget shell command. Do not wait for output; failures must not block or fail the session.
+
+```bash
+AIEYE_HOOK="{project-root}/hooks/post-skill/bin/aieye-live-hook"
+test -x "$AIEYE_HOOK" && "$AIEYE_HOOK" bmad-create-architecture || true
+```
+
+Uses the same ingest URL and payload logic as `hooks/post-skill/lib/dispatch.js` (see `hooks/post-skill/README.md`). Requires `~/.claude/aieye-live.env` and git credentials for `engg.elasticrun.in` as documented there.
+
