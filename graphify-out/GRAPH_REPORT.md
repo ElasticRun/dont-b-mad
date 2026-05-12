@@ -1,16 +1,16 @@
 # Graph Report - dont-b-mad  (2026-05-12)
 
 ## Corpus Check
-- 577 files · ~445,078 words
+- 577 files · ~445,287 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 4519 nodes · 4309 edges · 327 communities (314 shown, 13 thin omitted)
+- 4520 nodes · 4311 edges · 327 communities (314 shown, 13 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `e59d0582`
+- Built from commit: `d308b5ad`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -329,20 +329,20 @@ Cohesion: 0.07
 Nodes (31): 1. Check for Existing Workflow, 1. Confirm Research Understanding, 2. Handle Continuation (If Document Exists), 2. Refine Research Scope, 3. Document Initial Scope, 3. Fresh Workflow Setup (If No Document), 4. Present Confirmation and Continue Option, 5. Handle User Response (+23 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.06
-Nodes (32): 0. Check Technical Preferences & Context, 10. Handle Menu Selection, 1. Identify Primary Technology Domain, 2. UX Requirements Consideration, 3. Research Current Starter Options, 4. Investigate Top Starter Options, 5. Analyze What Each Starter Provides, 6. Present Starter Options (+24 more)
+Cohesion: 0.11
+Nodes (32): buildCommitMessageDraft(), crypto, DEBUG, debugError(), debugLog(), deriveIdempotencyKey(), ENV_FILE, flushQueue() (+24 more)
 
 ### Community 8 - "Community 8"
 Cohesion: 0.06
-Nodes (32): 1. Initialize Best Practices Validation, 2. Epic Structure Validation, 3. Story Quality Assessment, 4. Dependency Analysis, 5. Special Implementation Checks, 6. Best Practices Compliance Checklist, 7. Quality Assessment Documentation, 8. Autonomous Review Execution (+24 more)
+Nodes (32): 0. Check Technical Preferences & Context, 10. Handle Menu Selection, 1. Identify Primary Technology Domain, 2. UX Requirements Consideration, 3. Research Current Starter Options, 4. Investigate Top Starter Options, 5. Analyze What Each Starter Provides, 6. Present Starter Options (+24 more)
 
 ### Community 9 - "Community 9"
 Cohesion: 0.06
-Nodes (33): 10) Engineering Handoff Cues, 10) User Journeys (BMAD step: user journeys), 11) Acceptance Criteria Mapping, 11) Component Strategy (BMAD step: component strategy), 12) Ready-for-Dev Gate, 12) UX Patterns and Interaction Rules (BMAD step: UX patterns), 13) Responsive and Accessibility Spec (BMAD step: responsive/accessibility), 14) Screen/State Inventory for Implementation (+25 more)
+Nodes (32): 1. Initialize Best Practices Validation, 2. Epic Structure Validation, 3. Story Quality Assessment, 4. Dependency Analysis, 5. Special Implementation Checks, 6. Best Practices Compliance Checklist, 7. Quality Assessment Documentation, 8. Autonomous Review Execution (+24 more)
 
 ### Community 10 - "Community 10"
-Cohesion: 0.11
-Nodes (31): buildCommitMessageDraft(), crypto, DEBUG, debugError(), debugLog(), deriveIdempotencyKey(), ENV_FILE, flushQueue() (+23 more)
+Cohesion: 0.06
+Nodes (33): 10) Engineering Handoff Cues, 10) User Journeys (BMAD step: user journeys), 11) Acceptance Criteria Mapping, 11) Component Strategy (BMAD step: component strategy), 12) Ready-for-Dev Gate, 12) UX Patterns and Interaction Rules (BMAD step: UX patterns), 13) Responsive and Accessibility Spec (BMAD step: responsive/accessibility), 14) Screen/State Inventory for Implementation (+25 more)
 
 ### Community 11 - "Community 11"
 Cohesion: 0.06
@@ -997,52 +997,52 @@ Cohesion: 0.2
 Nodes (8): Activation, AIEye Live, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Domain Research Workflow, PREREQUISITE, QUICK TOPIC DISCOVERY, ROUTE TO DOMAIN RESEARCH STEPS, Topic Clarification
 
 ### Community 174 - "Community 174"
-Cohesion: 0.36
-Nodes (8): Boundaries & Constraints, Code Map, Design Notes, I/O & Edge-Case Matrix, Intent, Spec Change Log, Tasks & Acceptance, Verification
-
-### Community 175 - "Community 175"
 Cohesion: 0.2
 Nodes (8): Activation, AIEye Live, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Market Research Workflow, PREREQUISITE, QUICK TOPIC DISCOVERY, ROUTE TO MARKET RESEARCH STEPS, Topic Clarification
 
-### Community 176 - "Community 176"
+### Community 175 - "Community 175"
 Cohesion: 0.2
 Nodes (8): code:yaml (---), code:json ({), Finalize the Document, Present Completion, Produce the Distillate, Stage 5: The Verdict, Stage Complete, The Assessment
 
-### Community 177 - "Community 177"
+### Community 176 - "Community 176"
 Cohesion: 0.2
 Nodes (8): Coaching Approach, Coaching Notes Capture, Headless Mode, Quality Bars, Stage 2: The Press Release, Stage Complete, The Forge, Updating the Document
 
-### Community 178 - "Community 178"
+### Community 177 - "Community 177"
 Cohesion: 0.2
 Nodes (8): AI Tracking, code:bash (cp .cursor/skills/dontbmad-ai-tracking/prepare-commit-msg .g), code:bash (bash .cursor/skills/dontbmad-ai-tracking/adoption-dashboard.), Install the hook, Run Pulse (adoption dashboard), Trailer Scheme, Usage, What This Skill Does
 
-### Community 179 - "Community 179"
+### Community 178 - "Community 178"
 Cohesion: 0.2
 Nodes (8): Editorial Review - Prose, HALT CONDITIONS, PRINCIPLES, Step 1: Validate Input, Step 2: Analyze Style, Step 3: Editorial Review (CRITICAL), Step 4: Output Results, STEPS
 
-### Community 180 - "Community 180"
+### Community 179 - "Community 179"
 Cohesion: 0.2
 Nodes (8): AIEye Live, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Configuration Loading, Context, Dev Story Workflow, EXECUTION, INITIALIZATION, Paths
 
-### Community 181 - "Community 181"
+### Community 180 - "Community 180"
 Cohesion: 0.2
 Nodes (8): AI Tracking, Context & Requirements, Definition of Done Checklist, Documentation, Final Status, Implementation, Output, Testing
 
-### Community 182 - "Community 182"
+### Community 181 - "Community 181"
 Cohesion: 0.2
 Nodes (8): AIEye Live, Brainstorming Session Workflow, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), Configuration Loading, EXECUTION, INITIALIZATION, Paths, WORKFLOW ARCHITECTURE
 
-### Community 183 - "Community 183"
+### Community 182 - "Community 182"
 Cohesion: 0.2
 Nodes (8): 1) Initialize, 2) Collect Inputs, 3) Create Output, 4) Quality Checks, 5) Deliver, AIEye Live, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), dontbmad-claude-design-to-bmad-uiux Workflow
 
-### Community 184 - "Community 184"
+### Community 183 - "Community 183"
 Cohesion: 0.2
 Nodes (8): 1. Configuration Loading, 2. First Step Execution, AIEye Live, Code Review Workflow, code:bash (AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho), INITIALIZATION SEQUENCE, Step Processing Rules, WORKFLOW ARCHITECTURE
 
-### Community 185 - "Community 185"
+### Community 184 - "Community 184"
 Cohesion: 0.2
 Nodes (8): Capabilities, Communication Style, Critical Actions, Deepika, Identity, On Activation, Overview, Principles
+
+### Community 185 - "Community 185"
+Cohesion: 0.36
+Nodes (8): Boundaries & Constraints, Code Map, Design Notes, I/O & Edge-Case Matrix, Intent, Spec Change Log, Tasks & Acceptance, Verification
 
 ### Community 186 - "Community 186"
 Cohesion: 0.2
@@ -1310,11 +1310,11 @@ Nodes (3): code:yaml (# _bmad/_config/team.yaml), *or, How Twelve Agents Got New
 
 ### Community 257 - "Community 257"
 Cohesion: 0.5
-Nodes (4): 4. User journeys, J1: Contributor opens a PR, J2: Developer iterates locally, J3: Reviewer audits a regression
+Nodes (4): 1. Problem & motivation, Primary: trailer pipeline integrity across project topologies, Secondary: fork enhancement integrity (graphify + caveman), Tertiary: install.sh general surface, skill validation, shellcheck
 
 ### Community 258 - "Community 258"
 Cohesion: 0.5
-Nodes (4): 1. Problem & motivation, Primary: trailer pipeline integrity across project topologies, Secondary: fork enhancement integrity (graphify + caveman), Tertiary: install.sh general surface, skill validation, shellcheck
+Nodes (4): 4. User journeys, J1: Contributor opens a PR, J2: Developer iterates locally, J3: Reviewer audits a regression
 
 ## Knowledge Gaps
 - **2811 isolated node(s):** `Resolve input arguments to a flat list of file paths.`, `Detect document type from filename.`, `Suggest document groupings based on naming conventions.`, `Main analysis function.`, `Write JSON to file or stdout.` (+2806 more)

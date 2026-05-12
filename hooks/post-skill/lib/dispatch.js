@@ -537,12 +537,33 @@ async function readStdin() {
   });
 }
 
+/**
+ * Skill/workflow id from explicit invocation: CLI arg (bash wrapper forwards "$@")
+ * or AIEYE_LIVE_SKILL / AIEYE_LIVE_SKILL_NAME when runners invoke node without argv.
+ * @returns {string | null}
+ */
+function readExplicitSkillFromInvocation() {
+  const a2 = process.argv[2];
+  if (a2 != null && String(a2).trim() !== '' && String(a2) !== '--check-deps') {
+    return String(a2).trim();
+  }
+  const fromEnv = (
+    process.env.AIEYE_LIVE_SKILL ||
+    process.env.AIEYE_LIVE_SKILL_NAME ||
+    ''
+  ).trim();
+  return fromEnv !== '' ? fromEnv : null;
+}
+
 // ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
 
 async function main() {
-  debugLog(`start argv=${JSON.stringify(process.argv.slice(2))}`);
+  const explicitSkill = readExplicitSkillFromInvocation();
+  debugLog(
+    `start argv=${JSON.stringify(process.argv)} explicit_skill=${explicitSkill === null ? '(null)' : JSON.stringify(explicitSkill)}`
+  );
   // 1. Load config
   const config = parseEnvFile(ENV_FILE);
   if (config === null) {
@@ -574,17 +595,12 @@ async function main() {
 
   debugLog(`config: actor set, team=${team ? '(set)' : '(empty)'} ingest=${ingestUrl}`);
 
-  // 2. Parse hook stdin (editor Stop hooks pass JSON; workflow step passes skill via argv only).
+  // 2. Parse hook stdin (editor Stop hooks pass JSON; workflow sets AIEYE_LIVE_SKILL and/or argv).
   const hookData = await readStdin();
 
-  // Explicit argv skill wins — workflow completion always passes the skill name as the first
-  // CLI arg; agent runners often supply unrelated JSON on stdin that must not override it.
-  const argvSkill =
-    process.argv[2] != null && String(process.argv[2]).trim() !== ''
-      ? String(process.argv[2]).trim()
-      : null;
-
-  let skillName = argvSkill;
+  // Explicit argv / env skill beats stdin — agent runners often invoke node without forwarding
+  // CLI args (empty argv) and/or supply unrelated JSON on stdin.
+  let skillName = readExplicitSkillFromInvocation();
   if (!skillName) {
     const fromHook =
       hookData.tool_name || (hookData.tool_input && hookData.tool_input.skill) || null;

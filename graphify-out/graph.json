@@ -369,7 +369,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L1",
       "id": "hooks_post_skill_lib_dispatch_js",
-      "community": 10,
+      "community": 7,
       "norm_label": "dispatch.js"
     },
     {
@@ -378,7 +378,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L26",
       "id": "lib_dispatch_fs",
-      "community": 10,
+      "community": 7,
       "norm_label": "fs"
     },
     {
@@ -387,7 +387,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L27",
       "id": "lib_dispatch_path",
-      "community": 10,
+      "community": 7,
       "norm_label": "path"
     },
     {
@@ -396,7 +396,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L28",
       "id": "lib_dispatch_https",
-      "community": 10,
+      "community": 7,
       "norm_label": "https"
     },
     {
@@ -405,7 +405,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L29",
       "id": "lib_dispatch_http",
-      "community": 10,
+      "community": 7,
       "norm_label": "http"
     },
     {
@@ -414,7 +414,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L30",
       "id": "lib_dispatch_crypto",
-      "community": 10,
+      "community": 7,
       "norm_label": "crypto"
     },
     {
@@ -423,7 +423,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L31",
       "id": "lib_dispatch_os",
-      "community": 10,
+      "community": 7,
       "norm_label": "os"
     },
     {
@@ -432,7 +432,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L32",
       "id": "lib_dispatch_spawnsync",
-      "community": 10,
+      "community": 7,
       "norm_label": "{ spawnsync }"
     },
     {
@@ -441,7 +441,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L38",
       "id": "lib_dispatch_isdebugenabled",
-      "community": 10,
+      "community": 7,
       "norm_label": "isdebugenabled()"
     },
     {
@@ -450,7 +450,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L48",
       "id": "lib_dispatch_persisthooklog",
-      "community": 10,
+      "community": 7,
       "norm_label": "persisthooklog()"
     },
     {
@@ -459,7 +459,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L58",
       "id": "lib_dispatch_debug",
-      "community": 10,
+      "community": 7,
       "norm_label": "debug"
     },
     {
@@ -468,7 +468,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L61",
       "id": "lib_dispatch_debuglog",
-      "community": 10,
+      "community": 7,
       "norm_label": "debuglog()"
     },
     {
@@ -477,7 +477,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L71",
       "id": "lib_dispatch_debugerror",
-      "community": 10,
+      "community": 7,
       "norm_label": "debugerror()"
     },
     {
@@ -486,7 +486,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L90",
       "id": "lib_dispatch_env_file",
-      "community": 10,
+      "community": 7,
       "norm_label": "env_file"
     },
     {
@@ -495,7 +495,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L92",
       "id": "lib_dispatch_hook_file_log",
-      "community": 10,
+      "community": 7,
       "norm_label": "hook_file_log"
     },
     {
@@ -504,7 +504,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L93",
       "id": "lib_dispatch_queue_file",
-      "community": 10,
+      "community": 7,
       "norm_label": "queue_file"
     },
     {
@@ -513,7 +513,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L104",
       "id": "lib_dispatch_skill_event_map",
-      "community": 10,
+      "community": 7,
       "norm_label": "skill_event_map"
     },
     {
@@ -522,7 +522,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L112",
       "id": "lib_dispatch_resolveeventtype",
-      "community": 10,
+      "community": 7,
       "norm_label": "resolveeventtype()"
     },
     {
@@ -531,7 +531,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L130",
       "id": "lib_dispatch_parseenvfile",
-      "community": 10,
+      "community": 7,
       "norm_label": "parseenvfile()"
     },
     {
@@ -540,7 +540,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L184",
       "id": "lib_dispatch_printdependencyproblems",
-      "community": 10,
+      "community": 7,
       "norm_label": "printdependencyproblems()"
     },
     {
@@ -549,7 +549,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L200",
       "id": "lib_dispatch_runcheckdepscli",
-      "community": 10,
+      "community": 7,
       "norm_label": "runcheckdepscli()"
     },
     {
@@ -558,7 +558,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L238",
       "id": "lib_dispatch_readgitcredential",
-      "community": 10,
+      "community": 7,
       "norm_label": "readgitcredential()"
     },
     {
@@ -567,7 +567,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L262",
       "id": "lib_dispatch_resolveauthtokenfromgitcredential",
-      "community": 10,
+      "community": 7,
       "norm_label": "resolveauthtokenfromgitcredential()"
     },
     {
@@ -576,7 +576,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L274",
       "id": "lib_dispatch_deriveidempotencykey",
-      "community": 10,
+      "community": 7,
       "norm_label": "deriveidempotencykey()"
     },
     {
@@ -585,7 +585,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L292",
       "id": "lib_dispatch_buildcommitmessagedraft",
-      "community": 10,
+      "community": 7,
       "norm_label": "buildcommitmessagedraft()"
     },
     {
@@ -594,7 +594,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L304",
       "id": "lib_dispatch_postjson",
-      "community": 10,
+      "community": 7,
       "norm_label": "postjson()"
     },
     {
@@ -603,7 +603,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L346",
       "id": "lib_dispatch_queueappend",
-      "community": 10,
+      "community": 7,
       "norm_label": "queueappend()"
     },
     {
@@ -612,7 +612,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L362",
       "id": "lib_dispatch_queueread",
-      "community": 10,
+      "community": 7,
       "norm_label": "queueread()"
     },
     {
@@ -621,7 +621,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L410",
       "id": "lib_dispatch_queuerewrite",
-      "community": 10,
+      "community": 7,
       "norm_label": "queuerewrite()"
     },
     {
@@ -630,7 +630,7 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L437",
       "id": "lib_dispatch_flushqueue",
-      "community": 10,
+      "community": 7,
       "norm_label": "flushqueue()"
     },
     {
@@ -639,25 +639,34 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L500",
       "id": "lib_dispatch_readstdin",
-      "community": 10,
+      "community": 7,
       "norm_label": "readstdin()"
+    },
+    {
+      "label": "readExplicitSkillFromInvocation()",
+      "file_type": "code",
+      "source_file": "hooks/post-skill/lib/dispatch.js",
+      "source_location": "L545",
+      "id": "lib_dispatch_readexplicitskillfrominvocation",
+      "community": 7,
+      "norm_label": "readexplicitskillfrominvocation()"
     },
     {
       "label": "main()",
       "file_type": "code",
       "source_file": "hooks/post-skill/lib/dispatch.js",
-      "source_location": "L544",
+      "source_location": "L562",
       "id": "lib_dispatch_main",
-      "community": 10,
+      "community": 7,
       "norm_label": "main()"
     },
     {
       "label": "hookHardKill",
       "file_type": "code",
       "source_file": "hooks/post-skill/lib/dispatch.js",
-      "source_location": "L701",
+      "source_location": "L717",
       "id": "lib_dispatch_hookhardkill",
-      "community": 10,
+      "community": 7,
       "norm_label": "hookhardkill"
     },
     {
@@ -7470,7 +7479,7 @@
       "source_file": "cursor/skills/bmad-quick-dev/spec-template.md",
       "source_location": "L1",
       "id": "cursor_skills_bmad_quick_dev_spec_template_md",
-      "community": 174,
+      "community": 185,
       "norm_label": "spec-template.md"
     },
     {
@@ -7479,7 +7488,7 @@
       "source_file": "claude/skills/bmad-quick-dev/spec-template.md",
       "source_location": "L16",
       "id": "bmad_quick_dev_spec_template_intent",
-      "community": 174,
+      "community": 185,
       "norm_label": "intent"
     },
     {
@@ -7488,7 +7497,7 @@
       "source_file": "claude/skills/bmad-quick-dev/spec-template.md",
       "source_location": "L24",
       "id": "bmad_quick_dev_spec_template_boundaries_constraints",
-      "community": 174,
+      "community": 185,
       "norm_label": "boundaries & constraints"
     },
     {
@@ -7497,7 +7506,7 @@
       "source_file": "claude/skills/bmad-quick-dev/spec-template.md",
       "source_location": "L35",
       "id": "bmad_quick_dev_spec_template_i_o_edge_case_matrix",
-      "community": 174,
+      "community": 185,
       "norm_label": "i/o & edge-case matrix"
     },
     {
@@ -7506,7 +7515,7 @@
       "source_file": "claude/skills/bmad-quick-dev/spec-template.md",
       "source_location": "L46",
       "id": "bmad_quick_dev_spec_template_code_map",
-      "community": 174,
+      "community": 185,
       "norm_label": "code map"
     },
     {
@@ -7515,7 +7524,7 @@
       "source_file": "claude/skills/bmad-quick-dev/spec-template.md",
       "source_location": "L53",
       "id": "bmad_quick_dev_spec_template_tasks_acceptance",
-      "community": 174,
+      "community": 185,
       "norm_label": "tasks & acceptance"
     },
     {
@@ -7524,7 +7533,7 @@
       "source_file": "claude/skills/bmad-quick-dev/spec-template.md",
       "source_location": "L65",
       "id": "bmad_quick_dev_spec_template_spec_change_log",
-      "community": 174,
+      "community": 185,
       "norm_label": "spec change log"
     },
     {
@@ -7533,7 +7542,7 @@
       "source_file": "claude/skills/bmad-quick-dev/spec-template.md",
       "source_location": "L72",
       "id": "bmad_quick_dev_spec_template_design_notes",
-      "community": 174,
+      "community": 185,
       "norm_label": "design notes"
     },
     {
@@ -7542,7 +7551,7 @@
       "source_file": "claude/skills/bmad-quick-dev/spec-template.md",
       "source_location": "L79",
       "id": "bmad_quick_dev_spec_template_verification",
-      "community": 174,
+      "community": 185,
       "norm_label": "verification"
     },
     {
@@ -9909,7 +9918,7 @@
       "source_file": "cursor/skills/bmad-market-research/workflow.md",
       "source_location": "L1",
       "id": "cursor_skills_bmad_market_research_workflow_md",
-      "community": 175,
+      "community": 174,
       "norm_label": "workflow.md"
     },
     {
@@ -9918,7 +9927,7 @@
       "source_file": "claude/skills/bmad-market-research/workflow.md",
       "source_location": "L1",
       "id": "bmad_market_research_workflow_market_research_workflow",
-      "community": 175,
+      "community": 174,
       "norm_label": "market research workflow"
     },
     {
@@ -9927,7 +9936,7 @@
       "source_file": "claude/skills/bmad-market-research/workflow.md",
       "source_location": "L7",
       "id": "bmad_market_research_workflow_prerequisite",
-      "community": 175,
+      "community": 174,
       "norm_label": "prerequisite"
     },
     {
@@ -9936,7 +9945,7 @@
       "source_file": "claude/skills/bmad-market-research/workflow.md",
       "source_location": "L11",
       "id": "bmad_market_research_workflow_activation",
-      "community": 175,
+      "community": 174,
       "norm_label": "activation"
     },
     {
@@ -9945,7 +9954,7 @@
       "source_file": "claude/skills/bmad-market-research/workflow.md",
       "source_location": "L20",
       "id": "bmad_market_research_workflow_quick_topic_discovery",
-      "community": 175,
+      "community": 174,
       "norm_label": "quick topic discovery"
     },
     {
@@ -9954,7 +9963,7 @@
       "source_file": "claude/skills/bmad-market-research/workflow.md",
       "source_location": "L32",
       "id": "bmad_market_research_workflow_topic_clarification",
-      "community": 175,
+      "community": 174,
       "norm_label": "topic clarification"
     },
     {
@@ -9963,7 +9972,7 @@
       "source_file": "claude/skills/bmad-market-research/workflow.md",
       "source_location": "L39",
       "id": "bmad_market_research_workflow_route_to_market_research_steps",
-      "community": 175,
+      "community": 174,
       "norm_label": "route to market research steps"
     },
     {
@@ -9972,7 +9981,7 @@
       "source_file": "claude/skills/bmad-market-research/workflow.md",
       "source_location": "L53",
       "id": "bmad_market_research_workflow_aieye_live",
-      "community": 175,
+      "community": 174,
       "norm_label": "aieye live"
     },
     {
@@ -9981,7 +9990,7 @@
       "source_file": "claude/skills/bmad-market-research/workflow.md",
       "source_location": "L57",
       "id": "bmad_market_research_workflow_codeblock_1",
-      "community": 175,
+      "community": 174,
       "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
     },
     {
@@ -13131,7 +13140,7 @@
       "source_file": "cursor/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L1",
       "id": "cursor_skills_bmad_create_architecture_steps_step_03_starter_md",
-      "community": 7,
+      "community": 8,
       "norm_label": "step-03-starter.md"
     },
     {
@@ -13140,7 +13149,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L1",
       "id": "steps_step_03_starter_step_3_starter_template_evaluation",
-      "community": 7,
+      "community": 8,
       "norm_label": "step 3: starter template evaluation"
     },
     {
@@ -13149,7 +13158,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L3",
       "id": "steps_step_03_starter_mandatory_execution_rules_read_first",
-      "community": 7,
+      "community": 8,
       "norm_label": "mandatory execution rules (read first):"
     },
     {
@@ -13158,7 +13167,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L15",
       "id": "steps_step_03_starter_execution_protocols",
-      "community": 7,
+      "community": 8,
       "norm_label": "execution protocols:"
     },
     {
@@ -13167,7 +13176,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L24",
       "id": "steps_step_03_starter_collaboration_menus_a_p_c",
-      "community": 7,
+      "community": 8,
       "norm_label": "collaboration menus (a/p/c):"
     },
     {
@@ -13176,7 +13185,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L32",
       "id": "steps_step_03_starter_protocol_integration",
-      "community": 7,
+      "community": 8,
       "norm_label": "protocol integration:"
     },
     {
@@ -13185,7 +13194,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L39",
       "id": "steps_step_03_starter_context_boundaries",
-      "community": 7,
+      "community": 8,
       "norm_label": "context boundaries:"
     },
     {
@@ -13194,7 +13203,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L47",
       "id": "steps_step_03_starter_your_task",
-      "community": 7,
+      "community": 8,
       "norm_label": "your task:"
     },
     {
@@ -13203,7 +13212,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L51",
       "id": "steps_step_03_starter_starter_evaluation_sequence",
-      "community": 7,
+      "community": 8,
       "norm_label": "starter evaluation sequence:"
     },
     {
@@ -13212,7 +13221,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L53",
       "id": "steps_step_03_starter_0_check_technical_preferences_context",
-      "community": 7,
+      "community": 8,
       "norm_label": "0. check technical preferences & context"
     },
     {
@@ -13221,7 +13230,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L99",
       "id": "steps_step_03_starter_1_identify_primary_technology_domain",
-      "community": 7,
+      "community": 8,
       "norm_label": "1. identify primary technology domain"
     },
     {
@@ -13230,7 +13239,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L110",
       "id": "steps_step_03_starter_2_ux_requirements_consideration",
-      "community": 7,
+      "community": 8,
       "norm_label": "2. ux requirements consideration"
     },
     {
@@ -13239,7 +13248,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L120",
       "id": "steps_step_03_starter_3_research_current_starter_options",
-      "community": 7,
+      "community": 8,
       "norm_label": "3. research current starter options"
     },
     {
@@ -13248,7 +13257,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L124",
       "id": "steps_step_03_starter_codeblock_1",
-      "community": 7,
+      "community": 8,
       "norm_label": "code:block1 (search the web: \"{{primary_technology}} starter template cli)"
     },
     {
@@ -13257,7 +13266,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L130",
       "id": "steps_step_03_starter_4_investigate_top_starter_options",
-      "community": 7,
+      "community": 8,
       "norm_label": "4. investigate top starter options"
     },
     {
@@ -13266,7 +13275,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L134",
       "id": "steps_step_03_starter_codeblock_2",
-      "community": 7,
+      "community": 8,
       "norm_label": "code:block2 (search the web: \"{{starter_name}} default setup technologies)"
     },
     {
@@ -13275,7 +13284,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L141",
       "id": "steps_step_03_starter_5_analyze_what_each_starter_provides",
-      "community": 7,
+      "community": 8,
       "norm_label": "5. analyze what each starter provides"
     },
     {
@@ -13284,7 +13293,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L171",
       "id": "steps_step_03_starter_6_present_starter_options",
-      "community": 7,
+      "community": 8,
       "norm_label": "6. present starter options"
     },
     {
@@ -13293,7 +13302,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L199",
       "id": "steps_step_03_starter_7_get_current_cli_commands",
-      "community": 7,
+      "community": 8,
       "norm_label": "7. get current cli commands"
     },
     {
@@ -13302,7 +13311,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L203",
       "id": "steps_step_03_starter_codeblock_3",
-      "community": 7,
+      "community": 8,
       "norm_label": "code:block3 (search the web: \"{{starter_name}} cli command options flags )"
     },
     {
@@ -13311,7 +13320,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L208",
       "id": "steps_step_03_starter_8_generate_starter_template_content",
-      "community": 7,
+      "community": 8,
       "norm_label": "8. generate starter template content"
     },
     {
@@ -13320,7 +13329,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L212",
       "id": "steps_step_03_starter_content_structure",
-      "community": 7,
+      "community": 8,
       "norm_label": "content structure:"
     },
     {
@@ -13329,7 +13338,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L214",
       "id": "steps_step_03_starter_codeblock_4",
-      "community": 7,
+      "community": 8,
       "norm_label": "code:`markdown (## starter template evaluation)"
     },
     {
@@ -13338,7 +13347,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L234",
       "id": "steps_step_03_starter_codeblock_5",
-      "community": 7,
+      "community": 8,
       "norm_label": "code:block5"
     },
     {
@@ -13347,7 +13356,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L260",
       "id": "steps_step_03_starter_9_present_content_and_menu",
-      "community": 7,
+      "community": 8,
       "norm_label": "9. present content and menu"
     },
     {
@@ -13356,7 +13365,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L275",
       "id": "steps_step_03_starter_10_handle_menu_selection",
-      "community": 7,
+      "community": 8,
       "norm_label": "10. handle menu selection"
     },
     {
@@ -13365,7 +13374,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L277",
       "id": "steps_step_03_starter_if_a_advanced_elicitation",
-      "community": 7,
+      "community": 8,
       "norm_label": "if 'a' (advanced elicitation):"
     },
     {
@@ -13374,7 +13383,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L285",
       "id": "steps_step_03_starter_if_p_party_mode",
-      "community": 7,
+      "community": 8,
       "norm_label": "if 'p' (party mode):"
     },
     {
@@ -13383,7 +13392,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L293",
       "id": "steps_step_03_starter_if_c_continue",
-      "community": 7,
+      "community": 8,
       "norm_label": "if 'c' (continue):"
     },
     {
@@ -13392,7 +13401,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L299",
       "id": "steps_step_03_starter_append_to_document",
-      "community": 7,
+      "community": 8,
       "norm_label": "append to document:"
     },
     {
@@ -13401,7 +13410,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L303",
       "id": "steps_step_03_starter_success_metrics",
-      "community": 7,
+      "community": 8,
       "norm_label": "success metrics:"
     },
     {
@@ -13410,7 +13419,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L313",
       "id": "steps_step_03_starter_failure_modes",
-      "community": 7,
+      "community": 8,
       "norm_label": "failure modes:"
     },
     {
@@ -13419,7 +13428,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L325",
       "id": "steps_step_03_starter_next_step",
-      "community": 7,
+      "community": 8,
       "norm_label": "next step:"
     },
     {
@@ -16929,7 +16938,7 @@
       "source_file": "cursor/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L1",
       "id": "cursor_skills_bmad_check_implementation_readiness_steps_step_05_epic_quality_review_md",
-      "community": 8,
+      "community": 9,
       "norm_label": "step-05-epic-quality-review.md"
     },
     {
@@ -16938,7 +16947,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L5",
       "id": "steps_step_05_epic_quality_review_step_5_epic_quality_review",
-      "community": 8,
+      "community": 9,
       "norm_label": "step 5: epic quality review"
     },
     {
@@ -16947,7 +16956,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L7",
       "id": "steps_step_05_epic_quality_review_step_goal",
-      "community": 8,
+      "community": 9,
       "norm_label": "step goal:"
     },
     {
@@ -16956,7 +16965,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L11",
       "id": "steps_step_05_epic_quality_review_mandatory_execution_rules_read_first",
-      "community": 8,
+      "community": 9,
       "norm_label": "mandatory execution rules (read first):"
     },
     {
@@ -16965,7 +16974,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L13",
       "id": "steps_step_05_epic_quality_review_universal_rules",
-      "community": 8,
+      "community": 9,
       "norm_label": "universal rules:"
     },
     {
@@ -16974,7 +16983,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L21",
       "id": "steps_step_05_epic_quality_review_role_reinforcement",
-      "community": 8,
+      "community": 9,
       "norm_label": "role reinforcement:"
     },
     {
@@ -16983,7 +16992,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L29",
       "id": "steps_step_05_epic_quality_review_step_specific_rules",
-      "community": 8,
+      "community": 9,
       "norm_label": "step-specific rules:"
     },
     {
@@ -16992,7 +17001,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L36",
       "id": "steps_step_05_epic_quality_review_execution_protocols",
-      "community": 8,
+      "community": 9,
       "norm_label": "execution protocols:"
     },
     {
@@ -17001,7 +17010,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L43",
       "id": "steps_step_05_epic_quality_review_epic_quality_review_process",
-      "community": 8,
+      "community": 9,
       "norm_label": "epic quality review process:"
     },
     {
@@ -17010,7 +17019,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L45",
       "id": "steps_step_05_epic_quality_review_1_initialize_best_practices_validation",
-      "community": 8,
+      "community": 9,
       "norm_label": "1. initialize best practices validation"
     },
     {
@@ -17019,7 +17028,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L58",
       "id": "steps_step_05_epic_quality_review_2_epic_structure_validation",
-      "community": 8,
+      "community": 9,
       "norm_label": "2. epic structure validation"
     },
     {
@@ -17028,7 +17037,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L60",
       "id": "steps_step_05_epic_quality_review_a_user_value_focus_check",
-      "community": 8,
+      "community": 9,
       "norm_label": "a. user value focus check"
     },
     {
@@ -17037,7 +17046,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L75",
       "id": "steps_step_05_epic_quality_review_b_epic_independence_validation",
-      "community": 8,
+      "community": 9,
       "norm_label": "b. epic independence validation"
     },
     {
@@ -17046,7 +17055,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L90",
       "id": "steps_step_05_epic_quality_review_3_story_quality_assessment",
-      "community": 8,
+      "community": 9,
       "norm_label": "3. story quality assessment"
     },
     {
@@ -17055,7 +17064,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L92",
       "id": "steps_step_05_epic_quality_review_a_story_sizing_validation",
-      "community": 8,
+      "community": 9,
       "norm_label": "a. story sizing validation"
     },
     {
@@ -17064,7 +17073,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L104",
       "id": "steps_step_05_epic_quality_review_b_acceptance_criteria_review",
-      "community": 8,
+      "community": 9,
       "norm_label": "b. acceptance criteria review"
     },
     {
@@ -17073,7 +17082,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L120",
       "id": "steps_step_05_epic_quality_review_4_dependency_analysis",
-      "community": 8,
+      "community": 9,
       "norm_label": "4. dependency analysis"
     },
     {
@@ -17082,7 +17091,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L122",
       "id": "steps_step_05_epic_quality_review_a_within_epic_dependencies",
-      "community": 8,
+      "community": 9,
       "norm_label": "a. within-epic dependencies"
     },
     {
@@ -17091,7 +17100,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L136",
       "id": "steps_step_05_epic_quality_review_b_database_entity_creation_timing",
-      "community": 8,
+      "community": 9,
       "norm_label": "b. database/entity creation timing"
     },
     {
@@ -17100,7 +17109,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L144",
       "id": "steps_step_05_epic_quality_review_5_special_implementation_checks",
-      "community": 8,
+      "community": 9,
       "norm_label": "5. special implementation checks"
     },
     {
@@ -17109,7 +17118,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L146",
       "id": "steps_step_05_epic_quality_review_a_starter_template_requirement",
-      "community": 8,
+      "community": 9,
       "norm_label": "a. starter template requirement"
     },
     {
@@ -17118,7 +17127,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L153",
       "id": "steps_step_05_epic_quality_review_b_greenfield_vs_brownfield_indicators",
-      "community": 8,
+      "community": 9,
       "norm_label": "b. greenfield vs brownfield indicators"
     },
     {
@@ -17127,7 +17136,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L166",
       "id": "steps_step_05_epic_quality_review_6_best_practices_compliance_checklist",
-      "community": 8,
+      "community": 9,
       "norm_label": "6. best practices compliance checklist"
     },
     {
@@ -17136,7 +17145,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L178",
       "id": "steps_step_05_epic_quality_review_7_quality_assessment_documentation",
-      "community": 8,
+      "community": 9,
       "norm_label": "7. quality assessment documentation"
     },
     {
@@ -17145,7 +17154,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L182",
       "id": "steps_step_05_epic_quality_review_critical_violations",
-      "community": 8,
+      "community": 9,
       "norm_label": "\ud83d\udd34 critical violations"
     },
     {
@@ -17154,7 +17163,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L188",
       "id": "steps_step_05_epic_quality_review_major_issues",
-      "community": 8,
+      "community": 9,
       "norm_label": "\ud83d\udfe0 major issues"
     },
     {
@@ -17163,7 +17172,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L194",
       "id": "steps_step_05_epic_quality_review_minor_concerns",
-      "community": 8,
+      "community": 9,
       "norm_label": "\ud83d\udfe1 minor concerns"
     },
     {
@@ -17172,7 +17181,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L200",
       "id": "steps_step_05_epic_quality_review_8_autonomous_review_execution",
-      "community": 8,
+      "community": 9,
       "norm_label": "8. autonomous review execution"
     },
     {
@@ -17181,7 +17190,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L209",
       "id": "steps_step_05_epic_quality_review_review_completion",
-      "community": 8,
+      "community": 9,
       "norm_label": "review completion:"
     },
     {
@@ -17190,7 +17199,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L218",
       "id": "steps_step_05_epic_quality_review_critical_step_completion_note",
-      "community": 8,
+      "community": 9,
       "norm_label": "critical step completion note"
     },
     {
@@ -17199,7 +17208,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L224",
       "id": "steps_step_05_epic_quality_review_system_success_failure_metrics",
-      "community": 8,
+      "community": 9,
       "norm_label": "\ud83d\udea8 system success/failure metrics"
     },
     {
@@ -17208,7 +17217,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L226",
       "id": "steps_step_05_epic_quality_review_success",
-      "community": 8,
+      "community": 9,
       "norm_label": "\u2705 success:"
     },
     {
@@ -17217,7 +17226,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L234",
       "id": "steps_step_05_epic_quality_review_system_failure",
-      "community": 8,
+      "community": 9,
       "norm_label": "\u274c system failure:"
     },
     {
@@ -18252,7 +18261,7 @@
       "source_file": "cursor/skills/bmad-prfaq/references/verdict.md",
       "source_location": "L1",
       "id": "cursor_skills_bmad_prfaq_references_verdict_md",
-      "community": 176,
+      "community": 175,
       "norm_label": "verdict.md"
     },
     {
@@ -18261,7 +18270,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/verdict.md",
       "source_location": "L6",
       "id": "references_verdict_stage_5_the_verdict",
-      "community": 176,
+      "community": 175,
       "norm_label": "stage 5: the verdict"
     },
     {
@@ -18270,7 +18279,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/verdict.md",
       "source_location": "L10",
       "id": "references_verdict_the_assessment",
-      "community": 176,
+      "community": 175,
       "norm_label": "the assessment"
     },
     {
@@ -18279,7 +18288,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/verdict.md",
       "source_location": "L24",
       "id": "references_verdict_finalize_the_document",
-      "community": 176,
+      "community": 175,
       "norm_label": "finalize the document"
     },
     {
@@ -18288,7 +18297,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/verdict.md",
       "source_location": "L30",
       "id": "references_verdict_produce_the_distillate",
-      "community": 176,
+      "community": 175,
       "norm_label": "produce the distillate"
     },
     {
@@ -18297,7 +18306,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/verdict.md",
       "source_location": "L36",
       "id": "references_verdict_codeblock_1",
-      "community": 176,
+      "community": 175,
       "norm_label": "code:yaml (---)"
     },
     {
@@ -18306,7 +18315,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/verdict.md",
       "source_location": "L56",
       "id": "references_verdict_present_completion",
-      "community": 176,
+      "community": 175,
       "norm_label": "present completion"
     },
     {
@@ -18315,7 +18324,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/verdict.md",
       "source_location": "L66",
       "id": "references_verdict_codeblock_2",
-      "community": 176,
+      "community": 175,
       "norm_label": "code:json ({)"
     },
     {
@@ -18324,7 +18333,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/verdict.md",
       "source_location": "L77",
       "id": "references_verdict_stage_complete",
-      "community": 176,
+      "community": 175,
       "norm_label": "stage complete"
     },
     {
@@ -18405,7 +18414,7 @@
       "source_file": "cursor/skills/bmad-prfaq/references/press-release.md",
       "source_location": "L1",
       "id": "cursor_skills_bmad_prfaq_references_press_release_md",
-      "community": 177,
+      "community": 176,
       "norm_label": "press-release.md"
     },
     {
@@ -18414,7 +18423,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/press-release.md",
       "source_location": "L6",
       "id": "references_press_release_stage_2_the_press_release",
-      "community": 177,
+      "community": 176,
       "norm_label": "stage 2: the press release"
     },
     {
@@ -18423,7 +18432,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/press-release.md",
       "source_location": "L12",
       "id": "references_press_release_the_forge",
-      "community": 177,
+      "community": 176,
       "norm_label": "the forge"
     },
     {
@@ -18432,7 +18441,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/press-release.md",
       "source_location": "L28",
       "id": "references_press_release_coaching_approach",
-      "community": 177,
+      "community": 176,
       "norm_label": "coaching approach"
     },
     {
@@ -18441,7 +18450,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/press-release.md",
       "source_location": "L34",
       "id": "references_press_release_quality_bars",
-      "community": 177,
+      "community": 176,
       "norm_label": "quality bars"
     },
     {
@@ -18450,7 +18459,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/press-release.md",
       "source_location": "L44",
       "id": "references_press_release_headless_mode",
-      "community": 177,
+      "community": 176,
       "norm_label": "headless mode"
     },
     {
@@ -18459,7 +18468,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/press-release.md",
       "source_location": "L48",
       "id": "references_press_release_updating_the_document",
-      "community": 177,
+      "community": 176,
       "norm_label": "updating the document"
     },
     {
@@ -18468,7 +18477,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/press-release.md",
       "source_location": "L52",
       "id": "references_press_release_coaching_notes_capture",
-      "community": 177,
+      "community": 176,
       "norm_label": "coaching notes capture"
     },
     {
@@ -18477,7 +18486,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/press-release.md",
       "source_location": "L56",
       "id": "references_press_release_stage_complete",
-      "community": 177,
+      "community": 176,
       "norm_label": "stage complete"
     },
     {
@@ -23463,7 +23472,7 @@
       "source_file": "cursor/skills/dontbmad-ai-tracking/SKILL.md",
       "source_location": "L1",
       "id": "cursor_skills_dontbmad_ai_tracking_skill_md",
-      "community": 178,
+      "community": 177,
       "norm_label": "skill.md"
     },
     {
@@ -23472,7 +23481,7 @@
       "source_file": "claude/skills/dontbmad-ai-tracking/SKILL.md",
       "source_location": "L1",
       "id": "dontbmad_ai_tracking_skill_ai_tracking",
-      "community": 178,
+      "community": 177,
       "norm_label": "ai tracking"
     },
     {
@@ -23481,7 +23490,7 @@
       "source_file": "claude/skills/dontbmad-ai-tracking/SKILL.md",
       "source_location": "L5",
       "id": "dontbmad_ai_tracking_skill_what_this_skill_does",
-      "community": 178,
+      "community": 177,
       "norm_label": "what this skill does"
     },
     {
@@ -23490,7 +23499,7 @@
       "source_file": "claude/skills/dontbmad-ai-tracking/SKILL.md",
       "source_location": "L10",
       "id": "dontbmad_ai_tracking_skill_trailer_scheme",
-      "community": 178,
+      "community": 177,
       "norm_label": "trailer scheme"
     },
     {
@@ -23499,7 +23508,7 @@
       "source_file": "claude/skills/dontbmad-ai-tracking/SKILL.md",
       "source_location": "L20",
       "id": "dontbmad_ai_tracking_skill_usage",
-      "community": 178,
+      "community": 177,
       "norm_label": "usage"
     },
     {
@@ -23508,7 +23517,7 @@
       "source_file": "claude/skills/dontbmad-ai-tracking/SKILL.md",
       "source_location": "L22",
       "id": "dontbmad_ai_tracking_skill_install_the_hook",
-      "community": 178,
+      "community": 177,
       "norm_label": "install the hook"
     },
     {
@@ -23517,7 +23526,7 @@
       "source_file": "claude/skills/dontbmad-ai-tracking/SKILL.md",
       "source_location": "L24",
       "id": "dontbmad_ai_tracking_skill_codeblock_1",
-      "community": 178,
+      "community": 177,
       "norm_label": "code:bash (cp .cursor/skills/dontbmad-ai-tracking/prepare-commit-msg .g)"
     },
     {
@@ -23526,7 +23535,7 @@
       "source_file": "claude/skills/dontbmad-ai-tracking/SKILL.md",
       "source_location": "L29",
       "id": "dontbmad_ai_tracking_skill_run_pulse_adoption_dashboard",
-      "community": 178,
+      "community": 177,
       "norm_label": "run pulse (adoption dashboard)"
     },
     {
@@ -23535,7 +23544,7 @@
       "source_file": "claude/skills/dontbmad-ai-tracking/SKILL.md",
       "source_location": "L31",
       "id": "dontbmad_ai_tracking_skill_codeblock_2",
-      "community": 178,
+      "community": 177,
       "norm_label": "code:bash (bash .cursor/skills/dontbmad-ai-tracking/adoption-dashboard.)"
     },
     {
@@ -24282,7 +24291,7 @@
       "source_file": "cursor/skills/bmad-editorial-review-prose/SKILL.md",
       "source_location": "L1",
       "id": "cursor_skills_bmad_editorial_review_prose_skill_md",
-      "community": 179,
+      "community": 178,
       "norm_label": "skill.md"
     },
     {
@@ -24291,7 +24300,7 @@
       "source_file": "claude/skills/bmad-editorial-review-prose/SKILL.md",
       "source_location": "L6",
       "id": "bmad_editorial_review_prose_skill_editorial_review_prose",
-      "community": 179,
+      "community": 178,
       "norm_label": "editorial review - prose"
     },
     {
@@ -24300,7 +24309,7 @@
       "source_file": "claude/skills/bmad-editorial-review-prose/SKILL.md",
       "source_location": "L20",
       "id": "bmad_editorial_review_prose_skill_principles",
-      "community": 179,
+      "community": 178,
       "norm_label": "principles"
     },
     {
@@ -24309,7 +24318,7 @@
       "source_file": "claude/skills/bmad-editorial-review-prose/SKILL.md",
       "source_location": "L33",
       "id": "bmad_editorial_review_prose_skill_steps",
-      "community": 179,
+      "community": 178,
       "norm_label": "steps"
     },
     {
@@ -24318,7 +24327,7 @@
       "source_file": "claude/skills/bmad-editorial-review-prose/SKILL.md",
       "source_location": "L35",
       "id": "bmad_editorial_review_prose_skill_step_1_validate_input",
-      "community": 179,
+      "community": 178,
       "norm_label": "step 1: validate input"
     },
     {
@@ -24327,7 +24336,7 @@
       "source_file": "claude/skills/bmad-editorial-review-prose/SKILL.md",
       "source_location": "L44",
       "id": "bmad_editorial_review_prose_skill_step_2_analyze_style",
-      "community": 179,
+      "community": 178,
       "norm_label": "step 2: analyze style"
     },
     {
@@ -24336,7 +24345,7 @@
       "source_file": "claude/skills/bmad-editorial-review-prose/SKILL.md",
       "source_location": "L52",
       "id": "bmad_editorial_review_prose_skill_step_3_editorial_review_critical",
-      "community": 179,
+      "community": 178,
       "norm_label": "step 3: editorial review (critical)"
     },
     {
@@ -24345,7 +24354,7 @@
       "source_file": "claude/skills/bmad-editorial-review-prose/SKILL.md",
       "source_location": "L63",
       "id": "bmad_editorial_review_prose_skill_step_4_output_results",
-      "community": 179,
+      "community": 178,
       "norm_label": "step 4: output results"
     },
     {
@@ -24354,7 +24363,7 @@
       "source_file": "claude/skills/bmad-editorial-review-prose/SKILL.md",
       "source_location": "L82",
       "id": "bmad_editorial_review_prose_skill_halt_conditions",
-      "community": 179,
+      "community": 178,
       "norm_label": "halt conditions"
     },
     {
@@ -27567,7 +27576,7 @@
       "source_file": "cursor/skills/bmad-dev-story/workflow.md",
       "source_location": "L1",
       "id": "cursor_skills_bmad_dev_story_workflow_md",
-      "community": 180,
+      "community": 179,
       "norm_label": "workflow.md"
     },
     {
@@ -27576,7 +27585,7 @@
       "source_file": "claude/skills/bmad-dev-story/workflow.md",
       "source_location": "L1",
       "id": "bmad_dev_story_workflow_dev_story_workflow",
-      "community": 180,
+      "community": 179,
       "norm_label": "dev story workflow"
     },
     {
@@ -27585,7 +27594,7 @@
       "source_file": "claude/skills/bmad-dev-story/workflow.md",
       "source_location": "L16",
       "id": "bmad_dev_story_workflow_initialization",
-      "community": 180,
+      "community": 179,
       "norm_label": "initialization"
     },
     {
@@ -27594,7 +27603,7 @@
       "source_file": "claude/skills/bmad-dev-story/workflow.md",
       "source_location": "L18",
       "id": "bmad_dev_story_workflow_configuration_loading",
-      "community": 180,
+      "community": 179,
       "norm_label": "configuration loading"
     },
     {
@@ -27603,7 +27612,7 @@
       "source_file": "claude/skills/bmad-dev-story/workflow.md",
       "source_location": "L28",
       "id": "bmad_dev_story_workflow_paths",
-      "community": 180,
+      "community": 179,
       "norm_label": "paths"
     },
     {
@@ -27612,7 +27621,7 @@
       "source_file": "claude/skills/bmad-dev-story/workflow.md",
       "source_location": "L33",
       "id": "bmad_dev_story_workflow_context",
-      "community": 180,
+      "community": 179,
       "norm_label": "context"
     },
     {
@@ -27621,7 +27630,7 @@
       "source_file": "claude/skills/bmad-dev-story/workflow.md",
       "source_location": "L39",
       "id": "bmad_dev_story_workflow_execution",
-      "community": 180,
+      "community": 179,
       "norm_label": "execution"
     },
     {
@@ -27630,7 +27639,7 @@
       "source_file": "claude/skills/bmad-dev-story/workflow.md",
       "source_location": "L453",
       "id": "bmad_dev_story_workflow_aieye_live",
-      "community": 180,
+      "community": 179,
       "norm_label": "aieye live"
     },
     {
@@ -27639,7 +27648,7 @@
       "source_file": "claude/skills/bmad-dev-story/workflow.md",
       "source_location": "L457",
       "id": "bmad_dev_story_workflow_codeblock_1",
-      "community": 180,
+      "community": 179,
       "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
     },
     {
@@ -27648,7 +27657,7 @@
       "source_file": "cursor/skills/bmad-dev-story/checklist.md",
       "source_location": "L1",
       "id": "cursor_skills_bmad_dev_story_checklist_md",
-      "community": 181,
+      "community": 180,
       "norm_label": "checklist.md"
     },
     {
@@ -27657,7 +27666,7 @@
       "source_file": "claude/skills/bmad-dev-story/checklist.md",
       "source_location": "L20",
       "id": "bmad_dev_story_checklist_definition_of_done_checklist",
-      "community": 181,
+      "community": 180,
       "norm_label": "definition of done checklist"
     },
     {
@@ -27666,7 +27675,7 @@
       "source_file": "claude/skills/bmad-dev-story/checklist.md",
       "source_location": "L24",
       "id": "bmad_dev_story_checklist_context_requirements",
-      "community": 181,
+      "community": 180,
       "norm_label": "context & requirements"
     },
     {
@@ -27675,7 +27684,7 @@
       "source_file": "claude/skills/bmad-dev-story/checklist.md",
       "source_location": "L30",
       "id": "bmad_dev_story_checklist_implementation",
-      "community": 181,
+      "community": 180,
       "norm_label": "implementation"
     },
     {
@@ -27684,7 +27693,7 @@
       "source_file": "claude/skills/bmad-dev-story/checklist.md",
       "source_location": "L36",
       "id": "bmad_dev_story_checklist_testing",
-      "community": 181,
+      "community": 180,
       "norm_label": "testing"
     },
     {
@@ -27693,7 +27702,7 @@
       "source_file": "claude/skills/bmad-dev-story/checklist.md",
       "source_location": "L44",
       "id": "bmad_dev_story_checklist_documentation",
-      "community": 181,
+      "community": 180,
       "norm_label": "documentation"
     },
     {
@@ -27702,7 +27711,7 @@
       "source_file": "claude/skills/bmad-dev-story/checklist.md",
       "source_location": "L51",
       "id": "bmad_dev_story_checklist_ai_tracking",
-      "community": 181,
+      "community": 180,
       "norm_label": "ai tracking"
     },
     {
@@ -27711,7 +27720,7 @@
       "source_file": "claude/skills/bmad-dev-story/checklist.md",
       "source_location": "L55",
       "id": "bmad_dev_story_checklist_final_status",
-      "community": 181,
+      "community": 180,
       "norm_label": "final status"
     },
     {
@@ -27720,7 +27729,7 @@
       "source_file": "claude/skills/bmad-dev-story/checklist.md",
       "source_location": "L60",
       "id": "bmad_dev_story_checklist_output",
-      "community": 181,
+      "community": 180,
       "norm_label": "output"
     },
     {
@@ -27999,7 +28008,7 @@
       "source_file": "cursor/skills/bmad-brainstorming/workflow.md",
       "source_location": "L1",
       "id": "cursor_skills_bmad_brainstorming_workflow_md",
-      "community": 182,
+      "community": 181,
       "norm_label": "workflow.md"
     },
     {
@@ -28008,7 +28017,7 @@
       "source_file": "claude/skills/bmad-brainstorming/workflow.md",
       "source_location": "L5",
       "id": "bmad_brainstorming_workflow_brainstorming_session_workflow",
-      "community": 182,
+      "community": 181,
       "norm_label": "brainstorming session workflow"
     },
     {
@@ -28017,7 +28026,7 @@
       "source_file": "claude/skills/bmad-brainstorming/workflow.md",
       "source_location": "L19",
       "id": "bmad_brainstorming_workflow_workflow_architecture",
-      "community": 182,
+      "community": 181,
       "norm_label": "workflow architecture"
     },
     {
@@ -28026,7 +28035,7 @@
       "source_file": "claude/skills/bmad-brainstorming/workflow.md",
       "source_location": "L31",
       "id": "bmad_brainstorming_workflow_initialization",
-      "community": 182,
+      "community": 181,
       "norm_label": "initialization"
     },
     {
@@ -28035,7 +28044,7 @@
       "source_file": "claude/skills/bmad-brainstorming/workflow.md",
       "source_location": "L33",
       "id": "bmad_brainstorming_workflow_configuration_loading",
-      "community": 182,
+      "community": 181,
       "norm_label": "configuration loading"
     },
     {
@@ -28044,7 +28053,7 @@
       "source_file": "claude/skills/bmad-brainstorming/workflow.md",
       "source_location": "L41",
       "id": "bmad_brainstorming_workflow_paths",
-      "community": 182,
+      "community": 181,
       "norm_label": "paths"
     },
     {
@@ -28053,7 +28062,7 @@
       "source_file": "claude/skills/bmad-brainstorming/workflow.md",
       "source_location": "L49",
       "id": "bmad_brainstorming_workflow_execution",
-      "community": 182,
+      "community": 181,
       "norm_label": "execution"
     },
     {
@@ -28062,7 +28071,7 @@
       "source_file": "claude/skills/bmad-brainstorming/workflow.md",
       "source_location": "L55",
       "id": "bmad_brainstorming_workflow_aieye_live",
-      "community": 182,
+      "community": 181,
       "norm_label": "aieye live"
     },
     {
@@ -28071,7 +28080,7 @@
       "source_file": "claude/skills/bmad-brainstorming/workflow.md",
       "source_location": "L59",
       "id": "bmad_brainstorming_workflow_codeblock_1",
-      "community": 182,
+      "community": 181,
       "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
     },
     {
@@ -29781,7 +29790,7 @@
       "source_file": "cursor/skills/dontbmad-claude-design-to-bmad-uiux/workflow.md",
       "source_location": "L1",
       "id": "cursor_skills_dontbmad_claude_design_to_bmad_uiux_workflow_md",
-      "community": 183,
+      "community": 182,
       "norm_label": "workflow.md"
     },
     {
@@ -29790,7 +29799,7 @@
       "source_file": "claude/skills/dontbmad-claude-design-to-bmad-uiux/workflow.md",
       "source_location": "L1",
       "id": "dontbmad_claude_design_to_bmad_uiux_workflow_dontbmad_claude_design_to_bmad_uiux_workflow",
-      "community": 183,
+      "community": 182,
       "norm_label": "dontbmad-claude-design-to-bmad-uiux workflow"
     },
     {
@@ -29799,7 +29808,7 @@
       "source_file": "claude/skills/dontbmad-claude-design-to-bmad-uiux/workflow.md",
       "source_location": "L5",
       "id": "dontbmad_claude_design_to_bmad_uiux_workflow_1_initialize",
-      "community": 183,
+      "community": 182,
       "norm_label": "1) initialize"
     },
     {
@@ -29808,7 +29817,7 @@
       "source_file": "claude/skills/dontbmad-claude-design-to-bmad-uiux/workflow.md",
       "source_location": "L16",
       "id": "dontbmad_claude_design_to_bmad_uiux_workflow_2_collect_inputs",
-      "community": 183,
+      "community": 182,
       "norm_label": "2) collect inputs"
     },
     {
@@ -29817,7 +29826,7 @@
       "source_file": "claude/skills/dontbmad-claude-design-to-bmad-uiux/workflow.md",
       "source_location": "L30",
       "id": "dontbmad_claude_design_to_bmad_uiux_workflow_3_create_output",
-      "community": 183,
+      "community": 182,
       "norm_label": "3) create output"
     },
     {
@@ -29826,7 +29835,7 @@
       "source_file": "claude/skills/dontbmad-claude-design-to-bmad-uiux/workflow.md",
       "source_location": "L44",
       "id": "dontbmad_claude_design_to_bmad_uiux_workflow_4_quality_checks",
-      "community": 183,
+      "community": 182,
       "norm_label": "4) quality checks"
     },
     {
@@ -29835,7 +29844,7 @@
       "source_file": "claude/skills/dontbmad-claude-design-to-bmad-uiux/workflow.md",
       "source_location": "L53",
       "id": "dontbmad_claude_design_to_bmad_uiux_workflow_5_deliver",
-      "community": 183,
+      "community": 182,
       "norm_label": "5) deliver"
     },
     {
@@ -29844,7 +29853,7 @@
       "source_file": "claude/skills/dontbmad-claude-design-to-bmad-uiux/workflow.md",
       "source_location": "L61",
       "id": "dontbmad_claude_design_to_bmad_uiux_workflow_aieye_live",
-      "community": 183,
+      "community": 182,
       "norm_label": "aieye live"
     },
     {
@@ -29853,7 +29862,7 @@
       "source_file": "claude/skills/dontbmad-claude-design-to-bmad-uiux/workflow.md",
       "source_location": "L65",
       "id": "dontbmad_claude_design_to_bmad_uiux_workflow_codeblock_1",
-      "community": 183,
+      "community": 182,
       "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
     },
     {
@@ -29871,7 +29880,7 @@
       "source_file": "cursor/skills/bmad-code-review/workflow.md",
       "source_location": "L1",
       "id": "cursor_skills_bmad_code_review_workflow_md",
-      "community": 184,
+      "community": 183,
       "norm_label": "workflow.md"
     },
     {
@@ -29880,7 +29889,7 @@
       "source_file": "claude/skills/bmad-code-review/workflow.md",
       "source_location": "L5",
       "id": "bmad_code_review_workflow_code_review_workflow",
-      "community": 184,
+      "community": 183,
       "norm_label": "code review workflow"
     },
     {
@@ -29889,7 +29898,7 @@
       "source_file": "claude/skills/bmad-code-review/workflow.md",
       "source_location": "L12",
       "id": "bmad_code_review_workflow_workflow_architecture",
-      "community": 184,
+      "community": 183,
       "norm_label": "workflow architecture"
     },
     {
@@ -29898,7 +29907,7 @@
       "source_file": "claude/skills/bmad-code-review/workflow.md",
       "source_location": "L22",
       "id": "bmad_code_review_workflow_step_processing_rules",
-      "community": 184,
+      "community": 183,
       "norm_label": "step processing rules"
     },
     {
@@ -29907,7 +29916,7 @@
       "source_file": "claude/skills/bmad-code-review/workflow.md",
       "source_location": "L30",
       "id": "bmad_code_review_workflow_initialization_sequence",
-      "community": 184,
+      "community": 183,
       "norm_label": "initialization sequence"
     },
     {
@@ -29916,7 +29925,7 @@
       "source_file": "claude/skills/bmad-code-review/workflow.md",
       "source_location": "L32",
       "id": "bmad_code_review_workflow_1_configuration_loading",
-      "community": 184,
+      "community": 183,
       "norm_label": "1. configuration loading"
     },
     {
@@ -29925,7 +29934,7 @@
       "source_file": "claude/skills/bmad-code-review/workflow.md",
       "source_location": "L45",
       "id": "bmad_code_review_workflow_2_first_step_execution",
-      "community": 184,
+      "community": 183,
       "norm_label": "2. first step execution"
     },
     {
@@ -29934,7 +29943,7 @@
       "source_file": "claude/skills/bmad-code-review/workflow.md",
       "source_location": "L49",
       "id": "bmad_code_review_workflow_aieye_live",
-      "community": 184,
+      "community": 183,
       "norm_label": "aieye live"
     },
     {
@@ -29943,7 +29952,7 @@
       "source_file": "claude/skills/bmad-code-review/workflow.md",
       "source_location": "L53",
       "id": "bmad_code_review_workflow_codeblock_1",
-      "community": 184,
+      "community": 183,
       "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
     },
     {
@@ -34317,7 +34326,7 @@
       "source_file": "cursor/skills/bmad-agent-dev/SKILL.md",
       "source_location": "L1",
       "id": "cursor_skills_bmad_agent_dev_skill_md",
-      "community": 185,
+      "community": 184,
       "norm_label": "skill.md"
     },
     {
@@ -34326,7 +34335,7 @@
       "source_file": "claude/skills/bmad-agent-dev/SKILL.md",
       "source_location": "L6",
       "id": "bmad_agent_dev_skill_deepika",
-      "community": 185,
+      "community": 184,
       "norm_label": "deepika"
     },
     {
@@ -34335,7 +34344,7 @@
       "source_file": "claude/skills/bmad-agent-dev/SKILL.md",
       "source_location": "L8",
       "id": "bmad_agent_dev_skill_overview",
-      "community": 185,
+      "community": 184,
       "norm_label": "overview"
     },
     {
@@ -34344,7 +34353,7 @@
       "source_file": "claude/skills/bmad-agent-dev/SKILL.md",
       "source_location": "L12",
       "id": "bmad_agent_dev_skill_identity",
-      "community": 185,
+      "community": 184,
       "norm_label": "identity"
     },
     {
@@ -34353,7 +34362,7 @@
       "source_file": "claude/skills/bmad-agent-dev/SKILL.md",
       "source_location": "L16",
       "id": "bmad_agent_dev_skill_communication_style",
-      "community": 185,
+      "community": 184,
       "norm_label": "communication style"
     },
     {
@@ -34362,7 +34371,7 @@
       "source_file": "claude/skills/bmad-agent-dev/SKILL.md",
       "source_location": "L20",
       "id": "bmad_agent_dev_skill_principles",
-      "community": 185,
+      "community": 184,
       "norm_label": "principles"
     },
     {
@@ -34371,7 +34380,7 @@
       "source_file": "claude/skills/bmad-agent-dev/SKILL.md",
       "source_location": "L25",
       "id": "bmad_agent_dev_skill_critical_actions",
-      "community": 185,
+      "community": 184,
       "norm_label": "critical actions"
     },
     {
@@ -34380,7 +34389,7 @@
       "source_file": "claude/skills/bmad-agent-dev/SKILL.md",
       "source_location": "L40",
       "id": "bmad_agent_dev_skill_capabilities",
-      "community": 185,
+      "community": 184,
       "norm_label": "capabilities"
     },
     {
@@ -34389,7 +34398,7 @@
       "source_file": "claude/skills/bmad-agent-dev/SKILL.md",
       "source_location": "L52",
       "id": "bmad_agent_dev_skill_on_activation",
-      "community": 185,
+      "community": 184,
       "norm_label": "on activation"
     },
     {
@@ -35595,7 +35604,7 @@
       "source_file": "claude/skills/bmad-quick-dev/spec-template.md",
       "source_location": "L1",
       "id": "claude_skills_bmad_quick_dev_spec_template_md",
-      "community": 174,
+      "community": 185,
       "norm_label": "spec-template.md"
     },
     {
@@ -35829,7 +35838,7 @@
       "source_file": "claude/skills/bmad-market-research/workflow.md",
       "source_location": "L1",
       "id": "claude_skills_bmad_market_research_workflow_md",
-      "community": 175,
+      "community": 174,
       "norm_label": "workflow.md"
     },
     {
@@ -36027,7 +36036,7 @@
       "source_file": "claude/skills/bmad-create-architecture/steps/step-03-starter.md",
       "source_location": "L1",
       "id": "claude_skills_bmad_create_architecture_steps_step_03_starter_md",
-      "community": 7,
+      "community": 8,
       "norm_label": "step-03-starter.md"
     },
     {
@@ -36270,7 +36279,7 @@
       "source_file": "claude/skills/bmad-check-implementation-readiness/steps/step-05-epic-quality-review.md",
       "source_location": "L1",
       "id": "claude_skills_bmad_check_implementation_readiness_steps_step_05_epic_quality_review_md",
-      "community": 8,
+      "community": 9,
       "norm_label": "step-05-epic-quality-review.md"
     },
     {
@@ -36486,7 +36495,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/verdict.md",
       "source_location": "L1",
       "id": "claude_skills_bmad_prfaq_references_verdict_md",
-      "community": 176,
+      "community": 175,
       "norm_label": "verdict.md"
     },
     {
@@ -36504,7 +36513,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/press-release.md",
       "source_location": "L1",
       "id": "claude_skills_bmad_prfaq_references_press_release_md",
-      "community": 177,
+      "community": 176,
       "norm_label": "press-release.md"
     },
     {
@@ -36846,7 +36855,7 @@
       "source_file": "claude/skills/dontbmad-ai-tracking/SKILL.md",
       "source_location": "L1",
       "id": "claude_skills_dontbmad_ai_tracking_skill_md",
-      "community": 178,
+      "community": 177,
       "norm_label": "skill.md"
     },
     {
@@ -36918,7 +36927,7 @@
       "source_file": "claude/skills/bmad-editorial-review-prose/SKILL.md",
       "source_location": "L1",
       "id": "claude_skills_bmad_editorial_review_prose_skill_md",
-      "community": 179,
+      "community": 178,
       "norm_label": "skill.md"
     },
     {
@@ -37089,7 +37098,7 @@
       "source_file": "claude/skills/bmad-dev-story/workflow.md",
       "source_location": "L1",
       "id": "claude_skills_bmad_dev_story_workflow_md",
-      "community": 180,
+      "community": 179,
       "norm_label": "workflow.md"
     },
     {
@@ -37098,7 +37107,7 @@
       "source_file": "claude/skills/bmad-dev-story/checklist.md",
       "source_location": "L1",
       "id": "claude_skills_bmad_dev_story_checklist_md",
-      "community": 181,
+      "community": 180,
       "norm_label": "checklist.md"
     },
     {
@@ -37152,7 +37161,7 @@
       "source_file": "claude/skills/bmad-brainstorming/workflow.md",
       "source_location": "L1",
       "id": "claude_skills_bmad_brainstorming_workflow_md",
-      "community": 182,
+      "community": 181,
       "norm_label": "workflow.md"
     },
     {
@@ -37251,7 +37260,7 @@
       "source_file": "claude/skills/dontbmad-claude-design-to-bmad-uiux/workflow.md",
       "source_location": "L1",
       "id": "claude_skills_dontbmad_claude_design_to_bmad_uiux_workflow_md",
-      "community": 183,
+      "community": 182,
       "norm_label": "workflow.md"
     },
     {
@@ -37269,7 +37278,7 @@
       "source_file": "claude/skills/bmad-code-review/workflow.md",
       "source_location": "L1",
       "id": "claude_skills_bmad_code_review_workflow_md",
-      "community": 184,
+      "community": 183,
       "norm_label": "workflow.md"
     },
     {
@@ -37575,7 +37584,7 @@
       "source_file": "claude/skills/bmad-agent-dev/SKILL.md",
       "source_location": "L1",
       "id": "claude_skills_bmad_agent_dev_skill_md",
-      "community": 185,
+      "community": 184,
       "norm_label": "skill.md"
     },
     {
@@ -37899,7 +37908,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L1",
       "id": "docs_claude_design_to_bmad_uiux_template_md",
-      "community": 9,
+      "community": 10,
       "norm_label": "claude-design-to-bmad-uiux-template.md"
     },
     {
@@ -37908,7 +37917,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L6",
       "id": "docs_claude_design_to_bmad_uiux_template_claude_design_bmad_ui_ux_handoff_template",
-      "community": 9,
+      "community": 10,
       "norm_label": "claude design -> bmad ui/ux handoff template"
     },
     {
@@ -37917,7 +37926,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L15",
       "id": "docs_claude_design_to_bmad_uiux_template_1_source_capture",
-      "community": 9,
+      "community": 10,
       "norm_label": "1) source capture"
     },
     {
@@ -37926,7 +37935,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L23",
       "id": "docs_claude_design_to_bmad_uiux_template_2_discovery_summary_bmad_step_discovery",
-      "community": 9,
+      "community": 10,
       "norm_label": "2) discovery summary (bmad step: discovery)"
     },
     {
@@ -37935,7 +37944,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L30",
       "id": "docs_claude_design_to_bmad_uiux_template_3_core_experience_bmad_step_core_experience",
-      "community": 9,
+      "community": 10,
       "norm_label": "3) core experience (bmad step: core experience)"
     },
     {
@@ -37944,7 +37953,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L37",
       "id": "docs_claude_design_to_bmad_uiux_template_4_emotional_response_goals_bmad_step_emotional_response",
-      "community": 9,
+      "community": 10,
       "norm_label": "4) emotional response goals (bmad step: emotional response)"
     },
     {
@@ -37953,7 +37962,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L44",
       "id": "docs_claude_design_to_bmad_uiux_template_5_design_inspirations_and_references_bmad_step_inspiration",
-      "community": 9,
+      "community": 10,
       "norm_label": "5) design inspirations and references (bmad step: inspiration)"
     },
     {
@@ -37962,7 +37971,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L51",
       "id": "docs_claude_design_to_bmad_uiux_template_6_design_system_mapping_bmad_step_design_system",
-      "community": 9,
+      "community": 10,
       "norm_label": "6) design system mapping (bmad step: design system)"
     },
     {
@@ -37971,7 +37980,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L61",
       "id": "docs_claude_design_to_bmad_uiux_template_7_experience_definition_bmad_step_defining_experience",
-      "community": 9,
+      "community": 10,
       "norm_label": "7) experience definition (bmad step: defining experience)"
     },
     {
@@ -37980,7 +37989,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L68",
       "id": "docs_claude_design_to_bmad_uiux_template_8_visual_foundation_bmad_step_visual_foundation",
-      "community": 9,
+      "community": 10,
       "norm_label": "8) visual foundation (bmad step: visual foundation)"
     },
     {
@@ -37989,7 +37998,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L75",
       "id": "docs_claude_design_to_bmad_uiux_template_9_design_directions_and_final_choice_bmad_step_design_directions",
-      "community": 9,
+      "community": 10,
       "norm_label": "9) design directions and final choice (bmad step: design directions)"
     },
     {
@@ -37998,7 +38007,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L86",
       "id": "docs_claude_design_to_bmad_uiux_template_10_user_journeys_bmad_step_user_journeys",
-      "community": 9,
+      "community": 10,
       "norm_label": "10) user journeys (bmad step: user journeys)"
     },
     {
@@ -38007,7 +38016,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L88",
       "id": "docs_claude_design_to_bmad_uiux_template_journey_1_name",
-      "community": 9,
+      "community": 10,
       "norm_label": "journey 1: [name]"
     },
     {
@@ -38016,7 +38025,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L98",
       "id": "docs_claude_design_to_bmad_uiux_template_11_component_strategy_bmad_step_component_strategy",
-      "community": 9,
+      "community": 10,
       "norm_label": "11) component strategy (bmad step: component strategy)"
     },
     {
@@ -38025,7 +38034,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L105",
       "id": "docs_claude_design_to_bmad_uiux_template_12_ux_patterns_and_interaction_rules_bmad_step_ux_patterns",
-      "community": 9,
+      "community": 10,
       "norm_label": "12) ux patterns and interaction rules (bmad step: ux patterns)"
     },
     {
@@ -38034,7 +38043,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L113",
       "id": "docs_claude_design_to_bmad_uiux_template_13_responsive_and_accessibility_spec_bmad_step_responsive_accessibility",
-      "community": 9,
+      "community": 10,
       "norm_label": "13) responsive and accessibility spec (bmad step: responsive/accessibility)"
     },
     {
@@ -38043,7 +38052,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L122",
       "id": "docs_claude_design_to_bmad_uiux_template_14_screen_state_inventory_for_implementation",
-      "community": 9,
+      "community": 10,
       "norm_label": "14) screen/state inventory for implementation"
     },
     {
@@ -38052,7 +38061,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L128",
       "id": "docs_claude_design_to_bmad_uiux_template_15_ac_traceability_to_bmad_stories",
-      "community": 9,
+      "community": 10,
       "norm_label": "15) ac traceability to bmad stories"
     },
     {
@@ -38061,7 +38070,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L135",
       "id": "docs_claude_design_to_bmad_uiux_template_16_build_handoff_notes_for_create_story_dev_story",
-      "community": 9,
+      "community": 10,
       "norm_label": "16) build handoff notes for `create-story` / `dev-story`"
     },
     {
@@ -38070,7 +38079,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L143",
       "id": "docs_claude_design_to_bmad_uiux_template_17_ready_for_dev_checklist",
-      "community": 9,
+      "community": 10,
       "norm_label": "17) ready-for-dev checklist"
     },
     {
@@ -38079,7 +38088,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L151",
       "id": "docs_claude_design_to_bmad_uiux_template_claude_design_bmad_ui_ux_handoff_template_151",
-      "community": 9,
+      "community": 10,
       "norm_label": "claude design -> bmad ui/ux handoff template"
     },
     {
@@ -38088,7 +38097,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L160",
       "id": "docs_claude_design_to_bmad_uiux_template_1_handoff_metadata",
-      "community": 9,
+      "community": 10,
       "norm_label": "1) handoff metadata"
     },
     {
@@ -38097,7 +38106,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L168",
       "id": "docs_claude_design_to_bmad_uiux_template_2_claude_design_references",
-      "community": 9,
+      "community": 10,
       "norm_label": "2) claude design references"
     },
     {
@@ -38106,7 +38115,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L176",
       "id": "docs_claude_design_to_bmad_uiux_template_3_final_direction_summary",
-      "community": 9,
+      "community": 10,
       "norm_label": "3) final direction summary"
     },
     {
@@ -38115,7 +38124,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L183",
       "id": "docs_claude_design_to_bmad_uiux_template_4_user_journey_and_flows",
-      "community": 9,
+      "community": 10,
       "norm_label": "4) user journey and flows"
     },
     {
@@ -38124,7 +38133,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L185",
       "id": "docs_claude_design_to_bmad_uiux_template_flow_name",
-      "community": 9,
+      "community": 10,
       "norm_label": "flow: [name]"
     },
     {
@@ -38133,7 +38142,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L196",
       "id": "docs_claude_design_to_bmad_uiux_template_5_screen_state_matrix",
-      "community": 9,
+      "community": 10,
       "norm_label": "5) screen-state matrix"
     },
     {
@@ -38142,7 +38151,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L202",
       "id": "docs_claude_design_to_bmad_uiux_template_6_ui_component_specification",
-      "community": 9,
+      "community": 10,
       "norm_label": "6) ui component specification"
     },
     {
@@ -38151,7 +38160,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L210",
       "id": "docs_claude_design_to_bmad_uiux_template_7_interaction_and_logic_rules",
-      "community": 9,
+      "community": 10,
       "norm_label": "7) interaction and logic rules"
     },
     {
@@ -38160,7 +38169,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L219",
       "id": "docs_claude_design_to_bmad_uiux_template_8_content_specification",
-      "community": 9,
+      "community": 10,
       "norm_label": "8) content specification"
     },
     {
@@ -38169,7 +38178,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L227",
       "id": "docs_claude_design_to_bmad_uiux_template_9_accessibility_and_responsive_requirements",
-      "community": 9,
+      "community": 10,
       "norm_label": "9) accessibility and responsive requirements"
     },
     {
@@ -38178,7 +38187,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L237",
       "id": "docs_claude_design_to_bmad_uiux_template_10_engineering_handoff_cues",
-      "community": 9,
+      "community": 10,
       "norm_label": "10) engineering handoff cues"
     },
     {
@@ -38187,7 +38196,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L246",
       "id": "docs_claude_design_to_bmad_uiux_template_11_acceptance_criteria_mapping",
-      "community": 9,
+      "community": 10,
       "norm_label": "11) acceptance criteria mapping"
     },
     {
@@ -38196,7 +38205,7 @@
       "source_file": "docs/claude-design-to-bmad-uiux-template.md",
       "source_location": "L254",
       "id": "docs_claude_design_to_bmad_uiux_template_12_ready_for_dev_gate",
-      "community": 9,
+      "community": 10,
       "norm_label": "12) ready-for-dev gate"
     },
     {
@@ -39033,7 +39042,7 @@
       "source_file": "docs/project-knowledge/test-suite-prd.md",
       "source_location": "L12",
       "id": "project_knowledge_test_suite_prd_1_problem_motivation",
-      "community": 258,
+      "community": 257,
       "norm_label": "1. problem & motivation"
     },
     {
@@ -39042,7 +39051,7 @@
       "source_file": "docs/project-knowledge/test-suite-prd.md",
       "source_location": "L21",
       "id": "project_knowledge_test_suite_prd_primary_trailer_pipeline_integrity_across_project_topologies",
-      "community": 258,
+      "community": 257,
       "norm_label": "primary: trailer pipeline integrity across project topologies"
     },
     {
@@ -39051,7 +39060,7 @@
       "source_file": "docs/project-knowledge/test-suite-prd.md",
       "source_location": "L38",
       "id": "project_knowledge_test_suite_prd_secondary_fork_enhancement_integrity_graphify_caveman",
-      "community": 258,
+      "community": 257,
       "norm_label": "secondary: fork enhancement integrity (graphify + caveman)"
     },
     {
@@ -39060,7 +39069,7 @@
       "source_file": "docs/project-knowledge/test-suite-prd.md",
       "source_location": "L48",
       "id": "project_knowledge_test_suite_prd_tertiary_install_sh_general_surface_skill_validation_shellcheck",
-      "community": 258,
+      "community": 257,
       "norm_label": "tertiary: install.sh general surface, skill validation, shellcheck"
     },
     {
@@ -39087,7 +39096,7 @@
       "source_file": "docs/project-knowledge/test-suite-prd.md",
       "source_location": "L74",
       "id": "project_knowledge_test_suite_prd_4_user_journeys",
-      "community": 257,
+      "community": 258,
       "norm_label": "4. user journeys"
     },
     {
@@ -39096,7 +39105,7 @@
       "source_file": "docs/project-knowledge/test-suite-prd.md",
       "source_location": "L76",
       "id": "project_knowledge_test_suite_prd_j1_contributor_opens_a_pr",
-      "community": 257,
+      "community": 258,
       "norm_label": "j1: contributor opens a pr"
     },
     {
@@ -39105,7 +39114,7 @@
       "source_file": "docs/project-knowledge/test-suite-prd.md",
       "source_location": "L83",
       "id": "project_knowledge_test_suite_prd_j2_developer_iterates_locally",
-      "community": 257,
+      "community": 258,
       "norm_label": "j2: developer iterates locally"
     },
     {
@@ -39114,7 +39123,7 @@
       "source_file": "docs/project-knowledge/test-suite-prd.md",
       "source_location": "L89",
       "id": "project_knowledge_test_suite_prd_j3_reviewer_audits_a_regression",
-      "community": 257,
+      "community": 258,
       "norm_label": "j3: reviewer audits a regression"
     },
     {
@@ -40354,7 +40363,7 @@
       "label": "Supported skills",
       "file_type": "document",
       "source_file": "hooks/post-skill/README.md",
-      "source_location": "L82",
+      "source_location": "L84",
       "id": "post_skill_readme_supported_skills",
       "community": 132,
       "norm_label": "supported skills"
@@ -40363,7 +40372,7 @@
       "label": "Safety guarantees",
       "file_type": "document",
       "source_file": "hooks/post-skill/README.md",
-      "source_location": "L93",
+      "source_location": "L95",
       "id": "post_skill_readme_safety_guarantees",
       "community": 132,
       "norm_label": "safety guarantees"
@@ -40372,7 +40381,7 @@
       "label": "Running tests",
       "file_type": "document",
       "source_file": "hooks/post-skill/README.md",
-      "source_location": "L100",
+      "source_location": "L102",
       "id": "post_skill_readme_running_tests",
       "community": 132,
       "norm_label": "running tests"
@@ -40381,7 +40390,7 @@
       "label": "code:bash (cd live-hook)",
       "file_type": "document",
       "source_file": "hooks/post-skill/README.md",
-      "source_location": "L102",
+      "source_location": "L104",
       "id": "post_skill_readme_codeblock_6",
       "community": 132,
       "norm_label": "code:bash (cd live-hook)"
@@ -40444,7 +40453,7 @@
       "label": "Behaviour",
       "file_type": "document",
       "source_file": "templates/dontbmad-aieye-live.md",
-      "source_location": "L16",
+      "source_location": "L18",
       "id": "templates_dontbmad_aieye_live_behaviour",
       "community": 249,
       "norm_label": "behaviour"
@@ -40453,7 +40462,7 @@
       "label": "Setup",
       "file_type": "document",
       "source_file": "templates/dontbmad-aieye-live.md",
-      "source_location": "L23",
+      "source_location": "L25",
       "id": "templates_dontbmad_aieye_live_setup",
       "community": 249,
       "norm_label": "setup"
@@ -41525,6 +41534,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "hooks/post-skill/lib/dispatch.js",
+      "source_location": "L545",
+      "weight": 1.0,
+      "source": "hooks_post_skill_lib_dispatch_js",
+      "target": "lib_dispatch_readexplicitskillfrominvocation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L510",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -41837,6 +41856,17 @@
       "confidence_score": 1.0,
       "source": "lib_dispatch_main",
       "target": "lib_dispatch_readstdin"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "hooks/post-skill/lib/dispatch.js",
+      "source_location": "L563",
+      "weight": 1.0,
+      "source": "lib_dispatch_main",
+      "target": "lib_dispatch_readexplicitskillfrominvocation",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -83801,5 +83831,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "e59d0582e563e4ffd978979da296d93a15919871"
+  "built_at_commit": "d308b5adc395a814fe45134b6a88ffb07f0f4b46"
 }
