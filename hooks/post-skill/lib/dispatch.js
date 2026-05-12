@@ -516,6 +516,11 @@ async function readStdin() {
     process.stdin.setEncoding('utf8');
     process.stdin.on('data', (chunk) => { buf += chunk; });
     process.stdin.on('end', () => {
+      const trimmed = buf.trim();
+      if (trimmed.length === 0) {
+        finish('empty stdin', {});
+        return;
+      }
       try {
         finish('parsed JSON', JSON.parse(buf));
       } catch (err) {
@@ -561,8 +566,10 @@ function readExplicitSkillFromInvocation() {
 
 async function main() {
   const explicitSkill = readExplicitSkillFromInvocation();
+  const envSkillLen = String(process.env.AIEYE_LIVE_SKILL || '').length;
+  const envNameLen = String(process.env.AIEYE_LIVE_SKILL_NAME || '').length;
   debugLog(
-    `start argv=${JSON.stringify(process.argv)} explicit_skill=${explicitSkill === null ? '(null)' : JSON.stringify(explicitSkill)}`
+    `start argv=${JSON.stringify(process.argv)} explicit_skill=${explicitSkill === null ? '(null)' : JSON.stringify(explicitSkill)} env_aieye_live_skill_len=${envSkillLen} env_aieye_live_skill_name_len=${envNameLen}`
   );
   // 1. Load config
   const config = parseEnvFile(ENV_FILE);
@@ -628,6 +635,11 @@ async function main() {
     debugLog(
       `exit: no event_type for skill=${skillName === null ? '(null)' : JSON.stringify(skillName)} — skipping`
     );
+    if (!skillName) {
+      persistHookLog(
+        'HINT: no skill — many agents run `node …/dispatch.js` without env/args (log shows empty AIEYE_LIVE_SKILL). Fix: run the bash hook with `export AIEYE_LIVE_SKILL=<id>` then `"$HOOK" <id>`, or ensure argv[2] is the skill id; reinstall hook wrapper from repo.'
+      );
+    }
     return;
   }
 

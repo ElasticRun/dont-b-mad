@@ -28,12 +28,12 @@
     "hash": "7b41e96e93b2a07bd8b91df8103e20f5"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/hooks/post-skill/bin/aieye-live-hook": {
-    "mtime": 1778243796.7759814,
-    "hash": "4c249df6cd65f3654800ba9cb82ceab0"
+    "mtime": 1778562389.7785833,
+    "hash": "0e6dd93c625ce775eb6a08aa59331bef"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/hooks/post-skill/lib/dispatch.js": {
-    "mtime": 1778560356.0172806,
-    "hash": "8ffc0c7b0293c11ab88a28ead557a91e"
+    "mtime": 1778562434.0988548,
+    "hash": "bddb48470a9d7767bf29d5248455d216"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/hooks/post-skill/lib/dispatch.queue.test.js": {
     "mtime": 1778127862.0675652,
@@ -88,8 +88,8 @@
     "hash": "3cd2f07b9728dff034732d8b33ef7be3"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-cis-innovation-strategy/workflow.md": {
-    "mtime": 1778561030.6646507,
-    "hash": "8dc56b0c962fbcde4a918d321e747c8f"
+    "mtime": 1778562408.4488306,
+    "hash": "9f14d94b38ead935b1827a8055a89811"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-cis-innovation-strategy/SKILL.md": {
     "mtime": 1778132132.4688902,
@@ -104,8 +104,8 @@
     "hash": "92ad3e849390be8b9f2003d68378a0ea"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-technical-research/workflow.md": {
-    "mtime": 1778561030.6661732,
-    "hash": "79a067162244ecba535bb01a4b6e8364"
+    "mtime": 1778562408.4503417,
+    "hash": "f2a315990662d40edec6ebfa99de9c5b"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-technical-research/SKILL.md": {
     "mtime": 1778132132.4721382,
@@ -140,8 +140,8 @@
     "hash": "0cfe83c25eac4adf993823f6f68f0bdf"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/dontbmad-bmad-to-claude-design/workflow.md": {
-    "mtime": 1778561030.6688108,
-    "hash": "bbe392e8a01ba68d1e5acc4b956daf26"
+    "mtime": 1778562408.4527922,
+    "hash": "ca1ab8e79bf1b5f7c86668937cde9b2d"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/dontbmad-bmad-to-claude-design/SKILL.md": {
     "mtime": 1778132132.4727058,
@@ -152,8 +152,8 @@
     "hash": "fba01211c5c2727a2e2abb913a74fafb"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-retrospective/workflow.md": {
-    "mtime": 1778561030.6701157,
-    "hash": "29127610ed0a9e696142061da0322520"
+    "mtime": 1778562408.4541264,
+    "hash": "8f00c118e9cf3bc9b5648d6fd8d052d9"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-retrospective/SKILL.md": {
     "mtime": 1778132132.4716814,
@@ -164,8 +164,8 @@
     "hash": "5daaca2bfd10ae3630f78f261ac04493"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-create-story/workflow.md": {
-    "mtime": 1778561030.6708071,
-    "hash": "fbb23ab944202c9ed65bf066200a6f58"
+    "mtime": 1778562408.4549527,
+    "hash": "398634b75903633447994cd08c6fb564"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-create-story/discover-inputs.md": {
     "mtime": 1778065900.7853768,
@@ -188,8 +188,8 @@
     "hash": "2e3652b5272919db1c53075452d65ef9"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-cis-design-thinking/workflow.md": {
-    "mtime": 1778561030.671739,
-    "hash": "31fb0bfb15443652e82eec4526c95a46"
+    "mtime": 1778562408.4559507,
+    "hash": "332ceab74ad1badcab4f70ef975ea5d3"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-cis-design-thinking/SKILL.md": {
     "mtime": 1778132132.4687319,
@@ -248,8 +248,8 @@
     "hash": "92ad3e849390be8b9f2003d68378a0ea"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-domain-research/workflow.md": {
-    "mtime": 1778561030.6739333,
-    "hash": "f268a2148877632f588cf2123c72d2e9"
+    "mtime": 1778562408.4580534,
+    "hash": "8f4e5297d4786efd37a68b5bc35e9e65"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-domain-research/SKILL.md": {
     "mtime": 1778132132.4707167,
@@ -288,8 +288,8 @@
     "hash": "6b741b1e02454e8b021e938e4562c4cd"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-quick-dev/workflow.md": {
-    "mtime": 1778561030.6761203,
-    "hash": "ba263a5cfa6c2d54557d440b45e59282"
+    "mtime": 1778562408.4605677,
+    "hash": "dac61bffaad28fd00d6470dcb4fcd42f"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-quick-dev/step-03-implement.md": {
     "mtime": 1778065900.8039067,
@@ -320,8 +320,8 @@
     "hash": "230a0c50e2098fcbdbc21590e1048bc7"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-qa-generate-e2e-tests/workflow.md": {
-    "mtime": 1778561030.677355,
-    "hash": "c38cd78b16591de23046d6f1bb2ba7fa"
+    "mtime": 1778562408.4621422,
+    "hash": "dbd80ed2ba7944ea3433accfadc92aab"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-qa-generate-e2e-tests/checklist.md": {
     "mtime": 1778065900.8031588,
@@ -360,8 +360,8 @@
     "hash": "a8edfcd1ddea5d621bcf6e71f24b473a"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-sprint-planning/workflow.md": {
-    "mtime": 1778561030.6792603,
-    "hash": "171c4f005b191fc1648374b2ec97ee7e"
+    "mtime": 1778562408.4640865,
+    "hash": "1578f5fafe80aaf737996207df807d4f"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-sprint-planning/checklist.md": {
     "mtime": 1778065900.8078196,
@@ -372,8 +372,8 @@
     "hash": "27a44a2f2f3198f962aaafa56d5f222b"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-edit-prd/workflow.md": {
-    "mtime": 1778561030.6799788,
-    "hash": "bb9a3b394ec82731157d75b8e1335855"
+    "mtime": 1778562408.4647727,
+    "hash": "33f22ee42b105a2aec8b88ae576421c5"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-edit-prd/SKILL.md": {
     "mtime": 1778132132.470862,
@@ -412,8 +412,8 @@
     "hash": "92ad3e849390be8b9f2003d68378a0ea"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-market-research/workflow.md": {
-    "mtime": 1778561030.68249,
-    "hash": "85a3ab6a1f3b822182c7d2f250ab29e3"
+    "mtime": 1778562408.467086,
+    "hash": "a8d07d67ddfd77f26a7b98aed0bd949e"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-market-research/SKILL.md": {
     "mtime": 1778132132.471173,
@@ -444,8 +444,8 @@
     "hash": "d9bf60d547c1299ccccdc183d7eb03b5"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-sprint-status/workflow.md": {
-    "mtime": 1778561030.6844351,
-    "hash": "4018708a25d4b16ea818821c997a8822"
+    "mtime": 1778562408.4690447,
+    "hash": "d5850ce2abeb10f3e7f69d25e46f8e8f"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-sprint-status/SKILL.md": {
     "mtime": 1778132132.4719875,
@@ -464,8 +464,8 @@
     "hash": "5b60511051baba7b834980a6643c6a68"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-create-architecture/workflow.md": {
-    "mtime": 1778561030.6854196,
-    "hash": "79070ca023833213f8a4ba88cc4291f1"
+    "mtime": 1778562408.4701934,
+    "hash": "bcb3e2407e350877a38cb6407df65edc"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-create-architecture/SKILL.md": {
     "mtime": 1778132132.469662,
@@ -508,8 +508,8 @@
     "hash": "1d74bbb60296ea48c9985be61d7e5be0"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-document-project/workflow.md": {
-    "mtime": 1778561030.6875148,
-    "hash": "4fd3b7ee8553ff472250cfe2fefac999"
+    "mtime": 1778562408.4722152,
+    "hash": "46bd0240f070d6fe7829b669b8456b22"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-document-project/checklist.md": {
     "mtime": 1778065900.793473,
@@ -528,12 +528,12 @@
     "hash": "706f0322d346ffb323f4538e63162b54"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-document-project/workflows/deep-dive-workflow.md": {
-    "mtime": 1778561030.6886628,
-    "hash": "afa2c0967b9ffa407b387a6928c90c2d"
+    "mtime": 1778562408.4732957,
+    "hash": "03a3bf60b35166d0f1ebe07b6803a196"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-document-project/workflows/full-scan-workflow.md": {
-    "mtime": 1778561030.6888838,
-    "hash": "d931e18dc9e4556e3bbb2531401b4dc9"
+    "mtime": 1778562408.4736218,
+    "hash": "4e31faf924dbbd415196215657ee617b"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-document-project/workflows/deep-dive-instructions.md": {
     "mtime": 1778065900.7945507,
@@ -596,16 +596,16 @@
     "hash": "bf6ce128960492d87c64cf16ada79400"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-cis-problem-solving/workflow.md": {
-    "mtime": 1778561030.6910427,
-    "hash": "cd3ecdc2a3e51224d54b70bfad28a430"
+    "mtime": 1778562408.4761899,
+    "hash": "f97398593207112e665a5a5c9bb24473"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-cis-problem-solving/SKILL.md": {
     "mtime": 1778132132.4690344,
     "hash": "b4083cdab0a0623ecd78f94bbc628cc5"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-check-implementation-readiness/workflow.md": {
-    "mtime": 1778561030.6916246,
-    "hash": "4f071c07edb97dc3d8964ed3e366afa2"
+    "mtime": 1778562408.4768748,
+    "hash": "f5cef4fbbdee01493948e36790916aba"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-check-implementation-readiness/SKILL.md": {
     "mtime": 1778132132.468453,
@@ -656,8 +656,8 @@
     "hash": "281bb9754e5a1239c8c6bae907259607"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/dontbmad-auto-sprint/workflow.md": {
-    "mtime": 1778561030.6940806,
-    "hash": "2559e5465f14e79e0d2e004cef10780d"
+    "mtime": 1778562408.4797313,
+    "hash": "1040fdf5257c0e84fc5594791bda26bc"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/dontbmad-auto-sprint/SKILL.md": {
     "mtime": 1778132132.472559,
@@ -668,8 +668,8 @@
     "hash": "af369819a24ee00c86905cd724e9735a"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-correct-course/workflow.md": {
-    "mtime": 1778561030.694864,
-    "hash": "7029adace794adb715ff53c790d92483"
+    "mtime": 1778562408.4806678,
+    "hash": "da7755beebbe42d5dae4794ede3d5444"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-correct-course/checklist.md": {
     "mtime": 1778065900.7787566,
@@ -712,8 +712,8 @@
     "hash": "2b131e6491afcc34d14c67b0ad5f516c"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-create-prd/workflow.md": {
-    "mtime": 1778561030.697505,
-    "hash": "a0e34818b1903de74846f70256078155"
+    "mtime": 1778562408.4834044,
+    "hash": "faffbcfd575b8028a3149616652a0f06"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-create-prd/SKILL.md": {
     "mtime": 1778132132.4699776,
@@ -840,8 +840,8 @@
     "hash": "a515c05ef8cb33a603549169d61c1610"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-cis-storytelling/workflow.md": {
-    "mtime": 1778561030.7034502,
-    "hash": "5582b163bfd5b75d7892f180ea90a2d7"
+    "mtime": 1778562408.4897466,
+    "hash": "0eaad075bf1a1135f88a24dcbbe7bbbc"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-cis-storytelling/SKILL.md": {
     "mtime": 1778132132.469178,
@@ -896,8 +896,8 @@
     "hash": "1dc3db192ed9c531851359bc44db5d61"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-create-ux-design/workflow.md": {
-    "mtime": 1778561030.7070775,
-    "hash": "9bafc0b0654dd01d71788118f315a628"
+    "mtime": 1778562408.4930792,
+    "hash": "37367e1ac47aca4928917b2c6601ac3c"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-create-ux-design/SKILL.md": {
     "mtime": 1778132132.4702895,
@@ -968,8 +968,8 @@
     "hash": "4c85665d8ad70b0a363394c11898c0fc"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-dev-story/workflow.md": {
-    "mtime": 1778561030.7102878,
-    "hash": "b0fac698fbe20371f05c29baa951e6c6"
+    "mtime": 1778562408.4963672,
+    "hash": "d1e237a3e9ceebd543e46ae4962847cc"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-dev-story/checklist.md": {
     "mtime": 1778065900.791405,
@@ -1004,8 +1004,8 @@
     "hash": "42b8a275bd5f1ca932e9d4858fab60a3"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-brainstorming/workflow.md": {
-    "mtime": 1778561030.7115707,
-    "hash": "32b59d92236d34bed120191a3e39f598"
+    "mtime": 1778562408.4981804,
+    "hash": "afff08f40b75149bba6ed336428ccdde"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-brainstorming/SKILL.md": {
     "mtime": 1778132132.4682932,
@@ -1048,16 +1048,16 @@
     "hash": "ddfa7e43e0979dba70d08653334710f2"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/dontbmad-claude-design-to-bmad-uiux/workflow.md": {
-    "mtime": 1778561030.7144403,
-    "hash": "32fee95c4ec618a1cc92dc3af8c54649"
+    "mtime": 1778562408.5008209,
+    "hash": "8ab7d339b0d77b41be04d72e9d3f466d"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/dontbmad-claude-design-to-bmad-uiux/SKILL.md": {
     "mtime": 1778132132.4728465,
     "hash": "01f812aefa246b79b6683afbd328fef5"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-code-review/workflow.md": {
-    "mtime": 1778561030.7148123,
-    "hash": "4b7f9826c5c68ed5f1ff83999dc6a022"
+    "mtime": 1778562408.5013862,
+    "hash": "0b5d70dd40b61b7fe9374a968b42852a"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-code-review/SKILL.md": {
     "mtime": 1778132132.4693246,
@@ -1080,8 +1080,8 @@
     "hash": "b6ef3ffd134abd6f9b771a2d1dcc46a5"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-validate-prd/workflow.md": {
-    "mtime": 1778561030.7160308,
-    "hash": "f971703bde61eccb04195fe68f215894"
+    "mtime": 1778562408.5027328,
+    "hash": "2a5fa167d4551a7fceeacdb4b5df16b6"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-validate-prd/SKILL.md": {
     "mtime": 1778132132.472304,
@@ -1148,8 +1148,8 @@
     "hash": "fc0cd1e154678ddfc210e7992dd4398b"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-create-epics-and-stories/workflow.md": {
-    "mtime": 1778561030.7192984,
-    "hash": "6d5a13546bc856e53538d0d4df0f4469"
+    "mtime": 1778562408.5075915,
+    "hash": "ab847ae03426902fad04b76421c611f8"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-create-epics-and-stories/SKILL.md": {
     "mtime": 1778132132.4698205,
@@ -1196,8 +1196,8 @@
     "hash": "b88a2d8d71fe369dd157085bd46c35df"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-generate-project-context/workflow.md": {
-    "mtime": 1778561030.7213387,
-    "hash": "cda9dd609e716149824d3316b99c4b0a"
+    "mtime": 1778562408.510255,
+    "hash": "78530da38e501e85528e1dda0e1906df"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/cursor/skills/bmad-generate-project-context/SKILL.md": {
     "mtime": 1778132132.4710197,
@@ -1248,8 +1248,8 @@
     "hash": "3cd2f07b9728dff034732d8b33ef7be3"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-cis-innovation-strategy/workflow.md": {
-    "mtime": 1778561030.7243183,
-    "hash": "8dc56b0c962fbcde4a918d321e747c8f"
+    "mtime": 1778562408.5132055,
+    "hash": "9f14d94b38ead935b1827a8055a89811"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-cis-innovation-strategy/SKILL.md": {
     "mtime": 1778132132.4600809,
@@ -1264,8 +1264,8 @@
     "hash": "92ad3e849390be8b9f2003d68378a0ea"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-technical-research/workflow.md": {
-    "mtime": 1778561030.7254028,
-    "hash": "79a067162244ecba535bb01a4b6e8364"
+    "mtime": 1778562408.5143416,
+    "hash": "f2a315990662d40edec6ebfa99de9c5b"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-technical-research/SKILL.md": {
     "mtime": 1778132132.466974,
@@ -1300,8 +1300,8 @@
     "hash": "0cfe83c25eac4adf993823f6f68f0bdf"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/dontbmad-bmad-to-claude-design/workflow.md": {
-    "mtime": 1778561030.7274792,
-    "hash": "bbe392e8a01ba68d1e5acc4b956daf26"
+    "mtime": 1778562408.5164642,
+    "hash": "ca1ab8e79bf1b5f7c86668937cde9b2d"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/dontbmad-bmad-to-claude-design/SKILL.md": {
     "mtime": 1778132132.4678688,
@@ -1312,8 +1312,8 @@
     "hash": "fba01211c5c2727a2e2abb913a74fafb"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-retrospective/workflow.md": {
-    "mtime": 1778561030.7286453,
-    "hash": "29127610ed0a9e696142061da0322520"
+    "mtime": 1778562408.5174234,
+    "hash": "8f00c118e9cf3bc9b5648d6fd8d052d9"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-retrospective/SKILL.md": {
     "mtime": 1778132132.466475,
@@ -1324,8 +1324,8 @@
     "hash": "5daaca2bfd10ae3630f78f261ac04493"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-create-story/workflow.md": {
-    "mtime": 1778561030.7296627,
-    "hash": "fbb23ab944202c9ed65bf066200a6f58"
+    "mtime": 1778562408.5186858,
+    "hash": "398634b75903633447994cd08c6fb564"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-create-story/discover-inputs.md": {
     "mtime": 1778065900.7386816,
@@ -1348,8 +1348,8 @@
     "hash": "2e3652b5272919db1c53075452d65ef9"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-cis-design-thinking/workflow.md": {
-    "mtime": 1778561030.731061,
-    "hash": "31fb0bfb15443652e82eec4526c95a46"
+    "mtime": 1778562408.5199914,
+    "hash": "332ceab74ad1badcab4f70ef975ea5d3"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-cis-design-thinking/SKILL.md": {
     "mtime": 1778132132.4598832,
@@ -1408,8 +1408,8 @@
     "hash": "92ad3e849390be8b9f2003d68378a0ea"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-domain-research/workflow.md": {
-    "mtime": 1778561030.733797,
-    "hash": "f268a2148877632f588cf2123c72d2e9"
+    "mtime": 1778562408.5228956,
+    "hash": "8f4e5297d4786efd37a68b5bc35e9e65"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-domain-research/SKILL.md": {
     "mtime": 1778132132.4654338,
@@ -1448,8 +1448,8 @@
     "hash": "6b741b1e02454e8b021e938e4562c4cd"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-quick-dev/workflow.md": {
-    "mtime": 1778561030.7359989,
-    "hash": "ba263a5cfa6c2d54557d440b45e59282"
+    "mtime": 1778562408.5249362,
+    "hash": "dac61bffaad28fd00d6470dcb4fcd42f"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-quick-dev/step-03-implement.md": {
     "mtime": 1778065900.7555423,
@@ -1480,8 +1480,8 @@
     "hash": "230a0c50e2098fcbdbc21590e1048bc7"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-qa-generate-e2e-tests/workflow.md": {
-    "mtime": 1778561030.737055,
-    "hash": "d142f69751cb1695aaa5c6fb99a9cd26"
+    "mtime": 1778562408.5261734,
+    "hash": "f1dd07707ee14b613cb423d7d908372e"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-qa-generate-e2e-tests/checklist.md": {
     "mtime": 1778065900.7546306,
@@ -1520,8 +1520,8 @@
     "hash": "a8edfcd1ddea5d621bcf6e71f24b473a"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-sprint-planning/workflow.md": {
-    "mtime": 1778561030.7381313,
-    "hash": "171c4f005b191fc1648374b2ec97ee7e"
+    "mtime": 1778562408.5274985,
+    "hash": "1578f5fafe80aaf737996207df807d4f"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-sprint-planning/checklist.md": {
     "mtime": 1778065900.7574916,
@@ -1532,8 +1532,8 @@
     "hash": "99a0a185b9c6275e880f88e667d0fb75"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-edit-prd/workflow.md": {
-    "mtime": 1778561030.738621,
-    "hash": "bb9a3b394ec82731157d75b8e1335855"
+    "mtime": 1778562408.5281415,
+    "hash": "33f22ee42b105a2aec8b88ae576421c5"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-edit-prd/SKILL.md": {
     "mtime": 1778132132.4657075,
@@ -1572,8 +1572,8 @@
     "hash": "92ad3e849390be8b9f2003d68378a0ea"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-market-research/workflow.md": {
-    "mtime": 1778561030.7407303,
-    "hash": "85a3ab6a1f3b822182c7d2f250ab29e3"
+    "mtime": 1778562408.5301101,
+    "hash": "a8d07d67ddfd77f26a7b98aed0bd949e"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-market-research/SKILL.md": {
     "mtime": 1778132132.4660053,
@@ -1604,8 +1604,8 @@
     "hash": "d9bf60d547c1299ccccdc183d7eb03b5"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-sprint-status/workflow.md": {
-    "mtime": 1778561030.7428284,
-    "hash": "4018708a25d4b16ea818821c997a8822"
+    "mtime": 1778562408.532015,
+    "hash": "d5850ce2abeb10f3e7f69d25e46f8e8f"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-sprint-status/SKILL.md": {
     "mtime": 1778132132.466807,
@@ -1624,8 +1624,8 @@
     "hash": "5b60511051baba7b834980a6643c6a68"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-create-architecture/workflow.md": {
-    "mtime": 1778561030.7435544,
-    "hash": "79070ca023833213f8a4ba88cc4291f1"
+    "mtime": 1778562408.5327873,
+    "hash": "bcb3e2407e350877a38cb6407df65edc"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-create-architecture/SKILL.md": {
     "mtime": 1778132132.464189,
@@ -1668,8 +1668,8 @@
     "hash": "1d74bbb60296ea48c9985be61d7e5be0"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-document-project/workflow.md": {
-    "mtime": 1778561030.745836,
-    "hash": "4fd3b7ee8553ff472250cfe2fefac999"
+    "mtime": 1778562408.5349727,
+    "hash": "46bd0240f070d6fe7829b669b8456b22"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-document-project/checklist.md": {
     "mtime": 1778065900.7439313,
@@ -1688,12 +1688,12 @@
     "hash": "706f0322d346ffb323f4538e63162b54"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-document-project/workflows/deep-dive-workflow.md": {
-    "mtime": 1778561030.7468464,
-    "hash": "afa2c0967b9ffa407b387a6928c90c2d"
+    "mtime": 1778562408.536222,
+    "hash": "03a3bf60b35166d0f1ebe07b6803a196"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-document-project/workflows/full-scan-workflow.md": {
-    "mtime": 1778561030.7470644,
-    "hash": "d931e18dc9e4556e3bbb2531401b4dc9"
+    "mtime": 1778562408.536525,
+    "hash": "4e31faf924dbbd415196215657ee617b"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-document-project/workflows/deep-dive-instructions.md": {
     "mtime": 1778065900.7453115,
@@ -1752,16 +1752,16 @@
     "hash": "bf6ce128960492d87c64cf16ada79400"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-cis-problem-solving/workflow.md": {
-    "mtime": 1778561030.7500706,
-    "hash": "cd3ecdc2a3e51224d54b70bfad28a430"
+    "mtime": 1778562408.5393684,
+    "hash": "f97398593207112e665a5a5c9bb24473"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-cis-problem-solving/SKILL.md": {
     "mtime": 1778132132.4602551,
     "hash": "b42e329700626e968b7bc7e67cc398ea"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-check-implementation-readiness/workflow.md": {
-    "mtime": 1778561030.7505536,
-    "hash": "4f071c07edb97dc3d8964ed3e366afa2"
+    "mtime": 1778562408.539963,
+    "hash": "f5cef4fbbdee01493948e36790916aba"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-check-implementation-readiness/SKILL.md": {
     "mtime": 1778132132.4596179,
@@ -1812,8 +1812,8 @@
     "hash": "48a1a2852fd0871ba6a49a6a7509d5f0"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/dontbmad-auto-sprint/workflow.md": {
-    "mtime": 1778561030.75295,
-    "hash": "b374f2fc695651500b7d9ada8cc769a5"
+    "mtime": 1778562408.543826,
+    "hash": "c4b5f4f324b0fe9d8d9fa14ced80a67c"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/dontbmad-auto-sprint/SKILL.md": {
     "mtime": 1778132132.4675283,
@@ -1824,8 +1824,8 @@
     "hash": "af369819a24ee00c86905cd724e9735a"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-correct-course/workflow.md": {
-    "mtime": 1778561030.7535086,
-    "hash": "7029adace794adb715ff53c790d92483"
+    "mtime": 1778562408.5447316,
+    "hash": "da7755beebbe42d5dae4794ede3d5444"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-correct-course/checklist.md": {
     "mtime": 1778065900.7323008,
@@ -1868,8 +1868,8 @@
     "hash": "2b131e6491afcc34d14c67b0ad5f516c"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-create-prd/workflow.md": {
-    "mtime": 1778561030.7559316,
-    "hash": "a0e34818b1903de74846f70256078155"
+    "mtime": 1778562408.5468237,
+    "hash": "faffbcfd575b8028a3149616652a0f06"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-create-prd/SKILL.md": {
     "mtime": 1778132132.4644966,
@@ -1996,8 +1996,8 @@
     "hash": "a515c05ef8cb33a603549169d61c1610"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-cis-storytelling/workflow.md": {
-    "mtime": 1778561030.7618518,
-    "hash": "5582b163bfd5b75d7892f180ea90a2d7"
+    "mtime": 1778562408.5523458,
+    "hash": "0eaad075bf1a1135f88a24dcbbe7bbbc"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-cis-storytelling/SKILL.md": {
     "mtime": 1778132132.4635386,
@@ -2052,8 +2052,8 @@
     "hash": "1dc3db192ed9c531851359bc44db5d61"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-create-ux-design/workflow.md": {
-    "mtime": 1778561030.7641413,
-    "hash": "9bafc0b0654dd01d71788118f315a628"
+    "mtime": 1778562408.554607,
+    "hash": "37367e1ac47aca4928917b2c6601ac3c"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-create-ux-design/SKILL.md": {
     "mtime": 1778132132.4649496,
@@ -2124,8 +2124,8 @@
     "hash": "4c85665d8ad70b0a363394c11898c0fc"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-dev-story/workflow.md": {
-    "mtime": 1778561030.7673538,
-    "hash": "b0fac698fbe20371f05c29baa951e6c6"
+    "mtime": 1778562408.5571594,
+    "hash": "d1e237a3e9ceebd543e46ae4962847cc"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-dev-story/checklist.md": {
     "mtime": 1778065900.741698,
@@ -2160,8 +2160,8 @@
     "hash": "42b8a275bd5f1ca932e9d4858fab60a3"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-brainstorming/workflow.md": {
-    "mtime": 1778561030.7689009,
-    "hash": "32b59d92236d34bed120191a3e39f598"
+    "mtime": 1778562408.5583189,
+    "hash": "afff08f40b75149bba6ed336428ccdde"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-brainstorming/SKILL.md": {
     "mtime": 1778132132.4586082,
@@ -2204,16 +2204,16 @@
     "hash": "ddfa7e43e0979dba70d08653334710f2"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/dontbmad-claude-design-to-bmad-uiux/workflow.md": {
-    "mtime": 1778561030.7721305,
-    "hash": "32fee95c4ec618a1cc92dc3af8c54649"
+    "mtime": 1778562408.5612452,
+    "hash": "8ab7d339b0d77b41be04d72e9d3f466d"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/dontbmad-claude-design-to-bmad-uiux/SKILL.md": {
     "mtime": 1778132132.4681375,
     "hash": "c594aa9baa609e61a64461598beb78af"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-code-review/workflow.md": {
-    "mtime": 1778561030.7727005,
-    "hash": "4b7f9826c5c68ed5f1ff83999dc6a022"
+    "mtime": 1778562408.5617287,
+    "hash": "0b5d70dd40b61b7fe9374a968b42852a"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-code-review/SKILL.md": {
     "mtime": 1778132132.463844,
@@ -2236,8 +2236,8 @@
     "hash": "b6ef3ffd134abd6f9b771a2d1dcc46a5"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-validate-prd/workflow.md": {
-    "mtime": 1778561030.7738197,
-    "hash": "f971703bde61eccb04195fe68f215894"
+    "mtime": 1778562408.5628605,
+    "hash": "2a5fa167d4551a7fceeacdb4b5df16b6"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-validate-prd/SKILL.md": {
     "mtime": 1778132132.4672923,
@@ -2304,8 +2304,8 @@
     "hash": "fc0cd1e154678ddfc210e7992dd4398b"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-create-epics-and-stories/workflow.md": {
-    "mtime": 1778561030.7775369,
-    "hash": "6d5a13546bc856e53538d0d4df0f4469"
+    "mtime": 1778562408.5664709,
+    "hash": "ab847ae03426902fad04b76421c611f8"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-create-epics-and-stories/SKILL.md": {
     "mtime": 1778132132.4643424,
@@ -2352,8 +2352,8 @@
     "hash": "b88a2d8d71fe369dd157085bd46c35df"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-generate-project-context/workflow.md": {
-    "mtime": 1778561030.7799058,
-    "hash": "cda9dd609e716149824d3316b99c4b0a"
+    "mtime": 1778562408.5689733,
+    "hash": "78530da38e501e85528e1dda0e1906df"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/claude/skills/bmad-generate-project-context/SKILL.md": {
     "mtime": 1778132132.4658582,
@@ -2392,8 +2392,8 @@
     "hash": "30466468d139f9cce34fd86c11f95d3c"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/docs/sdlc-commands.md": {
-    "mtime": 1778561044.7716205,
-    "hash": "9eae29014eff5558e070b53bccb781fa"
+    "mtime": 1778562423.5537772,
+    "hash": "d934f41007de4f789b8e9ca7a655f5ef"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/docs/why-bmad-presentation-concise.md": {
     "mtime": 1778065900.8183856,
@@ -2436,16 +2436,16 @@
     "hash": "62ba566df50344c188060fffc11cea08"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/hooks/post-skill/README.md": {
-    "mtime": 1778561045.4084332,
-    "hash": "550c2c34c7474115a32cc6da68861f82"
+    "mtime": 1778562417.1826897,
+    "hash": "295c67e0929e2b93370cdc63b1dc52af"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/templates/dontbmad-caveman-global.md": {
     "mtime": 1778127862.0690424,
     "hash": "fc1413f5e941056dfb82a10fd1adbb60"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/templates/dontbmad-aieye-live.md": {
-    "mtime": 1778561045.8997612,
-    "hash": "724d1b8441343b19947bf27154d692e8"
+    "mtime": 1778562429.6775692,
+    "hash": "1752810cf1e49a511e67e700df42a0f9"
   },
   "/Users/ajitp/workspace/projects/GenAI/dont-b-mad/templates/bmad-team-customization.md": {
     "mtime": 1778065900.8192313,

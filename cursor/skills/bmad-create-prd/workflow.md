@@ -43,7 +43,8 @@ When this workflow completes (final step finished), run once as a fire-and-forge
 
 ```bash
 AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook"
-test -x "$AIEYE_HOOK" && AIEYE_LIVE_SKILL=bmad-create-prd "$AIEYE_HOOK" || true
+export AIEYE_LIVE_SKILL=bmad-create-prd
+test -x "$AIEYE_HOOK" && "$AIEYE_HOOK" bmad-create-prd || true
 ```
 
 Uses the same ingest URL and payload logic as `~/.claude/hooks/aieye-live/lib/dispatch.js` (deployed from `hooks/post-skill/` via `scripts/install.sh`; see `hooks/post-skill/README.md`). Requires `~/.claude/aieye-live.env` and git credentials for `engg.elasticrun.in` as documented there.

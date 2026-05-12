@@ -11,6 +11,15 @@ if [ "${1:-}" = "--check-deps" ]; then
   exec node "$NODE_SCRIPT" --check-deps
 fi
 
+# Some agents spawn `node …/dispatch.js` directly and drop `VAR=value` prefixes from the
+# shell snippet. Export the skill from the first positional arg so Node still inherits
+# AIEYE_LIVE_SKILL when this bash wrapper runs with: hook bmad-create-prd
+if [ -z "${AIEYE_LIVE_SKILL:-}" ] && [ -z "${AIEYE_LIVE_SKILL_NAME:-}" ]; then
+  if [ -n "${1:-}" ] && [ "$1" != "--check-deps" ]; then
+    export AIEYE_LIVE_SKILL="$1"
+  fi
+fi
+
 case "${AIEYE_LIVE_DEBUG:-}" in
   1|true|TRUE|yes|Yes|YES) ( node "$NODE_SCRIPT" "$@" >/dev/null || true ) & ;;
   *) ( node "$NODE_SCRIPT" "$@" >/dev/null 2>&1 || true ) & ;;

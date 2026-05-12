@@ -646,7 +646,7 @@
       "label": "readExplicitSkillFromInvocation()",
       "file_type": "code",
       "source_file": "hooks/post-skill/lib/dispatch.js",
-      "source_location": "L545",
+      "source_location": "L550",
       "id": "lib_dispatch_readexplicitskillfrominvocation",
       "community": 7,
       "norm_label": "readexplicitskillfrominvocation()"
@@ -655,7 +655,7 @@
       "label": "main()",
       "file_type": "code",
       "source_file": "hooks/post-skill/lib/dispatch.js",
-      "source_location": "L562",
+      "source_location": "L567",
       "id": "lib_dispatch_main",
       "community": 7,
       "norm_label": "main()"
@@ -664,7 +664,7 @@
       "label": "hookHardKill",
       "file_type": "code",
       "source_file": "hooks/post-skill/lib/dispatch.js",
-      "source_location": "L717",
+      "source_location": "L729",
       "id": "lib_dispatch_hookhardkill",
       "community": 7,
       "norm_label": "hookhardkill"
@@ -40363,7 +40363,7 @@
       "label": "Supported skills",
       "file_type": "document",
       "source_file": "hooks/post-skill/README.md",
-      "source_location": "L84",
+      "source_location": "L85",
       "id": "post_skill_readme_supported_skills",
       "community": 132,
       "norm_label": "supported skills"
@@ -40372,7 +40372,7 @@
       "label": "Safety guarantees",
       "file_type": "document",
       "source_file": "hooks/post-skill/README.md",
-      "source_location": "L95",
+      "source_location": "L96",
       "id": "post_skill_readme_safety_guarantees",
       "community": 132,
       "norm_label": "safety guarantees"
@@ -40381,7 +40381,7 @@
       "label": "Running tests",
       "file_type": "document",
       "source_file": "hooks/post-skill/README.md",
-      "source_location": "L102",
+      "source_location": "L103",
       "id": "post_skill_readme_running_tests",
       "community": 132,
       "norm_label": "running tests"
@@ -40390,7 +40390,7 @@
       "label": "code:bash (cd live-hook)",
       "file_type": "document",
       "source_file": "hooks/post-skill/README.md",
-      "source_location": "L104",
+      "source_location": "L105",
       "id": "post_skill_readme_codeblock_6",
       "community": 132,
       "norm_label": "code:bash (cd live-hook)"
@@ -40453,7 +40453,7 @@
       "label": "Behaviour",
       "file_type": "document",
       "source_file": "templates/dontbmad-aieye-live.md",
-      "source_location": "L18",
+      "source_location": "L19",
       "id": "templates_dontbmad_aieye_live_behaviour",
       "community": 249,
       "norm_label": "behaviour"
@@ -40462,7 +40462,7 @@
       "label": "Setup",
       "file_type": "document",
       "source_file": "templates/dontbmad-aieye-live.md",
-      "source_location": "L25",
+      "source_location": "L26",
       "id": "templates_dontbmad_aieye_live_setup",
       "community": 249,
       "norm_label": "setup"
@@ -83831,5 +83831,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "fb9363f3c3b23f7dfbec8b862bccc6ad2b2ce542"
+  "built_at_commit": "692a4463ef4b5085988c1d81b349a0c73a73e580"
 }
