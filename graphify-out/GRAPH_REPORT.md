@@ -1,7 +1,7 @@
-# Graph Report - dont-b-mad  (2026-05-11)
+# Graph Report - dont-b-mad  (2026-05-12)
 
 ## Corpus Check
-- 577 files · ~445,040 words
+- 577 files · ~445,078 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `e5c617ff`
+- Built from commit: `e59d0582`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 

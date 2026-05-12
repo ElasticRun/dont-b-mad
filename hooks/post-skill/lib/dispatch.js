@@ -574,20 +574,23 @@ async function main() {
 
   debugLog(`config: actor set, team=${team ? '(set)' : '(empty)'} ingest=${ingestUrl}`);
 
-  // 2. Parse hook stdin
+  // 2. Parse hook stdin (editor Stop hooks pass JSON; workflow step passes skill via argv only).
   const hookData = await readStdin();
 
-  // Extract skill_name from hook payload.
-  // Claude Code PostToolUse passes something like { tool_name, tool_input, tool_response }
-  // The skill name may live at hookData.tool_name or hookData.tool_input?.skill or argv[0].
-  let skillName =
-    hookData.tool_name ||
-    (hookData.tool_input && hookData.tool_input.skill) ||
-    process.argv[2] ||
-    null;
+  // Explicit argv skill wins — workflow completion always passes the skill name as the first
+  // CLI arg; agent runners often supply unrelated JSON on stdin that must not override it.
+  const argvSkill =
+    process.argv[2] != null && String(process.argv[2]).trim() !== ''
+      ? String(process.argv[2]).trim()
+      : null;
 
-  if (typeof skillName !== 'string') skillName = null;
-  if (skillName) skillName = skillName.trim();
+  let skillName = argvSkill;
+  if (!skillName) {
+    const fromHook =
+      hookData.tool_name || (hookData.tool_input && hookData.tool_input.skill) || null;
+    skillName = typeof fromHook === 'string' ? fromHook.trim() : null;
+    if (skillName === '') skillName = null;
+  }
 
   debugLog(
     `resolved skill_name=${skillName === null ? '(null)' : JSON.stringify(skillName)}`

@@ -655,7 +655,7 @@
       "label": "hookHardKill",
       "file_type": "code",
       "source_file": "hooks/post-skill/lib/dispatch.js",
-      "source_location": "L698",
+      "source_location": "L701",
       "id": "lib_dispatch_hookhardkill",
       "community": 10,
       "norm_label": "hookhardkill"
@@ -41307,9 +41307,9 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hooks_post_skill_lib_dispatch_js",
-      "target": "lib_dispatch_persisthooklog",
-      "confidence_score": 1.0
+      "target": "lib_dispatch_persisthooklog"
     },
     {
       "relation": "contains",
@@ -41357,9 +41357,9 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L92",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hooks_post_skill_lib_dispatch_js",
-      "target": "lib_dispatch_hook_file_log",
-      "confidence_score": 1.0
+      "target": "lib_dispatch_hook_file_log"
     },
     {
       "relation": "contains",
@@ -41548,9 +41548,9 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_dispatch_debuglog",
-      "target": "lib_dispatch_persisthooklog",
-      "confidence_score": 1.0
+      "target": "lib_dispatch_persisthooklog"
     },
     {
       "relation": "calls",
@@ -41559,9 +41559,9 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_dispatch_debugerror",
-      "target": "lib_dispatch_persisthooklog",
-      "confidence_score": 1.0
+      "target": "lib_dispatch_persisthooklog"
     },
     {
       "relation": "calls",
@@ -41570,9 +41570,9 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L151",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_dispatch_parseenvfile",
-      "target": "lib_dispatch_persisthooklog",
-      "confidence_score": 1.0
+      "target": "lib_dispatch_persisthooklog"
     },
     {
       "relation": "calls",
@@ -41581,9 +41581,9 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L185",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_dispatch_printdependencyproblems",
-      "target": "lib_dispatch_persisthooklog",
-      "confidence_score": 1.0
+      "target": "lib_dispatch_persisthooklog"
     },
     {
       "relation": "calls",
@@ -41592,9 +41592,9 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L350",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_dispatch_queueappend",
-      "target": "lib_dispatch_persisthooklog",
-      "confidence_score": 1.0
+      "target": "lib_dispatch_persisthooklog"
     },
     {
       "relation": "calls",
@@ -41603,9 +41603,9 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L368",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_dispatch_queueread",
-      "target": "lib_dispatch_persisthooklog",
-      "confidence_score": 1.0
+      "target": "lib_dispatch_persisthooklog"
     },
     {
       "relation": "calls",
@@ -41614,9 +41614,9 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L425",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_dispatch_queuerewrite",
-      "target": "lib_dispatch_persisthooklog",
-      "confidence_score": 1.0
+      "target": "lib_dispatch_persisthooklog"
     },
     {
       "relation": "calls",
@@ -41625,9 +41625,9 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L466",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_dispatch_flushqueue",
-      "target": "lib_dispatch_persisthooklog",
-      "confidence_score": 1.0
+      "target": "lib_dispatch_persisthooklog"
     },
     {
       "relation": "calls",
@@ -41636,9 +41636,9 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L656",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_dispatch_main",
-      "target": "lib_dispatch_persisthooklog",
-      "confidence_score": 1.0
+      "target": "lib_dispatch_persisthooklog"
     },
     {
       "relation": "calls",
@@ -83801,5 +83801,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "e5c617ff62a548c438e03403b9b61ce80f083413"
+  "built_at_commit": "e59d0582e563e4ffd978979da296d93a15919871"
 }
