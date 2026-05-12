@@ -90,6 +90,11 @@ function debugError(context, err) {
 const ENV_FILE = path.join(os.homedir(), '.claude', 'aieye-live.env');
 /** Persistent hook trace log (always written; see persistHookLog). */
 const HOOK_FILE_LOG = path.join(os.homedir(), '.cursor', 'aieye-live-hook.log');
+/**
+ * One-line skill id written by workflows before invoking the hook when the runner
+ * strips env/argv (see workflow AIEye Live step). Consumed once by dispatch.js.
+ */
+const PENDING_SKILL_FILE = path.join(os.homedir(), '.cursor', 'aieye-live-pending-skill');
 const QUEUE_FILE = path.join(os.homedir(), '.claude', 'aieye-live-queue.jsonl');
 const QUEUE_FILE_TMP = QUEUE_FILE + '.tmp';
 const QUEUE_FLUSH_LIMIT = 100;
@@ -560,16 +565,44 @@ function readExplicitSkillFromInvocation() {
   return fromEnv !== '' ? fromEnv : null;
 }
 
-// ---------------------------------------------------------------------------
-// Main
-// ---------------------------------------------------------------------------
+/**
+ * Read first line from ~/.cursor/aieye-live-pending-skill (workflow writes it before
+ * calling the hook when env/argv are stripped). Unlink after read. Returns null if missing/empty.
+ * @returns {string | null}
+ */
+function readAndConsumePendingSkillFile() {
+  try {
+    const raw = fs.readFileSync(PENDING_SKILL_FILE, 'utf8');
+    const line = raw.split(/\r?\n/)[0];
+    const skill = line != null ? String(line).trim() : '';
+    try {
+      fs.unlinkSync(PENDING_SKILL_FILE);
+    } catch (_) {
+      // ignore
+    }
+    if (skill === '') return null;
+    return skill;
+  } catch (err) {
+    if (err && typeof err === 'object' && 'code' in err && err.code === 'ENOENT') {
+      return null;
+    }
+    persistHookLog(`WARN: pending skill file: ${String(err && err.message != null ? err.message : err)}`);
+    return null;
+  }
+}
 
 async function main() {
   const explicitSkill = readExplicitSkillFromInvocation();
   const envSkillLen = String(process.env.AIEYE_LIVE_SKILL || '').length;
   const envNameLen = String(process.env.AIEYE_LIVE_SKILL_NAME || '').length;
+  let pendingExists = false;
+  try {
+    pendingExists = fs.existsSync(PENDING_SKILL_FILE);
+  } catch (_) {
+    pendingExists = false;
+  }
   debugLog(
-    `start argv=${JSON.stringify(process.argv)} explicit_skill=${explicitSkill === null ? '(null)' : JSON.stringify(explicitSkill)} env_aieye_live_skill_len=${envSkillLen} env_aieye_live_skill_name_len=${envNameLen}`
+    `start argv=${JSON.stringify(process.argv)} explicit_skill=${explicitSkill === null ? '(null)' : JSON.stringify(explicitSkill)} env_aieye_live_skill_len=${envSkillLen} env_aieye_live_skill_name_len=${envNameLen} pending_skill_file=${pendingExists}`
   );
   // 1. Load config
   const config = parseEnvFile(ENV_FILE);
@@ -609,6 +642,12 @@ async function main() {
   // CLI args (empty argv) and/or supply unrelated JSON on stdin.
   let skillName = readExplicitSkillFromInvocation();
   if (!skillName) {
+    skillName = readAndConsumePendingSkillFile();
+    if (skillName) {
+      debugLog(`skill from pending file: ${JSON.stringify(skillName)}`);
+    }
+  }
+  if (!skillName) {
     const fromHook =
       hookData.tool_name || (hookData.tool_input && hookData.tool_input.skill) || null;
     skillName = typeof fromHook === 'string' ? fromHook.trim() : null;
@@ -637,7 +676,7 @@ async function main() {
     );
     if (!skillName) {
       persistHookLog(
-        'HINT: no skill — many agents run `node …/dispatch.js` without env/args (log shows empty AIEYE_LIVE_SKILL). Fix: run the bash hook with `export AIEYE_LIVE_SKILL=<id>` then `"$HOOK" <id>`, or ensure argv[2] is the skill id; reinstall hook wrapper from repo.'
+        'HINT: no skill — runner often invokes only the hook binary (bash log shows argc=0) and drops export/argv. Workflows must write ~/.cursor/aieye-live-pending-skill before the hook; reinstall hook + republish skills from repo.'
       );
     }
     return;

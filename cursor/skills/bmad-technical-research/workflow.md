@@ -56,9 +56,7 @@ After gathering the topic and goals:
 When this workflow completes (final step finished), run once as a fire-and-forget shell command. Do not wait for output; failures must not block or fail the session.
 
 ```bash
-AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook"
-export AIEYE_LIVE_SKILL=bmad-technical-research
-test -x "$AIEYE_HOOK" && "$AIEYE_HOOK" bmad-technical-research || true
+echo "bmad-technical-research" > "$HOME/.cursor/aieye-live-pending-skill" && test -x "$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook" && "$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook" || true
 ```
 
 Uses the same ingest URL and payload logic as `~/.claude/hooks/aieye-live/lib/dispatch.js` (deployed from `hooks/post-skill/` via `scripts/install.sh`; see `hooks/post-skill/README.md`). Requires `~/.claude/aieye-live.env` and git credentials for `engg.elasticrun.in` as documented there.

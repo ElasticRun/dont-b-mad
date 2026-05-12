@@ -499,10 +499,19 @@
       "norm_label": "hook_file_log"
     },
     {
+      "label": "PENDING_SKILL_FILE",
+      "file_type": "code",
+      "source_file": "hooks/post-skill/lib/dispatch.js",
+      "source_location": "L97",
+      "id": "lib_dispatch_pending_skill_file",
+      "community": 7,
+      "norm_label": "pending_skill_file"
+    },
+    {
       "label": "QUEUE_FILE",
       "file_type": "code",
       "source_file": "hooks/post-skill/lib/dispatch.js",
-      "source_location": "L93",
+      "source_location": "L98",
       "id": "lib_dispatch_queue_file",
       "community": 7,
       "norm_label": "queue_file"
@@ -511,7 +520,7 @@
       "label": "SKILL_EVENT_MAP",
       "file_type": "code",
       "source_file": "hooks/post-skill/lib/dispatch.js",
-      "source_location": "L104",
+      "source_location": "L109",
       "id": "lib_dispatch_skill_event_map",
       "community": 7,
       "norm_label": "skill_event_map"
@@ -520,7 +529,7 @@
       "label": "resolveEventType()",
       "file_type": "code",
       "source_file": "hooks/post-skill/lib/dispatch.js",
-      "source_location": "L112",
+      "source_location": "L117",
       "id": "lib_dispatch_resolveeventtype",
       "community": 7,
       "norm_label": "resolveeventtype()"
@@ -529,7 +538,7 @@
       "label": "parseEnvFile()",
       "file_type": "code",
       "source_file": "hooks/post-skill/lib/dispatch.js",
-      "source_location": "L130",
+      "source_location": "L135",
       "id": "lib_dispatch_parseenvfile",
       "community": 7,
       "norm_label": "parseenvfile()"
@@ -538,7 +547,7 @@
       "label": "printDependencyProblems()",
       "file_type": "code",
       "source_file": "hooks/post-skill/lib/dispatch.js",
-      "source_location": "L184",
+      "source_location": "L189",
       "id": "lib_dispatch_printdependencyproblems",
       "community": 7,
       "norm_label": "printdependencyproblems()"
@@ -547,7 +556,7 @@
       "label": "runCheckDepsCli()",
       "file_type": "code",
       "source_file": "hooks/post-skill/lib/dispatch.js",
-      "source_location": "L200",
+      "source_location": "L205",
       "id": "lib_dispatch_runcheckdepscli",
       "community": 7,
       "norm_label": "runcheckdepscli()"
@@ -556,7 +565,7 @@
       "label": "readGitCredential()",
       "file_type": "code",
       "source_file": "hooks/post-skill/lib/dispatch.js",
-      "source_location": "L238",
+      "source_location": "L243",
       "id": "lib_dispatch_readgitcredential",
       "community": 7,
       "norm_label": "readgitcredential()"
@@ -565,7 +574,7 @@
       "label": "resolveAuthTokenFromGitCredential()",
       "file_type": "code",
       "source_file": "hooks/post-skill/lib/dispatch.js",
-      "source_location": "L262",
+      "source_location": "L267",
       "id": "lib_dispatch_resolveauthtokenfromgitcredential",
       "community": 7,
       "norm_label": "resolveauthtokenfromgitcredential()"
@@ -574,7 +583,7 @@
       "label": "deriveIdempotencyKey()",
       "file_type": "code",
       "source_file": "hooks/post-skill/lib/dispatch.js",
-      "source_location": "L274",
+      "source_location": "L279",
       "id": "lib_dispatch_deriveidempotencykey",
       "community": 7,
       "norm_label": "deriveidempotencykey()"
@@ -583,7 +592,7 @@
       "label": "buildCommitMessageDraft()",
       "file_type": "code",
       "source_file": "hooks/post-skill/lib/dispatch.js",
-      "source_location": "L292",
+      "source_location": "L297",
       "id": "lib_dispatch_buildcommitmessagedraft",
       "community": 7,
       "norm_label": "buildcommitmessagedraft()"
@@ -592,7 +601,7 @@
       "label": "postJSON()",
       "file_type": "code",
       "source_file": "hooks/post-skill/lib/dispatch.js",
-      "source_location": "L304",
+      "source_location": "L309",
       "id": "lib_dispatch_postjson",
       "community": 7,
       "norm_label": "postjson()"
@@ -601,7 +610,7 @@
       "label": "queueAppend()",
       "file_type": "code",
       "source_file": "hooks/post-skill/lib/dispatch.js",
-      "source_location": "L346",
+      "source_location": "L351",
       "id": "lib_dispatch_queueappend",
       "community": 7,
       "norm_label": "queueappend()"
@@ -610,7 +619,7 @@
       "label": "queueRead()",
       "file_type": "code",
       "source_file": "hooks/post-skill/lib/dispatch.js",
-      "source_location": "L362",
+      "source_location": "L367",
       "id": "lib_dispatch_queueread",
       "community": 7,
       "norm_label": "queueread()"
@@ -619,7 +628,7 @@
       "label": "queueRewrite()",
       "file_type": "code",
       "source_file": "hooks/post-skill/lib/dispatch.js",
-      "source_location": "L410",
+      "source_location": "L415",
       "id": "lib_dispatch_queuerewrite",
       "community": 7,
       "norm_label": "queuerewrite()"
@@ -628,7 +637,7 @@
       "label": "flushQueue()",
       "file_type": "code",
       "source_file": "hooks/post-skill/lib/dispatch.js",
-      "source_location": "L437",
+      "source_location": "L442",
       "id": "lib_dispatch_flushqueue",
       "community": 7,
       "norm_label": "flushqueue()"
@@ -637,7 +646,7 @@
       "label": "readStdin()",
       "file_type": "code",
       "source_file": "hooks/post-skill/lib/dispatch.js",
-      "source_location": "L500",
+      "source_location": "L505",
       "id": "lib_dispatch_readstdin",
       "community": 7,
       "norm_label": "readstdin()"
@@ -646,16 +655,25 @@
       "label": "readExplicitSkillFromInvocation()",
       "file_type": "code",
       "source_file": "hooks/post-skill/lib/dispatch.js",
-      "source_location": "L550",
+      "source_location": "L555",
       "id": "lib_dispatch_readexplicitskillfrominvocation",
       "community": 7,
       "norm_label": "readexplicitskillfrominvocation()"
     },
     {
+      "label": "readAndConsumePendingSkillFile()",
+      "file_type": "code",
+      "source_file": "hooks/post-skill/lib/dispatch.js",
+      "source_location": "L573",
+      "id": "lib_dispatch_readandconsumependingskillfile",
+      "community": 7,
+      "norm_label": "readandconsumependingskillfile()"
+    },
+    {
       "label": "main()",
       "file_type": "code",
       "source_file": "hooks/post-skill/lib/dispatch.js",
-      "source_location": "L567",
+      "source_location": "L594",
       "id": "lib_dispatch_main",
       "community": 7,
       "norm_label": "main()"
@@ -664,7 +682,7 @@
       "label": "hookHardKill",
       "file_type": "code",
       "source_file": "hooks/post-skill/lib/dispatch.js",
-      "source_location": "L729",
+      "source_location": "L768",
       "id": "lib_dispatch_hookhardkill",
       "community": 7,
       "norm_label": "hookhardkill"
@@ -2182,13 +2200,13 @@
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-cis-innovation-strategy\" > \"$HOME/.cursor/aieye-l)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-cis-innovation-strategy/workflow.md",
       "source_location": "L319",
       "id": "bmad_cis_innovation_strategy_workflow_codeblock_1",
       "community": 148,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"bmad-cis-innovation-strategy\" > \"$home/.cursor/aieye-l)"
     },
     {
       "label": "SKILL.md",
@@ -2470,13 +2488,13 @@
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-technical-research\" > \"$HOME/.cursor/aieye-live-p)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-technical-research/workflow.md",
       "source_location": "L58",
       "id": "bmad_technical_research_workflow_codeblock_1",
       "community": 168,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"bmad-technical-research\" > \"$home/.cursor/aieye-live-p)"
     },
     {
       "label": "SKILL.md",
@@ -3838,13 +3856,13 @@
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"dontbmad-bmad-to-claude-design\" > \"$HOME/.cursor/aieye)",
       "file_type": "document",
       "source_file": "claude/skills/dontbmad-bmad-to-claude-design/workflow.md",
       "source_location": "L64",
       "id": "dontbmad_bmad_to_claude_design_workflow_codeblock_1",
       "community": 169,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"dontbmad-bmad-to-claude-design\" > \"$home/.cursor/aieye)"
     },
     {
       "label": "SKILL.md",
@@ -4027,13 +4045,13 @@
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-retrospective\" > \"$HOME/.cursor/aieye-live-pendin)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-retrospective/workflow.md",
       "source_location": "L1509",
       "id": "bmad_retrospective_workflow_codeblock_1",
       "community": 149,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"bmad-retrospective\" > \"$home/.cursor/aieye-live-pendin)"
     },
     {
       "label": "SKILL.md",
@@ -4243,13 +4261,13 @@
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-create-story\" > \"$HOME/.cursor/aieye-live-pending)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-create-story/workflow.md",
       "source_location": "L405",
       "id": "bmad_create_story_workflow_codeblock_1",
       "community": 171,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"bmad-create-story\" > \"$home/.cursor/aieye-live-pending)"
     },
     {
       "label": "discover-inputs.md",
@@ -5098,13 +5116,13 @@
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-cis-design-thinking\" > \"$HOME/.cursor/aieye-live-)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-cis-design-thinking/workflow.md",
       "source_location": "L246",
       "id": "bmad_cis_design_thinking_workflow_codeblock_1",
       "community": 150,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"bmad-cis-design-thinking\" > \"$home/.cursor/aieye-live-)"
     },
     {
       "label": "SKILL.md",
@@ -5944,13 +5962,13 @@
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-domain-research\" > \"$HOME/.cursor/aieye-live-pend)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-domain-research/workflow.md",
       "source_location": "L57",
       "id": "bmad_domain_research_workflow_codeblock_1",
       "community": 173,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"bmad-domain-research\" > \"$home/.cursor/aieye-live-pend)"
     },
     {
       "label": "SKILL.md",
@@ -7339,13 +7357,13 @@
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-quick-dev\" > \"$HOME/.cursor/aieye-live-pending-sk)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-quick-dev/workflow.md",
       "source_location": "L81",
       "id": "bmad_quick_dev_workflow_codeblock_1",
       "community": 141,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"bmad-quick-dev\" > \"$home/.cursor/aieye-live-pending-sk)"
     },
     {
       "label": "step-03-implement.md",
@@ -7479,7 +7497,7 @@
       "source_file": "cursor/skills/bmad-quick-dev/spec-template.md",
       "source_location": "L1",
       "id": "cursor_skills_bmad_quick_dev_spec_template_md",
-      "community": 185,
+      "community": 174,
       "norm_label": "spec-template.md"
     },
     {
@@ -7488,7 +7506,7 @@
       "source_file": "claude/skills/bmad-quick-dev/spec-template.md",
       "source_location": "L16",
       "id": "bmad_quick_dev_spec_template_intent",
-      "community": 185,
+      "community": 174,
       "norm_label": "intent"
     },
     {
@@ -7497,7 +7515,7 @@
       "source_file": "claude/skills/bmad-quick-dev/spec-template.md",
       "source_location": "L24",
       "id": "bmad_quick_dev_spec_template_boundaries_constraints",
-      "community": 185,
+      "community": 174,
       "norm_label": "boundaries & constraints"
     },
     {
@@ -7506,7 +7524,7 @@
       "source_file": "claude/skills/bmad-quick-dev/spec-template.md",
       "source_location": "L35",
       "id": "bmad_quick_dev_spec_template_i_o_edge_case_matrix",
-      "community": 185,
+      "community": 174,
       "norm_label": "i/o & edge-case matrix"
     },
     {
@@ -7515,7 +7533,7 @@
       "source_file": "claude/skills/bmad-quick-dev/spec-template.md",
       "source_location": "L46",
       "id": "bmad_quick_dev_spec_template_code_map",
-      "community": 185,
+      "community": 174,
       "norm_label": "code map"
     },
     {
@@ -7524,7 +7542,7 @@
       "source_file": "claude/skills/bmad-quick-dev/spec-template.md",
       "source_location": "L53",
       "id": "bmad_quick_dev_spec_template_tasks_acceptance",
-      "community": 185,
+      "community": 174,
       "norm_label": "tasks & acceptance"
     },
     {
@@ -7533,7 +7551,7 @@
       "source_file": "claude/skills/bmad-quick-dev/spec-template.md",
       "source_location": "L65",
       "id": "bmad_quick_dev_spec_template_spec_change_log",
-      "community": 185,
+      "community": 174,
       "norm_label": "spec change log"
     },
     {
@@ -7542,7 +7560,7 @@
       "source_file": "claude/skills/bmad-quick-dev/spec-template.md",
       "source_location": "L72",
       "id": "bmad_quick_dev_spec_template_design_notes",
-      "community": 185,
+      "community": 174,
       "norm_label": "design notes"
     },
     {
@@ -7551,7 +7569,7 @@
       "source_file": "claude/skills/bmad-quick-dev/spec-template.md",
       "source_location": "L79",
       "id": "bmad_quick_dev_spec_template_verification",
-      "community": 185,
+      "community": 174,
       "norm_label": "verification"
     },
     {
@@ -7942,13 +7960,13 @@
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-qa-generate-e2e-tests\" > \"$HOME/.cursor/aieye-liv)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-qa-generate-e2e-tests/workflow.md",
       "source_location": "L175",
       "id": "bmad_qa_generate_e2e_tests_workflow_codeblock_3",
       "community": 90,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"bmad-qa-generate-e2e-tests\" > \"$home/.cursor/aieye-liv)"
     },
     {
       "label": "checklist.md",
@@ -8392,13 +8410,13 @@
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-sprint-planning\" > \"$HOME/.cursor/aieye-live-pend)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-sprint-planning/workflow.md",
       "source_location": "L279",
       "id": "bmad_sprint_planning_workflow_codeblock_6",
       "community": 107,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"bmad-sprint-planning\" > \"$home/.cursor/aieye-live-pend)"
     },
     {
       "label": "checklist.md",
@@ -8518,13 +8536,13 @@
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-edit-prd\" > \"$HOME/.cursor/aieye-live-pending-ski)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-edit-prd/workflow.md",
       "source_location": "L45",
       "id": "bmad_edit_prd_workflow_codeblock_1",
       "community": 223,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"bmad-edit-prd\" > \"$home/.cursor/aieye-live-pending-ski)"
     },
     {
       "label": "SKILL.md",
@@ -9918,7 +9936,7 @@
       "source_file": "cursor/skills/bmad-market-research/workflow.md",
       "source_location": "L1",
       "id": "cursor_skills_bmad_market_research_workflow_md",
-      "community": 174,
+      "community": 175,
       "norm_label": "workflow.md"
     },
     {
@@ -9927,7 +9945,7 @@
       "source_file": "claude/skills/bmad-market-research/workflow.md",
       "source_location": "L1",
       "id": "bmad_market_research_workflow_market_research_workflow",
-      "community": 174,
+      "community": 175,
       "norm_label": "market research workflow"
     },
     {
@@ -9936,7 +9954,7 @@
       "source_file": "claude/skills/bmad-market-research/workflow.md",
       "source_location": "L7",
       "id": "bmad_market_research_workflow_prerequisite",
-      "community": 174,
+      "community": 175,
       "norm_label": "prerequisite"
     },
     {
@@ -9945,7 +9963,7 @@
       "source_file": "claude/skills/bmad-market-research/workflow.md",
       "source_location": "L11",
       "id": "bmad_market_research_workflow_activation",
-      "community": 174,
+      "community": 175,
       "norm_label": "activation"
     },
     {
@@ -9954,7 +9972,7 @@
       "source_file": "claude/skills/bmad-market-research/workflow.md",
       "source_location": "L20",
       "id": "bmad_market_research_workflow_quick_topic_discovery",
-      "community": 174,
+      "community": 175,
       "norm_label": "quick topic discovery"
     },
     {
@@ -9963,7 +9981,7 @@
       "source_file": "claude/skills/bmad-market-research/workflow.md",
       "source_location": "L32",
       "id": "bmad_market_research_workflow_topic_clarification",
-      "community": 174,
+      "community": 175,
       "norm_label": "topic clarification"
     },
     {
@@ -9972,7 +9990,7 @@
       "source_file": "claude/skills/bmad-market-research/workflow.md",
       "source_location": "L39",
       "id": "bmad_market_research_workflow_route_to_market_research_steps",
-      "community": 174,
+      "community": 175,
       "norm_label": "route to market research steps"
     },
     {
@@ -9981,17 +9999,17 @@
       "source_file": "claude/skills/bmad-market-research/workflow.md",
       "source_location": "L53",
       "id": "bmad_market_research_workflow_aieye_live",
-      "community": 174,
+      "community": 175,
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-market-research\" > \"$HOME/.cursor/aieye-live-pend)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-market-research/workflow.md",
       "source_location": "L57",
       "id": "bmad_market_research_workflow_codeblock_1",
-      "community": 174,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "community": 175,
+      "norm_label": "code:bash (echo \"bmad-market-research\" > \"$home/.cursor/aieye-live-pend)"
     },
     {
       "label": "SKILL.md",
@@ -11272,13 +11290,13 @@
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-sprint-status\" > \"$HOME/.cursor/aieye-live-pendin)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-sprint-status/workflow.md",
       "source_location": "L255",
       "id": "bmad_sprint_status_workflow_codeblock_1",
       "community": 142,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"bmad-sprint-status\" > \"$home/.cursor/aieye-live-pendin)"
     },
     {
       "label": "SKILL.md",
@@ -11425,13 +11443,13 @@
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-create-architecture\" > \"$HOME/.cursor/aieye-live-)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-create-architecture/workflow.md",
       "source_location": "L38",
       "id": "bmad_create_architecture_workflow_codeblock_1",
       "community": 224,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"bmad-create-architecture\" > \"$home/.cursor/aieye-live-)"
     },
     {
       "label": "SKILL.md",
@@ -13477,13 +13495,13 @@
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-document-project\" > \"$HOME/.cursor/aieye-live-pen)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-document-project/workflow.md",
       "source_location": "L31",
       "id": "bmad_document_project_workflow_codeblock_1",
       "community": 225,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"bmad-document-project\" > \"$home/.cursor/aieye-live-pen)"
     },
     {
       "label": "checklist.md",
@@ -13900,13 +13918,13 @@
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-document-project\" > \"$HOME/.cursor/aieye-live-pen)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-document-project/workflows/deep-dive-workflow.md",
       "source_location": "L40",
       "id": "workflows_deep_dive_workflow_codeblock_1",
       "community": 196,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"bmad-document-project\" > \"$home/.cursor/aieye-live-pen)"
     },
     {
       "label": "full-scan-workflow.md",
@@ -13972,13 +13990,13 @@
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-document-project\" > \"$HOME/.cursor/aieye-live-pen)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-document-project/workflows/full-scan-workflow.md",
       "source_location": "L40",
       "id": "workflows_full_scan_workflow_codeblock_1",
       "community": 197,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"bmad-document-project\" > \"$home/.cursor/aieye-live-pen)"
     },
     {
       "label": "deep-dive-instructions.md",
@@ -15979,13 +15997,13 @@
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-cis-problem-solving\" > \"$HOME/.cursor/aieye-live-)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-cis-problem-solving/workflow.md",
       "source_location": "L295",
       "id": "bmad_cis_problem_solving_workflow_codeblock_1",
       "community": 154,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"bmad-cis-problem-solving\" > \"$home/.cursor/aieye-live-)"
     },
     {
       "label": "SKILL.md",
@@ -16042,13 +16060,13 @@
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-check-implementation-readiness\" > \"$HOME/.cursor/)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-check-implementation-readiness/workflow.md",
       "source_location": "L32",
       "id": "bmad_check_implementation_readiness_workflow_codeblock_1",
       "community": 226,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"bmad-check-implementation-readiness\" > \"$home/.cursor/)"
     },
     {
       "label": "SKILL.md",
@@ -17734,168 +17752,6 @@
       "norm_label": "code:block4 ([3/10] story 3-4-empty-data-states)"
     },
     {
-      "label": "Step 2: Implementation (fresh agent, `{model_impl}`)",
-      "file_type": "document",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L154",
-      "id": "dontbmad_auto_sprint_workflow_step_2_implementation_fresh_agent_model_impl",
-      "community": 1,
-      "norm_label": "step 2: implementation (fresh agent, `{model_impl}`)"
-    },
-    {
-      "label": "code:bash (uvx --from graphifyy graphify query --budget 1500 \"<keyword1)",
-      "file_type": "document",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L143",
-      "id": "dontbmad_auto_sprint_workflow_codeblock_5",
-      "community": 1,
-      "norm_label": "code:bash (uvx --from graphifyy graphify query --budget 1500 \"<keyword1)"
-    },
-    {
-      "label": "Step 3: Test verification (inline Bash, no subagent)",
-      "file_type": "document",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L199",
-      "id": "dontbmad_auto_sprint_workflow_step_3_test_verification_inline_bash_no_subagent",
-      "community": 1,
-      "norm_label": "step 3: test verification (inline bash, no subagent)"
-    },
-    {
-      "label": "code:block6 (Implement story <id> for the project at <project-root>.)",
-      "file_type": "document",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L162",
-      "id": "dontbmad_auto_sprint_workflow_codeblock_6",
-      "community": 1,
-      "norm_label": "code:block6 (implement story <id> for the project at <project-root>.)"
-    },
-    {
-      "label": "code:bash ({tc_cmd} 2>&1 | tail -30)",
-      "file_type": "document",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L211",
-      "id": "dontbmad_auto_sprint_workflow_codeblock_7",
-      "community": 1,
-      "norm_label": "code:bash ({tc_cmd} 2>&1 | tail -30)"
-    },
-    {
-      "label": "Step 3.5: Auto-fix test failures (only when `{auto_fix_enabled}` is `true`)",
-      "file_type": "document",
-      "source_file": "cursor/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L196",
-      "id": "dontbmad_auto_sprint_workflow_step_3_5_auto_fix_test_failures_only_when_auto_fix_enabled_is_true",
-      "community": 1,
-      "norm_label": "step 3.5: auto-fix test failures (only when `{auto_fix_enabled}` is `true`)"
-    },
-    {
-      "label": "code:bash ({test_cmd} 2>&1 | tail -40)",
-      "file_type": "document",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L215",
-      "id": "dontbmad_auto_sprint_workflow_codeblock_8",
-      "community": 1,
-      "norm_label": "code:bash ({test_cmd} 2>&1 | tail -40)"
-    },
-    {
-      "label": "Step 4: Review (fresh agent, `{model_review}`)",
-      "file_type": "document",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L268",
-      "id": "dontbmad_auto_sprint_workflow_step_4_review_fresh_agent_model_review",
-      "community": 1,
-      "norm_label": "step 4: review (fresh agent, `{model_review}`)"
-    },
-    {
-      "label": "code:block9 (Fix test/typecheck failures in <project-root> for story <id>)",
-      "file_type": "document",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L246",
-      "id": "dontbmad_auto_sprint_workflow_codeblock_9",
-      "community": 1,
-      "norm_label": "code:block9 (fix test/typecheck failures in <project-root> for story <id>)"
-    },
-    {
-      "label": "Step 4.5: Auto-fix review blockers (only when `{auto_fix_enabled}` is `true`)",
-      "file_type": "document",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L299",
-      "id": "dontbmad_auto_sprint_workflow_step_4_5_auto_fix_review_blockers_only_when_auto_fix_enabled_is_true",
-      "community": 1,
-      "norm_label": "step 4.5: auto-fix review blockers (only when `{auto_fix_enabled}` is `true`)"
-    },
-    {
-      "label": "code:block10 (Review staged + unstaged changes in <project-root> for story)",
-      "file_type": "document",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L276",
-      "id": "dontbmad_auto_sprint_workflow_codeblock_10",
-      "community": 1,
-      "norm_label": "code:block10 (review staged + unstaged changes in <project-root> for story)"
-    },
-    {
-      "label": "Step 5: Commit",
-      "file_type": "document",
-      "source_file": "cursor/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L280",
-      "id": "dontbmad_auto_sprint_workflow_step_5_commit",
-      "community": 1,
-      "norm_label": "step 5: commit"
-    },
-    {
-      "label": "code:block11 (Fix the code review blockers listed below for story <id> in )",
-      "file_type": "document",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L309",
-      "id": "dontbmad_auto_sprint_workflow_codeblock_11",
-      "community": 1,
-      "norm_label": "code:block11 (fix the code review blockers listed below for story <id> in )"
-    },
-    {
-      "label": "Step 6: Update sprint status",
-      "file_type": "document",
-      "source_file": "cursor/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L294",
-      "id": "dontbmad_auto_sprint_workflow_step_6_update_sprint_status",
-      "community": 1,
-      "norm_label": "step 6: update sprint status"
-    },
-    {
-      "label": "Step 7: Loop or stop",
-      "file_type": "document",
-      "source_file": "cursor/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L298",
-      "id": "dontbmad_auto_sprint_workflow_step_7_loop_or_stop",
-      "community": 1,
-      "norm_label": "step 7: loop or stop"
-    },
-    {
-      "label": "Notes",
-      "file_type": "document",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L399",
-      "id": "dontbmad_auto_sprint_workflow_notes",
-      "community": 1,
-      "norm_label": "notes"
-    },
-    {
-      "label": "AIEye Live",
-      "file_type": "document",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L414",
-      "id": "dontbmad_auto_sprint_workflow_aieye_live",
-      "community": 1,
-      "norm_label": "aieye live"
-    },
-    {
-      "label": "code:block12 (feat: implement story <id> <short-title>)",
-      "file_type": "document",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L339",
-      "id": "dontbmad_auto_sprint_workflow_codeblock_12",
-      "community": 1,
-      "norm_label": "code:block12 (feat: implement story <id> <short-title>)"
-    },
-    {
       "label": "SKILL.md",
       "file_type": "document",
       "source_file": "cursor/skills/dontbmad-auto-sprint/SKILL.md",
@@ -18094,13 +17950,13 @@
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-correct-course\" > \"$HOME/.cursor/aieye-live-pendi)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-correct-course/workflow.md",
       "source_location": "L283",
       "id": "bmad_correct_course_workflow_codeblock_2",
       "community": 143,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"bmad-correct-course\" > \"$home/.cursor/aieye-live-pendi)"
     },
     {
       "label": "checklist.md",
@@ -18261,7 +18117,7 @@
       "source_file": "cursor/skills/bmad-prfaq/references/verdict.md",
       "source_location": "L1",
       "id": "cursor_skills_bmad_prfaq_references_verdict_md",
-      "community": 175,
+      "community": 176,
       "norm_label": "verdict.md"
     },
     {
@@ -18270,7 +18126,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/verdict.md",
       "source_location": "L6",
       "id": "references_verdict_stage_5_the_verdict",
-      "community": 175,
+      "community": 176,
       "norm_label": "stage 5: the verdict"
     },
     {
@@ -18279,7 +18135,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/verdict.md",
       "source_location": "L10",
       "id": "references_verdict_the_assessment",
-      "community": 175,
+      "community": 176,
       "norm_label": "the assessment"
     },
     {
@@ -18288,7 +18144,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/verdict.md",
       "source_location": "L24",
       "id": "references_verdict_finalize_the_document",
-      "community": 175,
+      "community": 176,
       "norm_label": "finalize the document"
     },
     {
@@ -18297,7 +18153,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/verdict.md",
       "source_location": "L30",
       "id": "references_verdict_produce_the_distillate",
-      "community": 175,
+      "community": 176,
       "norm_label": "produce the distillate"
     },
     {
@@ -18306,7 +18162,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/verdict.md",
       "source_location": "L36",
       "id": "references_verdict_codeblock_1",
-      "community": 175,
+      "community": 176,
       "norm_label": "code:yaml (---)"
     },
     {
@@ -18315,7 +18171,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/verdict.md",
       "source_location": "L56",
       "id": "references_verdict_present_completion",
-      "community": 175,
+      "community": 176,
       "norm_label": "present completion"
     },
     {
@@ -18324,7 +18180,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/verdict.md",
       "source_location": "L66",
       "id": "references_verdict_codeblock_2",
-      "community": 175,
+      "community": 176,
       "norm_label": "code:json ({)"
     },
     {
@@ -18333,7 +18189,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/verdict.md",
       "source_location": "L77",
       "id": "references_verdict_stage_complete",
-      "community": 175,
+      "community": 176,
       "norm_label": "stage complete"
     },
     {
@@ -18414,7 +18270,7 @@
       "source_file": "cursor/skills/bmad-prfaq/references/press-release.md",
       "source_location": "L1",
       "id": "cursor_skills_bmad_prfaq_references_press_release_md",
-      "community": 176,
+      "community": 177,
       "norm_label": "press-release.md"
     },
     {
@@ -18423,7 +18279,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/press-release.md",
       "source_location": "L6",
       "id": "references_press_release_stage_2_the_press_release",
-      "community": 176,
+      "community": 177,
       "norm_label": "stage 2: the press release"
     },
     {
@@ -18432,7 +18288,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/press-release.md",
       "source_location": "L12",
       "id": "references_press_release_the_forge",
-      "community": 176,
+      "community": 177,
       "norm_label": "the forge"
     },
     {
@@ -18441,7 +18297,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/press-release.md",
       "source_location": "L28",
       "id": "references_press_release_coaching_approach",
-      "community": 176,
+      "community": 177,
       "norm_label": "coaching approach"
     },
     {
@@ -18450,7 +18306,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/press-release.md",
       "source_location": "L34",
       "id": "references_press_release_quality_bars",
-      "community": 176,
+      "community": 177,
       "norm_label": "quality bars"
     },
     {
@@ -18459,7 +18315,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/press-release.md",
       "source_location": "L44",
       "id": "references_press_release_headless_mode",
-      "community": 176,
+      "community": 177,
       "norm_label": "headless mode"
     },
     {
@@ -18468,7 +18324,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/press-release.md",
       "source_location": "L48",
       "id": "references_press_release_updating_the_document",
-      "community": 176,
+      "community": 177,
       "norm_label": "updating the document"
     },
     {
@@ -18477,7 +18333,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/press-release.md",
       "source_location": "L52",
       "id": "references_press_release_coaching_notes_capture",
-      "community": 176,
+      "community": 177,
       "norm_label": "coaching notes capture"
     },
     {
@@ -18486,7 +18342,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/press-release.md",
       "source_location": "L56",
       "id": "references_press_release_stage_complete",
-      "community": 176,
+      "community": 177,
       "norm_label": "stage complete"
     },
     {
@@ -18661,13 +18517,13 @@
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-create-prd\" > \"$HOME/.cursor/aieye-live-pending-s)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-create-prd/workflow.md",
       "source_location": "L44",
       "id": "bmad_create_prd_workflow_codeblock_1",
       "community": 228,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"bmad-create-prd\" > \"$home/.cursor/aieye-live-pending-s)"
     },
     {
       "label": "SKILL.md",
@@ -23242,13 +23098,13 @@
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-cis-storytelling\" > \"$HOME/.cursor/aieye-live-pen)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-cis-storytelling/workflow.md",
       "source_location": "L325",
       "id": "bmad_cis_storytelling_workflow_codeblock_1",
       "community": 156,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"bmad-cis-storytelling\" > \"$home/.cursor/aieye-live-pen)"
     },
     {
       "label": "SKILL.md",
@@ -23472,7 +23328,7 @@
       "source_file": "cursor/skills/dontbmad-ai-tracking/SKILL.md",
       "source_location": "L1",
       "id": "cursor_skills_dontbmad_ai_tracking_skill_md",
-      "community": 177,
+      "community": 178,
       "norm_label": "skill.md"
     },
     {
@@ -23481,7 +23337,7 @@
       "source_file": "claude/skills/dontbmad-ai-tracking/SKILL.md",
       "source_location": "L1",
       "id": "dontbmad_ai_tracking_skill_ai_tracking",
-      "community": 177,
+      "community": 178,
       "norm_label": "ai tracking"
     },
     {
@@ -23490,7 +23346,7 @@
       "source_file": "claude/skills/dontbmad-ai-tracking/SKILL.md",
       "source_location": "L5",
       "id": "dontbmad_ai_tracking_skill_what_this_skill_does",
-      "community": 177,
+      "community": 178,
       "norm_label": "what this skill does"
     },
     {
@@ -23499,7 +23355,7 @@
       "source_file": "claude/skills/dontbmad-ai-tracking/SKILL.md",
       "source_location": "L10",
       "id": "dontbmad_ai_tracking_skill_trailer_scheme",
-      "community": 177,
+      "community": 178,
       "norm_label": "trailer scheme"
     },
     {
@@ -23508,7 +23364,7 @@
       "source_file": "claude/skills/dontbmad-ai-tracking/SKILL.md",
       "source_location": "L20",
       "id": "dontbmad_ai_tracking_skill_usage",
-      "community": 177,
+      "community": 178,
       "norm_label": "usage"
     },
     {
@@ -23517,7 +23373,7 @@
       "source_file": "claude/skills/dontbmad-ai-tracking/SKILL.md",
       "source_location": "L22",
       "id": "dontbmad_ai_tracking_skill_install_the_hook",
-      "community": 177,
+      "community": 178,
       "norm_label": "install the hook"
     },
     {
@@ -23526,7 +23382,7 @@
       "source_file": "claude/skills/dontbmad-ai-tracking/SKILL.md",
       "source_location": "L24",
       "id": "dontbmad_ai_tracking_skill_codeblock_1",
-      "community": 177,
+      "community": 178,
       "norm_label": "code:bash (cp .cursor/skills/dontbmad-ai-tracking/prepare-commit-msg .g)"
     },
     {
@@ -23535,7 +23391,7 @@
       "source_file": "claude/skills/dontbmad-ai-tracking/SKILL.md",
       "source_location": "L29",
       "id": "dontbmad_ai_tracking_skill_run_pulse_adoption_dashboard",
-      "community": 177,
+      "community": 178,
       "norm_label": "run pulse (adoption dashboard)"
     },
     {
@@ -23544,7 +23400,7 @@
       "source_file": "claude/skills/dontbmad-ai-tracking/SKILL.md",
       "source_location": "L31",
       "id": "dontbmad_ai_tracking_skill_codeblock_2",
-      "community": 177,
+      "community": 178,
       "norm_label": "code:bash (bash .cursor/skills/dontbmad-ai-tracking/adoption-dashboard.)"
     },
     {
@@ -24291,7 +24147,7 @@
       "source_file": "cursor/skills/bmad-editorial-review-prose/SKILL.md",
       "source_location": "L1",
       "id": "cursor_skills_bmad_editorial_review_prose_skill_md",
-      "community": 178,
+      "community": 179,
       "norm_label": "skill.md"
     },
     {
@@ -24300,7 +24156,7 @@
       "source_file": "claude/skills/bmad-editorial-review-prose/SKILL.md",
       "source_location": "L6",
       "id": "bmad_editorial_review_prose_skill_editorial_review_prose",
-      "community": 178,
+      "community": 179,
       "norm_label": "editorial review - prose"
     },
     {
@@ -24309,7 +24165,7 @@
       "source_file": "claude/skills/bmad-editorial-review-prose/SKILL.md",
       "source_location": "L20",
       "id": "bmad_editorial_review_prose_skill_principles",
-      "community": 178,
+      "community": 179,
       "norm_label": "principles"
     },
     {
@@ -24318,7 +24174,7 @@
       "source_file": "claude/skills/bmad-editorial-review-prose/SKILL.md",
       "source_location": "L33",
       "id": "bmad_editorial_review_prose_skill_steps",
-      "community": 178,
+      "community": 179,
       "norm_label": "steps"
     },
     {
@@ -24327,7 +24183,7 @@
       "source_file": "claude/skills/bmad-editorial-review-prose/SKILL.md",
       "source_location": "L35",
       "id": "bmad_editorial_review_prose_skill_step_1_validate_input",
-      "community": 178,
+      "community": 179,
       "norm_label": "step 1: validate input"
     },
     {
@@ -24336,7 +24192,7 @@
       "source_file": "claude/skills/bmad-editorial-review-prose/SKILL.md",
       "source_location": "L44",
       "id": "bmad_editorial_review_prose_skill_step_2_analyze_style",
-      "community": 178,
+      "community": 179,
       "norm_label": "step 2: analyze style"
     },
     {
@@ -24345,7 +24201,7 @@
       "source_file": "claude/skills/bmad-editorial-review-prose/SKILL.md",
       "source_location": "L52",
       "id": "bmad_editorial_review_prose_skill_step_3_editorial_review_critical",
-      "community": 178,
+      "community": 179,
       "norm_label": "step 3: editorial review (critical)"
     },
     {
@@ -24354,7 +24210,7 @@
       "source_file": "claude/skills/bmad-editorial-review-prose/SKILL.md",
       "source_location": "L63",
       "id": "bmad_editorial_review_prose_skill_step_4_output_results",
-      "community": 178,
+      "community": 179,
       "norm_label": "step 4: output results"
     },
     {
@@ -24363,7 +24219,7 @@
       "source_file": "claude/skills/bmad-editorial-review-prose/SKILL.md",
       "source_location": "L82",
       "id": "bmad_editorial_review_prose_skill_halt_conditions",
-      "community": 178,
+      "community": 179,
       "norm_label": "halt conditions"
     },
     {
@@ -24430,13 +24286,13 @@
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-create-ux-design\" > \"$HOME/.cursor/aieye-live-pen)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-create-ux-design/workflow.md",
       "source_location": "L41",
       "id": "bmad_create_ux_design_workflow_codeblock_1",
       "community": 206,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"bmad-create-ux-design\" > \"$home/.cursor/aieye-live-pen)"
     },
     {
       "label": "SKILL.md",
@@ -27576,7 +27432,7 @@
       "source_file": "cursor/skills/bmad-dev-story/workflow.md",
       "source_location": "L1",
       "id": "cursor_skills_bmad_dev_story_workflow_md",
-      "community": 179,
+      "community": 180,
       "norm_label": "workflow.md"
     },
     {
@@ -27585,7 +27441,7 @@
       "source_file": "claude/skills/bmad-dev-story/workflow.md",
       "source_location": "L1",
       "id": "bmad_dev_story_workflow_dev_story_workflow",
-      "community": 179,
+      "community": 180,
       "norm_label": "dev story workflow"
     },
     {
@@ -27594,7 +27450,7 @@
       "source_file": "claude/skills/bmad-dev-story/workflow.md",
       "source_location": "L16",
       "id": "bmad_dev_story_workflow_initialization",
-      "community": 179,
+      "community": 180,
       "norm_label": "initialization"
     },
     {
@@ -27603,7 +27459,7 @@
       "source_file": "claude/skills/bmad-dev-story/workflow.md",
       "source_location": "L18",
       "id": "bmad_dev_story_workflow_configuration_loading",
-      "community": 179,
+      "community": 180,
       "norm_label": "configuration loading"
     },
     {
@@ -27612,7 +27468,7 @@
       "source_file": "claude/skills/bmad-dev-story/workflow.md",
       "source_location": "L28",
       "id": "bmad_dev_story_workflow_paths",
-      "community": 179,
+      "community": 180,
       "norm_label": "paths"
     },
     {
@@ -27621,7 +27477,7 @@
       "source_file": "claude/skills/bmad-dev-story/workflow.md",
       "source_location": "L33",
       "id": "bmad_dev_story_workflow_context",
-      "community": 179,
+      "community": 180,
       "norm_label": "context"
     },
     {
@@ -27630,7 +27486,7 @@
       "source_file": "claude/skills/bmad-dev-story/workflow.md",
       "source_location": "L39",
       "id": "bmad_dev_story_workflow_execution",
-      "community": 179,
+      "community": 180,
       "norm_label": "execution"
     },
     {
@@ -27639,17 +27495,17 @@
       "source_file": "claude/skills/bmad-dev-story/workflow.md",
       "source_location": "L453",
       "id": "bmad_dev_story_workflow_aieye_live",
-      "community": 179,
+      "community": 180,
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-dev-story\" > \"$HOME/.cursor/aieye-live-pending-sk)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-dev-story/workflow.md",
       "source_location": "L457",
       "id": "bmad_dev_story_workflow_codeblock_1",
-      "community": 179,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "community": 180,
+      "norm_label": "code:bash (echo \"bmad-dev-story\" > \"$home/.cursor/aieye-live-pending-sk)"
     },
     {
       "label": "checklist.md",
@@ -27657,7 +27513,7 @@
       "source_file": "cursor/skills/bmad-dev-story/checklist.md",
       "source_location": "L1",
       "id": "cursor_skills_bmad_dev_story_checklist_md",
-      "community": 180,
+      "community": 181,
       "norm_label": "checklist.md"
     },
     {
@@ -27666,7 +27522,7 @@
       "source_file": "claude/skills/bmad-dev-story/checklist.md",
       "source_location": "L20",
       "id": "bmad_dev_story_checklist_definition_of_done_checklist",
-      "community": 180,
+      "community": 181,
       "norm_label": "definition of done checklist"
     },
     {
@@ -27675,7 +27531,7 @@
       "source_file": "claude/skills/bmad-dev-story/checklist.md",
       "source_location": "L24",
       "id": "bmad_dev_story_checklist_context_requirements",
-      "community": 180,
+      "community": 181,
       "norm_label": "context & requirements"
     },
     {
@@ -27684,7 +27540,7 @@
       "source_file": "claude/skills/bmad-dev-story/checklist.md",
       "source_location": "L30",
       "id": "bmad_dev_story_checklist_implementation",
-      "community": 180,
+      "community": 181,
       "norm_label": "implementation"
     },
     {
@@ -27693,7 +27549,7 @@
       "source_file": "claude/skills/bmad-dev-story/checklist.md",
       "source_location": "L36",
       "id": "bmad_dev_story_checklist_testing",
-      "community": 180,
+      "community": 181,
       "norm_label": "testing"
     },
     {
@@ -27702,7 +27558,7 @@
       "source_file": "claude/skills/bmad-dev-story/checklist.md",
       "source_location": "L44",
       "id": "bmad_dev_story_checklist_documentation",
-      "community": 180,
+      "community": 181,
       "norm_label": "documentation"
     },
     {
@@ -27711,7 +27567,7 @@
       "source_file": "claude/skills/bmad-dev-story/checklist.md",
       "source_location": "L51",
       "id": "bmad_dev_story_checklist_ai_tracking",
-      "community": 180,
+      "community": 181,
       "norm_label": "ai tracking"
     },
     {
@@ -27720,7 +27576,7 @@
       "source_file": "claude/skills/bmad-dev-story/checklist.md",
       "source_location": "L55",
       "id": "bmad_dev_story_checklist_final_status",
-      "community": 180,
+      "community": 181,
       "norm_label": "final status"
     },
     {
@@ -27729,7 +27585,7 @@
       "source_file": "claude/skills/bmad-dev-story/checklist.md",
       "source_location": "L60",
       "id": "bmad_dev_story_checklist_output",
-      "community": 180,
+      "community": 181,
       "norm_label": "output"
     },
     {
@@ -28008,7 +27864,7 @@
       "source_file": "cursor/skills/bmad-brainstorming/workflow.md",
       "source_location": "L1",
       "id": "cursor_skills_bmad_brainstorming_workflow_md",
-      "community": 181,
+      "community": 182,
       "norm_label": "workflow.md"
     },
     {
@@ -28017,7 +27873,7 @@
       "source_file": "claude/skills/bmad-brainstorming/workflow.md",
       "source_location": "L5",
       "id": "bmad_brainstorming_workflow_brainstorming_session_workflow",
-      "community": 181,
+      "community": 182,
       "norm_label": "brainstorming session workflow"
     },
     {
@@ -28026,7 +27882,7 @@
       "source_file": "claude/skills/bmad-brainstorming/workflow.md",
       "source_location": "L19",
       "id": "bmad_brainstorming_workflow_workflow_architecture",
-      "community": 181,
+      "community": 182,
       "norm_label": "workflow architecture"
     },
     {
@@ -28035,7 +27891,7 @@
       "source_file": "claude/skills/bmad-brainstorming/workflow.md",
       "source_location": "L31",
       "id": "bmad_brainstorming_workflow_initialization",
-      "community": 181,
+      "community": 182,
       "norm_label": "initialization"
     },
     {
@@ -28044,7 +27900,7 @@
       "source_file": "claude/skills/bmad-brainstorming/workflow.md",
       "source_location": "L33",
       "id": "bmad_brainstorming_workflow_configuration_loading",
-      "community": 181,
+      "community": 182,
       "norm_label": "configuration loading"
     },
     {
@@ -28053,7 +27909,7 @@
       "source_file": "claude/skills/bmad-brainstorming/workflow.md",
       "source_location": "L41",
       "id": "bmad_brainstorming_workflow_paths",
-      "community": 181,
+      "community": 182,
       "norm_label": "paths"
     },
     {
@@ -28062,7 +27918,7 @@
       "source_file": "claude/skills/bmad-brainstorming/workflow.md",
       "source_location": "L49",
       "id": "bmad_brainstorming_workflow_execution",
-      "community": 181,
+      "community": 182,
       "norm_label": "execution"
     },
     {
@@ -28071,17 +27927,17 @@
       "source_file": "claude/skills/bmad-brainstorming/workflow.md",
       "source_location": "L55",
       "id": "bmad_brainstorming_workflow_aieye_live",
-      "community": 181,
+      "community": 182,
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-brainstorming\" > \"$HOME/.cursor/aieye-live-pendin)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-brainstorming/workflow.md",
       "source_location": "L59",
       "id": "bmad_brainstorming_workflow_codeblock_1",
-      "community": 181,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "community": 182,
+      "norm_label": "code:bash (echo \"bmad-brainstorming\" > \"$home/.cursor/aieye-live-pendin)"
     },
     {
       "label": "SKILL.md",
@@ -29790,7 +29646,7 @@
       "source_file": "cursor/skills/dontbmad-claude-design-to-bmad-uiux/workflow.md",
       "source_location": "L1",
       "id": "cursor_skills_dontbmad_claude_design_to_bmad_uiux_workflow_md",
-      "community": 182,
+      "community": 183,
       "norm_label": "workflow.md"
     },
     {
@@ -29799,7 +29655,7 @@
       "source_file": "claude/skills/dontbmad-claude-design-to-bmad-uiux/workflow.md",
       "source_location": "L1",
       "id": "dontbmad_claude_design_to_bmad_uiux_workflow_dontbmad_claude_design_to_bmad_uiux_workflow",
-      "community": 182,
+      "community": 183,
       "norm_label": "dontbmad-claude-design-to-bmad-uiux workflow"
     },
     {
@@ -29808,7 +29664,7 @@
       "source_file": "claude/skills/dontbmad-claude-design-to-bmad-uiux/workflow.md",
       "source_location": "L5",
       "id": "dontbmad_claude_design_to_bmad_uiux_workflow_1_initialize",
-      "community": 182,
+      "community": 183,
       "norm_label": "1) initialize"
     },
     {
@@ -29817,7 +29673,7 @@
       "source_file": "claude/skills/dontbmad-claude-design-to-bmad-uiux/workflow.md",
       "source_location": "L16",
       "id": "dontbmad_claude_design_to_bmad_uiux_workflow_2_collect_inputs",
-      "community": 182,
+      "community": 183,
       "norm_label": "2) collect inputs"
     },
     {
@@ -29826,7 +29682,7 @@
       "source_file": "claude/skills/dontbmad-claude-design-to-bmad-uiux/workflow.md",
       "source_location": "L30",
       "id": "dontbmad_claude_design_to_bmad_uiux_workflow_3_create_output",
-      "community": 182,
+      "community": 183,
       "norm_label": "3) create output"
     },
     {
@@ -29835,7 +29691,7 @@
       "source_file": "claude/skills/dontbmad-claude-design-to-bmad-uiux/workflow.md",
       "source_location": "L44",
       "id": "dontbmad_claude_design_to_bmad_uiux_workflow_4_quality_checks",
-      "community": 182,
+      "community": 183,
       "norm_label": "4) quality checks"
     },
     {
@@ -29844,7 +29700,7 @@
       "source_file": "claude/skills/dontbmad-claude-design-to-bmad-uiux/workflow.md",
       "source_location": "L53",
       "id": "dontbmad_claude_design_to_bmad_uiux_workflow_5_deliver",
-      "community": 182,
+      "community": 183,
       "norm_label": "5) deliver"
     },
     {
@@ -29853,17 +29709,17 @@
       "source_file": "claude/skills/dontbmad-claude-design-to-bmad-uiux/workflow.md",
       "source_location": "L61",
       "id": "dontbmad_claude_design_to_bmad_uiux_workflow_aieye_live",
-      "community": 182,
+      "community": 183,
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"dontbmad-claude-design-to-bmad-uiux\" > \"$HOME/.cursor/)",
       "file_type": "document",
       "source_file": "claude/skills/dontbmad-claude-design-to-bmad-uiux/workflow.md",
       "source_location": "L65",
       "id": "dontbmad_claude_design_to_bmad_uiux_workflow_codeblock_1",
-      "community": 182,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "community": 183,
+      "norm_label": "code:bash (echo \"dontbmad-claude-design-to-bmad-uiux\" > \"$home/.cursor/)"
     },
     {
       "label": "SKILL.md",
@@ -29880,7 +29736,7 @@
       "source_file": "cursor/skills/bmad-code-review/workflow.md",
       "source_location": "L1",
       "id": "cursor_skills_bmad_code_review_workflow_md",
-      "community": 183,
+      "community": 184,
       "norm_label": "workflow.md"
     },
     {
@@ -29889,7 +29745,7 @@
       "source_file": "claude/skills/bmad-code-review/workflow.md",
       "source_location": "L5",
       "id": "bmad_code_review_workflow_code_review_workflow",
-      "community": 183,
+      "community": 184,
       "norm_label": "code review workflow"
     },
     {
@@ -29898,7 +29754,7 @@
       "source_file": "claude/skills/bmad-code-review/workflow.md",
       "source_location": "L12",
       "id": "bmad_code_review_workflow_workflow_architecture",
-      "community": 183,
+      "community": 184,
       "norm_label": "workflow architecture"
     },
     {
@@ -29907,7 +29763,7 @@
       "source_file": "claude/skills/bmad-code-review/workflow.md",
       "source_location": "L22",
       "id": "bmad_code_review_workflow_step_processing_rules",
-      "community": 183,
+      "community": 184,
       "norm_label": "step processing rules"
     },
     {
@@ -29916,7 +29772,7 @@
       "source_file": "claude/skills/bmad-code-review/workflow.md",
       "source_location": "L30",
       "id": "bmad_code_review_workflow_initialization_sequence",
-      "community": 183,
+      "community": 184,
       "norm_label": "initialization sequence"
     },
     {
@@ -29925,7 +29781,7 @@
       "source_file": "claude/skills/bmad-code-review/workflow.md",
       "source_location": "L32",
       "id": "bmad_code_review_workflow_1_configuration_loading",
-      "community": 183,
+      "community": 184,
       "norm_label": "1. configuration loading"
     },
     {
@@ -29934,7 +29790,7 @@
       "source_file": "claude/skills/bmad-code-review/workflow.md",
       "source_location": "L45",
       "id": "bmad_code_review_workflow_2_first_step_execution",
-      "community": 183,
+      "community": 184,
       "norm_label": "2. first step execution"
     },
     {
@@ -29943,17 +29799,17 @@
       "source_file": "claude/skills/bmad-code-review/workflow.md",
       "source_location": "L49",
       "id": "bmad_code_review_workflow_aieye_live",
-      "community": 183,
+      "community": 184,
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-code-review\" > \"$HOME/.cursor/aieye-live-pending-)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-code-review/workflow.md",
       "source_location": "L53",
       "id": "bmad_code_review_workflow_codeblock_1",
-      "community": 183,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "community": 184,
+      "norm_label": "code:bash (echo \"bmad-code-review\" > \"$home/.cursor/aieye-live-pending-)"
     },
     {
       "label": "SKILL.md",
@@ -30298,13 +30154,13 @@
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-validate-prd\" > \"$HOME/.cursor/aieye-live-pending)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-validate-prd/workflow.md",
       "source_location": "L44",
       "id": "bmad_validate_prd_workflow_codeblock_1",
       "community": 232,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"bmad-validate-prd\" > \"$home/.cursor/aieye-live-pending)"
     },
     {
       "label": "SKILL.md",
@@ -33070,13 +32926,13 @@
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-create-epics-and-stories\" > \"$HOME/.cursor/aieye-)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-create-epics-and-stories/workflow.md",
       "source_location": "L34",
       "id": "bmad_create_epics_and_stories_workflow_codeblock_1",
       "community": 233,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"bmad-create-epics-and-stories\" > \"$home/.cursor/aieye-)"
     },
     {
       "label": "SKILL.md",
@@ -34326,7 +34182,7 @@
       "source_file": "cursor/skills/bmad-agent-dev/SKILL.md",
       "source_location": "L1",
       "id": "cursor_skills_bmad_agent_dev_skill_md",
-      "community": 184,
+      "community": 185,
       "norm_label": "skill.md"
     },
     {
@@ -34335,7 +34191,7 @@
       "source_file": "claude/skills/bmad-agent-dev/SKILL.md",
       "source_location": "L6",
       "id": "bmad_agent_dev_skill_deepika",
-      "community": 184,
+      "community": 185,
       "norm_label": "deepika"
     },
     {
@@ -34344,7 +34200,7 @@
       "source_file": "claude/skills/bmad-agent-dev/SKILL.md",
       "source_location": "L8",
       "id": "bmad_agent_dev_skill_overview",
-      "community": 184,
+      "community": 185,
       "norm_label": "overview"
     },
     {
@@ -34353,7 +34209,7 @@
       "source_file": "claude/skills/bmad-agent-dev/SKILL.md",
       "source_location": "L12",
       "id": "bmad_agent_dev_skill_identity",
-      "community": 184,
+      "community": 185,
       "norm_label": "identity"
     },
     {
@@ -34362,7 +34218,7 @@
       "source_file": "claude/skills/bmad-agent-dev/SKILL.md",
       "source_location": "L16",
       "id": "bmad_agent_dev_skill_communication_style",
-      "community": 184,
+      "community": 185,
       "norm_label": "communication style"
     },
     {
@@ -34371,7 +34227,7 @@
       "source_file": "claude/skills/bmad-agent-dev/SKILL.md",
       "source_location": "L20",
       "id": "bmad_agent_dev_skill_principles",
-      "community": 184,
+      "community": 185,
       "norm_label": "principles"
     },
     {
@@ -34380,7 +34236,7 @@
       "source_file": "claude/skills/bmad-agent-dev/SKILL.md",
       "source_location": "L25",
       "id": "bmad_agent_dev_skill_critical_actions",
-      "community": 184,
+      "community": 185,
       "norm_label": "critical actions"
     },
     {
@@ -34389,7 +34245,7 @@
       "source_file": "claude/skills/bmad-agent-dev/SKILL.md",
       "source_location": "L40",
       "id": "bmad_agent_dev_skill_capabilities",
-      "community": 184,
+      "community": 185,
       "norm_label": "capabilities"
     },
     {
@@ -34398,7 +34254,7 @@
       "source_file": "claude/skills/bmad-agent-dev/SKILL.md",
       "source_location": "L52",
       "id": "bmad_agent_dev_skill_on_activation",
-      "community": 184,
+      "community": 185,
       "norm_label": "on activation"
     },
     {
@@ -34447,13 +34303,13 @@
       "norm_label": "aieye live"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"bmad-generate-project-context\" > \"$HOME/.cursor/aieye-)",
       "file_type": "document",
       "source_file": "claude/skills/bmad-generate-project-context/workflow.md",
       "source_location": "L45",
       "id": "bmad_generate_project_context_workflow_codeblock_1",
       "community": 234,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"bmad-generate-project-context\" > \"$home/.cursor/aieye-)"
     },
     {
       "label": "SKILL.md",
@@ -35604,7 +35460,7 @@
       "source_file": "claude/skills/bmad-quick-dev/spec-template.md",
       "source_location": "L1",
       "id": "claude_skills_bmad_quick_dev_spec_template_md",
-      "community": 185,
+      "community": 174,
       "norm_label": "spec-template.md"
     },
     {
@@ -35838,7 +35694,7 @@
       "source_file": "claude/skills/bmad-market-research/workflow.md",
       "source_location": "L1",
       "id": "claude_skills_bmad_market_research_workflow_md",
-      "community": 174,
+      "community": 175,
       "norm_label": "workflow.md"
     },
     {
@@ -36337,94 +36193,13 @@
       "norm_label": "step 0.5: load auto-sprint config"
     },
     {
-      "label": "Step 3.5: Auto-fix (only when `{auto_fix_enabled}` is `true`)",
+      "label": "code:bash (echo \"dontbmad-auto-sprint\" > \"$HOME/.cursor/aieye-live-pend)",
       "file_type": "document",
       "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L236",
-      "id": "dontbmad_auto_sprint_workflow_step_3_5_auto_fix_only_when_auto_fix_enabled_is_true",
+      "source_location": "L143",
+      "id": "dontbmad_auto_sprint_workflow_codeblock_5",
       "community": 1,
-      "norm_label": "step 3.5: auto-fix (only when `{auto_fix_enabled}` is `true`)"
-    },
-    {
-      "label": "Step 5: Commit implementation phase",
-      "file_type": "document",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L330",
-      "id": "dontbmad_auto_sprint_workflow_step_5_commit_implementation_phase",
-      "community": 1,
-      "norm_label": "step 5: commit implementation phase"
-    },
-    {
-      "label": "Step 6: Commit test evidence",
-      "file_type": "document",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L347",
-      "id": "dontbmad_auto_sprint_workflow_step_6_commit_test_evidence",
-      "community": 1,
-      "norm_label": "step 6: commit test evidence"
-    },
-    {
-      "label": "code:block13 (test: verify story <id> implementation)",
-      "file_type": "document",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L355",
-      "id": "dontbmad_auto_sprint_workflow_codeblock_13",
-      "community": 1,
-      "norm_label": "code:block13 (test: verify story <id> implementation)"
-    },
-    {
-      "label": "Step 7: Commit review evidence",
-      "file_type": "document",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L363",
-      "id": "dontbmad_auto_sprint_workflow_step_7_commit_review_evidence",
-      "community": 1,
-      "norm_label": "step 7: commit review evidence"
-    },
-    {
-      "label": "code:block14 (chore: record review for story <id>)",
-      "file_type": "document",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L371",
-      "id": "dontbmad_auto_sprint_workflow_codeblock_14",
-      "community": 1,
-      "norm_label": "code:block14 (chore: record review for story <id>)"
-    },
-    {
-      "label": "Step 8: Update sprint status",
-      "file_type": "document",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L379",
-      "id": "dontbmad_auto_sprint_workflow_step_8_update_sprint_status",
-      "community": 1,
-      "norm_label": "step 8: update sprint status"
-    },
-    {
-      "label": "code:block15 (chore: mark story <id> done in sprint status)",
-      "file_type": "document",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L385",
-      "id": "dontbmad_auto_sprint_workflow_codeblock_15",
-      "community": 1,
-      "norm_label": "code:block15 (chore: mark story <id> done in sprint status)"
-    },
-    {
-      "label": "Step 9: Loop or stop",
-      "file_type": "document",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L393",
-      "id": "dontbmad_auto_sprint_workflow_step_9_loop_or_stop",
-      "community": 1,
-      "norm_label": "step 9: loop or stop"
-    },
-    {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
-      "file_type": "document",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L418",
-      "id": "dontbmad_auto_sprint_workflow_codeblock_16",
-      "community": 1,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"dontbmad-auto-sprint\" > \"$home/.cursor/aieye-live-pend)"
     },
     {
       "label": "SKILL.md",
@@ -36495,7 +36270,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/verdict.md",
       "source_location": "L1",
       "id": "claude_skills_bmad_prfaq_references_verdict_md",
-      "community": 175,
+      "community": 176,
       "norm_label": "verdict.md"
     },
     {
@@ -36513,7 +36288,7 @@
       "source_file": "claude/skills/bmad-prfaq/references/press-release.md",
       "source_location": "L1",
       "id": "claude_skills_bmad_prfaq_references_press_release_md",
-      "community": 176,
+      "community": 177,
       "norm_label": "press-release.md"
     },
     {
@@ -36855,7 +36630,7 @@
       "source_file": "claude/skills/dontbmad-ai-tracking/SKILL.md",
       "source_location": "L1",
       "id": "claude_skills_dontbmad_ai_tracking_skill_md",
-      "community": 177,
+      "community": 178,
       "norm_label": "skill.md"
     },
     {
@@ -36927,7 +36702,7 @@
       "source_file": "claude/skills/bmad-editorial-review-prose/SKILL.md",
       "source_location": "L1",
       "id": "claude_skills_bmad_editorial_review_prose_skill_md",
-      "community": 178,
+      "community": 179,
       "norm_label": "skill.md"
     },
     {
@@ -37098,7 +36873,7 @@
       "source_file": "claude/skills/bmad-dev-story/workflow.md",
       "source_location": "L1",
       "id": "claude_skills_bmad_dev_story_workflow_md",
-      "community": 179,
+      "community": 180,
       "norm_label": "workflow.md"
     },
     {
@@ -37107,7 +36882,7 @@
       "source_file": "claude/skills/bmad-dev-story/checklist.md",
       "source_location": "L1",
       "id": "claude_skills_bmad_dev_story_checklist_md",
-      "community": 180,
+      "community": 181,
       "norm_label": "checklist.md"
     },
     {
@@ -37161,7 +36936,7 @@
       "source_file": "claude/skills/bmad-brainstorming/workflow.md",
       "source_location": "L1",
       "id": "claude_skills_bmad_brainstorming_workflow_md",
-      "community": 181,
+      "community": 182,
       "norm_label": "workflow.md"
     },
     {
@@ -37260,7 +37035,7 @@
       "source_file": "claude/skills/dontbmad-claude-design-to-bmad-uiux/workflow.md",
       "source_location": "L1",
       "id": "claude_skills_dontbmad_claude_design_to_bmad_uiux_workflow_md",
-      "community": 182,
+      "community": 183,
       "norm_label": "workflow.md"
     },
     {
@@ -37278,7 +37053,7 @@
       "source_file": "claude/skills/bmad-code-review/workflow.md",
       "source_location": "L1",
       "id": "claude_skills_bmad_code_review_workflow_md",
-      "community": 183,
+      "community": 184,
       "norm_label": "workflow.md"
     },
     {
@@ -37584,7 +37359,7 @@
       "source_file": "claude/skills/bmad-agent-dev/SKILL.md",
       "source_location": "L1",
       "id": "claude_skills_bmad_agent_dev_skill_md",
-      "community": 184,
+      "community": 185,
       "norm_label": "skill.md"
     },
     {
@@ -39042,7 +38817,7 @@
       "source_file": "docs/project-knowledge/test-suite-prd.md",
       "source_location": "L12",
       "id": "project_knowledge_test_suite_prd_1_problem_motivation",
-      "community": 258,
+      "community": 257,
       "norm_label": "1. problem & motivation"
     },
     {
@@ -39051,7 +38826,7 @@
       "source_file": "docs/project-knowledge/test-suite-prd.md",
       "source_location": "L21",
       "id": "project_knowledge_test_suite_prd_primary_trailer_pipeline_integrity_across_project_topologies",
-      "community": 258,
+      "community": 257,
       "norm_label": "primary: trailer pipeline integrity across project topologies"
     },
     {
@@ -39060,7 +38835,7 @@
       "source_file": "docs/project-knowledge/test-suite-prd.md",
       "source_location": "L38",
       "id": "project_knowledge_test_suite_prd_secondary_fork_enhancement_integrity_graphify_caveman",
-      "community": 258,
+      "community": 257,
       "norm_label": "secondary: fork enhancement integrity (graphify + caveman)"
     },
     {
@@ -39069,7 +38844,7 @@
       "source_file": "docs/project-knowledge/test-suite-prd.md",
       "source_location": "L48",
       "id": "project_knowledge_test_suite_prd_tertiary_install_sh_general_surface_skill_validation_shellcheck",
-      "community": 258,
+      "community": 257,
       "norm_label": "tertiary: install.sh general surface, skill validation, shellcheck"
     },
     {
@@ -39096,7 +38871,7 @@
       "source_file": "docs/project-knowledge/test-suite-prd.md",
       "source_location": "L74",
       "id": "project_knowledge_test_suite_prd_4_user_journeys",
-      "community": 257,
+      "community": 258,
       "norm_label": "4. user journeys"
     },
     {
@@ -39105,7 +38880,7 @@
       "source_file": "docs/project-knowledge/test-suite-prd.md",
       "source_location": "L76",
       "id": "project_knowledge_test_suite_prd_j1_contributor_opens_a_pr",
-      "community": 257,
+      "community": 258,
       "norm_label": "j1: contributor opens a pr"
     },
     {
@@ -39114,7 +38889,7 @@
       "source_file": "docs/project-knowledge/test-suite-prd.md",
       "source_location": "L83",
       "id": "project_knowledge_test_suite_prd_j2_developer_iterates_locally",
-      "community": 257,
+      "community": 258,
       "norm_label": "j2: developer iterates locally"
     },
     {
@@ -39123,7 +38898,7 @@
       "source_file": "docs/project-knowledge/test-suite-prd.md",
       "source_location": "L89",
       "id": "project_knowledge_test_suite_prd_j3_reviewer_audits_a_regression",
-      "community": 257,
+      "community": 258,
       "norm_label": "j3: reviewer audits a regression"
     },
     {
@@ -40297,73 +40072,19 @@
       "norm_label": "code:bash (~/.claude/hooks/aieye-live/bin/aieye-live-hook --check-deps)"
     },
     {
-      "label": "Installation",
+      "label": "code:bash (echo \"bmad-create-prd\" > \"$HOME/.cursor/aieye-live-pending-s)",
       "file_type": "document",
       "source_file": "hooks/post-skill/README.md",
       "source_location": "L25",
-      "id": "post_skill_readme_installation",
-      "community": 132,
-      "norm_label": "installation"
-    },
-    {
-      "label": "code:bash (npm install -g /path/to/live-hook)",
-      "file_type": "document",
-      "source_file": "hooks/post-skill/README.md",
-      "source_location": "L27",
       "id": "post_skill_readme_codeblock_2",
       "community": 132,
-      "norm_label": "code:bash (npm install -g /path/to/live-hook)"
-    },
-    {
-      "label": "Configuration",
-      "file_type": "document",
-      "source_file": "hooks/post-skill/README.md",
-      "source_location": "L35",
-      "id": "post_skill_readme_configuration",
-      "community": 132,
-      "norm_label": "configuration"
-    },
-    {
-      "label": "code:bash (touch ~/.claude/aieye-live.env)",
-      "file_type": "document",
-      "source_file": "hooks/post-skill/README.md",
-      "source_location": "L39",
-      "id": "post_skill_readme_codeblock_3",
-      "community": 132,
-      "norm_label": "code:bash (touch ~/.claude/aieye-live.env)"
-    },
-    {
-      "label": "code:block4 (AIEYE_LIVE_ACTOR=Your Name)",
-      "file_type": "document",
-      "source_file": "hooks/post-skill/README.md",
-      "source_location": "L48",
-      "id": "post_skill_readme_codeblock_4",
-      "community": 132,
-      "norm_label": "code:block4 (aieye_live_actor=your name)"
-    },
-    {
-      "label": "Workflows and optional editor hooks",
-      "file_type": "document",
-      "source_file": "hooks/post-skill/README.md",
-      "source_location": "L66",
-      "id": "post_skill_readme_workflows_and_optional_editor_hooks",
-      "community": 132,
-      "norm_label": "workflows and optional editor hooks"
-    },
-    {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
-      "file_type": "document",
-      "source_file": "hooks/post-skill/README.md",
-      "source_location": "L70",
-      "id": "post_skill_readme_codeblock_5",
-      "community": 132,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"bmad-create-prd\" > \"$home/.cursor/aieye-live-pending-s)"
     },
     {
       "label": "Supported skills",
       "file_type": "document",
       "source_file": "hooks/post-skill/README.md",
-      "source_location": "L85",
+      "source_location": "L38",
       "id": "post_skill_readme_supported_skills",
       "community": 132,
       "norm_label": "supported skills"
@@ -40372,7 +40093,7 @@
       "label": "Safety guarantees",
       "file_type": "document",
       "source_file": "hooks/post-skill/README.md",
-      "source_location": "L96",
+      "source_location": "L49",
       "id": "post_skill_readme_safety_guarantees",
       "community": 132,
       "norm_label": "safety guarantees"
@@ -40381,7 +40102,7 @@
       "label": "Running tests",
       "file_type": "document",
       "source_file": "hooks/post-skill/README.md",
-      "source_location": "L103",
+      "source_location": "L56",
       "id": "post_skill_readme_running_tests",
       "community": 132,
       "norm_label": "running tests"
@@ -40390,8 +40111,8 @@
       "label": "code:bash (cd live-hook)",
       "file_type": "document",
       "source_file": "hooks/post-skill/README.md",
-      "source_location": "L105",
-      "id": "post_skill_readme_codeblock_6",
+      "source_location": "L58",
+      "id": "post_skill_readme_codeblock_3",
       "community": 132,
       "norm_label": "code:bash (cd live-hook)"
     },
@@ -40441,19 +40162,19 @@
       "norm_label": "aieye live \u2014 workflow completion"
     },
     {
-      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "label": "code:bash (echo \"<skill-name>\" > \"$HOME/.cursor/aieye-live-pending-skil)",
       "file_type": "document",
       "source_file": "templates/dontbmad-aieye-live.md",
       "source_location": "L7",
       "id": "templates_dontbmad_aieye_live_codeblock_1",
       "community": 249,
-      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)"
+      "norm_label": "code:bash (echo \"<skill-name>\" > \"$home/.cursor/aieye-live-pending-skil)"
     },
     {
       "label": "Behaviour",
       "file_type": "document",
       "source_file": "templates/dontbmad-aieye-live.md",
-      "source_location": "L19",
+      "source_location": "L17",
       "id": "templates_dontbmad_aieye_live_behaviour",
       "community": 249,
       "norm_label": "behaviour"
@@ -40462,7 +40183,7 @@
       "label": "Setup",
       "file_type": "document",
       "source_file": "templates/dontbmad-aieye-live.md",
-      "source_location": "L26",
+      "source_location": "L24",
       "id": "templates_dontbmad_aieye_live_setup",
       "community": 249,
       "norm_label": "setup"
@@ -40682,6 +40403,303 @@
       "id": "templates_dontbmad_caveman_activate_boundaries",
       "community": 235,
       "norm_label": "boundaries"
+    },
+    {
+      "label": "Step 2: Implementation (fresh agent, `{model_impl}`)",
+      "file_type": "document",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L154",
+      "community": 1,
+      "norm_label": "step 2: implementation (fresh agent, `{model_impl}`)",
+      "id": "dontbmad_auto_sprint_workflow_step_2_implementation_fresh_agent_model_impl"
+    },
+    {
+      "label": "Step 3: Test verification (inline Bash, no subagent)",
+      "file_type": "document",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L199",
+      "community": 1,
+      "norm_label": "step 3: test verification (inline bash, no subagent)",
+      "id": "dontbmad_auto_sprint_workflow_step_3_test_verification_inline_bash_no_subagent"
+    },
+    {
+      "label": "code:block6 (Implement story <id> for the project at <project-root>.)",
+      "file_type": "document",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L162",
+      "community": 1,
+      "norm_label": "code:block6 (implement story <id> for the project at <project-root>.)",
+      "id": "dontbmad_auto_sprint_workflow_codeblock_6"
+    },
+    {
+      "label": "code:bash ({tc_cmd} 2>&1 | tail -30)",
+      "file_type": "document",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L211",
+      "community": 1,
+      "norm_label": "code:bash ({tc_cmd} 2>&1 | tail -30)",
+      "id": "dontbmad_auto_sprint_workflow_codeblock_7"
+    },
+    {
+      "label": "Step 3.5: Auto-fix test failures (only when `{auto_fix_enabled}` is `true`)",
+      "file_type": "document",
+      "source_file": "cursor/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L196",
+      "community": 1,
+      "norm_label": "step 3.5: auto-fix test failures (only when `{auto_fix_enabled}` is `true`)",
+      "id": "dontbmad_auto_sprint_workflow_step_3_5_auto_fix_test_failures_only_when_auto_fix_enabled_is_true"
+    },
+    {
+      "label": "code:bash ({test_cmd} 2>&1 | tail -40)",
+      "file_type": "document",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L215",
+      "community": 1,
+      "norm_label": "code:bash ({test_cmd} 2>&1 | tail -40)",
+      "id": "dontbmad_auto_sprint_workflow_codeblock_8"
+    },
+    {
+      "label": "Step 4: Review (fresh agent, `{model_review}`)",
+      "file_type": "document",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L268",
+      "community": 1,
+      "norm_label": "step 4: review (fresh agent, `{model_review}`)",
+      "id": "dontbmad_auto_sprint_workflow_step_4_review_fresh_agent_model_review"
+    },
+    {
+      "label": "code:block9 (Fix test/typecheck failures in <project-root> for story <id>)",
+      "file_type": "document",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L246",
+      "community": 1,
+      "norm_label": "code:block9 (fix test/typecheck failures in <project-root> for story <id>)",
+      "id": "dontbmad_auto_sprint_workflow_codeblock_9"
+    },
+    {
+      "label": "Step 4.5: Auto-fix review blockers (only when `{auto_fix_enabled}` is `true`)",
+      "file_type": "document",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L299",
+      "community": 1,
+      "norm_label": "step 4.5: auto-fix review blockers (only when `{auto_fix_enabled}` is `true`)",
+      "id": "dontbmad_auto_sprint_workflow_step_4_5_auto_fix_review_blockers_only_when_auto_fix_enabled_is_true"
+    },
+    {
+      "label": "code:block10 (Review staged + unstaged changes in <project-root> for story)",
+      "file_type": "document",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L276",
+      "community": 1,
+      "norm_label": "code:block10 (review staged + unstaged changes in <project-root> for story)",
+      "id": "dontbmad_auto_sprint_workflow_codeblock_10"
+    },
+    {
+      "label": "Step 5: Commit",
+      "file_type": "document",
+      "source_file": "cursor/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L280",
+      "community": 1,
+      "norm_label": "step 5: commit",
+      "id": "dontbmad_auto_sprint_workflow_step_5_commit"
+    },
+    {
+      "label": "code:block11 (Fix the code review blockers listed below for story <id> in )",
+      "file_type": "document",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L309",
+      "community": 1,
+      "norm_label": "code:block11 (fix the code review blockers listed below for story <id> in )",
+      "id": "dontbmad_auto_sprint_workflow_codeblock_11"
+    },
+    {
+      "label": "Step 6: Update sprint status",
+      "file_type": "document",
+      "source_file": "cursor/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L294",
+      "community": 1,
+      "norm_label": "step 6: update sprint status",
+      "id": "dontbmad_auto_sprint_workflow_step_6_update_sprint_status"
+    },
+    {
+      "label": "Step 7: Loop or stop",
+      "file_type": "document",
+      "source_file": "cursor/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L298",
+      "community": 1,
+      "norm_label": "step 7: loop or stop",
+      "id": "dontbmad_auto_sprint_workflow_step_7_loop_or_stop"
+    },
+    {
+      "label": "Notes",
+      "file_type": "document",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L399",
+      "community": 1,
+      "norm_label": "notes",
+      "id": "dontbmad_auto_sprint_workflow_notes"
+    },
+    {
+      "label": "AIEye Live",
+      "file_type": "document",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L414",
+      "community": 1,
+      "norm_label": "aieye live",
+      "id": "dontbmad_auto_sprint_workflow_aieye_live"
+    },
+    {
+      "label": "code:block12 (feat: implement story <id> <short-title>)",
+      "file_type": "document",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L339",
+      "community": 1,
+      "norm_label": "code:block12 (feat: implement story <id> <short-title>)",
+      "id": "dontbmad_auto_sprint_workflow_codeblock_12"
+    },
+    {
+      "label": "Step 3.5: Auto-fix (only when `{auto_fix_enabled}` is `true`)",
+      "file_type": "document",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L236",
+      "community": 1,
+      "norm_label": "step 3.5: auto-fix (only when `{auto_fix_enabled}` is `true`)",
+      "id": "dontbmad_auto_sprint_workflow_step_3_5_auto_fix_only_when_auto_fix_enabled_is_true"
+    },
+    {
+      "label": "Step 5: Commit implementation phase",
+      "file_type": "document",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L330",
+      "community": 1,
+      "norm_label": "step 5: commit implementation phase",
+      "id": "dontbmad_auto_sprint_workflow_step_5_commit_implementation_phase"
+    },
+    {
+      "label": "Step 6: Commit test evidence",
+      "file_type": "document",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L347",
+      "community": 1,
+      "norm_label": "step 6: commit test evidence",
+      "id": "dontbmad_auto_sprint_workflow_step_6_commit_test_evidence"
+    },
+    {
+      "label": "code:block13 (test: verify story <id> implementation)",
+      "file_type": "document",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L355",
+      "community": 1,
+      "norm_label": "code:block13 (test: verify story <id> implementation)",
+      "id": "dontbmad_auto_sprint_workflow_codeblock_13"
+    },
+    {
+      "label": "Step 7: Commit review evidence",
+      "file_type": "document",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L363",
+      "community": 1,
+      "norm_label": "step 7: commit review evidence",
+      "id": "dontbmad_auto_sprint_workflow_step_7_commit_review_evidence"
+    },
+    {
+      "label": "code:block14 (chore: record review for story <id>)",
+      "file_type": "document",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L371",
+      "community": 1,
+      "norm_label": "code:block14 (chore: record review for story <id>)",
+      "id": "dontbmad_auto_sprint_workflow_codeblock_14"
+    },
+    {
+      "label": "Step 8: Update sprint status",
+      "file_type": "document",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L379",
+      "community": 1,
+      "norm_label": "step 8: update sprint status",
+      "id": "dontbmad_auto_sprint_workflow_step_8_update_sprint_status"
+    },
+    {
+      "label": "code:block15 (chore: mark story <id> done in sprint status)",
+      "file_type": "document",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L385",
+      "community": 1,
+      "norm_label": "code:block15 (chore: mark story <id> done in sprint status)",
+      "id": "dontbmad_auto_sprint_workflow_codeblock_15"
+    },
+    {
+      "label": "Step 9: Loop or stop",
+      "file_type": "document",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L393",
+      "community": 1,
+      "norm_label": "step 9: loop or stop",
+      "id": "dontbmad_auto_sprint_workflow_step_9_loop_or_stop"
+    },
+    {
+      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "file_type": "document",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L418",
+      "community": 1,
+      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "id": "dontbmad_auto_sprint_workflow_codeblock_16"
+    },
+    {
+      "label": "Installation",
+      "file_type": "document",
+      "source_file": "hooks/post-skill/README.md",
+      "source_location": "L25",
+      "community": 132,
+      "norm_label": "installation",
+      "id": "post_skill_readme_installation"
+    },
+    {
+      "label": "Configuration",
+      "file_type": "document",
+      "source_file": "hooks/post-skill/README.md",
+      "source_location": "L35",
+      "community": 132,
+      "norm_label": "configuration",
+      "id": "post_skill_readme_configuration"
+    },
+    {
+      "label": "code:block4 (AIEYE_LIVE_ACTOR=Your Name)",
+      "file_type": "document",
+      "source_file": "hooks/post-skill/README.md",
+      "source_location": "L48",
+      "community": 132,
+      "norm_label": "code:block4 (aieye_live_actor=your name)",
+      "id": "post_skill_readme_codeblock_4"
+    },
+    {
+      "label": "Workflows and optional editor hooks",
+      "file_type": "document",
+      "source_file": "hooks/post-skill/README.md",
+      "source_location": "L66",
+      "community": 132,
+      "norm_label": "workflows and optional editor hooks",
+      "id": "post_skill_readme_workflows_and_optional_editor_hooks"
+    },
+    {
+      "label": "code:bash (AIEYE_HOOK=\"$HOME/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "file_type": "document",
+      "source_file": "hooks/post-skill/README.md",
+      "source_location": "L70",
+      "community": 132,
+      "norm_label": "code:bash (aieye_hook=\"$home/.claude/hooks/aieye-live/bin/aieye-live-ho)",
+      "id": "post_skill_readme_codeblock_5"
+    },
+    {
+      "label": "code:bash (cd live-hook)",
+      "file_type": "document",
+      "source_file": "hooks/post-skill/README.md",
+      "source_location": "L105",
+      "community": 132,
+      "norm_label": "code:bash (cd live-hook)",
+      "id": "post_skill_readme_codeblock_6"
     }
   ],
   "links": [
@@ -41374,6 +41392,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "hooks/post-skill/lib/dispatch.js",
+      "source_location": "L97",
+      "weight": 1.0,
+      "source": "hooks_post_skill_lib_dispatch_js",
+      "target": "lib_dispatch_pending_skill_file",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L69",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -41544,6 +41572,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "hooks/post-skill/lib/dispatch.js",
+      "source_location": "L573",
+      "weight": 1.0,
+      "source": "hooks_post_skill_lib_dispatch_js",
+      "target": "lib_dispatch_readandconsumependingskillfile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L510",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -41647,6 +41685,17 @@
       "confidence_score": 1.0,
       "source": "lib_dispatch_flushqueue",
       "target": "lib_dispatch_persisthooklog"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "hooks/post-skill/lib/dispatch.js",
+      "source_location": "L589",
+      "weight": 1.0,
+      "source": "lib_dispatch_readandconsumependingskillfile",
+      "target": "lib_dispatch_persisthooklog",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -41867,6 +41916,17 @@
       "confidence_score": 1.0,
       "source": "lib_dispatch_main",
       "target": "lib_dispatch_readexplicitskillfrominvocation"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "hooks/post-skill/lib/dispatch.js",
+      "source_location": "L645",
+      "weight": 1.0,
+      "source": "lib_dispatch_main",
+      "target": "lib_dispatch_readandconsumependingskillfile",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -61203,6 +61263,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "claude_skills_dontbmad_auto_sprint_workflow_md",
+      "target": "dontbmad_auto_sprint_workflow_dontbmad_auto_sprint_workflow"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
       "source_location": "L399",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -61218,16 +61288,6 @@
       "confidence_score": 1.0,
       "source": "dontbmad_auto_sprint_workflow_dontbmad_auto_sprint_workflow",
       "target": "dontbmad_auto_sprint_workflow_aieye_live"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "claude_skills_dontbmad_auto_sprint_workflow_md",
-      "target": "dontbmad_auto_sprint_workflow_dontbmad_auto_sprint_workflow"
     },
     {
       "relation": "contains",
@@ -61323,6 +61383,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L107",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dontbmad_auto_sprint_workflow_workflow_steps_per_story",
+      "target": "dontbmad_auto_sprint_workflow_step_0_5_load_auto_sprint_config"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
       "source_location": "L154",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -61403,16 +61473,6 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L107",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dontbmad_auto_sprint_workflow_workflow_steps_per_story",
-      "target": "dontbmad_auto_sprint_workflow_step_0_5_load_auto_sprint_config"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
       "source_location": "L236",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -61488,156 +61548,6 @@
       "confidence_score": 1.0,
       "source": "dontbmad_auto_sprint_workflow_step_1_5_graph_context_skip_aggressively",
       "target": "dontbmad_auto_sprint_workflow_codeblock_5"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "cursor/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L143",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dontbmad_auto_sprint_workflow_step_2_implementation_fresh_agent_model_impl",
-      "target": "dontbmad_auto_sprint_workflow_codeblock_5"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L162",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dontbmad_auto_sprint_workflow_step_2_implementation_fresh_agent_model_impl",
-      "target": "dontbmad_auto_sprint_workflow_codeblock_6"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "cursor/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L182",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dontbmad_auto_sprint_workflow_step_3_test_verification_inline_bash_no_subagent",
-      "target": "dontbmad_auto_sprint_workflow_codeblock_6"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L211",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dontbmad_auto_sprint_workflow_step_3_test_verification_inline_bash_no_subagent",
-      "target": "dontbmad_auto_sprint_workflow_codeblock_7"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L215",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dontbmad_auto_sprint_workflow_step_3_test_verification_inline_bash_no_subagent",
-      "target": "dontbmad_auto_sprint_workflow_codeblock_8"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "cursor/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L206",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dontbmad_auto_sprint_workflow_step_3_5_auto_fix_test_failures_only_when_auto_fix_enabled_is_true",
-      "target": "dontbmad_auto_sprint_workflow_codeblock_8"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "cursor/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L236",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dontbmad_auto_sprint_workflow_step_4_review_fresh_agent_model_review",
-      "target": "dontbmad_auto_sprint_workflow_codeblock_9"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L276",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dontbmad_auto_sprint_workflow_step_4_review_fresh_agent_model_review",
-      "target": "dontbmad_auto_sprint_workflow_codeblock_10"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L246",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dontbmad_auto_sprint_workflow_step_3_5_auto_fix_only_when_auto_fix_enabled_is_true",
-      "target": "dontbmad_auto_sprint_workflow_codeblock_9"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "cursor/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L259",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dontbmad_auto_sprint_workflow_step_4_5_auto_fix_review_blockers_only_when_auto_fix_enabled_is_true",
-      "target": "dontbmad_auto_sprint_workflow_codeblock_10"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L309",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dontbmad_auto_sprint_workflow_step_4_5_auto_fix_review_blockers_only_when_auto_fix_enabled_is_true",
-      "target": "dontbmad_auto_sprint_workflow_codeblock_11"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "cursor/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L284",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dontbmad_auto_sprint_workflow_step_5_commit",
-      "target": "dontbmad_auto_sprint_workflow_codeblock_11"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "cursor/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L321",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dontbmad_auto_sprint_workflow_aieye_live",
-      "target": "dontbmad_auto_sprint_workflow_codeblock_12"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L418",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dontbmad_auto_sprint_workflow_aieye_live",
-      "target": "dontbmad_auto_sprint_workflow_codeblock_16"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L339",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dontbmad_auto_sprint_workflow_step_5_commit_implementation_phase",
-      "target": "dontbmad_auto_sprint_workflow_codeblock_12"
     },
     {
       "relation": "contains",
@@ -80632,32 +80542,12 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L355",
+      "source_file": "cursor/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L143",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "dontbmad_auto_sprint_workflow_step_6_commit_test_evidence",
-      "target": "dontbmad_auto_sprint_workflow_codeblock_13"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L371",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dontbmad_auto_sprint_workflow_step_7_commit_review_evidence",
-      "target": "dontbmad_auto_sprint_workflow_codeblock_14"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
-      "source_location": "L385",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dontbmad_auto_sprint_workflow_step_8_update_sprint_status",
-      "target": "dontbmad_auto_sprint_workflow_codeblock_15"
+      "source": "dontbmad_auto_sprint_workflow_step_2_implementation_fresh_agent_model_impl",
+      "target": "dontbmad_auto_sprint_workflow_codeblock_5"
     },
     {
       "relation": "contains",
@@ -83453,36 +83343,6 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "hooks/post-skill/README.md",
-      "source_location": "L26",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "post_skill_readme_aieye_live_hook",
-      "target": "post_skill_readme_installation"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "hooks/post-skill/README.md",
-      "source_location": "L36",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "post_skill_readme_aieye_live_hook",
-      "target": "post_skill_readme_configuration"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "hooks/post-skill/README.md",
-      "source_location": "L67",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "post_skill_readme_aieye_live_hook",
-      "target": "post_skill_readme_workflows_and_optional_editor_hooks"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "hooks/post-skill/README.md",
       "source_location": "L83",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -83513,11 +83373,51 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "hooks/post-skill/README.md",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "post_skill_readme_aieye_live_hook",
+      "target": "post_skill_readme_installation"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "hooks/post-skill/README.md",
+      "source_location": "L36",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "post_skill_readme_aieye_live_hook",
+      "target": "post_skill_readme_configuration"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "hooks/post-skill/README.md",
+      "source_location": "L67",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "post_skill_readme_aieye_live_hook",
+      "target": "post_skill_readme_workflows_and_optional_editor_hooks"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "hooks/post-skill/README.md",
       "source_location": "L17",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "post_skill_readme_system_dependencies",
       "target": "post_skill_readme_codeblock_1"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "hooks/post-skill/README.md",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "post_skill_readme_system_dependencies",
+      "target": "post_skill_readme_codeblock_2",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -83533,31 +83433,11 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "hooks/post-skill/README.md",
-      "source_location": "L40",
+      "source_location": "L58",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "post_skill_readme_configuration",
-      "target": "post_skill_readme_codeblock_3"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "hooks/post-skill/README.md",
-      "source_location": "L49",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "post_skill_readme_configuration",
-      "target": "post_skill_readme_codeblock_4"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "hooks/post-skill/README.md",
-      "source_location": "L71",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "post_skill_readme_workflows_and_optional_editor_hooks",
-      "target": "post_skill_readme_codeblock_5"
+      "source": "post_skill_readme_running_tests",
+      "target": "post_skill_readme_codeblock_3",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -83568,6 +83448,16 @@
       "confidence_score": 1.0,
       "source": "post_skill_readme_running_tests",
       "target": "post_skill_readme_codeblock_6"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "hooks/post-skill/README.md",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "post_skill_readme_configuration",
+      "target": "post_skill_readme_codeblock_3"
     },
     {
       "relation": "contains",
@@ -83828,8 +83718,198 @@
       "confidence_score": 1.0,
       "source": "templates_dontbmad_caveman_activate_bmad_caveman_terse_communication_mode",
       "target": "templates_dontbmad_caveman_activate_boundaries"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L162",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dontbmad_auto_sprint_workflow_step_2_implementation_fresh_agent_model_impl",
+      "target": "dontbmad_auto_sprint_workflow_codeblock_6"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "cursor/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L182",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dontbmad_auto_sprint_workflow_step_3_test_verification_inline_bash_no_subagent",
+      "target": "dontbmad_auto_sprint_workflow_codeblock_6"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L211",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dontbmad_auto_sprint_workflow_step_3_test_verification_inline_bash_no_subagent",
+      "target": "dontbmad_auto_sprint_workflow_codeblock_7"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L215",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dontbmad_auto_sprint_workflow_step_3_test_verification_inline_bash_no_subagent",
+      "target": "dontbmad_auto_sprint_workflow_codeblock_8"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "cursor/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L206",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dontbmad_auto_sprint_workflow_step_3_5_auto_fix_test_failures_only_when_auto_fix_enabled_is_true",
+      "target": "dontbmad_auto_sprint_workflow_codeblock_8"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "cursor/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L236",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dontbmad_auto_sprint_workflow_step_4_review_fresh_agent_model_review",
+      "target": "dontbmad_auto_sprint_workflow_codeblock_9"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L276",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dontbmad_auto_sprint_workflow_step_4_review_fresh_agent_model_review",
+      "target": "dontbmad_auto_sprint_workflow_codeblock_10"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L246",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dontbmad_auto_sprint_workflow_step_3_5_auto_fix_only_when_auto_fix_enabled_is_true",
+      "target": "dontbmad_auto_sprint_workflow_codeblock_9"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "cursor/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L259",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dontbmad_auto_sprint_workflow_step_4_5_auto_fix_review_blockers_only_when_auto_fix_enabled_is_true",
+      "target": "dontbmad_auto_sprint_workflow_codeblock_10"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L309",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dontbmad_auto_sprint_workflow_step_4_5_auto_fix_review_blockers_only_when_auto_fix_enabled_is_true",
+      "target": "dontbmad_auto_sprint_workflow_codeblock_11"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "cursor/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L284",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dontbmad_auto_sprint_workflow_step_5_commit",
+      "target": "dontbmad_auto_sprint_workflow_codeblock_11"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "cursor/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L321",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dontbmad_auto_sprint_workflow_aieye_live",
+      "target": "dontbmad_auto_sprint_workflow_codeblock_12"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L418",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dontbmad_auto_sprint_workflow_aieye_live",
+      "target": "dontbmad_auto_sprint_workflow_codeblock_16"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L339",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dontbmad_auto_sprint_workflow_step_5_commit_implementation_phase",
+      "target": "dontbmad_auto_sprint_workflow_codeblock_12"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L355",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dontbmad_auto_sprint_workflow_step_6_commit_test_evidence",
+      "target": "dontbmad_auto_sprint_workflow_codeblock_13"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L371",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dontbmad_auto_sprint_workflow_step_7_commit_review_evidence",
+      "target": "dontbmad_auto_sprint_workflow_codeblock_14"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "claude/skills/dontbmad-auto-sprint/workflow.md",
+      "source_location": "L385",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "dontbmad_auto_sprint_workflow_step_8_update_sprint_status",
+      "target": "dontbmad_auto_sprint_workflow_codeblock_15"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "hooks/post-skill/README.md",
+      "source_location": "L49",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "post_skill_readme_configuration",
+      "target": "post_skill_readme_codeblock_4"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "hooks/post-skill/README.md",
+      "source_location": "L71",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "post_skill_readme_workflows_and_optional_editor_hooks",
+      "target": "post_skill_readme_codeblock_5"
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "692a4463ef4b5085988c1d81b349a0c73a73e580"
+  "built_at_commit": "76b56d83120a01a6b97f177cbd15c2d828acccc0"
 }

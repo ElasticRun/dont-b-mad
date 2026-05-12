@@ -5,14 +5,12 @@ Each skill `workflow.md` ends with an **AIEye Live** step. When that workflow co
 Use the **global Claude hook path** (not the project repo). `scripts/install.sh` deploys the binary here:
 
 ```bash
-AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook"
-export AIEYE_LIVE_SKILL=<skill-name>
-test -x "$AIEYE_HOOK" && "$AIEYE_HOOK" <skill-name> || true
+echo "<skill-name>" > "$HOME/.cursor/aieye-live-pending-skill" && test -x "$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook" && "$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook" || true
 ```
 
 (`~/.claude/hooks/aieye-live/bin/aieye-live-hook` is equivalent when `$HOME` is set.)
 
-Use the **same** `<skill-name>` in `export` and as the hook’s first argument. Some agents run `node …/dispatch.js` directly and drop inline env assignments; `export` plus argv gives `dispatch.js` two chances to read the id (the bash wrapper also exports from argv when env was unset).
+Put your workflow’s skill id in the `echo "…"` string (one line written to `~/.cursor/aieye-live-pending-skill`).
 
 Replace `<skill-name>` with the exact identifier from that workflow’s **AIEye Live** section.
 

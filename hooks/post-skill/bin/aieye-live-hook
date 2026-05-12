@@ -1,15 +1,42 @@
 #!/usr/bin/env bash
 # aieye-live-hook — installed by @aieye/live-hook
 # Fire-and-forget: forks dispatch.js into background; exits foreground immediately.
-# Hard ~2s ceiling is enforced inside dispatch.js (no external process time-limit utility — macOS-safe).
+# Hard ~2s ceiling is enforced inside dispatch.js (no external `timeout` command — macOS-safe).
 # Dependencies: bash, node>=18 on PATH (see README / `node .../dispatch.js --check-deps`).
 # When AIEYE_LIVE_DEBUG is 1/true/yes, stderr is preserved (debug + WARN/ERROR lines).
+#
+# Telemetry: append lines to ~/.cursor/aieye-live-hook.log (same file as dispatch.js).
 DIR="$(cd "$(dirname "$0")" && pwd)"
 NODE_SCRIPT="$DIR/../lib/dispatch.js"
 
+# Same log path as lib/dispatch.js persistHookLog (HOME may be unset in odd runners).
+_aieye_log_home="${HOME:-$(cd ~ && pwd 2>/dev/null)}"
+_aieye_log="${_aieye_log_home}/.cursor/aieye-live-hook.log"
+
+aieye_wrapper_log() {
+  local _phase="$1"
+  shift
+  mkdir -p "${_aieye_log_home}/.cursor" 2>/dev/null || true
+  local _ts
+  _ts=$(date -u +"%Y-%m-%dT%H:%M:%SZ" 2>/dev/null) || _ts="(no-date)"
+  local _pending=no
+  test -f "${_aieye_log_home}/.cursor/aieye-live-pending-skill" && _pending=yes || true
+  local _argv=""
+  if [ "$#" -gt 0 ]; then
+    _argv=$(printf '%s ' "$@")
+  fi
+  printf '[%s] BASH: %s pid=%s ppid=%s argc=%s argv=[%s] len_skill_env=%s len_name_env=%s pending_file=%s node_script=%s\n' \
+    "$_ts" "$_phase" "$$" "${PPID:-?}" "$#" "${_argv}" \
+    "${#AIEYE_LIVE_SKILL}" "${#AIEYE_LIVE_SKILL_NAME}" "$_pending" "$NODE_SCRIPT" \
+    >>"$_aieye_log" 2>/dev/null || true
+}
+
 if [ "${1:-}" = "--check-deps" ]; then
+  aieye_wrapper_log check_deps_enter "$@"
   exec node "$NODE_SCRIPT" --check-deps
 fi
+
+aieye_wrapper_log hook_enter "$@"
 
 # Some agents spawn `node …/dispatch.js` directly and drop `VAR=value` prefixes from the
 # shell snippet. Export the skill from the first positional arg so Node still inherits
@@ -19,6 +46,8 @@ if [ -z "${AIEYE_LIVE_SKILL:-}" ] && [ -z "${AIEYE_LIVE_SKILL_NAME:-}" ]; then
     export AIEYE_LIVE_SKILL="$1"
   fi
 fi
+
+aieye_wrapper_log before_node_spawn "$@"
 
 case "${AIEYE_LIVE_DEBUG:-}" in
   1|true|TRUE|yes|Yes|YES) ( node "$NODE_SCRIPT" "$@" >/dev/null || true ) & ;;
