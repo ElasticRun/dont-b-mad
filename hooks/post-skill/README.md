@@ -69,10 +69,10 @@ The bearer token is **only** the password returned by **`git credential fill`** 
 
 ```bash
 AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook"
-test -x "$AIEYE_HOOK" && AIEYE_LIVE_SKILL=bmad-create-prd "$AIEYE_HOOK" bmad-create-prd || true
+test -x "$AIEYE_HOOK" && AIEYE_LIVE_SKILL=bmad-create-prd "$AIEYE_HOOK" || true
 ```
 
-`AIEYE_LIVE_SKILL` (or `AIEYE_LIVE_SKILL_NAME`) is set for each invocation so `dispatch.js` still receives the workflow id when an agent runs `node …/dispatch.js` without forwarding CLI arguments (empty `process.argv` after the script path).
+`AIEYE_LIVE_SKILL` (or `AIEYE_LIVE_SKILL_NAME`) is how workflows pass the skill id: **do not** pass a positional argument to the hook binary. That matches agents that run `node …/dispatch.js` with an empty `process.argv` after the script path (and still works when the bash wrapper forwards args).
 
 **Optional — Claude Code / Cursor stop hooks:** merge a **Stop** / **stop** hook with helper scripts in this repo (binary path should be `~/.claude/hooks/aieye-live/bin/aieye-live-hook` after install):
 

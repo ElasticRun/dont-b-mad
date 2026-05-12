@@ -6,12 +6,12 @@ Use the **global Claude hook path** (not the project repo). `scripts/install.sh`
 
 ```bash
 AIEYE_HOOK="$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook"
-test -x "$AIEYE_HOOK" && AIEYE_LIVE_SKILL=<skill-name> "$AIEYE_HOOK" <skill-name> || true
+test -x "$AIEYE_HOOK" && AIEYE_LIVE_SKILL=<skill-name> "$AIEYE_HOOK" || true
 ```
 
 (`~/.claude/hooks/aieye-live/bin/aieye-live-hook` is equivalent when `$HOME` is set.)
 
-`AIEYE_LIVE_SKILL` is required for this pattern so `dispatch.js` sees the skill when the runner does not forward CLI arguments to `node` (empty `process.argv` slice after the script path).
+`AIEYE_LIVE_SKILL` is required and must match this workflow’s skill id. **Do not** pass a positional argument to the hook script—only the env var identifies the workflow to `dispatch.js` (including when `process.argv` after the script path is empty).
 
 Replace `<skill-name>` with the exact identifier from that workflow’s **AIEye Live** section.
 

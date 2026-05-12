@@ -1,7 +1,7 @@
 # Graph Report - dont-b-mad  (2026-05-12)
 
 ## Corpus Check
-- 577 files · ~445,287 words
+- 577 files · ~445,251 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d308b5ad`
+- Built from commit: `fb9363f3`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -1310,11 +1310,11 @@ Nodes (3): code:yaml (# _bmad/_config/team.yaml), *or, How Twelve Agents Got New
 
 ### Community 257 - "Community 257"
 Cohesion: 0.5
-Nodes (4): 1. Problem & motivation, Primary: trailer pipeline integrity across project topologies, Secondary: fork enhancement integrity (graphify + caveman), Tertiary: install.sh general surface, skill validation, shellcheck
+Nodes (4): 4. User journeys, J1: Contributor opens a PR, J2: Developer iterates locally, J3: Reviewer audits a regression
 
 ### Community 258 - "Community 258"
 Cohesion: 0.5
-Nodes (4): 4. User journeys, J1: Contributor opens a PR, J2: Developer iterates locally, J3: Reviewer audits a regression
+Nodes (4): 1. Problem & motivation, Primary: trailer pipeline integrity across project topologies, Secondary: fork enhancement integrity (graphify + caveman), Tertiary: install.sh general surface, skill validation, shellcheck
 
 ## Knowledge Gaps
 - **2811 isolated node(s):** `Resolve input arguments to a flat list of file paths.`, `Detect document type from filename.`, `Suggest document groupings based on naming conventions.`, `Main analysis function.`, `Write JSON to file or stdout.` (+2806 more)

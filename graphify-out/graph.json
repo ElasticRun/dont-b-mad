@@ -39042,7 +39042,7 @@
       "source_file": "docs/project-knowledge/test-suite-prd.md",
       "source_location": "L12",
       "id": "project_knowledge_test_suite_prd_1_problem_motivation",
-      "community": 257,
+      "community": 258,
       "norm_label": "1. problem & motivation"
     },
     {
@@ -39051,7 +39051,7 @@
       "source_file": "docs/project-knowledge/test-suite-prd.md",
       "source_location": "L21",
       "id": "project_knowledge_test_suite_prd_primary_trailer_pipeline_integrity_across_project_topologies",
-      "community": 257,
+      "community": 258,
       "norm_label": "primary: trailer pipeline integrity across project topologies"
     },
     {
@@ -39060,7 +39060,7 @@
       "source_file": "docs/project-knowledge/test-suite-prd.md",
       "source_location": "L38",
       "id": "project_knowledge_test_suite_prd_secondary_fork_enhancement_integrity_graphify_caveman",
-      "community": 257,
+      "community": 258,
       "norm_label": "secondary: fork enhancement integrity (graphify + caveman)"
     },
     {
@@ -39069,7 +39069,7 @@
       "source_file": "docs/project-knowledge/test-suite-prd.md",
       "source_location": "L48",
       "id": "project_knowledge_test_suite_prd_tertiary_install_sh_general_surface_skill_validation_shellcheck",
-      "community": 257,
+      "community": 258,
       "norm_label": "tertiary: install.sh general surface, skill validation, shellcheck"
     },
     {
@@ -39096,7 +39096,7 @@
       "source_file": "docs/project-knowledge/test-suite-prd.md",
       "source_location": "L74",
       "id": "project_knowledge_test_suite_prd_4_user_journeys",
-      "community": 258,
+      "community": 257,
       "norm_label": "4. user journeys"
     },
     {
@@ -39105,7 +39105,7 @@
       "source_file": "docs/project-knowledge/test-suite-prd.md",
       "source_location": "L76",
       "id": "project_knowledge_test_suite_prd_j1_contributor_opens_a_pr",
-      "community": 258,
+      "community": 257,
       "norm_label": "j1: contributor opens a pr"
     },
     {
@@ -39114,7 +39114,7 @@
       "source_file": "docs/project-knowledge/test-suite-prd.md",
       "source_location": "L83",
       "id": "project_knowledge_test_suite_prd_j2_developer_iterates_locally",
-      "community": 258,
+      "community": 257,
       "norm_label": "j2: developer iterates locally"
     },
     {
@@ -39123,7 +39123,7 @@
       "source_file": "docs/project-knowledge/test-suite-prd.md",
       "source_location": "L89",
       "id": "project_knowledge_test_suite_prd_j3_reviewer_audits_a_regression",
-      "community": 258,
+      "community": 257,
       "norm_label": "j3: reviewer audits a regression"
     },
     {
@@ -41536,9 +41536,9 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L545",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hooks_post_skill_lib_dispatch_js",
-      "target": "lib_dispatch_readexplicitskillfrominvocation",
-      "confidence_score": 1.0
+      "target": "lib_dispatch_readexplicitskillfrominvocation"
     },
     {
       "relation": "contains",
@@ -41864,9 +41864,9 @@
       "source_file": "hooks/post-skill/lib/dispatch.js",
       "source_location": "L563",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_dispatch_main",
-      "target": "lib_dispatch_readexplicitskillfrominvocation",
-      "confidence_score": 1.0
+      "target": "lib_dispatch_readexplicitskillfrominvocation"
     },
     {
       "relation": "contains",
@@ -83831,5 +83831,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "d308b5adc395a814fe45134b6a88ffb07f0f4b46"
+  "built_at_commit": "fb9363f3c3b23f7dfbec8b862bccc6ad2b2ce542"
 }

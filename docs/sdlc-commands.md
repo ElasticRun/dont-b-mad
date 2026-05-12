@@ -326,7 +326,7 @@ If `graphify-out/` is absent, every workflow step that reads the graph skips it 
 
 ## AIEye Live integration
 
-Each skill `workflow.md` includes an **AIEye Live** step at the end: run `$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook` (default global path; `~/.claude/hooks/aieye-live/bin/aieye-live-hook`) with that workflow’s skill identifier. `scripts/install.sh` copies `hooks/post-skill/` there. That invokes the same Node dispatcher (`~/.claude/hooks/aieye-live/lib/dispatch.js`): fire-and-forget ingest to the team endpoint, network errors never fail the session.
+Each skill `workflow.md` includes an **AIEye Live** step at the end: with `AIEYE_LIVE_SKILL` set to that workflow’s skill id, run `$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook` (no positional arguments to the script). `scripts/install.sh` copies `hooks/post-skill/` there. That invokes the same Node dispatcher (`~/.claude/hooks/aieye-live/lib/dispatch.js`): fire-and-forget ingest to the team endpoint, network errors never fail the session.
 
 The installer does not register editor **Stop** hooks; notifications are workflow-driven only. To attach the binary to Claude **Stop** or Cursor **stop** yourself, see `hooks/post-skill/README.md` (optional `scripts/register-post-skill-hook.py` and `scripts/register-cursor-aieye-stop-hook.py`).
 
@@ -337,7 +337,7 @@ The installer does not register editor **Stop** hooks; notifications are workflo
 | `bmad-code-review` | `review_landed` |
 | `bmad-qa-generate-e2e-tests` | `test_added` |
 
-**Configuration** — `~/.claude/aieye-live.env` (mode 600). Required: `AIEYE_LIVE_ACTOR`. Ingest URL is fixed (`https://doha-aieye.elasticrun.in/api/events`). Bearer token comes only from `git credential fill` for `engg.elasticrun.in`. Optional: `AIEYE_LIVE_TEAM`, `AIEYE_LIVE_SKILLS` (allowlist), `AIEYE_LIVE_AI_TOOL`. Per-run workflow steps also set `AIEYE_LIVE_SKILL` (see each `workflow.md`) so the skill id is available even when `process.argv` has no positional args.
+**Configuration** — `~/.claude/aieye-live.env` (mode 600). Required: `AIEYE_LIVE_ACTOR`. Ingest URL is fixed (`https://doha-aieye.elasticrun.in/api/events`). Bearer token comes only from `git credential fill` for `engg.elasticrun.in`. Optional: `AIEYE_LIVE_TEAM`, `AIEYE_LIVE_SKILLS` (allowlist), `AIEYE_LIVE_AI_TOOL`. Each workflow sets `AIEYE_LIVE_SKILL` for that run (the hook is invoked with no CLI arguments; use `AIEYE_LIVE_SKILL_NAME` as an alias if you prefer).
 
 **Opt-out** — set `AIEYE_LIVE_STEALTH_MODE=true` to skip event publishing on a specific machine without removing the hook. Required env vars missing also short-circuits silently.
 
