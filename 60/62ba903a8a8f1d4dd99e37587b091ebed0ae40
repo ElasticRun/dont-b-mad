@@ -1,0 +1,164 @@
+cursor/skills/bmad-brainstorming/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 60
+cursor/skills/bmad-edit-prd/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 46
+claude/skills/bmad-edit-prd/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 46
+hooks/post-skill/lib/dispatch.js
+  s_7c1a1b0ced094c::t_95915402b78091 93-94
+  s_7c1a1b0ced094c::t_f9086d931d2f65 666,668
+  s_7c1a1b0ced094c::t_13b5b204a7b776 566-631,635-636,638-646,648-656,659
+  s_7c1a1b0ced094c::t_0968e444dd1907 739
+  s_7c1a1b0ced094c::t_9e3f5b002cd6db 647
+claude/skills/bmad-document-project/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 32
+hooks/post-skill/bin/aieye-live-hook
+  s_7c1a1b0ced094c::t_d6a4b970be3264 16-33,40-43,48,50-51,71-73
+claude/skills/bmad-create-epics-and-stories/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 35
+claude/skills/bmad-create-ux-design/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 42
+cursor/skills/bmad-generate-project-context/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 46
+docs/sdlc-commands.md
+  s_7c1a1b0ced094c::t_5a29969541a691 340
+  s_7c1a1b0ced094c::t_d741636520416f 329
+graphify-out/graph.json
+  s_7c1a1b0ced094c::t_378450d69faf1a 505,514,523,532,541,550,559,568,577,586,595,604,613,622,631,640,649,654-680,685,694,703,2221,2227,2509,2515,3877,3883,4066,4072,4282,4288,5137,5143,5983,5989,7378,7384,7981,7987,8431,8437,8557,8563,10024,10030,11311,11317,11464,11470,13516,13522,13939,13945,14011,14017,16018,16024,16081,16087,17772-17933,18133,18139,18700,18706,23281,23287,24469,24475,27682,27688,28114,28120,29896,29902,29986,29992,30337,30343,33109,33115,34486,34492,36376,36379-36398,36400-36463,40336,40342,40426,40432,40669-40675,41592-41602,41605,41608-41627,41648-41657,41753,41755,41779-41789,41993-42026,42029,42032-42042,61378,61381-61382,61388,61392,61398,61401-61402,61574-61583,61664-61813,80807-80808,80811-80832,83700,83702,83720,83722,84026
+cursor/skills/bmad-document-project/workflows/deep-dive-workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 41
+cursor/skills/dontbmad-auto-sprint/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 322
+claude/skills/bmad-cis-storytelling/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 326
+claude/skills/bmad-check-implementation-readiness/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 33
+claude/skills/bmad-create-prd/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 45
+cursor/skills/bmad-sprint-status/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 256
+cursor/skills/bmad-cis-design-thinking/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 247
+cursor/skills/bmad-cis-problem-solving/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 296
+claude/skills/bmad-create-story/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 406
+claude/skills/dontbmad-auto-sprint/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 419
+claude/skills/bmad-create-architecture/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 39
+graphify-out/GRAPH_REPORT.md
+  s_7c1a1b0ced094c::t_378450d69faf1a 1,4,8,13,294-295,333,665,733,833,869,873,877,897,901,905,921,929,977,981,989,997,1005,1025,1033,1037,1041,1089,1093,1129,1197,1201,1205,1209,1217,1233,1237,1241,1301,1327-1330,1340
+claude/skills/bmad-validate-prd/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 45
+cursor/skills/dontbmad-bmad-to-claude-design/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 65
+cursor/skills/bmad-retrospective/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 1510
+hooks/post-skill/README.md
+  s_7c1a1b0ced094c::t_2f2153e07aac71 23,26,29
+cursor/skills/bmad-qa-generate-e2e-tests/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 160
+claude/skills/bmad-document-project/workflows/full-scan-workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 41
+cursor/skills/bmad-create-ux-design/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 42
+claude/skills/bmad-correct-course/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 284
+graphify-out/manifest.json
+  s_7c1a1b0ced094c::t_378450d69faf1a 31-32,35-36,91-92,107-108,143-144,155-156,167-168,191-192,251-252,291-292,323-324,363-364,375-376,415-416,447-448,467-468,511-512,531-532,535-536,599-600,607-608,659-660,671-672,715-716,843-844,899-900,971-972,1007-1008,1051-1052,1059-1060,1083-1084,1151-1152,1199-1200,1251-1252,1267-1268,1303-1304,1315-1316,1327-1328,1351-1352,1411-1412,1451-1452,1483-1484,1523-1524,1535-1536,1575-1576,1607-1608,1627-1628,1671-1672,1691-1692,1695-1696,1755-1756,1763-1764,1815-1816,1827-1828,1871-1872,1999-2000,2055-2056,2127-2128,2163-2164,2207-2208,2215-2216,2239-2240,2307-2308,2355-2356,2395-2396,2439-2440,2447-2448
+claude/skills/dontbmad-claude-design-to-bmad-uiux/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 66
+cursor/skills/bmad-code-review/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 54
+claude/skills/bmad-sprint-planning/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 280
+cursor/skills/bmad-technical-research/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 59
+claude/skills/bmad-cis-problem-solving/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 296
+claude/skills/bmad-dev-story/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 458
+claude/skills/bmad-market-research/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 58
+cursor/skills/bmad-document-project/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 32
+cursor/skills/bmad-correct-course/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 284
+templates/dontbmad-aieye-live.md
+  s_7c1a1b0ced094c::t_c25f82d106c9a0 8,13
+claude/skills/dontbmad-bmad-to-claude-design/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 65
+cursor/skills/bmad-cis-innovation-strategy/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 320
+claude/skills/bmad-brainstorming/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 60
+cursor/skills/bmad-market-research/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 58
+cursor/skills/bmad-create-prd/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 45
+cursor/skills/bmad-sprint-planning/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 280
+cursor/skills/bmad-dev-story/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 458
+cursor/skills/bmad-check-implementation-readiness/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 33
+claude/skills/bmad-retrospective/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 1510
+cursor/skills/bmad-create-epics-and-stories/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 35
+cursor/skills/bmad-document-project/workflows/full-scan-workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 41
+claude/skills/bmad-cis-innovation-strategy/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 320
+cursor/skills/bmad-quick-dev/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 82
+claude/skills/bmad-qa-generate-e2e-tests/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 176
+claude/skills/bmad-cis-design-thinking/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 247
+graphify-out/graph.html
+  s_7c1a1b0ced094c::t_378450d69faf1a 64,67-69
+cursor/skills/bmad-create-story/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 406
+cursor/skills/bmad-cis-storytelling/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 326
+claude/skills/bmad-technical-research/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 59
+claude/skills/bmad-domain-research/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 58
+cursor/skills/bmad-create-architecture/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 39
+claude/skills/bmad-document-project/workflows/deep-dive-workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 41
+claude/skills/bmad-code-review/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 54
+claude/skills/bmad-sprint-status/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 256
+cursor/skills/bmad-domain-research/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 58
+claude/skills/bmad-quick-dev/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 82
+cursor/skills/dontbmad-claude-design-to-bmad-uiux/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 66
+claude/skills/bmad-generate-project-context/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 46
+cursor/skills/bmad-validate-prd/workflow.md
+  s_7c1a1b0ced094c::t_199ef10790a946 45
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "6062ba903a8a8f1d4dd99e37587b091ebed0ae40",
+  "prompts": {},
+  "sessions": {
+    "s_7c1a1b0ced094c": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "8977cd39-bc29-43e6-9507-59825474b7a5",
+        "model": "default"
+      },
+      "human_author": "ajit.pendse <ajit.pendse@elastic.run>"
+    }
+  }
+}
