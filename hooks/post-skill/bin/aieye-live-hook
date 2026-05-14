@@ -13,21 +13,42 @@ NODE_SCRIPT="$DIR/../lib/dispatch.js"
 _aieye_log_home="${HOME:-$(cd ~ && pwd 2>/dev/null)}"
 _aieye_log="${_aieye_log_home}/.cursor/aieye-live-hook.log"
 
+# Node reads the same root for `<workspace>/.cursor/aieye-live-pending-skill` when HOME is not writable.
+export AIEYE_LIVE_WORKSPACE_ROOT="${AIEYE_LIVE_WORKSPACE_ROOT:-$(pwd)}"
+
+aieye_write_pending_skill_file() {
+  local skill="$1"
+  [ -z "$skill" ] && return 0
+  [ "$skill" = "--check-deps" ] && return 0
+  local home_base="${HOME:-}"
+  [ -z "$home_base" ] && home_base="${_aieye_log_home:-}"
+  local home_f="${home_base}/.cursor/aieye-live-pending-skill"
+  local ws_f="${AIEYE_LIVE_WORKSPACE_ROOT}/.cursor/aieye-live-pending-skill"
+  if mkdir -p "${home_base}/.cursor" 2>/dev/null && printf '%s\n' "$skill" >"$home_f" 2>/dev/null; then
+    return 0
+  fi
+  mkdir -p "${AIEYE_LIVE_WORKSPACE_ROOT}/.cursor" 2>/dev/null || return 0
+  printf '%s\n' "$skill" >"$ws_f" 2>/dev/null || true
+}
+
 aieye_wrapper_log() {
   local _phase="$1"
   shift
   mkdir -p "${_aieye_log_home}/.cursor" 2>/dev/null || true
   local _ts
   _ts=$(date -u +"%Y-%m-%dT%H:%M:%SZ" 2>/dev/null) || _ts="(no-date)"
-  local _pending=no
-  test -f "${_aieye_log_home}/.cursor/aieye-live-pending-skill" && _pending=yes || true
+  local _pending_h=no _pending_w=no
+  local _home_pf="${HOME:-${_aieye_log_home}}/.cursor/aieye-live-pending-skill"
+  test -f "$_home_pf" && _pending_h=yes || true
+  test -f "${AIEYE_LIVE_WORKSPACE_ROOT}/.cursor/aieye-live-pending-skill" && _pending_w=yes || true
   local _argv=""
   if [ "$#" -gt 0 ]; then
     _argv=$(printf '%s ' "$@")
   fi
-  printf '[%s] BASH: %s pid=%s ppid=%s argc=%s argv=[%s] len_skill_env=%s len_name_env=%s pending_file=%s node_script=%s\n' \
+  printf '[%s] BASH: %s pid=%s ppid=%s argc=%s argv=[%s] len_skill_env=%s len_name_env=%s pending_home=%s pending_ws=%s ws_root=%s node_script=%s\n' \
     "$_ts" "$_phase" "$$" "${PPID:-?}" "$#" "${_argv}" \
-    "${#AIEYE_LIVE_SKILL}" "${#AIEYE_LIVE_SKILL_NAME}" "$_pending" "$NODE_SCRIPT" \
+    "${#AIEYE_LIVE_SKILL}" "${#AIEYE_LIVE_SKILL_NAME}" "$_pending_h" "$_pending_w" \
+    "${AIEYE_LIVE_WORKSPACE_ROOT}" "$NODE_SCRIPT" \
     >>"$_aieye_log" 2>/dev/null || true
 }
 
@@ -46,6 +67,10 @@ if [ -z "${AIEYE_LIVE_SKILL:-}" ] && [ -z "${AIEYE_LIVE_SKILL_NAME:-}" ]; then
     export AIEYE_LIVE_SKILL="$1"
   fi
 fi
+
+_skill_out="${AIEYE_LIVE_SKILL:-}"
+[ -z "$_skill_out" ] && _skill_out="${AIEYE_LIVE_SKILL_NAME:-}"
+aieye_write_pending_skill_file "${_skill_out}"
 
 aieye_wrapper_log before_node_spawn "$@"
 

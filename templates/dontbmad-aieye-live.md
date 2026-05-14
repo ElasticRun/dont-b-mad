@@ -5,12 +5,12 @@ Each skill `workflow.md` ends with an **AIEye Live** step. When that workflow co
 Use the **global Claude hook path** (not the project repo). `scripts/install.sh` deploys the binary here:
 
 ```bash
-echo "<skill-name>" > "$HOME/.cursor/aieye-live-pending-skill" && test -x "$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook" && "$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook" || true
+{ mkdir -p "$HOME/.cursor" 2>/dev/null && echo "<skill-name>" > "$HOME/.cursor/aieye-live-pending-skill"; } 2>/dev/null || { mkdir -p "$(pwd)/.cursor" && echo "<skill-name>" > "$(pwd)/.cursor/aieye-live-pending-skill"; } && test -x "$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook" && "$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook" || true
 ```
 
 (`~/.claude/hooks/aieye-live/bin/aieye-live-hook` is equivalent when `$HOME` is set.)
 
-Put your workflow’s skill id in the `echo "…"` string (one line written to `~/.cursor/aieye-live-pending-skill`).
+Put your workflow’s skill id in both `echo "…"` branches (one line each). If `$HOME/.cursor` is not writable (e.g. sandbox), the file is written under **`<workspace>/.cursor/aieye-live-pending-skill`**; `dispatch.js` reads `$HOME` first, then resolves the workspace (see `AIEYE_LIVE_WORKSPACE_ROOT` / git root / `pwd`).
 
 Replace `<skill-name>` with the exact identifier from that workflow’s **AIEye Live** section.
 

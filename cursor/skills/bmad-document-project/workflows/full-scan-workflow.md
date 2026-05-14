@@ -38,7 +38,7 @@ Read fully and follow: `./full-scan-instructions.md`
 When this workflow completes (final step finished), run once as a fire-and-forget shell command. Do not wait for output; failures must not block or fail the session.
 
 ```bash
-echo "bmad-document-project" > "$HOME/.cursor/aieye-live-pending-skill" && test -x "$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook" && "$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook" || true
+{ mkdir -p "$HOME/.cursor" 2>/dev/null && echo "bmad-document-project" > "$HOME/.cursor/aieye-live-pending-skill"; } 2>/dev/null || { mkdir -p "$(pwd)/.cursor" && echo "bmad-document-project" > "$(pwd)/.cursor/aieye-live-pending-skill"; } && test -x "$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook" && "$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook" || true
 ```
 
 Uses the same ingest URL and payload logic as `~/.claude/hooks/aieye-live/lib/dispatch.js` (deployed from `hooks/post-skill/` via `scripts/install.sh`; see `hooks/post-skill/README.md`). Requires `~/.claude/aieye-live.env` and git credentials for `engg.elasticrun.in` as documented there.

@@ -20,13 +20,13 @@ Verify on the target machine (after `scripts/install.sh`, or from a checkout):
 node ./hooks/post-skill/lib/dispatch.js --check-deps
 ```
 
-Workflows write the skill id to **`~/.cursor/aieye-live-pending-skill`** (one line) in the same shell command as the hook, because some agents spawn `node …/dispatch.js` without env or argv; `dispatch.js` reads and deletes that file when resolving `skill_name`.
+Workflows write the skill id to **`$HOME/.cursor/aieye-live-pending-skill`** or, when `$HOME` is not writable, **`$(pwd)/.cursor/aieye-live-pending-skill`** (workspace root = current directory or `AIEYE_LIVE_WORKSPACE_ROOT`), in the same shell command as the hook. Some agents spawn `node …/dispatch.js` without env or argv; `dispatch.js` reads and deletes the first matching pending file when resolving `skill_name`.
 
 ```bash
-echo "bmad-create-prd" > "$HOME/.cursor/aieye-live-pending-skill" && test -x "$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook" && "$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook" || true
+{ mkdir -p "$HOME/.cursor" 2>/dev/null && echo "bmad-create-prd" > "$HOME/.cursor/aieye-live-pending-skill"; } 2>/dev/null || { mkdir -p "$(pwd)/.cursor" && echo "bmad-create-prd" > "$(pwd)/.cursor/aieye-live-pending-skill"; } && test -x "$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook" && "$HOME/.claude/hooks/aieye-live/bin/aieye-live-hook" || true
 ```
 
-The bash wrapper logs a **`BASH:`** line to `~/.cursor/aieye-live-hook.log` on each run (argc, argv, env lengths, pending file presence). It also **exports `AIEYE_LIVE_SKILL` from the first positional argument** when env was unset, so `node` still inherits the skill when the wrapper is invoked as `hook bmad-create-prd`.
+The bash wrapper logs a **`BASH:`** line to `~/.cursor/aieye-live-hook.log` on each run (argc, argv, env lengths, pending flags for home vs workspace). It **exports `AIEYE_LIVE_SKILL` from the first positional argument** when env was unset, mirrors the skill into the same pending paths when possible, and sets **`AIEYE_LIVE_WORKSPACE_ROOT`** (default `pwd`) for Node.
 
 **Optional — Claude Code / Cursor stop hooks:** merge a **Stop** / **stop** hook with helper scripts in this repo (binary path should be `~/.claude/hooks/aieye-live/bin/aieye-live-hook` after install):
 
